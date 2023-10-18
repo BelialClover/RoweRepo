@@ -1,0 +1,58 @@
+FourIsland_IcefallCave_Back_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD
+	.byte 0
+
+FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_SYS_GAME_CLEAR, FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	setmetatile 24, 27, METATILE_General_FRLG_OceanWater, 0
+	setmetatile 25, 27, METATILE_General_FRLG_OceanWater, 0
+	setmetatile 24, 28, METATILE_General_FRLG_OceanWater, 0
+	setmetatile 25, 28, METATILE_General_FRLG_OceanWater, 0
+	goto_if_unset FLAG_DEFEATED_SUICUNE, FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD_3
+	return
+
+FourIsland_IcefallCave_Back_MapScripts_MAP_SCRIPT_ON_LOAD_3:
+	setweather WEATHER_RAIN
+	return
+
+
+FourIsland_IcefallCave_Back_EventScript_Suicune::
+	lock
+	faceplayer
+	setflag FLAG_TOTEM_BATTLE
+	setvar VAR_NUM_WILD_POKEMON_STAT_BOOST, 2
+	setwildbattlewithcustommoves SPECIES_SUICUNE, 75, ITEM_WATER_GEM, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_AIR_SLASH, MOVE_EXTRASENSORY, 0, NATURE_MODEST
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	switch VAR_RESULT
+	case B_OUTCOME_CAUGHT, FourIsland_IcefallCave_Back_EventScript_Suicune_3
+	case B_OUTCOME_RAN, FourIsland_IcefallCave_Back_EventScript_Suicune_4
+	case B_OUTCOME_WON, FourIsland_IcefallCave_Back_EventScript_Suicune_4
+	case B_OUTCOME_PLAYER_TELEPORTED, FourIsland_IcefallCave_Back_EventScript_Suicune_4
+FourIsland_IcefallCave_Back_EventScript_Suicune_1:
+	release
+	end
+
+FourIsland_IcefallCave_Back_EventScript_Suicune_3:
+	setflag FLAG_DEFEATED_SUICUNE
+	setweather WEATHER_NONE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto FourIsland_IcefallCave_Back_EventScript_Suicune_1
+
+FourIsland_IcefallCave_Back_EventScript_Suicune_4:
+	setvar VAR_0x8004, SPECIES_SUICUNE
+	setweather WEATHER_NONE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname 0, VAR_0x8004
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	goto FourIsland_IcefallCave_Back_EventScript_Suicune_1
+

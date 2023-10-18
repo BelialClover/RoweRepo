@@ -1,0 +1,2 @@
+LavanderTown_MapScripts::
+	.byte 0

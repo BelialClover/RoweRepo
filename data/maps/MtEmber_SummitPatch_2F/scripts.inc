@@ -1,0 +1,2 @@
+MtEmber_SummitPatch_2F_MapScripts::
+	.byte 0
