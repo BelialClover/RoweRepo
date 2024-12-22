@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_ROUTE113",
       "offset": 0,
-      "map": "MAP_MAUVILLE_CITY"
+      "direction": "left"
     },
     {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_ROUTE113"
-    },
-    {
-      "direction": "left",
+      "map": "MAP_ROUTE112",
       "offset": 20,
-      "map": "MAP_ROUTE112"
+      "direction": "left"
+    },
+    {
+      "map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -137,7 +137,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 29,
-      "y": 37,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -435,8 +435,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 26,
-      "y": 132,
+      "x": 24,
+      "y": 129,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -448,8 +448,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 20,
-      "y": 132,
+      "x": 17,
+      "y": 102,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -600,7 +600,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ScorchedSlab_EventScript_ItemTyranitarite",
-      "flag": "FLAG_UNUSED_0x287"
+      "flag": "FLAG_GOT_TYRANITAR_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -609,49 +609,49 @@
       "y": 113,
       "elevation": 0,
       "dest_map": "MAP_ROUTE111_WINSTRATE_FAMILYS_HOUSE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 29,
       "y": 87,
       "elevation": 0,
       "dest_map": "MAP_DESERT_RUINS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 26,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ROUTE111_OLD_LADYS_REST_STOP",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 19,
       "y": 58,
       "elevation": 0,
       "dest_map": "MAP_MIRAGE_TOWER_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 31,
-      "y": 113,
+      "y": 112,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 37,
       "elevation": 0,
       "dest_map": "MAP_RELIC_CAVE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 31,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_RELIC_CAVE2",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -903,8 +903,8 @@
     },
     {
       "type": "secret_base",
-      "x": 33,
-      "y": 34,
+      "x": 38,
+      "y": 32,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE1_1"
     },

@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
+      "map": "MAP_VERDANTURF_TOWN",
       "offset": 0,
-      "map": "MAP_VERDANTURF_TOWN"
+      "direction": "left"
     },
     {
-      "direction": "right",
-      "offset": 0,
-      "map": "MAP_MAUVILLE_CITY"
+      "map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "offset": -5,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -104,7 +104,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POKEMON_181",
+      "graphics_id": "OBJ_EVENT_GFX_POKEMON_172",
       "x": 49,
       "y": 3,
       "elevation": 3,
@@ -119,7 +119,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
       "x": 38,
-      "y": 16,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 8,
@@ -300,14 +300,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 21,
+      "x": 22,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "5",
       "script": "Route117_EventScript_Aisha",
       "flag": "0"
     },
@@ -344,7 +344,21 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE117_POKEMON_DAY_CARE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 59,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 59,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY",
+      "dest_warp_id": "10"
     }
   ],
   "coord_events": [
@@ -377,8 +391,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 18,
+      "x": 29,
+      "y": 1,
       "elevation": 3,
       "item": "ITEM_REPEL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_117_REPEL"

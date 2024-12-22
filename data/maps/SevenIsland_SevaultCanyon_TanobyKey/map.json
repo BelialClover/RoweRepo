@@ -1,0 +1,59 @@
+{
+  "id": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+  "name": "SevenIsland_SevaultCanyon_TanobyKey",
+  "layout": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+  "music": "MUS_RG_SEVII_CAVE",
+  "region_map_section": "MAPSEC_TANOBY_KEY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEMON_638",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_EventScript_Cobalion_Encounter",
+      "flag": "FLAG_DEFEATED_COBALION"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_GARBODORITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_GOT_GARBODOR_MEGA_STONE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

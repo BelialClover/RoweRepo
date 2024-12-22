@@ -14,21 +14,21 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_ONE_ISLAND_TREASURE_BEACH"
+      "map": "MAP_ONE_ISLAND_TREASURE_BEACH",
+      "offset": 16,
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_ONE_ISLAND_KINDLE_ROAD",
       "offset": -120,
-      "map": "MAP_ONE_ISLAND_KINDLE_ROAD"
+      "direction": "right"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 10,
-      "y": 12,
+      "x": 15,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -40,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 13,
-      "y": 9,
+      "x": 29,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -53,7 +53,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 12,
+      "x": 28,
       "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -66,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
-      "x": 15,
-      "y": 13,
+      "x": 24,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -80,25 +80,32 @@
   ],
   "warp_events": [
     {
-      "x": 14,
+      "x": 30,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
-      "x": 19,
-      "y": 9,
+      "x": 18,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND_HOUSE1",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
-      "x": 8,
+      "x": 24,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND_HOUSE2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ONE_ISLAND_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -107,7 +114,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 15,
+      "x": 32,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -115,11 +122,19 @@
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 13,
+      "x": 23,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OneIsland_EventScript_IslandSign"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OneIsland_EventScript_Island_GymSign"
     }
   ]
 }

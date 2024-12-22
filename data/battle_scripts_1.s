@@ -378,6 +378,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectRisingVoltage				@ EFFECT_RISING_VOLTAGE 			357
 	.4byte BattleScript_EffectNoRetreat 				@ EFFECT_NO_RETREAT					358
 	.4byte BattleScript_EffectJawLock 					@ EFFECT_JAW_LOCK					359
+	.4byte BattleScript_EffectHit 					    @ EFFECT_MISC_HIT					360
 
 BattleScript_EffectJawLock:
 	setmoveeffect MOVE_EFFECT_TRAP_BOTH | MOVE_EFFECT_CERTAIN
@@ -501,6 +502,8 @@ BattleScript_BeakBlastBurn::
 	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_THERMAL_EXCHANGE, BattleScript_LeafGuardProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_BeakBlastBurnReturn
@@ -2333,6 +2336,7 @@ BattleScript_EffectSleep::
 	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_AlreadyAsleep
 	jumpifcantmakeasleep BattleScript_CantMakeAsleep
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifability BS_TARGET_SIDE, ABILITY_SWEET_VEIL, BattleScript_SweetVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
@@ -2852,6 +2856,7 @@ BattleScript_EffectToxic::
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_IMMUNITY, BattleScript_ImmunityProtected
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
 	jumpifability BS_TARGET_SIDE, ABILITY_PASTEL_VEIL, BattleScript_PastelVeilProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
@@ -3200,6 +3205,7 @@ BattleScript_EffectPoison::
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_IMMUNITY, BattleScript_ImmunityProtected
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
 	jumpifability BS_TARGET_SIDE, ABILITY_PASTEL_VEIL, BattleScript_PastelVeilProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
@@ -3225,6 +3231,7 @@ BattleScript_EffectParalyze:
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_LIMBER, BattleScript_LimberProtected
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
 	jumpifshieldsdown BS_TARGET, BattleScript_LeafGuardProtects
@@ -4530,6 +4537,8 @@ BattleScript_EffectWillOWisp::
 	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_LeafGuardProtects
+	jumpifability BS_TARGET, ABILITY_THERMAL_EXCHANGE, BattleScript_LeafGuardProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
 	jumpifshieldsdown BS_TARGET, BattleScript_LeafGuardProtects
@@ -4804,6 +4813,7 @@ BattleScript_EffectYawn::
 	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_PrintBankAbilityMadeIneffective
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_PrintBankAbilityMadeIneffective
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_PrintBankAbilityMadeIneffective
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_PrintBankAbilityMadeIneffective
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguard BattleScript_LeafGuardProtects
 	jumpifshieldsdown BS_TARGET, BattleScript_LeafGuardProtects
@@ -5534,7 +5544,7 @@ BattleScript_Pausex20::
 BattleScript_LevelUp::
 	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNGREWTOLV
-	setbyte sLVLBOX_STATE, 0x0
+	setbyte sLVLBOX_STATE, 0
 	drawlvlupbox
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
 	goto BattleScript_AskToLearnMove
@@ -5546,11 +5556,11 @@ BattleScript_AskToLearnMove::
 	printstring STRINGID_TRYTOLEARNMOVE2
 	printstring STRINGID_TRYTOLEARNMOVE3
 	waitstate
-	setbyte sLEARNMOVE_STATE, 0x0
+	setbyte sLEARNMOVE_STATE, 0
 	yesnoboxlearnmove BattleScript_ForgotAndLearnedNewMove
 	printstring STRINGID_STOPLEARNINGMOVE
 	waitstate
-	setbyte sLEARNMOVE_STATE, 0x0
+	setbyte sLEARNMOVE_STATE, 0
 	yesnoboxstoplearningmove BattleScript_AskToLearnMove
 	printstring STRINGID_DIDNOTLEARNMOVE
 	goto BattleScript_TryLearnMoveLoop
@@ -5562,7 +5572,7 @@ BattleScript_LearnedNewMove::
 	buffermovetolearn
 	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNLEARNEDMOVE
-	waitmessage 0x40
+	waitmessage B_WAIT_TIME_LONG
 	updatechoicemoveonlvlup BS_ATTACKER
 	goto BattleScript_TryLearnMoveLoop
 BattleScript_LearnMoveReturn::
@@ -5655,6 +5665,15 @@ BattleScript_TrickRoomEnds::
 	printstring STRINGID_TRICKROOMENDS
 	waitmessage 0x40
 	end2
+
+BattleScript_EffectTricksterEnds::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	playmoveanimation BS_ATTACKER, MOVE_TRICK_ROOM
+	waitanimation
+	printstring STRINGID_TRICKROOMENDS
+	waitmessage 0x40
+	end3
 
 BattleScript_WonderRoomEnds::
 	printstring STRINGID_WONDERROOMENDS
@@ -7048,7 +7067,7 @@ BattleScript_ShedSkinActivates::
 BattleScript_WeatherFormChanges::
 	setbyte sBATTLER, 0x0
 BattleScript_WeatherFormChangesLoop::
-	trycastformdatachange
+	trycastformdatachange 
 	addbyte sBATTLER, 0x1
 	jumpifbytenotequal sBATTLER, gBattlersCount, BattleScript_WeatherFormChangesLoop
 	return
@@ -7691,7 +7710,6 @@ BattleScript_FriskMsg::
 BattleScript_EffectAirCurrent::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
-	settailwind BattleScript_ButItFailed
 	playanimation BS_ATTACKER, B_ANIM_AIR_CURRENT, sB_ANIM_ARG1
 	printstring STRINGID_TAILWINDBLEW
 	waitmessage 0x40
@@ -7751,6 +7769,7 @@ BattleScript_ShootingStarActivate::
 BattleScript_EffectTrickster::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
+	playmoveanimation BS_ATTACKER, MOVE_TRICK_ROOM
 	waitanimation
 	printstring STRINGID_PKMNTWISTEDDIMENSIONS
 	waitmessage 0x40
@@ -7765,6 +7784,15 @@ BattleScript_EffectGravitation::
 	end3
 	
 BattleScript_EffectOppositeDay::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	playmoveanimation BS_ATTACKER, MOVE_TRICK_ROOM
+	waitanimation
+	printstring STRINGID_PKMNINVERTEDTYPES
+	waitmessage 0x40
+	end3
+
+BattleScript_EffectOppositeDayEnds::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
 	playmoveanimation BS_ATTACKER, MOVE_TRICK_ROOM
@@ -8107,11 +8135,6 @@ BattleScript_PrintBerryReduceString::
 	printstring STRINGID_BERRYDMGREDUCES
 	return
 	
-BattleScript_PrintDamageDoneString::
-	waitmessage 0x40
-	printstring STRINGID_POKEMONDIDAMMOUNTDAMAGE
-	return
-	
 BattleScript_BattlerGotTheType::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
@@ -8136,6 +8159,21 @@ BattleScript_PickUpActivate::
 	printstring STRINGID_PICKUPACTIVATED
 	waitmessage 0x40
 	end3
+
+BattleScript_ZeroToHeroActivates::
+	call BattleScript_AttackerFormChange
+	printstring STRINGID_ZEROTOHEROTRANSFORMATION
+	waitmessage 0x40
+	end3
+
+BattleScript_GoodAsGoldActivates::
+	attackstring
+	ppreduce
+	showabilitypopup BS_TARGET
+	pause 0x40
+	printstring STRINGID_ITDOESNTAFFECT
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_BattlerAttackStatLowerOnHit::
 	setstatchanger STAT_ATK, 1, TRUE

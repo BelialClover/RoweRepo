@@ -1,0 +1,344 @@
+{
+  "id": "MAP_FOUR_ISLAND_GYM",
+  "name": "FourIsland_Gym",
+  "layout": "LAYOUT_FOUR_ISLAND_GYM",
+  "music": "HG_SEQ_GS_GYM",
+  "region_map_section": "MAPSEC_FOUR_ISLAND",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_GYM",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MORTY",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_Eventscript_Gym_Leader_Morty",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Sevii_Gym_Trainers_EventScript_Medium_Martha",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Sevii_Gym_Trainers_EventScript_Medium_Grace",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 2,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Sevii_Gym_Trainers_EventScript_Sage_Ping",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Sevii_Gym_Trainers_EventScript_Sage_Jeffrey",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 5,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_GYM",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourIsland_EventScript_Island_GymSign"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourIsland_EventScript_Island_GymSign"
+    }
+  ]
+}

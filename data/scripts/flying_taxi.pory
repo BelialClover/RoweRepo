@@ -1,0 +1,740 @@
+script Common_EventScript_FlyingTaxi{
+    lock
+    faceplayer
+    setvar(VAR_0x800A, LAST_TALKED_TO_FLYING_TAXI)
+    checkitem(ITEM_FLY_CHARM, 1)
+    if(var(VAR_RESULT) == FALSE){
+		setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+		showmoneybox(0, 0, 0)
+		msgbox(format("Do you want to Fly with us, its only 2BP?"), MSGBOX_YESNO)
+	}
+	else{
+		msgbox(format("Do you want to Fly with us?, its completely free."), MSGBOX_YESNO)
+	}
+    if(var(VAR_RESULT) == YES){
+        // Check if the player has enough bp	
+        checkitem(ITEM_FLY_CHARM, 1)
+        if(var(VAR_RESULT) == FALSE){
+            checkmoney(FLYING_TAXIS_PRICE, 0)
+        }
+        
+        if(var(VAR_RESULT) == FALSE) {
+            msgbox(format("But it seems you can't afford using the flying taxis right now.\pPlease come back when you have atleast 2BP."), MSGBOX_DEFAULT)
+            setvar(VAR_SHOP_MONEY_TYPE, 0)
+        }
+        else{
+            checkitem(ITEM_FLY_CHARM, 1)
+            if(var(VAR_RESULT) == FALSE){
+                playse(SE_SHOP)
+                removemoney(FLYING_TAXIS_PRICE, 0)
+		        hidemoneybox
+            }
+            special(FieldLoadFlyMap)
+        }
+    }
+    checkitem(ITEM_FLY_CHARM, 1)
+	if(var(VAR_RESULT) == FALSE){
+		hidemoneybox
+	}
+	msgbox(gText_WeHopeToSeeYouAgain, MSGBOX_DEFAULT)
+    setvar(VAR_LAST_TALKED, 0)
+    releaseall
+    end
+}
+
+const SAIL_TO_LILYCOVE        = 0
+const SAIL_TO_SLATEPORT       = SAIL_TO_LILYCOVE
+const SAIL_TO_SEVII_1         = 1
+const SAIL_TO_SEVII_2         = 2
+const SAIL_TO_SEVII_3         = 3
+const SAIL_TO_SEVII_4         = 4
+const SAIL_TO_SEVII_5         = 5
+const SAIL_TO_SEVII_6         = 6
+const SAIL_TO_SEVII_7         = 7
+const SAIL_TO_SEVII_8         = 8
+const SAIL_TO_BATTLE_FRONTIER = 9
+const SAIL_TO_NAVEL_ROCK      = 10
+const SAIL_TO_BIRTH_ISLAND    = 11
+const SAIL_TO_FARAWAY_ISLAND  = 12
+const SAIL_TO_SOUTHER_ISLAND  = 13
+const NUM_SAILABLE_PLACES     = 14
+const DISABLE_WITHOUT_TICKET  = TRUE
+
+script LilycoveCity_Harbor_EventScript_ExitSailSelect{
+	msgbox(LilycoveCity_Harbor_Text_SailAnotherTime, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script LilycoveCity_Harbor_EventScript_FerryAttendant{
+	lock
+	faceplayer
+	msgbox(format("Hello, are you here for the ferry?, May I see your Tickets?"), MSGBOX_DEFAULT)
+	//message(format("{PLAYER} flashed the Tickets"))
+	//waitmessage
+	goto(LilycoveCity_Harbor_EventScript_Ferry_Location_Select)
+	end
+}
+
+script LilycoveCity_Harbor_EventScript_Ferry_Location_Select{
+    clearflag(FLAG_SAILED_FROM_SLATEPORT)
+	msgbox(format("Where would you like to go?$"), MSGBOX_DEFAULT)
+    if(!flag(FLAG_SYS_GAME_CLEAR)){
+	    scrollingmultichoice(SCROLLING_LILYCOVE_HARBOR_BEFORE_LEAGUE_OPTIONS, 0, 0, 4, TRUE)
+        if(var(VAR_RESULT) < SAIL_TO_BATTLE_FRONTIER){
+            goto(Common_Evenscript_WarpUsingFerry)
+        }
+        else{
+            goto(LilycoveCity_Harbor_EventScript_ExitSailSelect)
+        }
+    }
+    else{
+	    scrollingmultichoice(SCROLLING_LILYCOVE_HARBOR_AFTER_LEAGUE_OPTIONS, 0, 0, 4, TRUE)
+        goto(Common_Evenscript_WarpUsingFerry)
+    }
+    waitstate
+    release
+    end
+}
+
+script Common_EventScript_Colress_One_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 0)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Two_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 1)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Three_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 2)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Four_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 3)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Five_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 4)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Six_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 5)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Seven_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 6)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress_Eight_Island{
+	lock
+	faceplayer
+    setvar(VAR_CURRENT_SEVII, 7)
+    goto(Common_EventScript_Colress)
+}
+
+script Common_EventScript_Colress{
+    switch(var(VAR_VISITED_SEVII)){
+        case 0:
+            goto(Common_EventScript_Colress_First_Encounter)
+        break
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            goto(Common_EventScript_Colress_Second_Encounter)
+        break
+        case 7:
+        case 8:
+            goto(Common_EventScript_Colress_Final_Encounter)
+        break
+    }
+	end
+}
+
+const VAR_SEVII_DESTINATION = VAR_TEMP_A
+
+script Common_EventScript_Colress_First_Encounter{
+    msgbox(format("Oh, excuse me! I am a scientist. My name is Colress. My research focuses on regional variations between species. For example, Vulpix from Kanto has developed differently compared to those found in Alola. It seems a similar phenomenon is occurring here in the Sevii Islands."), MSGBOX_DEFAULT)
+    msgbox(format("Thats why I came to these islands, to uncover the reasons behind why this happens."), MSGBOX_DEFAULT)
+    msgbox(format("Now that I think of it, I never asked your name..."), MSGBOX_DEFAULT)
+    msgbox(format("{PLAYER}, is it? I'll remember your name. To commemorate our encounter, I will let you decide which Sevii Island I should visit next!"), MSGBOX_DEFAULT)
+    goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+}
+
+script Common_EventScript_Colress_Second_Encounter{
+    msgbox(format("Oh {PLAYER}, I was just finishing organizing the data that I found here, but I'm already excited on what I will find next so help me decide what Sevii Island I should visit next!"), MSGBOX_DEFAULT)
+    goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+}
+
+script Common_EventScript_Colress_Final_Encounter{
+    msgbox(format("{PLAYER} this is so exciting! I finally completed my research here. The regional variations occur because of the unique environments you helped me explore. As a token of appreciation for your hard work, I have some prizes for you!!"), MSGBOX_DEFAULT)
+    giveitem(ITEM_SHOCK_DRIVE)
+    giveitem(ITEM_BURN_DRIVE)
+    giveitem(ITEM_CHILL_DRIVE)
+    giveitem(ITEM_DOUSE_DRIVE)
+    msgbox(format("Do you know of the Pokémon called Genesect?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(format("Then allow me to inform you!"), MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(format("Then I have no choice but to admit that you are all I would expect you to be!"), MSGBOX_DEFAULT)
+    }
+    msgbox(format("Genesect is a Pokémon that lived 300 million years ago. Then an organization called Team Plasma modified it, attaching a cannon to its back."), MSGBOX_DEFAULT)
+    msgbox(format("The cannon's abilities could be activated using certain drives created by the scientists in the P2 Laboratory. I think that you might be able to use them as they should be used."), MSGBOX_DEFAULT)
+    msgbox(format("Simply believing in your Pokémon will not guarantee that you can do everything you want. But there are many things that are guaranteed to fail if you do not believe in them. It is the trust between a Trainer and a Pokémon alone that can overcome those hurdles!"), MSGBOX_DEFAULT)
+    msgbox(format("My next quest will be looking for Genesect, I hope our paths cross again, thanks for everything!"), MSGBOX_DEFAULT)
+    call (Common_EventScript_Colress_SetTicketFlag)
+    warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+}
+
+script Common_EventScript_Colress_First_Encounter_ChooseIsland{
+	scrollingmultichoice(SCROLLING_SEVII_TICKET, 0, 0, 4, TRUE)
+    switch(var(VAR_RESULT)){
+        case 0:
+            //One Island
+            checkitem(ITEM_SEVII_TICKET_1, 1)
+            setvar(VAR_SEVII_DESTINATION, 0)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("One Island huh? I think there is a giant volcano there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_1)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 0){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 1:
+            //Two Island
+            checkitem(ITEM_SEVII_TICKET_2, 1)
+            setvar(VAR_SEVII_DESTINATION, 1)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Two Island huh? I think there is a swamp route there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_2)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 1){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 2:
+            //Three Island
+            checkitem(ITEM_SEVII_TICKET_3, 1)
+            setvar(VAR_SEVII_DESTINATION, 2)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Three Island huh? I think there is a Forest full of berries there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_3)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 2){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 3:
+            //Four Island
+            checkitem(ITEM_SEVII_TICKET_4, 1)
+            setvar(VAR_SEVII_DESTINATION, 3)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Four Island huh? I think there is a really cold cave in there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_4)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 3){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 4:
+            //Five Island
+            checkitem(ITEM_SEVII_TICKET_5, 1)
+            setvar(VAR_SEVII_DESTINATION, 4)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Five Island huh? I think there is a Water Labrynth in there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_5)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 4){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 5:
+            //Six Island
+            checkitem(ITEM_SEVII_TICKET_6, 1)
+            setvar(VAR_SEVII_DESTINATION, 5)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Six Island huh? I think there are some Ruins in there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_6)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 5){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 6:
+            //Seven Island
+            checkitem(ITEM_SEVII_TICKET_7, 1)
+            setvar(VAR_SEVII_DESTINATION, 6)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Seven Island huh? I think there is a Canyon in there, it could lead to some interesting information for my research, so let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_7)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 6){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+        case 7:
+            //Eight Island
+            checkitem(ITEM_SEVII_TICKET_8, 1)
+            setvar(VAR_SEVII_DESTINATION, 7)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(format("Eight Island?, first time I heard of such Island, let me search for information on it..."), MSGBOX_DEFAULT)
+                delay(90)
+                msgbox(format("I see so that island was recently discovered by a famous Dragon Tamer, seems like an interesting place, let's see each other over there!"), MSGBOX_DEFAULT)
+                giveitem(ITEM_SEVII_TICKET_8)
+                addvar(VAR_VISITED_SEVII, 1)
+                //First Time
+                if(var(VAR_VISITED_SEVII) == 1){
+                    msgbox(format("That's right, you will help me with my research since you seem like an interesting Trainer."), MSGBOX_DEFAULT)
+                }
+                goto(Common_EventScript_Colress_AskForWarping)
+            }
+            elif(var(VAR_CURRENT_SEVII) == 7){
+                msgbox(format("But we are already there, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+            else{
+                msgbox(format("But we already visited that Island, take this more seriously!"), MSGBOX_DEFAULT)
+                msgbox(format("{PLAYER} what Sevii Island I should visit next?"), MSGBOX_DEFAULT)
+                goto(Common_EventScript_Colress_First_Encounter_ChooseIsland)
+            }
+        break
+    }
+}
+
+script Common_EventScript_Colress_AskForWarping{
+    call (Common_EventScript_Colress_SetTicketFlag)
+    msgbox(format("I'm on my way back to that Island do you want to go there with me?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(Common_EventScript_Colress_NoWarp)
+    }
+    else{
+        goto(Common_EventScript_Colress_WarpToSevii)
+    }
+    waitstate
+    release
+    end
+}
+
+script Common_EventScript_Colress_SetTicketFlag{
+    switch(var(VAR_CURRENT_SEVII)){
+        case 0:
+            setflag(FLAG_GOT_SEVII_TICKET_1)
+        break
+        case 1:
+            setflag(FLAG_GOT_SEVII_TICKET_2)
+        break
+        case 2:
+            setflag(FLAG_GOT_SEVII_TICKET_3)
+        break
+        case 3:
+            setflag(FLAG_GOT_SEVII_TICKET_4)
+        break
+        case 4:
+            setflag(FLAG_GOT_SEVII_TICKET_5)
+        break
+        case 5:
+            setflag(FLAG_GOT_SEVII_TICKET_6)
+        break
+        case 6:
+            setflag(FLAG_GOT_SEVII_TICKET_7)
+        break
+        case 7:
+            setflag(FLAG_GOT_SEVII_TICKET_8)
+        break
+    }
+    return
+}
+
+script Common_EventScript_Colress_NoWarp{
+    msgbox(format("Well then, {PLAYER}, I hope to see you again in there."), MSGBOX_DEFAULT)
+	warp(MAP_LITTLEROOT_TOWN, 192, 192, 192) //Reload Map
+    waitstate
+    release
+    end
+}
+
+script Common_EventScript_Colress_WarpToSevii{
+    msgbox(format("Splendid! Let's get out of here!"), MSGBOX_DEFAULT)
+    //call(LilycoveCity_Harbor_EventScript_BoardFerry)
+    switch(var(VAR_SEVII_DESTINATION)){
+        case 0:
+            warp(MAP_ONE_ISLAND, 255, 28, 17)
+        break
+        case 1:
+            warp(MAP_TWO_ISLAND, 255, 10, 7)
+        break
+        case 2:
+	        warp(MAP_THREE_ISLAND_PORT, 255, 12, 12)
+        break
+        case 3:
+	        warp(MAP_FOUR_ISLAND, 255, 10, 27)
+        break
+        case 4:
+	        warp(MAP_FIVE_ISLAND, 255, 23, 23)
+        break
+        case 5:
+	        warp(MAP_SIX_ISLAND, 255, 27, 22)
+        break
+        case 6:
+	        warp(MAP_SEVEN_ISLAND, 255, 19, 12)
+        break
+        case 7:
+	        warp(MAP_EIGHT_ISLAND, 255, 20, 33)
+        break
+    }
+    waitstate
+    release
+    end
+}
+
+script SlateportCity_Harbor_EventScript_FerryAttendant{
+	lock
+	faceplayer
+	msgbox(format("Hello, are you here for the ferry?, May I see your Tickets?"), MSGBOX_DEFAULT)
+	//message(format("{PLAYER} flashed the Tickets"))
+	//waitmessage
+	goto(SlateportCity_Harbor_EventScript_Ferry_Location_Select)
+	end
+}
+
+script SlateportCity_Harbor_EventScript_Ferry_Location_Select{
+    setflag(FLAG_SAILED_FROM_SLATEPORT)
+	msgbox(format("Where would you like to go?$"), MSGBOX_DEFAULT)
+    if(!flag(FLAG_SYS_GAME_CLEAR)){
+	    scrollingmultichoice(SCROLLING_SLATEPORT_HARBOR_BEFORE_LEAGUE_OPTIONS, 0, 0, 4, TRUE)
+        if(var(VAR_RESULT) < SAIL_TO_BATTLE_FRONTIER){
+            goto(Common_Evenscript_WarpUsingFerry)
+        }
+        else{
+            goto(LilycoveCity_Harbor_EventScript_ExitSailSelect)
+        }
+    }
+    else{
+	    scrollingmultichoice(SCROLLING_SLATEPORT_HARBOR_AFTER_LEAGUE_OPTIONS, 0, 0, 4, TRUE)
+        goto(Common_Evenscript_WarpUsingFerry)
+    }
+    waitstate
+    release
+    end
+}
+
+script Common_EventScript_Ferry_Location_Exit{
+    clearflag(FLAG_SAILED_FROM_SLATEPORT)
+    release
+    end
+}
+
+script Common_Evenscript_WarpUsingFerry{
+	switch(var(VAR_RESULT)){
+        case SAIL_TO_SLATEPORT:
+            if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+                if(flag(FLAG_VISITED_SLATEPORT_CITY)){
+                    call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                    warp(MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11)
+                }
+                else{
+                    msgbox(format("I'm terribly sorry, there seems to be a problem visiting Slateport right now, maybe visiting it yourself could help."), MSGBOX_DEFAULT)
+                    goto(Common_EventScript_Ferry_Location_Exit)
+                }
+            }
+            else{
+                if(flag(FLAG_VISITED_LILYCOVE_CITY)){
+                    call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                    warp(MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11)
+                }
+                else{
+                    msgbox(format("I'm terribly sorry, there seems to be a problem visiting Lilycove right now, maybe visiting it yourself could help."), MSGBOX_DEFAULT)
+                    goto(Common_EventScript_Ferry_Location_Exit)
+                }
+            }
+        break
+        case SAIL_TO_SEVII_1:
+            checkitem(ITEM_SEVII_TICKET_1, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_ONE_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_ONE_ISLAND, 255, 28, 17)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_2:
+            checkitem(ITEM_SEVII_TICKET_2, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_TWO_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_TWO_ISLAND, 255, 10, 7)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_3:
+            checkitem(ITEM_SEVII_TICKET_3, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_THREE_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_THREE_ISLAND_PORT, 255, 12, 12)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_4:
+            checkitem(ITEM_SEVII_TICKET_4, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_FOUR_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_FOUR_ISLAND, 255, 10, 27)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_5:
+            checkitem(ITEM_SEVII_TICKET_5, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_FIVE_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_FIVE_ISLAND, 255, 23, 23)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_6:
+            checkitem(ITEM_SEVII_TICKET_6, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_SIX_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_SIX_ISLAND, 255, 27, 22)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_7:
+            checkitem(ITEM_SEVII_TICKET_7, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_SEVEN_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_SEVEN_ISLAND, 255, 19, 12)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SEVII_8:
+            checkitem(ITEM_SEVII_TICKET_8, 1)
+            if(var(VAR_RESULT) == DISABLE_WITHOUT_TICKET){
+			    setrespawn(HEAL_LOCATION_EIGHT_ISLAND)
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_EIGHT_ISLAND, 255, 20, 33)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_BATTLE_FRONTIER:
+            //checkitem(ITEM_FLY_CHARM, 1)
+            if(flag(FLAG_SYS_GAME_CLEAR) == TRUE){
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 255, 19, 67)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_NAVEL_ROCK:
+            checkitem(ITEM_MYSTIC_TICKET, 1)
+            if(var(VAR_RESULT) == TRUE){
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_NAVEL_ROCK_HARBOR, 255, 8, 4)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_BIRTH_ISLAND:
+            checkitem(ITEM_AURORA_TICKET, 1)
+            if(var(VAR_RESULT) == TRUE){
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_BIRTH_ISLAND_HARBOR, 255, 8, 4)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_FARAWAY_ISLAND:
+            checkitem(ITEM_OLD_SEA_MAP, 1)
+            if(var(VAR_RESULT) == TRUE){
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+	            warp(MAP_FARAWAY_ISLAND_ENTRANCE, 255, 13, 38)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        case SAIL_TO_SOUTHER_ISLAND:
+            checkitem(ITEM_EON_TICKET, 1)
+            if(var(VAR_RESULT) == TRUE){
+                call(LilycoveCity_Harbor_EventScript_BoardFerry)
+                warp(MAP_SOUTHERN_ISLAND_EXTERIOR, 255, 13, 22)
+            }
+            else{
+                goto(Common_Evenscript_CantSailThereWithoutATicket)
+            }
+        break
+        default:
+        case MULTI_B_PRESSED:
+            goto(LilycoveCity_Harbor_EventScript_ExitSailSelect)
+        break
+    }
+    waitstate
+    release
+    end
+}
+
+script Common_Evenscript_CantSailThereWithoutATicket{
+    msgbox(format("{PLAYER} doesn't have the Ticket to this location…\pI'm terribly sorry.\pYou must have that Ticket to board the ferry."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script LilycoveCity_Harbor_EventScript_BoardFerry{
+	msgbox(LilycoveCity_Harbor_Text_PleaseBoard, MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFastestUp)
+	waitmovement(0)
+	delay(30)
+	hideobjectat(LOCALID_ATTENDANT, MAP_LILYCOVE_CITY_HARBOR)
+	hideobjectat(LOCALID_ATTENDANT, MAP_SLATEPORT_CITY_HARBOR)
+	special(HideFollower)
+	compare(VAR_FACING, DIR_NORTH)
+	call_if_eq(LilycoveCity_Harbor_EventScript_PlayerBoardFerryNorth)
+	compare(VAR_FACING, DIR_EAST)
+	call_if_eq(LilycoveCity_Harbor_EventScript_PlayerBoardFerryEast)
+	delay(30)
+	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
+	setvar(VAR_0x8004, LOCALID_SS_TIDAL)
+	call(Common_EventScript_FerryDepart)
+	return
+}

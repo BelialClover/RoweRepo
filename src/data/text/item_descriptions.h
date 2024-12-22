@@ -3913,6 +3913,11 @@ static const u8 sKingsRockDesc[] = _(
     "may cause flinching\n"
     "when the foe is hit.");
 
+static const u8 sUtilityUmbrellaDesc[] = _(
+    "Protects the holder\n"
+    "from the effects of\n"
+    "rain and harsh sun.");
+
 static const u8 sSilverPowderDesc[] = _(
     "A hold item that\n"
     "raises the power of\n"
@@ -5158,6 +5163,11 @@ static const u8 sTriPassDesc[] = _(
     "between One, Two,\n"
     "and Three Island.");
 
+static const u8 sSeviiPassDesc[] = _(
+    "A ticket that lets\n"
+    "you visit one of the\n"
+    "Sevii Islands.");
+
 static const u8 sRainbowPassDesc[] = _(
     "For ferries serving\n"
     "Vermilion and the\n"
@@ -5538,12 +5548,12 @@ static const u8 sIronPlateDesc[] = _(
 static const u8 sEvioliteDesc[] = _(
     "Raises the Def and\n"
     "Sp. Def of Pokémon\n"
-    "that can evolve.");
+    "is able to Evolve.");
 
 static const u8 sExioliteDesc[] = _(
-    "Raises the base stats\n"
-    "of a Pokémon that is\n"
-    "able to Evolve.");
+    "Raises the base\n"
+    "stats of a Pokémon\n"
+    "that is able to Evolve.");
 
 static const u8 sFloatStoneDesc[] = _(
     "It's so light that\n"
@@ -6055,6 +6065,63 @@ static const u8 sCatchingCharmDesc[] = _(
     "increase the chance of \n"
     "getting a crit catch.");
 
+static const u8 sAxeDesc[] = _(
+    "A tool used for cutting\n"
+    "down small trees.");
+
+static const u8 sLanternDesc[] = _(
+    "A tool used to light up\n"
+    "dark caves.");
+
+static const u8 sPickAxeDesc[] = _(
+    "A tool used for breaking\n"
+    "small rocks.");
+
+static const u8 sPowerGloveDesc[] = _(
+    "A tool used for moving\n"
+    "round rocks.");
+
+static const u8 sSurfBoardDesc[] = _(
+    "A tool used to surf\n"
+    "across water.");
+
+static const u8 sFlyToolDesc[] = _(
+    "A tool that helps Pokémon\n"
+    "fly together with their\n"
+    "Trainers.");
+
+static const u8 sDiveGearDesc[] = _(
+    "A tool used to dive\n"
+    "underwater.");
+
+static const u8 sWaterfallToolDesc[] = _(
+    "A tool used to climb\n"
+    "waterfalls.");
+
+static const u8 sRockClimbToolDesc[] = _(
+    "A tool used to scale\n"
+    "rocky cliffs.");
+
+static const u8 sHeadbuttToolDesc[] = _(
+    "A tool used to strike\n"
+    "trees and find Pokémon.");
+
+static const u8 sFlyCharmDesc[] = _(
+    "A charm that let's you use\n"
+    "the Flying Taxis for free.");
+
+static const u8 sWonderCharmDesc[] = _(
+    "A charm that let's you\n"
+    "Wonder Trade for free.");
+
+static const u8 sCasinoCharmDesc[] = _(
+    "A charm that let's you use\n"
+    "the Casino for free.");
+
+static const u8 sBPTicketDesc[] = _(
+    "A ticket that can be exchanged\n"
+    "for 5 BP.");
+
 //Mod items
 static const u8 sLinkCableDesc[] = _(
     "Rare machine part\n"
@@ -6206,5 +6273,167 @@ static const u8 sIronPillDesc[] = _(
     "Slows down the\n"
     "Pokémon that\n"
 	"consumes it");
+
+static const u8 sUnremarkableTeacupDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sMasterpieceTeacupDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sPeatBlockDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sAuspiciousArmorDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sMaliciousArmorDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sSweetAppleDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sTartAppleDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sSyrupAppleDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sScrollOfDarknessDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sScrollOfWatersDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sMetalAlloyDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sBlackAuguriteDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sChippedPotDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sCrackedPotDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sGalarianPotDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sRainbowSweetDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sAlcremiteDesc[] = _(
+    "This stone enables\n"
+    "Alcremie to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sAppletiteDesc[] = _(
+    "This stone enables\n"
+    "Appletun to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sButterfriteDesc[] = _(
+    "This stone enables\n"
+    "Butterfree to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sCentisiteDesc[] = _(
+    "This stone enables\n"
+    "Centiskorch to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sCoalossiteDesc[] = _(
+    "This stone enables\n"
+    "Coalossal to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sCorvikniteDesc[] = _(
+    "This stone enables\n"
+    "Corviknight to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sDrednawiteDesc[] = _(
+    "This stone enables\n"
+    "Drednaw to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sFlappliteDesc[] = _(
+    "This stone enables\n"
+    "Flapple to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sGarbodoriteDesc[] = _(
+    "This stone enables\n"
+    "Garbodor to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sHattereniteDesc[] = _(
+    "This stone enables\n"
+    "Hatterene to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sKingleriteDesc[] = _(
+    "This stone enables\n"
+    "Kingler to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sLapriteDesc[] = _(
+    "This stone enables\n"
+    "Lapras to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sMachampiteDesc[] = _(
+    "This stone enables\n"
+    "Machamp to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sOrbeetliteDesc[] = _(
+    "This stone enables\n"
+    "Orbeetle to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sSandaconditeDesc[] = _(
+    "This stone enables\n"
+    "Sandaconda to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sSnorlaxiteDesc[] = _(
+    "This stone enables\n"
+    "Snorlax to Mega\n"
+    "Evolve in battle.");
+
+
 
 #endif

@@ -26,6 +26,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FourIsland_IcefallCave_Back_EventScript_Suicune",
       "flag": "FLAG_DEFEATED_SUICUNE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LAPRAS_ON_WATER",
+      "x": 24,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_EventScript_Wild_Lapras",
+      "flag": "FLAG_DAILY_WILD_LAPRAS"
     }
   ],
   "warp_events": [
@@ -34,7 +47,7 @@
       "y": 47,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_1F",
-      "dest_warp_id": 5
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

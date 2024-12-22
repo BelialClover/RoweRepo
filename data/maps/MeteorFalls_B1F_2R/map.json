@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_ItemSalamancite",
-      "flag": "FLAG_UNUSED_0x271"
+      "flag": "FLAG_GOT_SALAMENCE_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -47,7 +47,7 @@
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_METEOR_FALLS_B1F_1R",
-      "dest_warp_id": 3
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

@@ -830,7 +830,7 @@ static const struct MenuAction MultichoiceList_Mock_Battle_Level[] =
     {gText_Difficulty_Normal},
     {gText_Difficulty_Hard},
     {gText_Difficulty_PC_Storage},
-    {gText_Difficulty_Password},
+    {gText_Exit},
 };
 
 
@@ -908,7 +908,8 @@ static const struct MenuAction MultichoiceList_Costumes[] =
 	{gText_Costume_FRLG},
 	{gText_Costume_BW},
 	{gText_Costume_DP},
-	{gText_Cancel2},
+	{gText_Costume_RBY},
+	//{gText_Cancel2},
 };
 
 static const struct MultichoiceListStruct sMultichoiceLists[] =

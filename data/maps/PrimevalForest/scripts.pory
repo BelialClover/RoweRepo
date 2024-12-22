@@ -33,12 +33,12 @@ PrimevalForest_EventScript_Shaymin::
 	goto_if_eq PrimevalForest_EventScript_RanFromShaymin
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq PrimevalForest_EventScript_RanFromShaymin
-	setflag FLAG_UNUSED_0x4AB
+	setflag FLAG_DEFEATED_SHAYMIN
 	release
 	end
 	
 PrimevalForest_EventScript_CaughtShaymin::
-	setflag FLAG_UNUSED_0x4AB
+	setflag FLAG_DEFEATED_SHAYMIN
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK

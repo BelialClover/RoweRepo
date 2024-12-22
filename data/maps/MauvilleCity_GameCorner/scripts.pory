@@ -670,31 +670,7 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase:: @ 8210456
 	releaseall
 	end
 	
-MauvilleCity_GameCorner_EventScript_Gachamon::
-	lock
-	faceplayer
-	showcoinsbox 1, 1
-	msgbox MauvilleCity_GameCorner_Text_Gachamon_Introduction, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq MauvilleCity_GameCorner_EventScript_DeclineGachamon
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
-	playse SE_SHOP
-	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox Text_Received_Starter10, MSGBOX_DEFAULT
-	waitfanfare
-	givemon SPECIES_MEW, 1, ITEM_NONE
-	compare VAR_RESULT, 0
-	goto_if_eq MauvilleCity_GameCorner_EventScript_Gachamon_2
-	compare VAR_RESULT, 1
-	goto_if_eq MauvilleCity_GameCorner_EventScript_Gachamon_PC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	release
-	end
-	
-	MauvilleCity_GameCorner_EventScript_DeclineGachamon::
+MauvilleCity_GameCorner_EventScript_DeclineGachamon::
 	hidecoinsbox 0, 5
 	msgbox MauvilleCity_GameCorner_Text_DontBeNegative, MSGBOX_DEFAULT
 	release
@@ -871,3 +847,28 @@ MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase: @ 8210C2E
 	.string "a Coin Case.$"
 
 `
+
+script MauvilleCity_GameCorner_EventScript_Gachamon{
+	lock
+	faceplayer
+	showcoinsbox(1, 1)
+	msgbox(MauvilleCity_GameCorner_Text_Gachamon_Introduction, MSGBOX_YESNO)
+	compare(VAR_RESULT, NO)
+	goto_if_eq(MauvilleCity_GameCorner_EventScript_DeclineGachamon)
+	checkcoins(VAR_TEMP_2)
+	compare(VAR_TEMP_2, 500)
+	goto_if_lt(MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM)
+	playse(SE_SHOP)
+	msgbox(MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT)
+	givemon(SPECIES_NONE, 1, ITEM_NONE)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+	waitfanfare
+	compare(VAR_RESULT, 0)
+	goto_if_eq(MauvilleCity_GameCorner_EventScript_Gachamon_2)
+	compare(VAR_RESULT, 1)
+	goto_if_eq(MauvilleCity_GameCorner_EventScript_Gachamon_PC)
+	goto(Common_EventScript_NoMoreRoomForPokemon)
+	release
+	end
+}

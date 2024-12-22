@@ -72,7 +72,7 @@ Route117_PokemonDayCare_Text_RecivedDitto:
 script Route117_PokemonDayCare_DittoWoman{
 	lock
 	faceplayer
-	if(!flag(FLAG_RECEIVED_TM40)){
+	if(!flag(FLAG_GOT_BADGE_06)){
 		msgbox(format("I'm having a lot of fun taking care of Pokémon in the Daycare every day."), MSGBOX_DEFAULT)
 	}
 	elif(flag(FLAG_MOVE_TUTOR_TAUGHT_SWAGGER)){

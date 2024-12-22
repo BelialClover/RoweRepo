@@ -39,6 +39,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route102_EventScript_ItemPotion",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_120_REVIVE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COLRESS",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_EventScript_Colress_Three_Island",
+      "flag": "FLAG_GOT_SEVII_TICKET_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM103",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_HIDE_TM_BALL_ITEM_TM103"
     }
   ],
   "warp_events": [
@@ -47,21 +73,21 @@
       "y": 41,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_BOND_BRIDGE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 43,
       "y": 41,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_BOND_BRIDGE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 44,
       "y": 41,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_BOND_BRIDGE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

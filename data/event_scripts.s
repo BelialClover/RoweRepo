@@ -684,6 +684,11 @@ EventScript_SetBrineyLocation_Route109:: @ 8271918
 	.include "data/scripts/record_mix.inc"
 	.include "data/scripts/pc.inc"
 	.include "data/scripts/flying_taxi.inc"
+	.include "data/scripts/gym_scripts.inc"
+	.include "data/scripts/field_tools.inc"
+	.include "data/scripts/opponent_scripts.inc"
+	.include "data/scripts/wild_mon_scripts.inc"
+	.include "data/scripts/sevii_scripts.inc"
 
 @ scripts/notices.inc? signs.inc? See comment about text/notices.inc
 Common_EventScript_ShowPokemartSign:: @ 8271E6A
@@ -1110,7 +1115,6 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/scripts/gabby_and_ty.inc"
 	.include "data/text/pokemon_news.inc"
 	.include "data/scripts/mauville_man.inc"
-	.include "data/scripts/field_move_scripts.inc"
 	.include "data/scripts/item_ball_scripts.inc"
 	.include "data/scripts/mystery_event_club.inc"
 	.include "data/scripts/day_care.inc"
@@ -1338,3 +1342,215 @@ loop:
 	.include "data/maps/FourIsland_IcefallCave_B1F/scripts.inc"
 
 	.include "data/maps/FourIsland_IcefallCave_Back/scripts.inc"
+
+	.include "data/maps/Route119_Underwater/scripts.inc"
+
+	.include "data/maps/Route119_Underwater_Cave/scripts.inc"
+
+	.include "data/maps/Route119_UxieCave_Outside/scripts.inc"
+
+	.include "data/maps/Route119_UxieCave_Inside/scripts.inc"
+
+	.include "data/maps/MauvilleCity_Outside/scripts.inc"
+
+	.include "data/maps/FiveIsland/scripts.inc"
+
+	.include "data/maps/FiveIsland_Meadow/scripts.inc"
+
+	.include "data/maps/FiveIsland_WaterLabyrinth/scripts.inc"
+
+	.include "data/maps/FiveIsland_ResortGorgeous/scripts.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/FiveIsland_MemorialPillar/scripts.inc"
+
+	.include "data/maps/FiveIsland_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/FiveIsland_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/FiveIsland_House1/scripts.inc"
+
+	.include "data/maps/FiveIsland_House2/scripts.inc"
+
+	.include "data/maps/FiveIsland_ResortGorgeous_House/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Entrance/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room1/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room2/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room3/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room4/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room5/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room6/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room7/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room8/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room9/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room10/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room11/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room12/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room13/scripts.inc"
+
+	.include "data/maps/FiveIsland_LostCave_Room14/scripts.inc"
+
+	.include "data/maps/SixIsland/scripts.inc"
+
+	.include "data/maps/SixIsland_House/scripts.inc"
+
+	.include "data/maps/SixIsland_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/SixIsland_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/SixIsland_WaterPath/scripts.inc"
+
+	.include "data/maps/SixIsland_WaterPath_House1/scripts.inc"
+
+	.include "data/maps/SixIsland_WaterPath_House2/scripts.inc"
+
+	.include "data/maps/SixIsland_RuinValley/scripts.inc"
+
+	.include "data/maps/SevenIsland/scripts.inc"
+
+	.include "data/maps/SevenIsland_House_Room1/scripts.inc"
+
+	.include "data/maps/SevenIsland_House_Room2/scripts.inc"
+
+	.include "data/maps/SevenIsland_Mart/scripts.inc"
+
+	.include "data/maps/SevenIsland_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/SevenIsland_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/SevenIsland_TrainerTower/scripts.inc"
+
+	.include "data/maps/SevenIsland_SevaultCanyon_Entranec/scripts.inc"
+
+	.include "data/maps/SevenIsland_SevaultCanyon/scripts.inc"
+
+	.include "data/maps/SevenIsland_SevaultCanyon_House/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins/scripts.inc"
+
+	.include "data/maps/SevenIsland_SevaultCanyon_TanobyKey/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_MoneanChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_LiptoppChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_WeepthChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_DilfordChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_ScufibChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_RixyChamber/scripts.inc"
+
+	.include "data/maps/SevenIsland_TanobyRuins_ViapoisChamber/scripts.inc"
+
+	.include "data/maps/SixIsland_GreenPath/scripts.inc"
+
+	.include "data/maps/SixIsland_PatternBush/scripts.inc"
+
+	.include "data/maps/SixIsland_OutcastIsland/scripts.inc"
+
+	.include "data/maps/SixIsland_AlteringCave/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_1F/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_B1F/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_B2F/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_B3F/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_B4F/scripts.inc"
+
+	.include "data/maps/SixIsland_DottedHole_SapphireRoom/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B4F/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B5F/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B1F/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B2F/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B3F/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B1F_Stairs/scripts.inc"
+
+	.include "data/maps/MtEmber_RubyPath_B2F_Stairs/scripts.inc"
+
+	.include "data/maps/FiveIsland_RocketWareHouse/scripts.inc"
+
+	.include "data/maps/TwoIsland_CapeBrink_House/scripts.inc"
+
+	.include "data/maps/TwoIsland_JoyfulGameCorner/scripts.inc"
+
+	.include "data/maps/TwoIsland_House/scripts.inc"
+
+	.include "data/maps/ThreeIsland_House1/scripts.inc"
+
+	.include "data/maps/ThreeIsland_House2/scripts.inc"
+
+	.include "data/maps/ThreeIsland_House3/scripts.inc"
+
+	.include "data/maps/ThreeIsland_House4/scripts.inc"
+
+	.include "data/maps/ThreeIsland_House5/scripts.inc"
+
+	.include "data/maps/SixIsland_Mart/scripts.inc"
+
+	.include "data/maps/FiveIsland_Mart/scripts.inc"
+
+	.include "data/maps/FourIsland_House1/scripts.inc"
+
+	.include "data/maps/FourIsland_House2/scripts.inc"
+
+	.include "data/maps/Route110_NewMauvilleEntrance/scripts.inc"
+
+	.include "data/maps/SixIsland_OutcastIsland_Mesprit_Cave/scripts.inc"
+
+	.include "data/maps/OneIsland_Gym/scripts.inc"
+
+	.include "data/maps/TwoIsland_Gym/scripts.inc"
+
+	.include "data/maps/ThreeIsland_Gym/scripts.inc"
+
+	.include "data/maps/FourIsland_Gym/scripts.inc"
+
+	.include "data/maps/FiveIsland_Gym/scripts.inc"
+
+	.include "data/maps/SixIsland_Gym/scripts.inc"
+
+	.include "data/maps/SevenIsland_Gym/scripts.inc"
+
+	.include "data/maps/EightIsland/scripts.inc"
+
+	.include "data/maps/EightIsland_Gym/scripts.inc"
+
+	.include "data/maps/EightIsland_Mart/scripts.inc"
+
+	.include "data/maps/EightIsland_PokeCenter/scripts.inc"
+
+	.include "data/maps/EightIsland_House1/scripts.inc"
+
+	.include "data/maps/EightIsland_House2/scripts.inc"
+
+	.include "data/maps/EightIsland_Cave/scripts.inc"
+
+	.include "data/maps/EightIsland_Gym_F2/scripts.inc"
+
+	.include "data/maps/EightIsland_Cave_2F/scripts.inc"

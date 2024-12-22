@@ -26,6 +26,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FieryPath_EventScript_ItemTM06",
       "flag": "FLAG_ITEM_FIERY_PATH_TM06"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FieryPath_EventScript_ItemFireStone",
+      "flag": "FLAG_ITEM_FIERY_PATH_FIRE_STONE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 21,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -34,14 +60,14 @@
       "y": 36,
       "elevation": 0,
       "dest_map": "MAP_FIERY_PATH",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 5,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_ROUTE113",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

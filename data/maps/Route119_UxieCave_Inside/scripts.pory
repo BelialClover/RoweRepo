@@ -1,0 +1,40 @@
+mapscripts Route119_UxieCave_Inside_MapScripts {
+}
+
+script Route119_UxieCave_Inside_EventScript_Uxie{
+    lock
+    faceplayer
+    playmoncry(SPECIES_UXIE, 2)
+    msgbox(format("Uxie: Ux..."))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_UXIE, 75, ITEM_LEFTOVERS, MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_GRASS_KNOT, MOVE_POWER_GEM, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_UXIE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_UXIE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(gText_LegendaryFlewAway, MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}

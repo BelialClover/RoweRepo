@@ -14,9 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "up",
+      "map": "MAP_THREE_ISLAND",
       "offset": 0,
-      "map": "MAP_THREE_ISLAND"
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -40,14 +40,14 @@
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_DUNSPARCE_TUNNEL_DUG_OUT",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 38,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_DUNSPARCE_TUNNEL_DUG_OUT",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

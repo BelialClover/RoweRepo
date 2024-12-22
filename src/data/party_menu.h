@@ -855,6 +855,8 @@ enum
 {
     MENU_SUMMARY,
     MENU_SWITCH,
+    MENU_RELEARN,
+    MENU_EVOLUTION,
     MENU_CANCEL1,
     MENU_ITEM,
     MENU_GIVE,
@@ -900,8 +902,9 @@ enum
 #define FIELD_MOVE_TERMINATOR MOVE_SWORDS_DANCE
 
 //tx_pokemon_follower
-static const u8 gText_SummaryPkmFollow[] = _("Follow");
+static const u8 gText_SummaryPkmFollow[]   = _("Follow");
 static const u8 gText_SummaryPkmUnfollow[] = _("Unfollow");
+static const u8 gText_SummaryPkmRelearn[]  = _("Learn Moves");
 
 struct
 {
@@ -909,42 +912,44 @@ struct
     TaskFunc func;
 } static const sCursorOptions[] =
 {
-    [MENU_SUMMARY] = {gText_Summary5, CursorCb_Summary},
-    [MENU_SWITCH] = {gText_Switch2, CursorCb_Switch},
-    [MENU_CANCEL1] = {gText_Cancel2, CursorCb_Cancel1},
-    [MENU_ITEM] = {gText_Item, CursorCb_Item},
-    [MENU_GIVE] = {gMenuText_Give, CursorCb_Give},
-    [MENU_TAKE_ITEM] = {gText_Take, CursorCb_TakeItem},
-    [MENU_MOVE_ITEM] = {gMenuText_Move, CursorCb_MoveItem},
-	[MENU_FOLLOW] = {gText_SummaryPkmFollow, CursorCb_PkmFollow}, //tx_pokemon_follower
-    [MENU_UNFOLLOW] = {gText_SummaryPkmUnfollow, CursorCb_PkmUnfollow},
-    [MENU_MAIL] = {gText_Mail, CursorCb_Mail},
-    [MENU_TAKE_MAIL] = {gText_Take2, CursorCb_TakeMail},
-    [MENU_READ] = {gText_Read2, CursorCb_Read},
-    [MENU_CANCEL2] = {gText_Cancel2, CursorCb_Cancel2},
-    [MENU_SHIFT] = {gText_Shift, CursorCb_SendMon},
-    [MENU_SEND_OUT] = {gText_SendOut, CursorCb_SendMon},
-    [MENU_ENTER] = {gText_Enter, CursorCb_Enter},
-    [MENU_NO_ENTRY] = {gText_NoEntry, CursorCb_NoEntry},
-    [MENU_STORE] = {gText_Store, CursorCb_Store},
-    [MENU_REGISTER] = {gText_Register, CursorCb_Register},
-    [MENU_TRADE1] = {gText_Trade4, CursorCb_Trade1},
-    [MENU_TRADE2] = {gText_Trade4, CursorCb_Trade2},
-    [MENU_TOSS] = {gMenuText_Toss, CursorCb_Toss},
-    [MENU_FIELD_MOVES + FIELD_MOVE_CUT] = {gMoveNames[MOVE_CUT], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_FLASH] = {gMoveNames[MOVE_FLASH], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH] = {gMoveNames[MOVE_ROCK_SMASH], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_STRENGTH] = {gMoveNames[MOVE_STRENGTH], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_SURF] = {gMoveNames[MOVE_SURF], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_FLY] = {gMoveNames[MOVE_FLY], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_DIVE] = {gMoveNames[MOVE_DIVE], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_WATERFALL] = {gMoveNames[MOVE_WATERFALL], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_TELEPORT] = {gMoveNames[MOVE_TELEPORT], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_DIG] = {gMoveNames[MOVE_DIG], CursorCb_FieldMove},
+    [MENU_SUMMARY]   = {gText_Summary5,           CursorCb_Summary},
+    [MENU_SWITCH]    = {gText_Switch2,            CursorCb_Switch},
+    [MENU_RELEARN]   = {gText_SummaryPkmRelearn,  CursorCb_RelearnMove},
+    [MENU_CANCEL1]   = {gText_Cancel2,            CursorCb_Cancel1},
+    [MENU_ITEM]      = {gText_Item,               CursorCb_Item},
+    [MENU_GIVE]      = {gMenuText_Give,           CursorCb_Give},
+    [MENU_TAKE_ITEM] = {gText_Take,               CursorCb_TakeItem},
+    [MENU_MOVE_ITEM] = {gMenuText_Move,           CursorCb_MoveItem},
+	[MENU_FOLLOW]    = {gText_SummaryPkmFollow,   CursorCb_PkmFollow},
+    [MENU_UNFOLLOW]  = {gText_SummaryPkmUnfollow, CursorCb_PkmUnfollow},
+    [MENU_MAIL]      = {gText_Mail,               CursorCb_Mail},
+    [MENU_TAKE_MAIL] = {gText_Take2,              CursorCb_TakeMail},
+    [MENU_READ]      = {gText_Read2,              CursorCb_Read},
+    [MENU_CANCEL2]   = {gText_Cancel2,            CursorCb_Cancel2},
+    [MENU_SHIFT]     = {gText_Shift,              CursorCb_SendMon},
+    [MENU_SEND_OUT]  = {gText_SendOut,            CursorCb_SendMon},
+    [MENU_ENTER]     = {gText_Enter,              CursorCb_Enter},
+    [MENU_NO_ENTRY]  = {gText_NoEntry,            CursorCb_NoEntry},
+    [MENU_STORE]     = {gText_Store,              CursorCb_Store},
+    [MENU_REGISTER]  = {gText_Register,           CursorCb_Register},
+    [MENU_TRADE1]    = {gText_Trade4,             CursorCb_Trade1},
+    [MENU_TRADE2]    = {gText_Trade4,             CursorCb_Trade2},
+    [MENU_TOSS]      = {gMenuText_Toss,           CursorCb_Toss},
+    [MENU_EVOLUTION] = {gText_Evolution,          CursorCb_Evolution},
+    [MENU_FIELD_MOVES + FIELD_MOVE_CUT]          = {gMoveNames[MOVE_CUT],          CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_FLASH]        = {gMoveNames[MOVE_FLASH],        CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH]   = {gMoveNames[MOVE_ROCK_SMASH],   CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_STRENGTH]     = {gMoveNames[MOVE_STRENGTH],     CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_SURF]         = {gMoveNames[MOVE_SURF],         CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_FLY]          = {gMoveNames[MOVE_FLY],          CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_DIVE]         = {gMoveNames[MOVE_DIVE],         CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_WATERFALL]    = {gMoveNames[MOVE_WATERFALL],    CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_TELEPORT]     = {gMoveNames[MOVE_TELEPORT],     CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_DIG]          = {gMoveNames[MOVE_DIG],          CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_SECRET_POWER] = {gMoveNames[MOVE_SECRET_POWER], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_MILK_DRINK] = {gMoveNames[MOVE_MILK_DRINK], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_SOFT_BOILED] = {gMoveNames[MOVE_SOFT_BOILED], CursorCb_FieldMove},
-    [MENU_FIELD_MOVES + FIELD_MOVE_SWEET_SCENT] = {gMoveNames[MOVE_SWEET_SCENT], CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_MILK_DRINK]   = {gMoveNames[MOVE_MILK_DRINK],   CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_SOFT_BOILED]  = {gMoveNames[MOVE_SOFT_BOILED],  CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_SWEET_SCENT]  = {gMoveNames[MOVE_SWEET_SCENT],  CursorCb_FieldMove},
 };
 
 static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};

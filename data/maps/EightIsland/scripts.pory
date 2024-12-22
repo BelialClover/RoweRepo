@@ -1,0 +1,239 @@
+mapscripts EightIsland_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+	    setflag(FLAG_VISITED_EIGHT_ISLAND)
+    }
+}
+
+script EightIsland_EventScript_Boy{
+	lock
+	faceplayer
+	msgbox(format("Someone told me that you could find Dragon-types in that cave, I wonder if I can find a Dratini."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_EventScript_Girl{
+	lock
+	faceplayer
+	msgbox(format("This Island was discovered by the gym leader Clair after being told that she would not be one of the Sevii Leaders because there were only 7 Islands."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_EventScript_Cooltrainer{
+	lock
+	faceplayer
+	msgbox(format("I bought some good held items in that shop, you should give it a look."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_EventScript_Cooltrainer_2{
+	lock
+	faceplayer
+	msgbox(format("I bought evolution stones that helped me evolve my Eevee."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_EventScript_OldMan{
+	lock
+	faceplayer
+	msgbox(format("They say that the cave there is really old but there is no way to know since this island was just discovered."), MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_EventScript_IslandSign{
+	msgbox(format("Eight Island\nA Quiet Mountain Retreat"), MSGBOX_SIGN)
+	end
+}
+
+script OneIsland_EventScript_Island_GymSign{
+	msgbox(format("One Island Pokémon Gym\nLeader: Falkner\l“The Elegant Master of Flying Pokémon”"), MSGBOX_SIGN)
+	end
+}
+
+script TwoIsland_EventScript_Island_GymSign{
+	msgbox(format("Two Island Pokémon Gym\nLeader: Bugsy\l“The Walking Bug Pokémon Encyclopedia”"), MSGBOX_SIGN)
+	end
+}
+
+script ThreeIsland_EventScript_Island_GymSign{
+	msgbox(format("Three Island Pokémon Gym\nLeader: Whitney\l“The Incredibly Pretty Girl”"), MSGBOX_SIGN)
+	end
+}
+
+script FourIsland_EventScript_Island_GymSign{
+	msgbox(format("Four Island Pokémon Gym\nLeader: Morty\l“The Mystic Seer of the Future”"), MSGBOX_SIGN)
+	end
+}
+
+script FiveIsland_EventScript_Island_GymSign{
+	msgbox(format("Five Island Pokémon Gym\nLeader: Chuck\l“His Roaring Fists Do the Talking”"), MSGBOX_SIGN)
+	end
+}
+
+script SixIsland_EventScript_Island_GymSign{
+	msgbox(format("Six Island Pokémon Gym\nLeader: Jasmine\l“The Steel-Clad Defense Girl”"), MSGBOX_SIGN)
+	end
+}
+
+script SevenIsland_EventScript_Island_GymSign{
+	msgbox(format("Seven Island Pokémon Gym\nLeader: Pryce\l“The Teacher of Winter's Harshness”"), MSGBOX_SIGN)
+	end
+}
+
+script EightIsland_EventScript_Island_GymSign{
+	msgbox(format("Eight Island Pokémon Gym\nLeader: Clair\l“The Blessed User of Dragon Pokémon”"), MSGBOX_SIGN)
+	end
+}
+
+script Common_EventScript_New_Mauville_Sign{
+	msgbox(format("New Mauville\nThis project died in development."), MSGBOX_SIGN)
+	end
+}
+
+const FIVE_ISLAND_SAILOR_ID = 3
+script FiveIsland_EventScript_Sailor{
+	lock
+	faceplayer
+    if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+	    msgbox(format("Do you want to return to Lilycove?"), MSGBOX_YESNO)
+    }
+    else{
+	    msgbox(format("Do you want to return to Slateport?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == NO){
+	    msgbox(format("Aye, right, as you like, then."), MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(format("Aye, right, then!\nSail home we will!"), MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown)
+        waitmovement(0)
+        delay(30)
+        hideobjectat(FIVE_ISLAND_SAILOR_ID, MAP_FIVE_ISLAND)
+        special(HideFollower)
+        setvar(VAR_0x8004, LOCALID_SS_TIDAL)
+        call(Common_EventScript_FerryDepartIsland)
+        if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+            warp(MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11)
+        }
+        else{
+	        warp(MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11)
+        }
+        waitstate
+    }
+	release
+	end
+}
+
+const SIX_ISLAND_SAILOR_ID = 3
+script SixIsland_EventScript_Sailor{
+	lock
+	faceplayer
+    if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+	    msgbox(format("I heard there is a Forest nearby, have you visited it?\pDo you want to return to Lilycove?"), MSGBOX_YESNO)
+    }
+    else{
+	    msgbox(format("I heard there is a Forest nearby, have you visited it?\pDo you want to return to Slateport?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == NO){
+	    msgbox(format("Aye, right, as you like, then."), MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(format("Aye, right, then!\nSail home we will!"), MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown)
+        waitmovement(0)
+        delay(30)
+        hideobjectat(SIX_ISLAND_SAILOR_ID, MAP_SIX_ISLAND)
+        special(HideFollower)
+        setvar(VAR_0x8004, LOCALID_SS_TIDAL)
+        call(Common_EventScript_FerryDepartIsland)
+        if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+            warp(MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11)
+        }
+        else{
+	        warp(MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11)
+        }
+        waitstate
+    }
+	release
+	end
+}
+
+const SEVEN_ISLAND_SAILOR_ID = 1
+script SevenIsland_EventScript_Sailor{
+	lock
+	faceplayer
+    if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+	    msgbox(format("Why is the Gym not on the Island?\pDo you want to return to Lilycove?"), MSGBOX_YESNO)
+    }
+    else{
+	    msgbox(format("Why is the Gym not on the Island?\pDo you want to return to Slateport?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == NO){
+	    msgbox(format("Aye, right, as you like, then."), MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(format("Aye, right, then!\nSail home we will!"), MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown)
+        waitmovement(0)
+        delay(30)
+        hideobjectat(SEVEN_ISLAND_SAILOR_ID, MAP_SEVEN_ISLAND)
+        special(HideFollower)
+        setvar(VAR_0x8004, LOCALID_SS_TIDAL)
+        call(Common_EventScript_FerryDepartIsland)
+        if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+            warp(MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11)
+        }
+        else{
+	        warp(MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11)
+        }
+        waitstate
+    }
+	release
+	end
+}
+
+const EIGHT_ISLAND_SAILOR_ID = 1
+script EightIsland_EventScript_Sailor{
+	lock
+	faceplayer
+    if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+	    msgbox(format("That's an strange cave, eh?\pDo you want to return to Lilycove?"), MSGBOX_YESNO)
+    }
+    else{
+	    msgbox(format("That's an strange cave, eh?\pDo you want to return to Slateport?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == NO){
+	    msgbox(format("Aye, right, as you like, then."), MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(format("Aye, right, then!\nSail home we will!"), MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown)
+        waitmovement(0)
+        delay(30)
+        hideobjectat(EIGHT_ISLAND_SAILOR_ID, MAP_EIGHT_ISLAND)
+        special(HideFollower)
+        setvar(VAR_0x8004, LOCALID_SS_TIDAL)
+        call(Common_EventScript_FerryDepartIsland)
+        if(!flag(FLAG_SAILED_FROM_SLATEPORT)){
+            warp(MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11)
+        }
+        else{
+	        warp(MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11)
+        }
+        waitstate
+    }
+	release
+	end
+}

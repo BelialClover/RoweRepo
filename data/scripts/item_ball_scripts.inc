@@ -7,11 +7,11 @@ Route103_EventScript_ItemGuardSpec:: @ 8290CE5
 	end
 
 Route103_EventScript_ItemPPUp:: @ 8290CF2
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 Route104_EventScript_ItemPPUp:: @ 8290CFF
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 Route104_EventScript_ItemPokeBall:: @ 8290D0C
@@ -39,7 +39,7 @@ Route108_EventScript_ItemStarPiece:: @ 8290D4D
 	end
 
 Route109_EventScript_ItemPPUp:: @ 8290D5A
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 Route109_EventScript_ItemPotion:: @ 8290D67
@@ -123,7 +123,7 @@ Route115_EventScript_ItemHealPowder:: @ 8290E5E
 	end
 
 Route115_EventScript_ItemPPUp:: @ 8290E6B
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 Route116_EventScript_ItemXSpecial:: @ 8290E78
@@ -235,7 +235,7 @@ Route123_EventScript_ItemElixir:: @ 8290FCA
 	end
 
 Route123_EventScript_ItemPPUp:: @ 8290FD7
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 Route123_EventScript_ItemRevivalHerb:: @ 8290FE4
@@ -391,7 +391,7 @@ MeteorFalls_1F_1R_EventScript_ItemMoonStone:: @ 82911C5
 	end
 
 MeteorFalls_1F_1R_EventScript_ItemPPUP:: @ 82911D2
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 MeteorFalls_B1F_2R_EventScript_ItemTM02:: @ 82911DF
@@ -607,7 +607,7 @@ VictoryRoad_1F_EventScript_ItemMaxElixir:: @ 8291483
 	end
 
 VictoryRoad_1F_EventScript_ItemPPUp:: @ 8291490
-	addscaleditem ITEM_PP_UP
+	addscaleditem ITEM_POKE_BALL
 	end
 
 VictoryRoad_B1F_EventScript_ItemTM29:: @ 829149D
@@ -647,7 +647,7 @@ MagmaHideout_3F_1R_EventScript_ItemNugget:: @ 8291505
 	end
 
 MagmaHideout_3F_2R_EventScript_ItemPPMax:: @ 8291512
-	addscaleditem ITEM_PP_MAX
+	addscaleditem ITEM_POKE_BALL
 	end
 
 MagmaHideout_4F_EventScript_MaxRevive:: @ 829151F
@@ -800,4 +800,9 @@ Oldale_Ruins_EventScript_ItemTM80::
 	
 Route106_EventScript_ItemTM99::
 	addscaleditem ITEM_TM99
+	end
+
+Common_EventScript_FindItem::
+	callnative GetObjectEventTrainerRangeFromTemplate
+	finditem VAR_RESULT
 	end

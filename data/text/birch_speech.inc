@@ -65,7 +65,7 @@ gText_Birch_Welcome:: @ 82C897B
 	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to Pokémon R.O.W.E!\p"
 	.string "This is an Open World version\n"
-	.string "of Hoenn.\p"
+	.string "of Pokémon Emerald.\p"
 	.string "$"
 
 gText_Birch_Pokemon:: @ 82C89FB
@@ -119,6 +119,7 @@ gText_Birch_AreYouReady:: @ 82C8C7A
 	.string "A different aventure awaits!\p"
 	.string "Well, if you have any questions,\n"
 	.string "I'll be expecting them on\l"
-	.string "PokéCommunity.$"
+	.string "PokéCommunity.\p"
+	.string "$"
 
 #endif

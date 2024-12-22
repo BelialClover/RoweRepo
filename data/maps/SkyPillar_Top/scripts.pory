@@ -67,6 +67,7 @@ SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq SkyPillar_Top_EventScript_RanFromRayquaza
 	setflag FLAG_DEFEATED_RAYQUAZA
+	setflag FLAG_ENABLE_POST_RAYQUAZA_CONTENT
 	clearflag FLAG_MEGA_EVOLVE_WILD_POKEMON
 	releaseall
 	end
@@ -74,6 +75,7 @@ SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
 SkyPillar_Top_EventScript_CaughtRayquaza::
 	clearflag FLAG_MEGA_EVOLVE_WILD_POKEMON
 	setflag FLAG_DEFEATED_RAYQUAZA
+	setflag FLAG_ENABLE_POST_RAYQUAZA_CONTENT
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_RAYQUAZA_SLEEPING
 	fadescreenswapbuffers FADE_FROM_BLACK
@@ -82,6 +84,7 @@ SkyPillar_Top_EventScript_CaughtRayquaza::
 
 SkyPillar_Top_EventScript_DefeatedRayquaza:: @ 8239768
 	setflag FLAG_DEFEATED_RAYQUAZA
+	setflag FLAG_ENABLE_POST_RAYQUAZA_CONTENT
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject LOCALID_RAYQUAZA_SLEEPING
 	fadescreenswapbuffers FADE_FROM_BLACK

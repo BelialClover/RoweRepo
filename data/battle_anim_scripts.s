@@ -776,6 +776,78 @@ gBattleAnims_Moves::
 	.4byte Move_GLACIAL_LANCE
 	.4byte Move_ASTRAL_BARRAGE
 	.4byte Move_EERIE_SPELL
+	.4byte Move_ALLURING_VOICE
+	.4byte Move_WAVE_CRASH
+	.4byte Move_GIGATON_HAMMER
+	.4byte Move_AQUA_CUTTER
+	.4byte Move_AQUA_STEP
+	.4byte Move_ARMOR_CANNON
+	.4byte Move_AXE_KICK
+	.4byte Move_BITTER_BLADE
+	.4byte Move_BLAZING_TORQUE
+	.4byte Move_BLOOD_MOON
+	.4byte Move_BURNING_BULWARK
+	.4byte Move_CHILLING_WATER
+	.4byte Move_CHILLY_RECEPTION
+	.4byte Move_COLLISION_COURSE
+	.4byte Move_COMBAT_TORQUE
+	.4byte Move_COMEUPPANCE
+	.4byte Move_DOODLE
+	.4byte Move_DOUBLE_SHOCK
+	.4byte Move_DRAGON_CHEER
+	.4byte Move_ELECTRO_DRIFT
+	.4byte Move_ELECTRO_SHOT
+	.4byte Move_FICKLE_BEAM
+	.4byte Move_FILLET_AWAY
+	.4byte Move_FLOWER_TRICK
+	.4byte Move_GLAIVE_RUSH
+	.4byte Move_HARD_PRESS
+	.4byte Move_HYDRO_STEAM
+	.4byte Move_HYPER_DRILL
+	.4byte Move_ICE_SPINNER
+	.4byte Move_IVY_CUDGEL
+	.4byte Move_JET_PUNCH
+	.4byte Move_KOWTOW_CLEAVE
+	.4byte Move_LAST_RESPECTS
+	.4byte Move_LUMINA_CRASH
+	.4byte Move_MAGICAL_TORQUE
+	.4byte Move_MAKE_IT_RAIN
+	.4byte Move_MALIGNANT_CHAIN
+	.4byte Move_MATCHA_GOTCHA
+	.4byte Move_MIGHTY_CLEAVE
+	.4byte Move_MORTAL_SPIN
+	.4byte Move_NOXIOUS_TORQUE
+	.4byte Move_ORDER_UP
+	.4byte Move_POPULATION_BOMB
+	.4byte Move_POUNCE
+	.4byte Move_PSYBLADE
+	.4byte Move_PSYCHIC_NOISE
+	.4byte Move_RAGE_FIST
+	.4byte Move_RAGING_BULL
+	.4byte Move_REVIVAL_BLESSING
+	.4byte Move_RUINATION
+	.4byte Move_SALT_CURE
+	.4byte Move_SHED_TAIL
+	.4byte Move_SILK_TRAP
+	.4byte Move_SNOWSCAPE
+	.4byte Move_SPICY_EXTRACT
+	.4byte Move_SPIN_OUT
+	.4byte Move_SUPERCELL_SLAM
+	.4byte Move_SYRUP_BOMB
+	.4byte Move_TACHYON_CUTTER
+	.4byte Move_TEMPER_FLARE
+	.4byte Move_TERA_BLAST
+	.4byte Move_TERA_STARSTORM
+	.4byte Move_THUNDERCLAP
+	.4byte Move_TIDY_UP
+	.4byte Move_TRAILBLAZE
+	.4byte Move_TRIPLE_DIVE
+	.4byte Move_TWIN_BEAM
+	.4byte Move_UPPER_HAND
+	.4byte Move_WICKED_TORQUE
+	.4byte Move_NEUTRAL_PULSE
+	.4byte Move_SEASONAL_BEAM
+	.4byte Move_RAGING_FURY
 	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
 
 	.align 2
@@ -14041,6 +14113,15 @@ Move_JUNGLE_HEALING::
 Move_EERIE_SPELL::
 	goto Move_SYCHRONOISE
 
+Move_ALLURING_VOICE::
+	goto Move_DISARMING_VOICE
+
+Move_WAVE_CRASH::
+	goto Move_LIQUIDATION
+
+Move_GIGATON_HAMMER::
+	goto Move_HAMMER_ARM
+
 Move_WICKED_BLOW::
 	end @to do:
 
@@ -14058,6 +14139,105 @@ Move_FREEZING_GLARE::
 
 Move_FIERY_WRATH::
 	end @to do:
+
+Move_RAGING_BULL:
+	goto Move_TAKE_DOWN
+
+Move_NEUTRAL_PULSE:
+Move_SEASONAL_BEAM:
+	goto Move_DRAGON_PULSE
+
+Move_RAGING_FURY:
+	goto Move_OUTRAGE
+
+Move_AQUA_STEP:
+Move_ARMOR_CANNON:
+Move_BITTER_BLADE:
+Move_BLAZING_TORQUE:
+Move_BLOOD_MOON:
+Move_BURNING_BULWARK:
+Move_CHILLY_RECEPTION:
+Move_COLLISION_COURSE:
+Move_COMBAT_TORQUE:
+Move_COMEUPPANCE:
+Move_DOODLE:
+Move_DOUBLE_SHOCK:
+Move_DRAGON_CHEER:
+Move_ELECTRO_DRIFT:
+Move_ELECTRO_SHOT:
+Move_FICKLE_BEAM:
+Move_FILLET_AWAY:
+Move_FLOWER_TRICK:
+Move_GLAIVE_RUSH:
+Move_HARD_PRESS:
+Move_HYDRO_STEAM:
+Move_HYPER_DRILL:
+Move_IVY_CUDGEL:
+Move_KOWTOW_CLEAVE:
+Move_LUMINA_CRASH:
+Move_MAGICAL_TORQUE:
+Move_MALIGNANT_CHAIN:
+Move_MATCHA_GOTCHA:
+Move_MIGHTY_CLEAVE:
+Move_MORTAL_SPIN:
+Move_NOXIOUS_TORQUE:
+Move_ORDER_UP:
+Move_POPULATION_BOMB:
+Move_PSYCHIC_NOISE:
+Move_RAGE_FIST:
+Move_REVIVAL_BLESSING:
+Move_RUINATION:
+Move_SALT_CURE:
+Move_SHED_TAIL:
+Move_SILK_TRAP:
+Move_SNOWSCAPE:
+Move_SPICY_EXTRACT:
+Move_SPIN_OUT:
+Move_SYRUP_BOMB:
+Move_TACHYON_CUTTER:
+Move_TERA_BLAST:
+Move_TERA_STARSTORM:
+Move_THUNDERCLAP:
+Move_TIDY_UP:
+Move_TRIPLE_DIVE:
+Move_TWIN_BEAM:
+Move_UPPER_HAND:
+Move_WICKED_TORQUE:
+	goto Move_TACKLE
+
+Move_LAST_RESPECTS:
+	goto Move_NIGHTMARE
+
+Move_TRAILBLAZE:
+	goto Move_GRASSY_GLIDE
+
+Move_ICE_SPINNER:
+	goto Move_RAPID_SPIN
+
+Move_CHILLING_WATER:
+	goto Move_WATER_GUN
+
+Move_POUNCE:
+	goto Move_STRUGGLE_BUG
+
+Move_JET_PUNCH:
+	goto Move_AQUA_JET
+
+Move_SUPERCELL_SLAM:
+	goto Move_WILD_CHARGE
+
+Move_AXE_KICK:
+	goto Move_HI_JUMP_KICK
+
+Move_MAKE_IT_RAIN:
+	goto Move_DAZZLING_GLEAM
+
+Move_AQUA_CUTTER:
+Move_PSYBLADE:
+	goto Move_SLASH
+
+Move_TEMPER_FLARE:
+	goto Move_FLAME_CHARGE
 
 Move_THUNDEROUS_KICK::
 	loadspritegfx ANIM_TAG_IMPACT
@@ -23307,17 +23487,17 @@ Move_SKY_UPPERCUT:
 
 Move_SECRET_POWER:
 	createvisualtask AnimTask_GetBattleTerrain, 5
-	jumpargeq 0, BATTLE_TERRAIN_GRASS,      Move_NEEDLE_ARM
-	jumpargeq 0, BATTLE_TERRAIN_GRASS_DUSK, Move_NEEDLE_ARM
+	jumpargeq 0, BATTLE_TERRAIN_GRASS,       Move_NEEDLE_ARM
+	jumpargeq 0, BATTLE_TERRAIN_GRASS_DUSK,  Move_NEEDLE_ARM
 	jumpargeq 0, BATTLE_TERRAIN_GRASS_NIGHT, Move_NEEDLE_ARM
-	jumpargeq 0, BATTLE_TERRAIN_LONG_GRASS, Move_MAGICAL_LEAF
-	jumpargeq 0, BATTLE_TERRAIN_SAND,       Move_MUD_SHOT
-	jumpargeq 0, BATTLE_TERRAIN_UNDERWATER, Move_WATERFALL
-	jumpargeq 0, BATTLE_TERRAIN_WATER,      Move_SURF
-	jumpargeq 0, BATTLE_TERRAIN_POND,       Move_BUBBLE_BEAM
-	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,   Move_ROCK_THROW
-	jumpargeq 0, BATTLE_TERRAIN_CAVE,       Move_BITE
-	jumpargeq 0, BATTLE_TERRAIN_BUILDING,   Move_STRENGTH
+	jumpargeq 0, BATTLE_TERRAIN_LONG_GRASS,  Move_MAGICAL_LEAF
+	jumpargeq 0, BATTLE_TERRAIN_SAND,        Move_MUD_SHOT
+	jumpargeq 0, BATTLE_TERRAIN_UNDERWATER,  Move_WATERFALL
+	jumpargeq 0, BATTLE_TERRAIN_WATER,       Move_SURF
+	jumpargeq 0, BATTLE_TERRAIN_POND,        Move_BUBBLE_BEAM
+	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,    Move_ROCK_THROW
+	jumpargeq 0, BATTLE_TERRAIN_CAVE,        Move_BITE
+	jumpargeq 0, BATTLE_TERRAIN_BUILDING,    Move_STRENGTH
 	goto Move_SLAM
 
 Move_TWISTER:

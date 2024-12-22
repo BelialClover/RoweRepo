@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_Lucarionite",
-      "flag": "FLAG_UNUSED_0x290"
+      "flag": "FLAG_GOT_LUCARIO_MEGA_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
@@ -99,14 +99,14 @@
       "y": 30,
       "elevation": 0,
       "dest_map": "MAP_SCORCHED_SLAB_B1F",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 18,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SCORCHED_SLAB_HEATRANS_ROOM",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -118,7 +118,7 @@
       "x": 22,
       "y": 4,
       "elevation": 3,
-      "item": "ITEM_STONE_PLATE",
+      "item": "ITEM_AUSPICIOUS_ARMOR",
       "flag": "FLAG_HIDDEN_ITEM_SCORCHED_SLAB_STONE_PLATE"
     }
   ]

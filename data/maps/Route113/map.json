@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_ROUTE112",
       "offset": 60,
-      "map": "MAP_ROUTE112"
+      "direction": "down"
     },
     {
-      "direction": "left",
+      "map": "MAP_FALLARBOR_TOWN",
       "offset": 0,
-      "map": "MAP_FALLARBOR_TOWN"
+      "direction": "left"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROUTE111",
       "offset": 0,
-      "map": "MAP_ROUTE111"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -258,21 +258,21 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE113_GLASS_WORKSHOP",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 41,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_FIERY_PATH2",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 89,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_RELIC_CAVE",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

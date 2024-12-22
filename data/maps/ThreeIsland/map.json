@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
+      "map": "MAP_THREE_ISLAND_BOND_BRIDGE",
       "offset": 0,
-      "map": "MAP_THREE_ISLAND_BOND_BRIDGE"
+      "direction": "left"
     },
     {
-      "direction": "down",
+      "map": "MAP_THREE_ISLAND_PORT",
       "offset": 0,
-      "map": "MAP_THREE_ISLAND_PORT"
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -110,14 +110,21 @@
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_POKEMON_CENTER_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 18,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_THREE_ISLAND_MART",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_THREE_ISLAND_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -137,7 +144,7 @@
       "x": 5,
       "y": 13,
       "elevation": 3,
-      "item": "ITEM_PP_UP",
+      "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL"
     },
     {
@@ -167,7 +174,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 19,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_EventScript_ClosedDoor"
@@ -179,6 +186,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_EventScript_ClosedDoor"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThreeIsland_EventScript_Island_GymSign"
     }
   ]
 }

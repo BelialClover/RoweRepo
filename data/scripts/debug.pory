@@ -1,0 +1,12 @@
+script Debug_ShowFieldMessageStringVar4{
+	special(ShowFieldMessageStringVar4)
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+}
+
+script Debug_CheatStart{
+	trainerbattle_single(TRAINER_DEBUG_OPPONENT, format("Debug Battle Start!"), format("Is this for real?"))
+	msgbox(format("..."), MSGBOX_AUTOCLOSE)
+}

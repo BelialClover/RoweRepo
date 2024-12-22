@@ -74,11 +74,11 @@ OneIsland_EventScript_AsYouLike:: @ 8267CE7
 	end
 	
 OneIsland_Text_Text_SailorReturn_Lilycove: @ 82C6B90
-    .string "What n Big Pokemon Center, eh?\n"
+    .string "What a Big Pokemon Center, eh?\n"
 	.string "Do you want to return to Lilycove?$"
 	
 OneIsland_Text_Text_SailorReturn_Slateport: @ 82C6B90
-    .string "What an Big Pokemon Center, eh?\n"
+    .string "What a Big Pokemon Center, eh?\n"
 	.string "Do you want to return to Slateport?$"
 	
 // -------------------------------------------------------------------------------------------

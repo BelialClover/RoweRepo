@@ -9,7 +9,7 @@ FourIsland_MapScripts:: @ 8167CAE
 	.byte 0
 
 FourIsland_OnTransition:: @ 8167CB9
-	call_if_eq FourIsland_EventScript_ShowRival
+	setflag FLAG_VISITED_FOUR_ISLAND
 	end
 
 FourIsland_EventScript_ShowRival:: @ 8167CCD

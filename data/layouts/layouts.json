@@ -4,8 +4,8 @@
     {
       "id": "LAYOUT_PETALBURG_CITY",
       "name": "PetalburgCity_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 36,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/PetalburgCity/border.bin",
@@ -24,10 +24,10 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY",
       "name": "MauvilleCity_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 60,
+      "height": 25,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_MauvilleCityInside",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity/map.bin"
     },
@@ -94,8 +94,8 @@
     {
       "id": "LAYOUT_LITTLEROOT_TOWN",
       "name": "LittlerootTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/LittlerootTown/border.bin",
@@ -144,7 +144,7 @@
     {
       "id": "LAYOUT_VERDANTURF_TOWN",
       "name": "VerdanturfTown_Layout",
-      "width": 20,
+      "width": 30,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
@@ -4624,7 +4624,7 @@
     {
       "id": "LAYOUT_ONE_ISLAND",
       "name": "OneIsland_Layout",
-      "width": 24,
+      "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General_FRLG",
       "secondary_tileset": "gTileset_SeviiIslands123",
@@ -4635,7 +4635,7 @@
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
       "width": 48,
-      "height": 20,
+      "height": 25,
       "primary_tileset": "gTileset_General_FRLG",
       "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/TwoIsland/border.bin",
@@ -5444,10 +5444,10 @@
     {
       "id": "LAYOUT_FOUR_ISLAND_LORELIS_HOUSE",
       "name": "FourIsland_LorelisHouse_Layout",
-      "width": 11,
+      "width": 10,
       "height": 9,
-      "primary_tileset": "gTileset_Building_FRLG",
-      "secondary_tileset": "gTileset_PokemonCenter_FRLG",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FourIsland_LorelisHouse/border.bin",
       "blockdata_filepath": "data/layouts/FourIsland_LorelisHouse/map.bin"
     },
@@ -5500,6 +5500,1066 @@
       "secondary_tileset": "gTileset_SeafoamIslands",
       "border_filepath": "data/layouts/FourIsland_IcefallCave_Back/border.bin",
       "blockdata_filepath": "data/layouts/FourIsland_IcefallCave_Back/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE119_UNDERWATER",
+      "name": "Route119_Underwater_Layout",
+      "width": 40,
+      "height": 140,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Route119_Underwater/border.bin",
+      "blockdata_filepath": "data/layouts/Route119_Underwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE119_UNDERWATER_CAVE",
+      "name": "Route119_Underwater_Cave_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Route119_Underwater_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/Route119_Underwater_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE119_UXIE_CAVE_OUTSIDE",
+      "name": "Route119_UxieCave_Outside_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_RockTunnel",
+      "border_filepath": "data/layouts/Route119_UxieCave_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/Route119_UxieCave_Outside/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE119_UXIE_CAVE_INSIDE",
+      "name": "Route119_UxieCave_Inside_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_RockTunnel",
+      "border_filepath": "data/layouts/Route119_UxieCave_Inside/border.bin",
+      "blockdata_filepath": "data/layouts/Route119_UxieCave_Inside/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_OUTSIDE",
+      "name": "MauvilleCity_Outside_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/MauvilleCity_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Outside/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND",
+      "name": "FiveIsland_Layout",
+      "width": 35,
+      "height": 30,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/FiveIsland/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_MEADOW",
+      "name": "FiveIsland_Meadow_Layout",
+      "width": 24,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/FiveIsland_Meadow/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_Meadow/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_WATER_LABYRINTH",
+      "name": "FiveIsland_WaterLabyrinth_Layout",
+      "width": 72,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/FiveIsland_WaterLabyrinth/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_WaterLabyrinth/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_RESORT_GORGEOUS",
+      "name": "FiveIsland_ResortGorgeous_Layout",
+      "width": 72,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/FiveIsland_ResortGorgeous/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_ResortGorgeous/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP1",
+      "name": "NewMap1_Layout",
+      "width": 24,
+      "height": 60,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/NewMap1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "name": "FiveIsland_MemorialPillar_Layout",
+      "width": 24,
+      "height": 60,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/FiveIsland_MemorialPillar/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_MemorialPillar/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_POKEMON_CENTER_1F",
+      "name": "FiveIsland_PokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/FiveIsland_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_POKEMON_CENTER_2F",
+      "name": "FiveIsland_PokemonCenter_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/FiveIsland_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_PokemonCenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_HOUSE1",
+      "name": "FiveIsland_House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FiveIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_HOUSE2",
+      "name": "FiveIsland_House2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FiveIsland_House2/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_RESORT_GORGEOUS_HOUSE",
+      "name": "FiveIsland_ResortGorgeous_House_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FiveIsland_ResortGorgeous_House/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_ResortGorgeous_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ENTRANCE",
+      "name": "FiveIsland_LostCave_Entrance_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM1",
+      "name": "FiveIsland_LostCave_Room1_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room1/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM2",
+      "name": "FiveIsland_LostCave_Room2_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room2/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM3",
+      "name": "FiveIsland_LostCave_Room3_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room3/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room3/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM4",
+      "name": "FiveIsland_LostCave_Room4_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room4/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room4/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM5",
+      "name": "FiveIsland_LostCave_Room5_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room5/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room5/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM6",
+      "name": "FiveIsland_LostCave_Room6_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room6/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room6/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM7",
+      "name": "FiveIsland_LostCave_Room7_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room7/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room7/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM8",
+      "name": "FiveIsland_LostCave_Room8_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room8/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room8/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM9",
+      "name": "FiveIsland_LostCave_Room9_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room9/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room9/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM10",
+      "name": "FiveIsland_LostCave_Room10_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room10/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room10/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM11",
+      "name": "FiveIsland_LostCave_Room11_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room11/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room11/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM12",
+      "name": "FiveIsland_LostCave_Room12_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room12/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room12/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM13",
+      "name": "FiveIsland_LostCave_Room13_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room13/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room13/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM14",
+      "name": "FiveIsland_LostCave_Room14_Layout",
+      "width": 11,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room14/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room14/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND",
+      "name": "SixIsland_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SixIsland/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_HOUSE",
+      "name": "SixIsland_House_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SixIsland_House/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_POKEMON_CENTER_1F",
+      "name": "SixIsland_PokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/SixIsland_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_POKEMON_CENTER_2F",
+      "name": "SixIsland_PokemonCenter_2F_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_PokemonCenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_WATER_PATH",
+      "name": "SixIsland_WaterPath_Layout",
+      "width": 24,
+      "height": 100,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SixIsland_WaterPath/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_WaterPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_WATER_PATH_HOUSE1",
+      "name": "SixIsland_WaterPath_House1_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SixIsland_WaterPath_House1/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_WaterPath_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_WATER_PATH_HOUSE2",
+      "name": "SixIsland_WaterPath_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SixIsland_WaterPath_House2/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_WaterPath_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_RUIN_VALLEY",
+      "name": "SixIsland_RuinValley_Layout",
+      "width": 48,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SixIsland_RuinValley/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_RuinValley/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND",
+      "name": "SevenIsland_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SevenIsland/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_HOUSE_ROOM1",
+      "name": "SevenIsland_House_Room1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SevenIsland_House_Room1/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_House_Room1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_HOUSE_ROOM2",
+      "name": "SevenIsland_House_Room2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SevenIsland_House_Room2/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_House_Room2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_MART",
+      "name": "SevenIsland_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building_FRLG",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SevenIsland_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_POKEMON_CENTER_1F",
+      "name": "SevenIsland_PokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/SevenIsland_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_POKEMON_CENTER_2F",
+      "name": "SevenIsland_PokemonCenter_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/SevenIsland_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_PokemonCenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TRAINER_TOWER",
+      "name": "SevenIsland_TrainerTower_Layout",
+      "width": 120,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SevenIsland_TrainerTower/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TrainerTower/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANEC",
+      "name": "SevenIsland_SevaultCanyon_Entranec_Layout",
+      "width": 24,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SevenIsland_SevaultCanyon_Entranec/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_SevaultCanyon_Entranec/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON",
+      "name": "SevenIsland_SevaultCanyon_Layout",
+      "width": 24,
+      "height": 80,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SevenIsland_SevaultCanyon/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_SevaultCanyon/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_HOUSE",
+      "name": "SevenIsland_SevaultCanyon_House_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SevenIsland_SevaultCanyon_House/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_SevaultCanyon_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS",
+      "name": "SevenIsland_TanobyRuins_Layout",
+      "width": 144,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+      "name": "SevenIsland_SevaultCanyon_TanobyKey_Layout",
+      "width": 15,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_RockTunnel",
+      "border_filepath": "data/layouts/SevenIsland_SevaultCanyon_TanobyKey/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_SevaultCanyon_TanobyKey/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_MoneanChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_MoneanChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_MoneanChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_LIPTOPP_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_LiptoppChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_LiptoppChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_LiptoppChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_WeepthChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_WeepthChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_WeepthChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_DilfordChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_DilfordChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_DilfordChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_ScufibChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_ScufibChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_ScufibChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_RixyChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_RixyChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_RixyChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER",
+      "name": "SevenIsland_TanobyRuins_ViapoisChamber_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/SevenIsland_TanobyRuins_ViapoisChamber/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_ViapoisChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_GREEN_PATH",
+      "name": "SixIsland_GreenPath_Layout",
+      "width": 72,
+      "height": 20,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SixIsland_GreenPath/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_GreenPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_PATTERN_BUSH",
+      "name": "SixIsland_PatternBush_Layout",
+      "width": 60,
+      "height": 32,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_BerryForest",
+      "border_filepath": "data/layouts/SixIsland_PatternBush/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_PatternBush/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_OUTCAST_ISLAND",
+      "name": "SixIsland_OutcastIsland_Layout",
+      "width": 24,
+      "height": 80,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/SixIsland_OutcastIsland/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_OutcastIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_ALTERING_CAVE",
+      "name": "SixIsland_AlteringCave_Layout",
+      "width": 32,
+      "height": 24,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_AlteringCave/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_AlteringCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_1F",
+      "name": "SixIsland_DottedHole_1F_Layout",
+      "width": 16,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_B1F",
+      "name": "SixIsland_DottedHole_B1F_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_B2F",
+      "name": "SixIsland_DottedHole_B2F_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_B3F",
+      "name": "SixIsland_DottedHole_B3F_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_B4F",
+      "name": "SixIsland_DottedHole_B4F_Layout",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_B4F/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_B4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+      "name": "SixIsland_DottedHole_SapphireRoom_Layout",
+      "width": 16,
+      "height": 15,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/SixIsland_DottedHole_SapphireRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_DottedHole_SapphireRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B4F",
+      "name": "MtEmber_RubyPath_B4F_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B4F/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B5F",
+      "name": "MtEmber_RubyPath_B5F_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B5F/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B5F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B1F",
+      "name": "MtEmber_RubyPath_B1F_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B2F",
+      "name": "MtEmber_RubyPath_B2F_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B3F",
+      "name": "MtEmber_RubyPath_B3F_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B1F_STAIRS",
+      "name": "MtEmber_RubyPath_B1F_Stairs_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B1F_Stairs/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B1F_Stairs/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_EMBER_RUBY_PATH_B2F_STAIRS",
+      "name": "MtEmber_RubyPath_B2F_Stairs_Layout",
+      "width": 18,
+      "height": 16,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_MtEmber",
+      "border_filepath": "data/layouts/MtEmber_RubyPath_B2F_Stairs/border.bin",
+      "blockdata_filepath": "data/layouts/MtEmber_RubyPath_B2F_Stairs/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_ROCKET_WARE_HOUSE",
+      "name": "FiveIsland_RocketWareHouse_Layout",
+      "width": 29,
+      "height": 27,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FiveIsland_RocketWareHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_RocketWareHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_CAPE_BRINK_HOUSE",
+      "name": "TwoIsland_CapeBrink_House_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/TwoIsland_CapeBrink_House/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_CapeBrink_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_JOYFUL_GAME_CORNER",
+      "name": "TwoIsland_JoyfulGameCorner_Layout",
+      "width": 22,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MauvilleGameCorner",
+      "border_filepath": "data/layouts/TwoIsland_JoyfulGameCorner/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_JoyfulGameCorner/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_HOUSE",
+      "name": "TwoIsland_House_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/TwoIsland_House/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_HOUSE1",
+      "name": "ThreeIsland_House1_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/ThreeIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_HOUSE2",
+      "name": "ThreeIsland_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/ThreeIsland_House2/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_HOUSE3",
+      "name": "ThreeIsland_House3_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/ThreeIsland_House3/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_HOUSE4",
+      "name": "ThreeIsland_House4_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/ThreeIsland_House4/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_House4/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_HOUSE5",
+      "name": "ThreeIsland_House5_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands45",
+      "border_filepath": "data/layouts/ThreeIsland_House5/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_House5/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_MART",
+      "name": "SixIsland_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SixIsland_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_MART",
+      "name": "FiveIsland_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/FiveIsland_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOUR_ISLAND_HOUSE1",
+      "name": "FourIsland_House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FourIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FourIsland_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOUR_ISLAND_HOUSE2",
+      "name": "FourIsland_House2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FourIsland_House2/border.bin",
+      "blockdata_filepath": "data/layouts/FourIsland_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE110_NEW_MAUVILLE_ENTRANCE",
+      "name": "Route110_NewMauvilleEntrance_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route110_NewMauvilleEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route110_NewMauvilleEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_OUTCAST_ISLAND_MESPRIT_CAVE",
+      "name": "SixIsland_OutcastIsland_Mesprit_Cave_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_RockTunnel",
+      "border_filepath": "data/layouts/SixIsland_OutcastIsland_Mesprit_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_OutcastIsland_Mesprit_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ONE_ISLAND_GYM",
+      "name": "OneIsland_Gym_Layout",
+      "width": 11,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/OneIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/OneIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_GYM",
+      "name": "TwoIsland_Gym_Layout",
+      "width": 15,
+      "height": 25,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_GenericSeviiGym",
+      "border_filepath": "data/layouts/TwoIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_GYM",
+      "name": "ThreeIsland_Gym_Layout",
+      "width": 22,
+      "height": 22,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_GenericSeviiGym",
+      "border_filepath": "data/layouts/ThreeIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOUR_ISLAND_GYM",
+      "name": "FourIsland_Gym_Layout",
+      "width": 10,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/FourIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/FourIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_GYM",
+      "name": "FiveIsland_Gym_Layout",
+      "width": 10,
+      "height": 26,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_GenericSeviiGym",
+      "border_filepath": "data/layouts/FiveIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SIX_ISLAND_GYM",
+      "name": "SixIsland_Gym_Layout",
+      "width": 11,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SixIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SixIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVEN_ISLAND_GYM",
+      "name": "SevenIsland_Gym_Layout",
+      "width": 11,
+      "height": 18,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_GenericSeviiGym",
+      "border_filepath": "data/layouts/SevenIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SevenIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND",
+      "name": "EightIsland_Layout",
+      "width": 45,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/EightIsland/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_GYM",
+      "name": "EightIsland_Gym_Layout",
+      "width": 10,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/EightIsland_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_MART",
+      "name": "EightIsland_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/EightIsland_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_POKE_CENTER",
+      "name": "EightIsland_PokeCenter_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/EightIsland_PokeCenter/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_PokeCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_HOUSE1",
+      "name": "EightIsland_House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/EightIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_HOUSE2",
+      "name": "EightIsland_House2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/EightIsland_House2/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_CAVE",
+      "name": "EightIsland_Cave_Layout",
+      "width": 32,
+      "height": 24,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/EightIsland_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_GYM_F2",
+      "name": "EightIsland_Gym_F2_Layout",
+      "width": 10,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/EightIsland_Gym_F2/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_Gym_F2/map.bin"
+    },
+    {
+      "id": "LAYOUT_EIGHT_ISLAND_CAVE_2F",
+      "name": "EightIsland_Cave_2F_Layout",
+      "width": 32,
+      "height": 40,
+      "primary_tileset": "gTileset_General_FRLG",
+      "secondary_tileset": "gTileset_Cave_FRLG",
+      "border_filepath": "data/layouts/EightIsland_Cave_2F/border.bin",
+      "blockdata_filepath": "data/layouts/EightIsland_Cave_2F/map.bin"
     }
   ]
 }

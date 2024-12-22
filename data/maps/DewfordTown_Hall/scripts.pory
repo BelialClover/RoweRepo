@@ -258,7 +258,7 @@ DewfordTown_Hall_EventScript_SludgeBombMan:: @ 81FD7DA
 	lock
 	faceplayer
 	call Common_EventScript_BufferTrendyPhrase
-	goto_if_unset FLAG_RECEIVED_TM42, DewfordTown_Hall_EventScript_MintMan
+	goto_if_unset FLAG_GOT_BADGE_06, DewfordTown_Hall_EventScript_MintMan
 	goto_if_set FLAG_RECEIVED_TM36, DewfordTown_Hall_EventScript_MintMan
 	msgbox DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT
 	giveitem ITEM_TM36
@@ -733,8 +733,8 @@ script DewfordTown_Hall_EventScript_EvolutionManiac{
 	lock
 	faceplayer
 	checkitem(ITEM_TM36, 1)
-	if(var(VAR_RESULT) == FALSE && flag(FLAG_RECEIVED_TM42)){
-		//If you don't have the TM or don't have 5 Badges yet
+	if(var(VAR_RESULT) == FALSE && flag(FLAG_GOT_BADGE_06)){
+		//If you don't have the TM or don't have 6 Badges yet
 		call(Common_EventScript_BufferTrendyPhrase)
 		msgbox(DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT)
 		giveitem(ITEM_TM36)
@@ -750,57 +750,85 @@ script DewfordTown_Hall_EventScript_EvolutionManiac{
 		switch(var(VAR_RESULT)){
 			case 0:
 				giveitem(ITEM_WATER_STONE)
+			break
 			case 1:
 				giveitem(ITEM_FIRE_STONE)
+			break
 			case 2:
 				giveitem(ITEM_THUNDER_STONE)
+			break
 			case 3:
 				giveitem(ITEM_LEAF_STONE)
+			break
 			case 4:
 				giveitem(ITEM_SUN_STONE)
+			break
 			case 5:
 				giveitem(ITEM_SHINY_STONE)
+			break
 			case 6:
 				giveitem(ITEM_DUSK_STONE)
+			break
 			case 7:
 				giveitem(ITEM_DAWN_STONE)
+			break
 			case 8:
 				giveitem(ITEM_ICE_STONE)
+			break
 			case 9:
 				giveitem(ITEM_DEEP_SEA_SCALE)
+			break
 			case 10:
 				giveitem(ITEM_DEEP_SEA_TOOTH)
+			break
 			case 11:
 				giveitem(ITEM_DRAGON_SCALE)
+			break
 			case 12:
 				giveitem(ITEM_DUBIOUS_DISC)
+			break
 			case 13:
 				giveitem(ITEM_ELECTIRIZER)
+			break
 			case 14:
 				giveitem(ITEM_KINGS_ROCK)
+			break
 			case 15:
 				giveitem(ITEM_MAGMARIZER)
+			break
 			case 16:
 				giveitem(ITEM_OVAL_STONE)
+			break
 			case 17:
 				giveitem(ITEM_METAL_COAT)
+			break
 			case 18:
 				giveitem(ITEM_PRISM_SCALE)
+			break
 			case 19:
 				giveitem(ITEM_PROTECTOR)
+			break
 			case 20:
 				giveitem(ITEM_RAZOR_CLAW)
+			break
 			case 21:
 				giveitem(ITEM_RAZOR_FANG)
+			break
 			case 22:
 				giveitem(ITEM_REAPER_CLOTH)
+			break
 			case 23:
 				giveitem(ITEM_SACHET)
+			break
 			case 24:
 				giveitem(ITEM_UP_GRADE)
+			break
 			case 25:
 				giveitem(ITEM_WHIPPED_DREAM)
+			break
 			case 26:
+				giveitem(ITEM_WHIPPED_DREAM)
+			break
 		}
 		waitfanfare
 		msgbox(format("I love to collect items, but sharing my interest with other people its always better."), MSGBOX_NPC)

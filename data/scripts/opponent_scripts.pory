@@ -1,0 +1,350 @@
+//Trainers
+script FiveIsland_Meadow_EventScript_Rocket1{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_49, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(FiveIsland_Meadow_Text_Rocket1PostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_Meadow_EventScript_Rocket2{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_50, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(FiveIsland_Meadow_Text_Rocket2PostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_Meadow_EventScript_Rocket3{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_51, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(FiveIsland_Meadow_Text_Rocket3PostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_RocketWarehouse_EventScript_Admin1{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_ADMIN, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(format("Lalalah"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_RocketWarehouse_EventScript_Grunt1{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_42, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(format("Lalalah"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_RocketWarehouse_EventScript_Grunt2{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_47, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(format("Lalalah"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_RocketWarehouse_EventScript_Grunt3{
+	trainerbattle_single(TRAINER_TEAM_ROCKET_GRUNT_48, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(format("Lalalah"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_RocketWarehouse_EventScript_Gideon{
+	trainerbattle_single(TRAINER_SCIENTIST_GIDEON, format("This area's strictly off-limits! Out, out!"), format("Is this for real?"))
+	msgbox(format("Lalalah"), MSGBOX_AUTOCLOSE)
+}
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Mason{
+	trainerbattle_single(TRAINER_MASON_SEVII, format("Howdy! Are you a member of my fan club!"), format("Oh, so you're not a fan… Well, I can change that. Let me sing for you!"))
+	msgbox(format("Lalalah… My POKéMON, I send them out, all the girls scream and shout!"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Madeline{
+	trainerbattle_single(TRAINER_MADELINE_SEVII, format("I punish people who abuse POKéMON!"), format("You don't seem to be a problem trainer."))
+	msgbox(format("If you treat your POKéMON with kindness, they'll understand."), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Nicolas{
+	trainerbattle_single(TRAINER_NICOLAS_SEVII, format("This island is too spread out… It's not easy patrolling the place."), format("Uh-huh…"))
+	msgbox(format("Trainers like you from cities, they sure are tough. You'll be headed for the tower, won't you?"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Eve{
+	trainerbattle_single(TRAINER_EVE_AND_JON_SEVII, format("Eve: I'll team up with Jon and battle together."), format("Eve: Me and Jon, we lost Ehehe."))
+	msgbox(format("Eve: I'm going to work harder with Jon."), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Jon{
+	trainerbattle_single(TRAINER_EVE_AND_JON_SEVII, format("Jon: When I'm with Eve, it feels like we could never lose."), format("Jon: When I'm with Eve, it doesn't feel like I've lost!"))
+	msgbox(format("Jon: When I'm with Eve, I feel giddy whether I win or lose. It's magical!"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_Entrance_EventScript_Miah{
+	trainerbattle_single(TRAINER_MIAH_SEVII, format("Kyahaha! I'll flick you away effortlessly!"), format("Tch! Too strong for me!"))
+	msgbox(format("What's that? I don't act the way I look? Heh, that's a part of my strategy!"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Lex{
+	trainerbattle_single(TRAINER_LEX_AND_NYA_SEVII, format("Lex: My darling Nya, together we could win!"), format("Lex: I seem to have been too careless…"))
+	msgbox(format("Lex: I think it was a good experience for Nya. You have my gratitude."), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Nya{
+	trainerbattle_single(TRAINER_LEX_AND_NYA_SEVII, format("Nya: I'll do my best so I won't drag down my mentor, Lex!"), format("Nya: Oh, no… I'm so sorry, I…"))
+	msgbox(format("Nya: I think I'm going to need much more seasoning and tutoring under Lex …So, Lex, please, may I stay with you like this?"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_BlackBelt{
+	msgbox(format("Training by oneself is certainly not a bad thing. But it's also not bad to aim for the top with a partner. Even Bruno He trained with a fellow by the name of Brawly before."), MSGBOX_AUTOCLOSE)
+}
+
+//New Trainers
+script SevenIsland_SevaultCanyon_EventScript_Jackson{
+	trainerbattle_single(TRAINER_JACKSON_SEVII, format("I work to protect the environment. In turn, nature protects me!"), format("Whoa! You're tough! How about protecting me?"))
+	msgbox(format("From far out among the stars, our planet is just a drop of water. But we want to protect that drop of water for everyone."), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Katelyn{
+	trainerbattle_single(TRAINER_KATELYN_SEVII, format("Those shoes you have are pretty snazzy"), format("You're hot stuff in spite of your cute looks."))
+	msgbox(format("Your mom bought those snazzy Running Shoes for you? She must adore you.$"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Evan{
+	trainerbattle_single(TRAINER_EVAN_SEVII, format("It doesn't matter if you happen to have the strongest Pokémon… It doesn't mean a thing if you don't know how to use them properly!"), format("You're a master at this."))
+	msgbox(format("You see them every so often, trainers with awesome Pokémon who have no idea what to do. Before training Pokémon, trainers themselves need to grow up."), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Cyndy{
+	trainerbattle_single(TRAINER_CYNDY_SEVII, format("My conditioning's in top form!"), format("Huh? Something's not right…"))
+	msgbox(format("The way I am now, I may have to hold off on Trainer Tower…"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Leroy{
+	trainerbattle_single(TRAINER_LEROY_SEVII, format("You look strong. Let me battle you, please!"), format("I knew it! You're as tough as I thought!"))
+	msgbox(format("The way you battle has given me a lot of useful data. Thanks so much!"), MSGBOX_AUTOCLOSE)
+}
+
+script SevenIsland_SevaultCanyon_EventScript_Michelle{
+	trainerbattle_single(TRAINER_MICHELLE_SEVII, format("I was given the best possible education to become this strong. I don't want to lose to anyone!"), format("Thank you. I feel like I've been set free by losing to you."))
+	msgbox(format("For some reason, I get furious over the slightest thing. I'll calm myself by breathing deeply."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_RuinValley_EventScript_Daryl{
+	trainerbattle_single(TRAINER_DARYL_SEVII, format("A battle with you, so high up!"), format("Oh, the heartbreak of losing so easily to you!"))
+	msgbox(format("Experience the joy of climbing!"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_RuinValley_EventScript_Stanly{
+	trainerbattle_single(TRAINER_STANLY_SEVII, format("There appear to be many secrets still unsolved in this world."), format("Hmm…"))
+	msgbox(format("I suggest to you that you, too, give a thought to the secrets and mysteries of our world once a day."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_RuinValley_EventScript_Foster{
+	trainerbattle_single(TRAINER_FOSTER_SEVII, format("I'm curious, what compelled you to come here?"), format("It's been so long since I battled, my instincts are off."))
+	msgbox(format("There are several ruins on the Sevii Islands. The majority of them date back a long way."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_RuinValley_EventScript_Larry{
+	trainerbattle_single(TRAINER_LARRY_SEVII, format("It's been said that there are mysterious stones on this island. I suspect it has something to do with the ruins here."), format("Oh, interesting."))
+	msgbox(format("Those ruins over there… I haven't had any luck in finding how I can get inside."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_RuinValley_EventScript_Hector{
+	trainerbattle_single(TRAINER_HECTOR_SEVII, format("I'm pretty familiar with the land around these parts."), format("You don't need to be so pushy. I'll be happy to tell you."))
+	msgbox(format("The door to the ruins… It has these strange patterns engraved on the outside. I don't know what they mean, though."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Riley {
+    trainerbattle_single(TRAINER_RILEY_SEVII, format("This is a good spot. I'll pitch my tent here."), format("Wimped out…"))
+    msgbox(format("I'm going to observe the night sky here."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Allison {
+    trainerbattle_single(TRAINER_ALLISON_SEVII, format("I'm working to preserve the natural ecology of Pokémon here."), format("Oh, for someone so young, you are tremendous!"))
+    msgbox(format("I'm not saying that you shouldn't catch Pokémon. I just want people to raise their Pokémon responsibly."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Jonah{
+    trainerbattle_single(TRAINER_JONAH_SEVII, format("You know, it just doesn't feel right if I don't use Bug Pokémon."), format("It's okay, losing is a fun part of Pokémon's appeal, too."))
+    msgbox(format("By the way, “appeal” is a weird word, if you think about it. Like, is it like an orange peel? Or like a ringing bell?"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Dalia{
+    trainerbattle_single(TRAINER_DALIA_SEVII, format("Take a deep breath. Isn't the air delicious?"), format("If you'd like, I can teach you how to breathe properly."))
+    msgbox(format("First, exhale. Blow everything out. When you can't exhale anymore, Inhale the clean air! Isn't it refreshing?"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Nash {
+    trainerbattle_single(TRAINER_NASH_SEVII, format("Look, look! There are funny patterns on the ground."), format("Super awesome!"))
+    msgbox(format("The funny patterns on the ground… They look like the patterns on my grandpa's clothes."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Joana {
+    trainerbattle_single(TRAINER_JOANA_SEVII, format("I love Bug Pokémon. That's why I'm here all the time. Am I the only girl like that?"), format("I lost, but I'm still laughing. Am I the only girl like that?"))
+    msgbox(format("I'm going to keep on collecting Bug Pokémon. Am I the only girl like that?"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Garret {
+    trainerbattle_single(TRAINER_GARRET_SEVII, format("I caught a Bug Pokémon that lives only around here!"), format("Heheh… Isn't my Pokémon awesome?"))
+    msgbox(format("There's a girl near the bush who measures Heracross for Trainers."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Bethany {
+    trainerbattle_single(TRAINER_BETHANY_SEVII, format("I'm curious, how do you raise your Pokémon?"), format("You raise your Pokémon with a whole lot of love!"))
+    msgbox(format("In the same way your mother raised you full of love, you should raise your Pokémon."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Cordell {
+    trainerbattle_single(TRAINER_CORDELL_SEVII, format("I bet you think I'm just some guy, don't you, eh?"), format("I bet you think I'm weak, don't you, eh?"))
+    msgbox(format("Ayup, you townies come around all so dandy with a hat that flashy… How about giving me that?"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Vance {
+    trainerbattle_single(TRAINER_VANCE_SEVII, format("Yeah, yeah, yeah! Look at all the Bug Pokémon!"), format("I got beat while I was still busy celebrating!"))
+    msgbox(format("I'm going to bring my little brother here next time."), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Layton {
+    trainerbattle_single(TRAINER_LAYTON_SEVII, format("Have you noticed something odd about these parts?"), format("Have you taken a good look around your feet?"))
+    msgbox(format("There are places here in Pattern Bush where grass won't grow. What could be the cause of such a phenomenon?"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_PatternBush_EventScript_Marcy {
+    trainerbattle_single(TRAINER_MARCY_SEVII, format("Oh, yuck! I think a bug stung me!"), format("It wasn't a bug. I cut my shin on some grass."))
+    msgbox(format("A little cut like that… A little spit's enough to cure it!"), MSGBOX_AUTOCLOSE)
+}
+
+script SixIsland_GreenPath_EventScript_Jaclyn {
+    trainerbattle_single(TRAINER_JACLYN_SEVII, format("…Huh? I was envisioning my house, but this is where I teleport?"), format("Big boo-boo!"))
+    msgbox(format("I am so scatterbrained! I need to focus so I can teleport properly to my house!"), MSGBOX_AUTOCLOSE)
+}
+
+//Sevii Gym Trainers
+//Falkner's Gym
+script Sevii_Gym_Trainers_EventScript_Bird_Keeper_Rod {
+    trainerbattle_single(TRAINER_BIRD_KEEPER_ROD, format("The keyword is guts!"), format("Come on!"))
+    msgbox(format("Those here are training night and day to become bird Pokémon masters."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Bird_Keeper_Abe {
+    trainerbattle_single(TRAINER_BIRD_KEEPER_ABE, format("Let me see if you are good enough to face Falkner!"), format("This can't be true!"))
+    msgbox(format("This is pathetic, losing to some rookie trainer…"), MSGBOX_AUTOCLOSE)
+}
+
+//Bugsy's Gym
+script Sevii_Gym_Trainers_EventScript_Twins_Amy{
+    trainerbattle_single(TRAINER_TWINS_AMY_AND_MAY, format("Amy: Hi! Are you challenging the Leader?, No way!"), format("Amy & May: Oh, double goodness!"))
+    msgbox(format("Amy: You're really strong!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Twins_May{
+    trainerbattle_single(TRAINER_TWINS_AMY_AND_MAY, format("May: You want to see the Leader?, We come first!"), format("Amy & May: Oh, double goodness!"))
+    msgbox(format("May: Our bug Pokémon lost! Oh, what a shame."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Bug_Catcher_Al {
+    trainerbattle_single(TRAINER_BUG_CATCHER_AL, format("Bug Pokémon are cool and tough!, I'll prove it to you!"), format("You proved how tough you are…"))
+    msgbox(format("They're so cool, but most girls don't like bug Pokémon. I don't know why…"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Bug_Catcher_Josh {
+    trainerbattle_single(TRAINER_BUG_CATCHER_JOSH, format("My grown-up Pokémon are pretty tough!"), format("Urrgggh!"))
+    msgbox(format("I guess I should teach them better moves…"), MSGBOX_AUTOCLOSE)
+}
+//Whitney's Gym
+script Sevii_Gym_Trainers_EventScript_Beauty_Victoria{
+    trainerbattle_single(TRAINER_BEAUTY_VICTORIA, format("Oh, you are a cute little trainer! I like you, but I won't hold back!"), format("Let's see… Oops, it's over?"))
+    msgbox(format("Wow, you must be good to beat me! Keep it up!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Beauty_Samantha{
+    trainerbattle_single(TRAINER_BEAUTY_SAMANTHA, format("Give it your best shot, or I'll take you down!"), format("No! Oh, My Pokémon, I'm so sorry!"))
+    msgbox(format("I taught Pokémon moves from a lot of types."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Lass_Carrie{
+    trainerbattle_single(TRAINER_LASS_CARRIE, format("Don't let my Pokémon's cute looks fool you. They can whip you!"), format("Darn… I thought you were weak…"))
+    msgbox(format("Do my Pokémon think I'm cute?"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Lass_Bridget{
+    trainerbattle_single(TRAINER_LASS_BRIDGET, format("I like cute Pokémon better than strong Pokémon. But I have strong and cute Pokémon!"), format("Oh, no, no, no!"))
+    msgbox(format("I'm trying to beat Whitney, but… It's depressing. I'm okay! If I lose, I'll just try harder next time!"), MSGBOX_AUTOCLOSE)
+}
+
+//Morty's Gym
+script Sevii_Gym_Trainers_EventScript_Sage_Jeffrey{
+    trainerbattle_single(TRAINER_SAGE_JEFFREY, format("I spent the spring with my Pokémon. Then summer, fall and winter… Then spring came again. We have lived together for a long time."), format("Wins and losses, I experienced both."))
+    msgbox(format("Where did Pokémon come from?"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Sage_Ping{
+    trainerbattle_single(TRAINER_SAGE_PING, format("Can you inflict any damage on our Pokémon?"), format("Ah! Well done!"))
+    msgbox(format("We use only Ghost-type Pokémon. No Normal or Fighting type attack can harm them!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Medium_Martha{
+    trainerbattle_single(TRAINER_MEDIUM_MARTHA, format("I shall win!"), format("I, I, I lost!"))
+    msgbox(format("The one who wants to win most--will!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Medium_Grace{
+    trainerbattle_single(TRAINER_MEDIUM_GRACE, format("Stumped by our invisible floor? Defeat me if you want a hint!"), format("Wha-what?"))
+    msgbox(format("Fine. I shall tell you the secret of the invisible floor. The path is right before our eyes!"), MSGBOX_AUTOCLOSE)
+}
+//Chuck's Gym
+script Sevii_Gym_Trainers_EventScript_BlackBelt_Yoshi{
+    trainerbattle_single(TRAINER_BLACKBELT_YOSHI, format("My Pokémon and I are bound together by friendship. Our bond will never be broken!"), format("This isn't real!"))
+    msgbox(format("You seem to have a strong bond with your Pokémon too!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_BlackBelt_Lao{
+    trainerbattle_single(TRAINER_BLACKBELT_LAO, format("We martial artists fear nothing!"), format("That's shocking!"))
+    msgbox(format("Fighting Pokémon are afraid of Psychic, Flying and Fairy types..."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_BlackBelt_Nob{
+    trainerbattle_single(TRAINER_BLACKBELT_NOB, format("Words are useless. Let your fists do the talking!"), format("…"))
+    msgbox(format("I lost! I'm speechless!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_BlackBelt_Lung{
+    trainerbattle_single(TRAINER_BLACKBELT_LUNG, format("My raging fists will shatter your Pokémon!"), format("I forgot only Annihilape learns that move!"))
+    msgbox(format("My Pokémon lost… My… my pride is shattered…"), MSGBOX_AUTOCLOSE)
+}
+
+//Pryce's Gym
+script Sevii_Gym_Trainers_EventScript_Skier_Roxxane{
+    trainerbattle_single(TRAINER_SKIER_ROXANNE, format("To get to Pryce, our Gym Leader, you need to think before you skate."), format("I wouldn't lose to you in skiing!"))
+    msgbox(format("If you don't skate with precision, you won't get far in this Gym."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Skier_Clarissa{
+    trainerbattle_single(TRAINER_SKIER_CLARISSA, format("Check out my parallel turn!"), format("No! You made me wipe out!"))
+    msgbox(format("I shouldn't have been bragging about my skiing…"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Boarder_Ronald{
+    trainerbattle_single(TRAINER_BOARDER_RONALD, format("I'll freeze your Pokémon, so you can't do a thing!"), format("Darn. I couldn't do a thing."))
+    msgbox(format("I think there's a move a Pokémon can use while it's frozen."), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Boarder_Brad{
+    trainerbattle_single(TRAINER_BOARDER_BRAD, format("This Gym has a slippery floor. It's fun, isn't it? But hey--we're not playing games here!"), format("Do you see how serious we are?"))
+    msgbox(format("This Gym is great. I love boarding with my Pokémon!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Boarder_Douglass{
+    trainerbattle_single(TRAINER_BOARDER_DOUGLAS, format("I know Pryce's secret."), format("OK. I'll tell you Pryce's secret."))
+    msgbox(format("The secret behind Pryce's power… He meditates under a waterfall daily to strengthen his mind and body, or was that Chuck's…"), MSGBOX_AUTOCLOSE)
+}
+
+//Clair's Gym
+script Sevii_Gym_Trainers_EventScript_Cooltrainer_Cody{
+    trainerbattle_single(TRAINER_COOLTRAINERM_CODY, format("It's not as if we all use dragon-type Pokémon."), format("Rats! If only I had a dragon!"))
+    msgbox(format("Members of our dragon-user clan can use dragon Pokémon only after our Master allows it"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Cooltrainer_Fran{
+    trainerbattle_single(TRAINER_COOLTRAINERF_FRAN, format("I can't allow a nameless trainer past me! Clair would be livid if I did!"), format("Awww… I lost…"))
+    msgbox(format("Uh-oh… Clair is going to be mad…"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Cooltrainer_Paul{
+    trainerbattle_single(TRAINER_COOLTRAINERM_PAUL, format("Your first battle against dragons? I'll show you how tough they are!"), format("My dragon Pokémon lost?"))
+    msgbox(format("You want to meet Lance? Not a chance!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Cooltrainer_Mike{
+    trainerbattle_single(TRAINER_COOLTRAINERM_MIKE, format("My chance of losing? Not even one percent!"), format("That's odd."))
+    msgbox(format("I know my shortcomings now. Thanks for showing me!"), MSGBOX_AUTOCLOSE)
+}
+
+script Sevii_Gym_Trainers_EventScript_Cooltrainer_Lola{
+    trainerbattle_single(TRAINER_COOLTRAINERF_LOLA, format("Dragons are sacred Pokémon. They are full of life energy. If you're not serious, you won't be able to beat them."), format("Way to go!"))
+    msgbox(format("Dragons are weak against Dragon, Ice and Fairy type moves."), MSGBOX_AUTOCLOSE)
+}

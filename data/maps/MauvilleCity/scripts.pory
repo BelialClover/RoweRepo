@@ -32,8 +32,6 @@ MauvilleCity_EventScript_Boy:: @ 81DF3B3
 
 MauvilleCity_EventScript_Maniac:: @ 81DF3BC
 	msgbox MauvilleCity_Text_AllSortsOfPeopleComeThrough, MSGBOX_NPC
-	//setflag FLAG_DEBUG_MODE
-	//warp MAP_ONE_ISLAND, 16, 6, 4
 	end
 
 MauvilleCity_EventScript_Woman:: @ 81DF3C5
@@ -679,3 +677,82 @@ MauvilleCity_Text_ExplainTV: @ 81E056A
 MauvilleCity_Text_BeenCheckingOutTV: @ 81E0699
 	.string "Hi, have you been checking out TVs?$"
 `
+
+script MauvilleCity_EventScript_Man_Fixing_Elevator{
+	lock
+	faceplayer
+	msgbox(format("This elevator stopped working so I have to fix it, the Gym Leader's wife is stuck above..."), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_Pachirisu{
+	lock
+	faceplayer
+	playmoncry(SPECIES_PACHIRISU, 2)
+	msgbox(format("Pachirisu: Pachi!"), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_Minun{
+	lock
+	faceplayer
+	playmoncry(SPECIES_MINUN, 2)
+	msgbox(format("Minun: Min!"), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_Plusle{
+	lock
+	faceplayer
+	playmoncry(SPECIES_PLUSLE, 2)
+	msgbox(format("Plusle: Plus!"), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_NewMauvilleMan{
+	lock
+	faceplayer
+	msgbox(format("Mauville became this big thanks to the Leader, I remember when it was just another city"), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_WelcomeToMauville{
+	lock
+	faceplayer
+	msgbox(format("Welcome to Mauville City!"), MSGBOX_NPC)
+	release
+	end
+}
+
+script MauvilleCity_EventScript_Clerk{
+	lock
+	faceplayer
+	if(flag(FLAG_GOT_BADGE_06)){
+		message(format("Oh, hello, {PLAYER}! I have some rare items from distant lands. Please have a look!"))
+		waitmessage
+		pokemart(TwoIsland_Items_ShopExpanded3)
+	}
+	elif(flag(FLAG_GOT_BADGE_04)){
+		message(format("Oh, hello, {PLAYER}! I've started bringing in items from distant lands. I've got some rare items in, too. Please have a look!"))
+		waitmessage
+		pokemart(TwoIsland_Items_ShopExpanded2)
+	}
+	elif(flag(FLAG_GOT_BADGE_02)){
+		message(format("Welcome! I've started bringing in items from distant lands. I've got some rare items in, too. Please have a look!"))
+		waitmessage
+		pokemart(TwoIsland_Items_ShopExpanded1)
+	}
+	else{
+		message(format("Welcome! I've got some rare items in, too. Please have a look!"))
+		waitmessage
+		pokemart(TwoIsland_Items_ShopInitial)
+	}
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}

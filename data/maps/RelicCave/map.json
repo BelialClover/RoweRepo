@@ -7,7 +7,7 @@
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": false,
+  "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
@@ -34,21 +34,21 @@
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_ROUTE111",
-      "dest_warp_id": 5
+      "dest_warp_id": "5"
     },
     {
       "x": 31,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_RELIC_CAVE2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_DESERT_UNDERPASS",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

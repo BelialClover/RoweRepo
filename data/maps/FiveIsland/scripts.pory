@@ -1,0 +1,129 @@
+raw `
+.set LOCALID_SAILOR, 4
+FiveIsland_MapScripts:: @ 8167E8E
+	map_script MAP_SCRIPT_ON_TRANSITION, FiveIsland_OnTransition
+	.byte 0
+
+FiveIsland_OnTransition:: @ 8167E94
+	setflag FLAG_VISITED_FIVE_ISLAND
+	end
+
+FiveIsland_EventScript_IslandSign:: @ 8167E98
+	msgbox FiveIsland_Text_IslandSign, MSGBOX_SIGN
+	end
+
+FiveIsland_EventScript_BugCatcher:: @ 8167EA1
+	msgbox FiveIsland_Text_WeirdBuildingInMeadow, MSGBOX_NPC
+	end
+
+FiveIsland_EventScript_Fisher:: @ 8167EAA
+	msgbox FiveIsland_Text_BeenGettingBusierAroundHere, MSGBOX_NPC
+	end
+
+FiveIsland_Text_IslandSign:: @ 8182DFB
+    .string "Five Island\n"
+    .string "Chrono Island: Where Time Goes$"
+
+FiveIsland_Text_WeirdBuildingInMeadow:: @ 8182E26
+    .string "Oh, this stinks. I wanted to play in\n"
+    .string "the Meadow.\p"
+    .string "But they put up a weird building\n"
+    .string "on it, so I can't play there.$"
+
+FiveIsland_Text_BeenGettingBusierAroundHere:: @ 8182E96
+    .string "It's been getting busier around\n"
+    .string "these parts lately.\p"
+    .string "I haven't been catching many good\n"
+    .string "fish lately, either.$"
+
+
+// Sailor -------------------------------------------------------------------------------------------
+FiveIsland_EventScript_AsYouLike:: @ 8267CE7
+	msgbox EventTicket_Text_AsYouLike, MSGBOX_DEFAULT
+	release
+	end
+	
+FiveIsland_Text_Text_SailorReturn_Lilycove: @ 82C6B90
+    .string "That cave its really chilly!\n"
+	.string "Do you want to return to Lilycove?$"
+	
+FiveIsland_Text_Text_SailorReturn_Slateport: @ 82C6B90
+    .string "That cave its really chilly!\n"
+	.string "Do you want to return to Slateport?$"
+`
+
+script EventScript_RestorePrevTextColor {
+    end
+}
+
+script FiveIsland_Meadow_EventScript_ItemMaxPotion {
+    end
+}
+
+script FiveIsland_Meadow_EventScript_ItemPPUp {
+    end
+}
+
+script FiveIsland_WaterLabyrinth_EventScript_Selphy {
+	msgbox(format("This area is off-limits right now"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_WaterLabyrinth_EventScript_Alize {
+	trainerbattle_single(TRAINER_ALIZE, format("This is an excellent environment for raising POKéMON!"), format("Your POKéMON are growing up admirably well!"))
+	msgbox(format("PostBattleText"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Daisy {
+	trainerbattle_single(TRAINER_DAISY_SEVII, format("With these hands, I will create my victory!"), format("The shame of this… I'm red-faced…"))
+	msgbox(format("Uh-oh, my paint tubes have scattered everywhere!"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Celina {
+	trainerbattle_single(TRAINER_CELINA_SEVII, format("Excuse me! I'm trying to paint. Please keep out of my sight!"), format("This loss… I feel like I'm whiting out…"))
+	msgbox(format("Gillian? Please tilt your head slightly… There! That's the look I want!"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Rayna {
+	trainerbattle_single(TRAINER_RAYNA, format("Hmm… The angle, it is not quite there…"), format("Oh… My feelings, they are blue…"))
+	msgbox(format("The sky and the sea… They are so fickle. Their changing expressions make them difficult to capture."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Jacki {
+	trainerbattle_single(TRAINER_JACKI, format("I am visiting my friend's retreat, if you must know."), format("Oh, my, so strong"))
+	msgbox(format("I find it pleasurable to leisurely battle in the gentle sea breeze."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Gillian {
+	trainerbattle_single(TRAINER_GILLIAN, format("I'm thinking of having a pool made specially for Pokémon."), format("Oh, my goodness gracious!"))
+	msgbox(format("A pool would be nice, but I must say, a sun-room may be sublime."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Destin {
+	trainerbattle_single(TRAINER_DESTIN, format("I'm a good runner. I'm really fast!"), format("Oops! I rushed things!"))
+	msgbox(format("When I run with the wind, it feels like I could fly!"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_ResortGorgeous_EventScript_Toby {
+	trainerbattle_single(TRAINER_TOBY, format("I say, this marine life here at this resort agrees with me."), format("That's a shocker! You must be joking."))
+	msgbox(format("Getting so serious over this… How nonsensical."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_MemorialPillar_EventScript_Milo {
+	trainerbattle_single(TRAINER_MILO, format("I'm the eldest of the bird brothers. The best thing about birds… it has to be the beak."), format("Oh, so sharp!"))
+	msgbox(format("You can fly to four island from here."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_MemorialPillar_EventScript_Chaz {
+	trainerbattle_single(TRAINER_CHAZ, format("I'm the middle kid of the bird brothers. The best thing about birds… it has to be the wings."), format("Flap, flap!"))
+	msgbox(format("There was a really somber guy over that way."), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_MemorialPillar_EventScript_Harold {
+	trainerbattle_single(TRAINER_HAROLD, format("I'm the youngest of the bird brothers. The best thing about birds… it has to be the down."), format("Down is so comfy… it makes me drowsy…"))
+	msgbox(format("It fills me with happiness when bird pokémon beg playfully…"), MSGBOX_AUTOCLOSE)
+}
+
+script FiveIsland_MemorialPillar_EventScript_ItemMetalCoat {
+    end
+}
+

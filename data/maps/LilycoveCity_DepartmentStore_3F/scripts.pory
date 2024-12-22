@@ -7,7 +7,7 @@ LilycoveCity_DepartmentStore_3F_EventScript_ClerkLeft:: @ 821FC65
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	goto_if_set FLAG_RECEIVED_BADGE_05, LilycoveCity_DepartmentStore_3F_EventScript_ClerkLeft_2
+	goto_if_set FLAG_GOT_BADGE_08, LilycoveCity_DepartmentStore_3F_EventScript_ClerkLeft_2
 	pokemart LilycoveCity_DepartmentStore_3F_Pokemart_Vitamins
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -67,7 +67,7 @@ LilycoveCity_DepartmentStore_3F_EventScript_ClerkRight:: @ 821FC8C
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	goto_if_set FLAG_RECEIVED_BADGE_04, LilycoveCity_DepartmentStore_3F_EventScript_EvolutionClerk
+	goto_if_set FLAG_GOT_BADGE_06, LilycoveCity_DepartmentStore_3F_EventScript_EvolutionClerk
 	pokemart LilycoveCity_DepartmentStore_3F_Pokemart_Vitamins
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -76,40 +76,6 @@ LilycoveCity_DepartmentStore_3F_EventScript_ClerkRight:: @ 821FC8C
 LilycoveCity_DepartmentStore_3F_EventScript_EvolutionClerk::
 	pokemart LilycoveCity_DepartmentStore_3F_Pokemart_StatBoosters
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-LilycoveCity_DepartmentStore_3F_Pokemart_StatBoosters: @ 821FCA4
-	.2byte ITEM_FIRE_STONE
-	.2byte ITEM_WATER_STONE
-	.2byte ITEM_THUNDER_STONE
-	.2byte ITEM_LEAF_STONE
-	.2byte ITEM_SUN_STONE
-	.2byte ITEM_MOON_STONE
-	.2byte ITEM_DAWN_STONE
-	.2byte ITEM_DUSK_STONE
-	.2byte ITEM_SHINY_STONE
-	.2byte ITEM_ICE_STONE
-	.2byte ITEM_DRAGON_SCALE
-	.2byte ITEM_KINGS_ROCK
-	.2byte ITEM_METAL_COAT
-	.2byte ITEM_UP_GRADE
-	.2byte ITEM_DEEP_SEA_SCALE
-	.2byte ITEM_DEEP_SEA_TOOTH
-	.2byte ITEM_DUBIOUS_DISC
-	.2byte ITEM_ELECTIRIZER
-	.2byte ITEM_MAGMARIZER
-	.2byte ITEM_OVAL_STONE
-	.2byte ITEM_PROTECTOR
-	.2byte ITEM_RAZOR_CLAW
-	.2byte ITEM_RAZOR_FANG
-	.2byte ITEM_REAPER_CLOTH
-	.2byte ITEM_PRISM_SCALE
-	.2byte ITEM_SACHET
-	.2byte ITEM_WHIPPED_DREAM
-	.2byte ITEM_ABILITY_CAPSULE
-	.2byte ITEM_NONE
 	release
 	end
 
@@ -142,3 +108,51 @@ LilycoveCity_DepartmentStore_3F_Text_GaveCarbosToSpeedUpMon: @ 821FDB4
 	.string "and its Speed went up.$"
 
 `
+mart LilycoveCity_DepartmentStore_3F_Pokemart_StatBoosters {
+	ITEM_FIRE_STONE
+	ITEM_WATER_STONE
+	ITEM_THUNDER_STONE
+	ITEM_LEAF_STONE
+	ITEM_SUN_STONE
+	ITEM_MOON_STONE
+	ITEM_DAWN_STONE
+	ITEM_DUSK_STONE
+	ITEM_SHINY_STONE
+	ITEM_ICE_STONE
+	ITEM_LINK_CABLE
+	ITEM_SWEET_APPLE
+	ITEM_TART_APPLE
+	ITEM_SYRUP_APPLE
+	ITEM_RAINBOW_SWEET
+	ITEM_DRAGON_SCALE
+	ITEM_KINGS_ROCK
+	ITEM_METAL_COAT
+	ITEM_UP_GRADE
+	ITEM_DEEP_SEA_SCALE
+	ITEM_DEEP_SEA_TOOTH
+	ITEM_DUBIOUS_DISC
+	ITEM_ELECTIRIZER
+	ITEM_MAGMARIZER
+	ITEM_OVAL_STONE
+	ITEM_PROTECTOR
+	ITEM_RAZOR_CLAW
+	ITEM_RAZOR_FANG
+	ITEM_REAPER_CLOTH
+	ITEM_PRISM_SCALE
+	ITEM_SACHET
+	ITEM_WHIPPED_DREAM
+	ITEM_UNREMARKABLE_TEACUP
+	ITEM_MASTERPIECE_TEACUP
+	ITEM_PEAT_BLOCK
+	ITEM_AUSPICIOUS_ARMOR
+	ITEM_MALICIOUS_ARMOR
+	//ITEM_SCROLL_OF_DARKNESS
+	//ITEM_SCROLL_OF_WATERS
+	ITEM_METAL_ALLOY
+	ITEM_BLACK_AUGURITE
+	ITEM_CHIPPED_POT
+	ITEM_CRACKED_POT
+	ITEM_GALARICA_CUFF
+	ITEM_GALARICA_TWIG
+	ITEM_NONE
+}

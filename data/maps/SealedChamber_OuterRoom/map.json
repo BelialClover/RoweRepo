@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_Medichamite",
-      "flag": "FLAG_UNUSED_0x28B"
+      "flag": "FLAG_GOT_MEDICHAM_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -34,7 +34,7 @@
       "y": 2,
       "elevation": 3,
       "dest_map": "MAP_SEALED_CHAMBER_INNER_ROOM",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

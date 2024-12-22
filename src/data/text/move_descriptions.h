@@ -144,6 +144,10 @@ static const u8 sTakeDownDescription[] = _(
     "Carga desmedida que\n"
     "también hiere al agresor.");
 
+static const u8 sWave_CrashDescription[] = _(
+    "A reckless charge attack\n"
+    "that also hurts the user.");
+
 static const u8 sThrashDescription[] = _(
     "Dura de 2 a 3 turnos\n"
     "y acaba confundiéndote.");
@@ -2223,6 +2227,10 @@ static const u8 sDISARMING_VOICEDescription[] = _(
 	"Lets out a charming cry\n"
 	"that cannot be evaded.");
 
+static const u8 sAlluring_VOICEDescription[] = _(
+	"The user attacks the target\n"
+	"using its angelic voice.");
+
 static const u8 sPARTING_SHOTDescription[] = _(
 	"Lowers the foe's Attack and\n"
 	"Sp. Atk, then switches out.");
@@ -3089,6 +3097,10 @@ static const u8 sWrapDescription[] = _(
     "2 to 5 times with vines, etc.");
 
 static const u8 sTakeDownDescription[] = _(
+    "A reckless charge attack\n"
+    "that also hurts the user.");
+
+static const u8 sWave_CrashDescription[] = _(
     "A reckless charge attack\n"
     "that also hurts the user.");
 
@@ -5172,6 +5184,10 @@ static const u8 sDISARMING_VOICEDescription[] = _(
     "Lets out a charming cry\n"
     "that cannot be evaded.");
 
+static const u8 sAlluring_VOICEDescription[] = _(
+	"The user attacks the target\n"
+	"using its angelic voice.");
+
 static const u8 sPARTING_SHOTDescription[] = _(
     "Lowers the foe's Attack and\n"
     "Sp. Atk, then switches out.");
@@ -5891,6 +5907,214 @@ static const u8 sEERIE_SPELLDescription[] = _(
 
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
+
+static const u8 sGigaton_HammerDescription[] = _(
+    "A powerful hammer strike that can't\nbe used consecutively."); //Working
+
+static const u8 sAqua_CutterDescription[] = _(
+    "A slashing attack that has a high\ncritical-hit ratio.");
+
+static const u8 sAqua_StepDescription[] = _(
+    "A graceful dance attack that\nraises the user's Speed.");
+
+static const u8 sArmor_CannonDescription[] = _(
+    "Shoots blazing projectiles. Lowers\nthe user's Defense and Sp. Def.");
+
+static const u8 sAxe_KickDescription[] = _(
+    "A powerful kick with a chance to\nconfuse. May hurt the user.");
+
+static const u8 sBitter_BladeDescription[] = _(
+    "A blade attack that restores HP\nequal to half the damage dealt.");
+
+static const u8 sBlazing_TorqueDescription[] = _(
+    "A fiery spinning attack that may\nleave the target with a burn.");
+
+static const u8 sBlood_MoonDescription[] = _(
+    "A mystical attack that is stronger\nagainst weakened foes.");
+
+static const u8 sBurning_BulwarkDescription[] = _(
+    "Boosts Defense and unleashes a fiery\nattack if hit beforehand.");
+
+static const u8 sChilling_WaterDescription[] = _(
+    "Shoots cold water that lowers\nthe target's Attack stat.");
+
+static const u8 sChilly_ReceptionDescription[] = _(
+    "Summons snow and switches the\nuser out of battle.");
+
+static const u8 sCollision_CourseDescription[] = _(
+    "A collision attack that becomes\nstronger when used tactically.");
+
+static const u8 sCombat_TorqueDescription[] = _(
+    "A charging attack that may leave\nthe target paralyzed.");
+
+static const u8 sComeuppanceDescription[] = _(
+    "Retaliates with double the power\nof the damage received.");
+
+static const u8 sDoodleDescription[] = _(
+    "Copies the Abilities of all\nPokémon in battle.");
+
+static const u8 sDouble_ShockDescription[] = _(
+    "An electric blast that makes\nthe user lose its Electric type.");
+
+static const u8 sDragon_CheerDescription[] = _(
+    "Inspires allies and raises\ntheir Attack and Sp. Attack stats.");
+
+static const u8 sElectro_DriftDescription[] = _(
+    "A powerful electric move that\nis stronger on super-effective hits.");
+
+static const u8 sElectro_ShotDescription[] = _(
+    "A shocking attack with great\npower and a chance to paralyze.");
+
+static const u8 sFickle_BeamDescription[] = _(
+    "A whimsical beam attack that\nhas unpredictable effects.");
+
+static const u8 sFillet_AwayDescription[] = _(
+    "Sacrifices HP to sharply boost\nthe user's Attack and Speed.");
+
+static const u8 sFlower_TrickDescription[] = _(
+    "Throws flowers with a\nguaranteed critical hit.");
+
+static const u8 sGlaive_RushDescription[] = _(
+    "A reckless charge that\nleaves the user vulnerable next turn.");
+
+static const u8 sHard_PressDescription[] = _(
+    "A crushing move that inflicts\nextra damage on heavier foes.");
+
+static const u8 sHydro_SteamDescription[] = _(
+    "Scalding water attack that\ngrows stronger in sunlight.");
+
+static const u8 sHyper_DrillDescription[] = _(
+    "A piercing attack that can\nhit through Protect or Detect.");
+
+static const u8 sIce_SpinnerDescription[] = _(
+    "Spins ice shards to attack\nand destroy terrain effects.");
+
+static const u8 sIvy_CudgelDescription[] = _(
+    "A cudgel strike imbued with\nthe power of nature.");
+
+static const u8 sJet_PunchDescription[] = _(
+    "A fast, water-based punch\nthat strikes first.");
+
+static const u8 sKowtow_CleaveDescription[] = _(
+    "A slashing move that never\nmisses.");
+
+static const u8 sLast_RespectDescription[] = _(
+    "Gains power the more fainted\nallies there are.");
+
+static const u8 sLumina_CrashDescription[] = _(
+    "Blasts the target with light,\nlowering its Sp. Def sharply.");
+
+static const u8 sMagical_TorqueDescription[] = _(
+    "A mystic spin attack that\nmay confuse the target.");
+
+static const u8 sMake_It_RainDescription[] = _(
+    "Scatters coins to damage foes.\nLowers the user's Sp. Atk.");
+
+static const u8 sMalignant_ChainDescription[] = _(
+    "A cursed attack that causes\nlingering damage over time.");
+
+static const u8 sMatcha_GotchaDescription[] = _(
+    "A fragrant attack that may\nleave the target drowsy.");
+
+static const u8 sMighty_CleaveDescription[] = _(
+    "A sweeping attack that hits\nall adjacent opponents.");
+
+static const u8 sMortal_SpinDescription[] = _(
+    "Eliminates hazards and damages\nfoes. Poisons those it hits.");
+
+static const u8 sNoxious_TorqueDescription[] = _(
+    "A poison-coated spin attack\nthat may badly poison the target.");
+
+static const u8 sOrder_UpDescription[] = _(
+    "An attack whose effect changes\nbased on the Tatsugiri in the mouth.");
+
+static const u8 sPopulation_BombDescription[] = _(
+    "Hits up to ten times. Each hit\nhas a chance to land a critical.");
+
+static const u8 sPounceDescription[] = _(
+    "Lowers the target's Speed after\ndelivering a swift attack.");
+
+static const u8 sPsybladeDescription[] = _(
+    "A psychic blade attack boosted\non Electric Terrain.");
+
+static const u8 sPsychic_NoiseDescription[] = _(
+    "A mental attack that prevents\nthe target from recovering HP.");
+
+static const u8 sRage_FistDescription[] = _(
+    "Grows stronger each time the\nuser is hit in battle.");
+
+static const u8 sRaging_BullDescription[] = _(
+    "A charge attack whose type\nchanges with the user's form."); //Working
+
+static const u8 sRevival_BlessingDescription[] = _(
+    "Revives a fainted ally and\nrestores half of its HP.");
+
+static const u8 sRuinationDescription[] = _(
+    "Halves the target's HP with\nmystical power.");
+
+static const u8 sSalt_CureDescription[] = _(
+    "Inflicts lingering damage,\ndealing extra to Water and Steel types.");
+
+static const u8 sShed_TailDescription[] = _(
+    "Creates a decoy using HP\nand switches out.");
+
+static const u8 sSilk_TrapDescription[] = _(
+    "Protects the user while\nlowering the Speed of attackers.");
+
+static const u8 sSnowscapeDescription[] = _(
+    "Summons snow that boosts\nthe Defense of Ice types.");
+
+static const u8 sSpicy_ExtractDescription[] = _(
+    "Harshly raises the target's\nAttack but lowers its Defense.");
+
+static const u8 sSpin_OutDescription[] = _(
+    "A high-speed spin attack\nthat lowers the user's Speed.");
+
+static const u8 sSupercell_SlamDescription[] = _(
+    "An electrical attack with\nimmense power but unpredictable effects.");
+
+static const u8 sSyrup_BombDescription[] = _(
+    "Covers the field in sticky\nsyrup, reducing foes' Speed.");
+
+static const u8 sTachyon_CutterDescription[] = _(
+    "A swift slash attack that\nalways lands critical hits.");
+
+static const u8 sTemper_FlareDescription[] = _(
+    "An explosive attack that raises\nthe user's Attack if it lands.");
+
+static const u8 sTera_BlastDescription[] = _(
+    "Changes type to match the Tera\nType when the user Terastallizes.");
+
+static const u8 sTera_StarstormDescription[] = _(
+    "A dazzling attack that deals\nextra damage on consecutive uses.");
+
+static const u8 sThunderclapDescription[] = _(
+    "A fast Electric move that\nalways strikes first.");
+
+static const u8 sTidy_UpDescription[] = _(
+    "Removes hazards and boosts\nthe user's Attack and Speed.");
+
+static const u8 sTrailblazeDescription[] = _(
+    "A nature-powered attack\nthat boosts the user's Speed.");
+
+static const u8 sTriple_DiveDescription[] = _(
+    "Strikes the target three\ntimes in succession.");
+
+static const u8 sTwin_BeamDescription[] = _(
+    "Shoots two psychic beams\nat the target in one turn.");
+
+static const u8 sUpper_HandDescription[] = _(
+    "Anticipates and strikes\nfirst against the target's priority move.");
+
+static const u8 sWicked_TorqueDescription[] = _(
+    "A dark spinning attack that\nmay leave the target asleep.");
+
+static const u8 sNeutral_PulseDescription[] = _(
+    "Generates a plain wave to\n"
+    "damage the foe.");
+
+static const u8 sSeasonal_BeamDescription[] = _(
+    "A dazzling beam of energy that\nchanges type with the season."); //Working
 
 #endif
 
@@ -6653,4 +6877,76 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GLACIAL_LANCE - 1] = sGLACIAL_LANCEDescription,
     [MOVE_ASTRAL_BARRAGE - 1] = sASTRAL_BARRAGEDescription,
     [MOVE_EERIE_SPELL - 1] = sEERIE_SPELLDescription,
+    [MOVE_ALLURING_VOICE - 1] = sAlluring_VOICEDescription,
+    [MOVE_WAVE_CRASH - 1]       = sWave_CrashDescription,
+    [MOVE_GIGATON_HAMMER - 1]   = sGigaton_HammerDescription, //Working
+    [MOVE_AQUA_CUTTER - 1]      = sAqua_CutterDescription,
+    [MOVE_AQUA_STEP - 1]        = sAqua_StepDescription,
+    [MOVE_ARMOR_CANNON - 1]     = sArmor_CannonDescription,
+    [MOVE_AXE_KICK - 1]         = sAxe_KickDescription,
+    [MOVE_BITTER_BLADE - 1]     = sBitter_BladeDescription,
+    [MOVE_BLAZING_TORQUE - 1]   = sBlazing_TorqueDescription,
+    [MOVE_BLOOD_MOON - 1]       = sBlood_MoonDescription,
+    [MOVE_BURNING_BULWARK - 1]  = sBurning_BulwarkDescription,
+    [MOVE_CHILLING_WATER - 1]   = sChilling_WaterDescription,
+    [MOVE_CHILLY_RECEPTION - 1] = sChilly_ReceptionDescription,
+    [MOVE_COLLISION_COURSE - 1] = sCollision_CourseDescription,
+    [MOVE_COMBAT_TORQUE - 1]    = sCombat_TorqueDescription,
+    [MOVE_COMEUPPANCE - 1]      = sComeuppanceDescription,
+    [MOVE_DOODLE - 1]           = sDoodleDescription,
+    [MOVE_DOUBLE_SHOCK - 1]     = sDouble_ShockDescription,
+    [MOVE_DRAGON_CHEER - 1]     = sDragon_CheerDescription,
+    [MOVE_ELECTRO_DRIFT - 1]    = sElectro_DriftDescription,
+    [MOVE_ELECTRO_SHOT - 1]     = sElectro_ShotDescription,
+    [MOVE_FICKLE_BEAM - 1]      = sFickle_BeamDescription,
+    [MOVE_FILLET_AWAY - 1]      = sFillet_AwayDescription,
+    [MOVE_FLOWER_TRICK - 1]     = sFlower_TrickDescription,
+    [MOVE_GLAIVE_RUSH - 1]      = sGlaive_RushDescription,
+    [MOVE_HARD_PRESS - 1]       = sHard_PressDescription,
+    [MOVE_HYDRO_STEAM - 1]      = sHydro_SteamDescription,
+    [MOVE_HYPER_DRILL - 1]      = sHyper_DrillDescription,
+    [MOVE_ICE_SPINNER - 1]      = sIce_SpinnerDescription,
+    [MOVE_IVY_CUDGEL - 1]       = sIvy_CudgelDescription,
+    [MOVE_JET_PUNCH - 1]        = sJet_PunchDescription,
+    [MOVE_KOWTOW_CLEAVE - 1]    = sKowtow_CleaveDescription,
+    [MOVE_LAST_RESPECTS - 1]    = sLast_RespectDescription,
+    [MOVE_LUMINA_CRASH - 1]     = sLumina_CrashDescription,
+    [MOVE_MAGICAL_TORQUE - 1]   = sMagical_TorqueDescription,
+    [MOVE_MAKE_IT_RAIN - 1]     = sMake_It_RainDescription,
+    [MOVE_MALIGNANT_CHAIN - 1]  = sMalignant_ChainDescription,
+    [MOVE_MATCHA_GOTCHA - 1]    = sMatcha_GotchaDescription,
+    [MOVE_MIGHTY_CLEAVE - 1]    = sMighty_CleaveDescription,
+    [MOVE_MORTAL_SPIN - 1]      = sMortal_SpinDescription,
+    [MOVE_NOXIOUS_TORQUE - 1]   = sNoxious_TorqueDescription,
+    [MOVE_ORDER_UP - 1]         = sOrder_UpDescription,
+    [MOVE_POPULATION_BOMB - 1]  = sPopulation_BombDescription,
+    [MOVE_POUNCE - 1]           = sPounceDescription,
+    [MOVE_PSYBLADE - 1]         = sPsybladeDescription,
+    [MOVE_PSYCHIC_NOISE - 1]    = sPsychic_NoiseDescription,
+    [MOVE_RAGE_FIST - 1]        = sRage_FistDescription,
+    [MOVE_RAGING_BULL - 1]      = sRaging_BullDescription, //Working
+    [MOVE_REVIVAL_BLESSING - 1] = sRevival_BlessingDescription,
+    [MOVE_RUINATION - 1]        = sRuinationDescription,
+    [MOVE_SALT_CURE - 1]        = sSalt_CureDescription,
+    [MOVE_SHED_TAIL - 1]        = sShed_TailDescription,
+    [MOVE_SILK_TRAP - 1]        = sSilk_TrapDescription,
+    [MOVE_SNOWSCAPE - 1]        = sSnowscapeDescription,
+    [MOVE_SPICY_EXTRACT - 1]    = sSpicy_ExtractDescription,
+    [MOVE_SPIN_OUT - 1]         = sSpin_OutDescription,
+    [MOVE_SUPERCELL_SLAM - 1]   = sSupercell_SlamDescription,
+    [MOVE_SYRUP_BOMB - 1]       = sSyrup_BombDescription,
+    [MOVE_TACHYON_CUTTER - 1]   = sTachyon_CutterDescription,
+    [MOVE_TEMPER_FLARE - 1]     = sTemper_FlareDescription,
+    [MOVE_TERA_BLAST - 1]       = sTera_BlastDescription,
+    [MOVE_TERA_STARSTORM - 1]   = sTera_StarstormDescription,
+    [MOVE_THUNDERCLAP - 1]      = sThunderclapDescription,
+    [MOVE_TIDY_UP - 1]          = sTidy_UpDescription,
+    [MOVE_TRAILBLAZE - 1]       = sTrailblazeDescription,
+    [MOVE_TRIPLE_DIVE - 1]      = sTriple_DiveDescription,
+    [MOVE_TWIN_BEAM - 1]        = sTwin_BeamDescription,
+    [MOVE_UPPER_HAND - 1]       = sUpper_HandDescription,
+    [MOVE_WICKED_TORQUE - 1]    = sWicked_TorqueDescription,
+    [MOVE_NEUTRAL_PULSE - 1]    = sNeutral_PulseDescription, //Working
+    [MOVE_SEASONAL_BEAM - 1]    = sSeasonal_BeamDescription, //Working
+    [MOVE_RAGING_FURY - 1]      = sOutrageDescription, //Working
 };

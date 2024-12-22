@@ -1,0 +1,293 @@
+
+//Four Island
+script FourIsland_LoreleisHouse_EventScript_Lorelei{
+	lock
+	faceplayer
+	msgbox(format("My niece Lorelei is a famous trainer in Kanto, she really likes Ice-type Pokémon."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FourIsland_LoreleisHouse_EventScript_Doll{
+	lock
+	msgbox(format("It's a Poké-Doll."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FourIsland_House1_EventScript_FatMan{
+	lock
+	faceplayer
+	msgbox(format("There! Boing! You're awfully heavy!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FourIsland_House1_EventScript_BodySlamTutor{
+	lock
+	faceplayer
+	msgbox(format("There! Boing! You're awfully heavy!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FourIsland_House2_EventScript_StickerMan{
+	lock
+	faceplayer
+	msgbox(format("Giggle… I collected a ton of Stickers, I wish I could show them off…."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Five Island
+script FiveIsland_PokemonCenter_1F_EventScript_Chef{
+	lock
+	faceplayer
+	msgbox(format("I'm on my way to prepare a meal for a certain high-society person."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FiveIsland_PokemonCenter_1F_EventScript_CooltrainerF{
+	lock
+	faceplayer
+	msgbox(format("You're on a quest to catch every single kind of Pokémon? …How incredible. Please tell me if you catch a strong one!."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FiveIsland_House1_EventScript_Woman{
+	lock
+	faceplayer
+	msgbox(format("Don't worry about buying anything for dinner tonight! …That's what my husband said when he went off fishing today. I'm not sure if I can count on him to live up to that promise.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script FiveIsland_House2_EventScript_OldMan{
+	lock
+	faceplayer
+	msgbox(format("That Meadow has belonged to our family for generations. I should have had a giant mansion built on it. It would be preferable to having those thugs run wild on it!."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Six Island
+script SixIsland_EventScript_Boy{
+	lock
+	faceplayer
+	msgbox(format("When you're this far away from the city, the sky at night is fantastic.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_EventScript_Hiker{
+	lock
+	faceplayer
+	msgbox(format("Keep going this way and you'll get to the Water Path. Stay on that and you'll get to the Ruin Valley."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Six Island - Pokemon Center
+script SixIsland_PokemonCenter_1F_EventScript_OldMan{
+	lock
+	faceplayer
+	msgbox(format("You know of Pokémon that evolve only upon trading, yes? But did you know that there are still others? Some Pokémon evolve only when traded while holding specific items."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_PokemonCenter_1F_EventScript_Hiker{
+	lock
+	faceplayer
+	msgbox(format("For ten years, I've searched for Ruins. No, make that twenty years. I get this feeling that there's something hidden on this island.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Six Island Shop
+script SixIsland_Mart_EventScript_Picnicker{
+	lock
+	faceplayer
+	msgbox(format("I should buy some Mail and write him a letter…"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_Mart_EventScript_OldWoman{
+	lock
+	faceplayer
+	msgbox(format("Play with Pokémon lots and live a long life! Take Agatha, for example. She set a record for being the oldest-ever Elite Four member. She spurs me to do bigger things.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Houses
+script SixIsland_House_EventScript_OldMan{
+	lock
+	faceplayer
+	msgbox(format("There's nothing that young people'd find exciting here on this island. But, this is a good place in terms of nature and history. Relax and enjoy your stay.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Seven Island
+script SevenIsland_EventScript_Scientist{
+	lock
+	faceplayer
+	msgbox(format("This island has been left virtually untouched in its natural state. It could be a little difficult to hike around because of that.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_EventScript_SwordsDanceTutor{
+	lock
+	faceplayer
+	msgbox(format("I saw some Tentacools that were walking on land, that's a really strange thing to happen since they are Water-type Pokémon..."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_EventScript_OldWoman{
+	lock
+	faceplayer
+	msgbox(format("These islands are called the Sevii Islands because there are seven. …Or at least that's what the young people believe. The truth is, these islands are so named because they are said to have been made in seven days."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Seven Island - Pokemon Center
+script SevenIsland_PokemonCenter_1F_EventScript_Beauty{
+	lock
+	faceplayer
+	msgbox(format("If you're confident, you should check out Trainer Tower."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_PokemonCenter_1F_EventScript_OldMan{
+	lock
+	faceplayer
+	msgbox(format("On this island, different events occur depending on connections. What are those connections? They are for you to discover on your own.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_PokemonCenter_1F_EventScript_Sailor{
+	lock
+	faceplayer
+	msgbox(format("Did you ride a Seagallop ferry to get here? There are at least ten of those high-speed ships. I don't know where they all go, though."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Seven Island Shop
+script SevenIsland_Mart_EventScript_Hiker{
+	lock
+	faceplayer
+	msgbox(format("Okay, preparations are complete for me to explore the Ruins."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_Mart_EventScript_Fisher{
+	lock
+	faceplayer
+	msgbox(format("I need to fish on Seven Island. That will complete my fishing tour of the Sevii Islands. I'd better stock up on some Poké Balls first, though."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_Mart_EventScript_Lass{
+	lock
+	faceplayer
+	msgbox(format("Pokémon have personalities of their own, just like people. My Pikachu has a Hasty nature, so it grew to be a speedy Pokémon."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Houses
+script SevenIsland_House_Room1_EventScript_OldWoman{
+	lock
+	faceplayer
+	msgbox(format("I may not look like much now, but when I was younger… I flew everywhere, challenging Trainers wherever I found them. Now, my only source of enjoyment is reminiscing about the past while watching battles.."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_WaterPath_House1_EventScript_Beauty{
+	lock
+	faceplayer
+	msgbox(format("Hera, hera, Heracross!\nBig and shiny, it's the bug boss!\lLove it, need it, Heracross!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_WaterPath_House2_EventScript_Man{
+	lock
+	faceplayer
+	msgbox(format("My height is 67.0 inches on the button.\pI know it is this precisely because my neighbor measured me."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_SevaultCanyon_House_EventScript_BaldingMan{
+	lock
+	faceplayer
+	msgbox(format("Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_SevaultCanyon_House_EventScript_Chansey{
+	lock
+	faceplayer
+	msgbox(format("Chansey: Chansi! Chansi!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Route Signs
+script SevenIsland_SevaultCanyon_Entrance_EventScript_RouteSign{
+	lock
+	msgbox(format("Sevault Canyon Entrance trainers are asked to refrain from damaging plants in the Canyon."), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SevenIsland_SevaultCanyon_EventScript_RouteSign{
+	lock
+	msgbox(format("Sevault Canyon Tanoby Ruins ahead"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_GreenPath_EventScript_LeftRouteSign{
+	lock
+	msgbox(format("Green Path Pattern Bush Ahead"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_GreenPath_EventScript_RightRouteSign{
+	lock
+	msgbox(format("Green Path, Think Green, Keep Nature Clean!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script SixIsland_EventScript_IslandSign{
+	msgbox(format("Six Island\nFortune Island of Aged Wisdom"), MSGBOX_SIGN)
+	end
+}
+
+script SevenIsland_EventScript_IslandSign{
+	msgbox(format("Seven Island\nQuest Island of Infinity"), MSGBOX_SIGN)
+	end
+}
+
+script SixIsland_WaterPathEventScript_RouteSign{
+	msgbox(format("Water Path\nLeads Ruin Valley"), MSGBOX_SIGN)
+	end
+}

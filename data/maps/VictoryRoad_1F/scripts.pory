@@ -24,6 +24,7 @@ VictoryRoad_1F_EventScript_SetEntranceWallyPos2:: @ 8235DA3
 
 VictoryRoad_1F_EventScript_WallyBattleTrigger1:: @ 8235DAF
 	lockall
+	special HideFollower
 	setvar VAR_0x8008, 1
 	addobject LOCALID_WALLY_ENTRANCE
 	applymovement LOCALID_WALLY_ENTRANCE, VictoryRoad_1F_Movement_WallyApproachPlayer1
@@ -33,6 +34,7 @@ VictoryRoad_1F_EventScript_WallyBattleTrigger1:: @ 8235DAF
 
 VictoryRoad_1F_EventScript_WallyBattleTrigger2:: @ 8235DC8
 	lockall
+	special HideFollower
 	setvar VAR_0x8008, 2
 	addobject LOCALID_WALLY_ENTRANCE
 	applymovement LOCALID_WALLY_ENTRANCE, VictoryRoad_1F_Movement_WallyApproachPlayer2
@@ -125,11 +127,11 @@ VictoryRoad_1F_EventScript_Katelynn:: @ 8235ECF
 	end
 
 VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore: @ 8235EE6
-	.string "My name is Wally, im here to train\n"
-	.string "with my Pokémon, you seem strong,\p"
-	.string "please let me test the courage and \n"
-	.string "strength that i got from my Pokémon!\p"
-	.string "Okay… Here I come!$"
+    .string "My name is Wally. I'm here to train\n"
+    .string "with my Pokémon. You seem strong,\p"
+    .string "so please let me test the courage\n"
+    .string "and strength I've gained from them!\p"
+    .string "Okay… Here I come!$"
 
 VictoryRoad_1F_Text_WallyEntranceDefeat: @ 8235FFC
 	.string "Wow!\n"

@@ -166,14 +166,6 @@ SlateportCity_Harbor_Movement_PlayerWalkUp: @ 820CAEF
 	walk_up
 	step_end
 
-SlateportCity_Harbor_EventScript_FerryAttendant:: @ 820CAF1
-	lock
-	faceplayer
-	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_AskForTicket
-	msgbox SlateportCity_Harbor_Text_FerryServiceUnavailable, MSGBOX_DEFAULT
-	release
-	end
-
 SlateportCity_Harbor_EventScript_AskForTicket:: @ 820CB06
 	msgbox SlateportCity_Harbor_Text_MayISeeYourTicket, MSGBOX_DEFAULT
 	message SlateportCity_Harbor_Text_FlashedTicketWhereTo

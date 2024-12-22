@@ -11,185 +11,8 @@ LilycoveCity_Harbor_MapScripts:: @ 821E000
 LilycoveCity_Harbor_OnTransition: @ 821E006
 	setescapewarp MAP_LILYCOVE_CITY, 255, 12, 33
 	end
-
-LilycoveCity_Harbor_EventScript_FerryAttendant:: @ 821E00F
-	lock
-	faceplayer
-	goto LilycoveCity_Harbor_EventScript_NoFirstTimeEventTickets
-	end
-
-// LilyCove Harbor --------------------------------------------------------------------------------------------------------------
-LilycoveCity_Harbor_EventScript_NoFirstTimeEventTickets:: @ 821E080
-	msgbox LilycoveCity_Harbor_Text_MayISeeYourTicket, MSGBOX_DEFAULT
-	message LilycoveCity_Harbor_Text_FlashTicketWhereTo
-	waitmessage
-	goto_if_unset FLAG_SYS_GAME_CLEAR, LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect
-	goto LilycoveCity_Harbor_EventScript_FerryRegularLocationSelectPostgame
-	end
-
-LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect:: @ 821E09F
-    clearflag FLAG_SAILED_FROM_SLATEPORT
-	scrollingmultichoice 2, 0, 0, 4, TRUE
-	switch VAR_RESULT
-	case 0, LilycoveCity_Harbor_EventScript_GoToSlateport
-	case 1, LilycoveCity_Harbor_EventScript_GoToIslandOne
-	case 2, LilycoveCity_Harbor_EventScript_GoToIslandTwo
-	case 3,LilycoveCity_Harbor_EventScript_GoToIslandThree
-	case 4, LilycoveCity_Harbor_EventScript_GoToIslandFour
-	case 5, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	end
-	
-LilycoveCity_Harbor_EventScript_FerryRegularLocationSelectPostgame:: @ 821E09F
-    clearflag FLAG_SAILED_FROM_SLATEPORT
-	scrollingmultichoice 3, 0, 0, 6, TRUE
-	switch VAR_RESULT
-	case 0, LilycoveCity_Harbor_EventScript_GoToSlateport
-	case 1, LilycoveCity_Harbor_EventScript_GoToIslandOne
-	case 2, LilycoveCity_Harbor_EventScript_GoToIslandTwo
-	case 3, LilycoveCity_Harbor_EventScript_GoToIslandThree
-	case 4, LilycoveCity_Harbor_EventScript_GoToIslandFour
-	case 5, LilycoveCity_Harbor_EventScript_GoToBattleFrontier
-	case 6, LilycoveCity_Harbor_EventScript_GoToSouthernIsland
-	case 7, LilycoveCity_Harbor_EventScript_GoToNavelRock
-	case 8, LilycoveCity_Harbor_EventScript_GoToBirthIsland
-	case 9, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
-	case 10, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	end
-	
-// Slateport Harbor --------------------------------------------------------------------------------------------------------------
-LilycoveCity_Slateport_Harbor_EventScript_FerryAttendant:: @ 821E00F
-	lock
-	faceplayer
-	msgbox LilycoveCity_Harbor_Text_MayISeeYourTicket, MSGBOX_DEFAULT
-	message LilycoveCity_Harbor_Text_FlashTicketWhereTo
-	waitmessage
-	goto_if_unset FLAG_SYS_GAME_CLEAR, LilycoveCity_Slateport_Harbor_EventScript_FerryRegularLocationSelect
-	goto LilycoveCity_Slateport_Harbor_EventScript_FerryRegularLocationSelectPostgame
-	end
-
-LilycoveCity_Slateport_Harbor_EventScript_FerryRegularLocationSelect:: @ 821E09F
-    setflag FLAG_SAILED_FROM_SLATEPORT
-	scrollingmultichoice 4, 0, 0, 4, TRUE
-	switch VAR_RESULT
-	case 0, LilycoveCity_Harbor_EventScript_GoToLilycove
-	case 1, LilycoveCity_Harbor_EventScript_GoToIslandOne
-	case 2, LilycoveCity_Harbor_EventScript_GoToIslandTwo
-	case 3,LilycoveCity_Harbor_EventScript_GoToIslandThree
-	case 4, LilycoveCity_Harbor_EventScript_GoToIslandFour
-	case 5, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	end
-	
-LilycoveCity_Slateport_Harbor_EventScript_FerryRegularLocationSelectPostgame:: @ 821E09F
-    setflag FLAG_SAILED_FROM_SLATEPORT
-	scrollingmultichoice 8, 0, 0, 6, TRUE
-	switch VAR_RESULT
-	case 0, LilycoveCity_Harbor_EventScript_GoToLilycove
-	case 1, LilycoveCity_Harbor_EventScript_GoToIslandOne
-	case 2, LilycoveCity_Harbor_EventScript_GoToIslandTwo
-	case 3, LilycoveCity_Harbor_EventScript_GoToIslandThree
-	case 4, LilycoveCity_Harbor_EventScript_GoToIslandFour
-	case 5, LilycoveCity_Harbor_EventScript_GoToBattleFrontier
-	case 6, LilycoveCity_Harbor_EventScript_GoToSouthernIsland
-	case 7, LilycoveCity_Harbor_EventScript_GoToNavelRock
-	case 8, LilycoveCity_Harbor_EventScript_GoToBirthIsland
-	case 9, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
-	case 10, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
-	end
 	
 // -----------------------------------------------------------------------------------------------------------------------------
-LilycoveCity_Harbor_EventScript_BoardFerry::
-	msgbox LilycoveCity_Harbor_Text_PleaseBoard, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFastestUp
-	waitmovement 0
-	delay 30
-	hideobjectat LOCALID_ATTENDANT, MAP_LILYCOVE_CITY_HARBOR
-	hideobjectat LOCALID_ATTENDANT, MAP_SLATEPORT_CITY_HARBOR
-	special HideFollower
-	compare VAR_FACING, DIR_NORTH
-	call_if_eq LilycoveCity_Harbor_EventScript_PlayerBoardFerryNorth
-	compare VAR_FACING, DIR_EAST
-	call_if_eq LilycoveCity_Harbor_EventScript_PlayerBoardFerryEast
-	delay 30
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	setvar VAR_0x8004, LOCALID_SS_TIDAL
-	call Common_EventScript_FerryDepart
-	return
-
-LilycoveCity_Harbor_EventScript_GoToSouthernIsland:: @ 821E109
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_SOUTHERN_ISLAND_EXTERIOR, 255, 13, 22
-	waitstate
-	release
-	end
-
-LilycoveCity_Harbor_EventScript_GoToNavelRock:: @ 821E119
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_NAVEL_ROCK_HARBOR, 255, 8, 4
-	waitstate
-	release
-	end
-
-LilycoveCity_Harbor_EventScript_GoToBirthIsland:: @ 821E129
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_BIRTH_ISLAND_HARBOR, 255, 8, 4
-	waitstate
-	release
-	end
-	
-LilycoveCity_Harbor_EventScript_GoToIslandOne:: @ 821E139
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_ONE_ISLAND, 255, 12, 17
-	waitstate
-	release
-	end
-	
-LilycoveCity_Harbor_EventScript_GoToIslandTwo:: @ 821E139
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_TWO_ISLAND, 255, 10, 7
-	waitstate
-	release
-	end
-	
-LilycoveCity_Harbor_EventScript_GoToIslandThree:: @ 821E139
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_THREE_ISLAND_PORT, 255, 12, 12
-	waitstate
-	release
-	end
-
-LilycoveCity_Harbor_EventScript_GoToIslandFour:: @ 821E139
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_FOUR_ISLAND, 255, 10, 27
-	waitstate
-	release
-	end
-
-LilycoveCity_Harbor_EventScript_GoToFarawayIsland:: @ 821E139
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_FARAWAY_ISLAND_ENTRANCE, 255, 13, 38
-	waitstate
-	release
-	end
-	
-LilycoveCity_Harbor_EventScript_GoToLilycove:: @ 821E149
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11
-	waitstate
-	release
-	end
-	
-LilycoveCity_Harbor_EventScript_GoToSlateport:: @ 821E149
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11
-	waitstate
-	release
-	end
-
 LilycoveCity_Harbor_EventScript_GoToSlateport_Postgame:: @ 821E149
 	msgbox LilycoveCity_Harbor_Text_SlateportItIs, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -482,42 +305,11 @@ LilycoveCity_Harbor_EventScript_NoEventTickets:: @ 821E557
 	msgbox LilycoveCity_Harbor_Text_MayISeeYourTicket, MSGBOX_DEFAULT
 	message LilycoveCity_Harbor_Text_FlashTicketWhereTo
 	waitmessage
-	goto LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect
-	end
-
-@ Unused
-LilycoveCity_Harbor_EventScript_NoTicket:: @ 821E56B
-	msgbox LilycoveCity_Harbor_Text_NoTicket, MSGBOX_DEFAULT
-	release
-	end
-
-@ Unused
-LilycoveCity_Harbor_EventScript_GoToSlateportUnused:: @ 821E575
-	msgbox LilycoveCity_Harbor_Text_SlateportItIs, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind
-	setvar VAR_SS_TIDAL_STATE, SS_TIDAL_BOARD_LILYCOVE
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_SS_TIDAL_CORRIDOR, 255, 1, 10
-	waitstate
-	release
-	end
-
-@ Unused
-LilycoveCity_Harbor_EventScript_GoToBattleFrontierUnused:: @ 821E59D
-	msgbox LilycoveCity_Harbor_Text_BattleFrontierItIs, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind
-	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 255, 19, 67
-	waitstate
-	release
 	end
 
 LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind:: @ 821E5C0
 	message LilycoveCity_Harbor_Text_WhereWouldYouLikeToGo
 	waitmessage
-	goto LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect
 	end
 
 LilycoveCity_Harbor_EventScript_PlayerBoardFerryEast:: @ 821E610
@@ -529,11 +321,6 @@ LilycoveCity_Harbor_EventScript_PlayerBoardFerryNorth:: @ 821E61B
 	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_Harbor_Movement_PlayerBoardFerryNorth
 	waitmovement 0
 	return
-
-LilycoveCity_Harbor_EventScript_ExitSailSelect:: @ 821E626
-	msgbox LilycoveCity_Harbor_Text_SailAnotherTime, MSGBOX_DEFAULT
-	release
-	end
 
 LilycoveCity_Harbor_Movement_PlayerBoardFerryEast: @ 821E630
 	walk_right

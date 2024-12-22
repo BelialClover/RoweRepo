@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_Garchompite",
-      "flag": "FLAG_UNUSED_0x28F"
+      "flag": "FLAG_GOT_GARCHOMP_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -47,14 +47,14 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROUTE114_FOSSIL_MANIACS_TUNNEL",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 132,
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_RELIC_CAVE",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

@@ -191,7 +191,7 @@ script Route119_WeatherInstitute_1F_EventScript_Kid {
     faceplayer
     msgbox(format("Wow, Winona is really strong!.\p"
 	"I wish I could be a Pokémon Trainer like her!"))
-	if (flag(FLAG_RECEIVED_TM04) == TRUE) {
+	if (flag(FLAG_ENABLE_WINONA_MATCH_CALL) == TRUE) {
 		msgbox(format("What?! you defeated her!.\n"
 		"Don't be silly, nobody can beat Winona!"))
 	}

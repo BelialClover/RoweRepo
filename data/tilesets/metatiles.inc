@@ -727,3 +727,26 @@ gMetatiles_SeviiIslands45::
 	.align 1
 gMetatileAttributes_SeviiIslands45::
 	.incbin "data/tilesets/secondary/seviiislands45/metatile_attributes.bin"
+	.align 1
+gMetatiles_MauvilleCityInside::
+	.incbin "data/tilesets/secondary/mauvillecityinside/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_MauvilleCityInside::
+	.incbin "data/tilesets/secondary/mauvillecityinside/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_SeviiIslands67::
+	.incbin "data/tilesets/secondary/sevii_islands_67/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_SeviiIslands67::
+	.incbin "data/tilesets/secondary/sevii_islands_67/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_GenericSeviiGym::
+	.incbin "data/tilesets/secondary/generic_sevii_gym/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_GenericSeviiGym::
+	.incbin "data/tilesets/secondary/generic_sevii_gym/metatile_attributes.bin"

@@ -1,0 +1,40 @@
+{
+  "id": "MAP_ROUTE119_UXIE_CAVE_OUTSIDE",
+  "name": "Route119_UxieCave_Outside",
+  "layout": "LAYOUT_ROUTE119_UXIE_CAVE_OUTSIDE",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ROUTE_119",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE119_UNDERWATER_CAVE",
+      "offset": 0,
+      "direction": "dive"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE119_UXIE_CAVE_INSIDE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

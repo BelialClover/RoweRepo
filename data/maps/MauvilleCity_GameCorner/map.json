@@ -182,6 +182,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MauvilleCity_GameCorner_EventScript_Gachamon",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_GameCorner_EventScript_Mons",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -190,14 +203,14 @@
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": 5
+      "dest_warp_id": "5"
     },
     {
       "x": 12,
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": 5
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

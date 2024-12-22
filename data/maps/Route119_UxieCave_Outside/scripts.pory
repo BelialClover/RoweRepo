@@ -1,0 +1,8 @@
+mapscripts Route119_UxieCave_Outside_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if(!flag(FLAG_SYS_GAME_CLEAR)){
+            setmetatile(9, 0, METATILE_RockTunnel_CaveTile, 1)
+            setmetatile(9, 1, METATILE_RockTunnel_CaveTile, 1)
+        }
+    }
+}

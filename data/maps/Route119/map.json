@@ -14,14 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_ROUTE118",
       "offset": -40,
-      "map": "MAP_ROUTE118"
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_FORTREE_CITY",
       "offset": 0,
-      "map": "MAP_FORTREE_CITY"
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE119_UNDERWATER",
+      "offset": 0,
+      "direction": "dive"
     }
   ],
   "object_events": [
@@ -283,7 +288,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_Pinsirite",
-      "flag": "FLAG_UNUSED_0x280"
+      "flag": "FLAG_GOT_PINSIR_MEGA_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -443,8 +448,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 13,
-      "y": 104,
+      "x": 5,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -526,14 +531,14 @@
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 33,
       "y": 109,
       "elevation": 0,
       "dest_map": "MAP_ROUTE119_HOUSE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -820,7 +825,7 @@
     {
       "type": "hidden_item",
       "x": 20,
-      "y": 29,
+      "y": 28,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_119_MAX_ETHER"

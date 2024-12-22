@@ -885,8 +885,8 @@ SlateportCity_EventScript_HPUp:: @ 81DD522
 	end
 
 SlateportCity_EventScript_PPUp:: @ 81DD536
-	bufferitemname 0, ITEM_PP_UP
-	setvar VAR_0x8008, ITEM_PP_UP
+	bufferitemname 0, ITEM_POKE_BALL
+	setvar VAR_0x8008, ITEM_POKE_BALL
 	setvar VAR_0x8009, 3000
 	goto SlateportCity_EventScript_TryBuyBerryPowderItem
 	end

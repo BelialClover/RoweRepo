@@ -72,6 +72,8 @@ AI_CBM_CheckIfNegatesType:
 	if_equal ABILITY_STORM_DRAIN, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
+	if_equal ABILITY_WELL_BAKED_BODY, CheckIfFlashFireCancelsFire
+	if_equal ABILITY_THERMAL_EXCHANGE, CheckIfFlashFireCancelsFire
 	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
 	if_equal ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
 	if_equal ABILITY_SOUNDPROOF, CheckIfSoundproofCancelsMove

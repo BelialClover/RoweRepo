@@ -22,14 +22,14 @@
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_DIGLETTS_CAVE_NORTH_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 82,
       "y": 71,
       "elevation": 0,
       "dest_map": "MAP_DIGLETTS_CAVE_SOUTH_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

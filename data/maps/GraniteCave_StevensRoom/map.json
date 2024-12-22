@@ -23,9 +23,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "MegaStone_EventScript_ItemSteelixite",
-      "flag": "FLAG_UNUSED_0x268"
+      "trainer_sight_or_berry_tree_id": "ITEM_SANDACONDITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_GOT_SANDACONDA_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -34,14 +34,14 @@
       "y": 3,
       "elevation": 3,
       "dest_map": "MAP_GRANITE_CAVE_1F",
-      "dest_warp_id": 3
+      "dest_warp_id": "3"
     },
     {
       "x": 9,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_ROUTER1062",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

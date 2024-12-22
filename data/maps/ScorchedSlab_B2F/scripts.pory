@@ -4,8 +4,7 @@ ScorchedSlab_B2F_MapScripts::
 	.byte 0
 	
 ScorchedSlab_B2F_OnLoad::
-	goto_if_set FLAG_DEFEATED_RAYQUAZA, ScorchedSlab_B2F_EventScript_OpenHeatran
-	//goto_if_set FLAG_DEBUG_MODE, ScorchedSlab_B2F_EventScript_OpenHeatran
+	goto_if_set FLAG_ENABLE_POST_RAYQUAZA_CONTENT, ScorchedSlab_B2F_EventScript_OpenHeatran
 	end
 	
 ScorchedSlab_B2F_EventScript_OpenHeatran::

@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_ItemSablenite",
-      "flag": "FLAG_UNUSED_0x26C"
+      "flag": "FLAG_GOT_SABLEYE_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -34,7 +34,7 @@
       "y": 3,
       "elevation": 3,
       "dest_map": "MAP_CAVE_OF_ORIGIN_1F",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

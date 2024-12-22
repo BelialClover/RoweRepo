@@ -7,7 +7,6 @@ ThreeIsland_OnTransition:
 	setflag FLAG_VISITED_THREE_ISLAND
 	end
 
-
 ThreeIsland_EventScript_Woman:: @ 8167C77
 	msgbox ThreeIsland_Text_WouldntWantToSeeBikersHereAgain, MSGBOX_NPC
 	end

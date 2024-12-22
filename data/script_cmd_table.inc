@@ -238,6 +238,9 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_setwildbattlewithcustommoves 	@ 0xeb
 	.4byte ScrCmd_showshinymonpic 	        @ 0xec
 	.4byte ScrCmd_checkcompanionstuff 	    @ 0xed
+	.4byte ScrCmd_generateStarters 	        @ 0xee
+	.4byte ScrCmd_toggleSaveblock           @ 0xef
+	.4byte ScrCmd_checkSaveblockValue       @ 0xfa
 
 gScriptCmdTableEnd:: @ 81DBA08
 	.4byte ScrCmd_nop

@@ -5,7 +5,7 @@ MagmaHideout_1F_MapScripts:: @ 8239880
 	.byte 0
 	
 MagmaHideout_1F_OnLoad::
-	call_if_unset FLAG_DEFEATED_RAYQUAZA, MagmaHideout_1F_EventScript_OpenEnteiCave
+	call_if_unset FLAG_ENABLE_POST_RAYQUAZA_CONTENT, MagmaHideout_1F_EventScript_OpenEnteiCave
 	end
 	
 MagmaHideout_1F_EventScript_OpenEnteiCave:: @ 81EC3AE

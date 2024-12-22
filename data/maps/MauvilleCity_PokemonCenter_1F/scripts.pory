@@ -39,9 +39,7 @@ MauvilleCity_PokemonCenter_1F_EventScript_Youngster:: @ 8210E98
 MauvilleCity_PokemonCenter_1F_Mystery_Gift:: @ 8210E98
 	lock
 	faceplayer
-	//msgbox MauvilleCity_PokemonCenter_1F_Text_MysteryGift_No, MSGBOX_NPC
 	goto_if_set FLAG_MYSTERY_GIFT_2, MauvilleCity_PokemonCenter_1F_Mystery_Gift_3
-	//goto_if_unset FLAG_RECEIVED_BADGE_06, MauvilleCity_PokemonCenter_1F_Mystery_Gift_2
 	msgbox MauvilleCity_PokemonCenter_1F_Text_MysteryGift, MSGBOX_NPC
 	bufferspeciesname 1, SPECIES_PICHU_SPIKY_EARED
 	playfanfare MUS_OBTAIN_ITEM

@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_RUSTBORO_CITY",
       "offset": 0,
-      "map": "MAP_RUSTBORO_CITY"
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROUTE114",
       "offset": -40,
-      "map": "MAP_ROUTE114"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 27,
-      "y": 53,
+      "x": 16,
+      "y": 59,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 1,
@@ -132,7 +132,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 24,
-      "y": 62,
+      "y": 58,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -144,8 +144,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 13,
-      "y": 61,
+      "x": 20,
+      "y": 57,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -209,8 +209,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 29,
-      "y": 42,
+      "x": 30,
+      "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -288,7 +288,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 28,
-      "y": 62,
+      "y": 58,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -331,21 +331,21 @@
       "y": 37,
       "elevation": 0,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 21,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 36,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -447,8 +447,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 49,
+      "x": 18,
+      "y": 53,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE"

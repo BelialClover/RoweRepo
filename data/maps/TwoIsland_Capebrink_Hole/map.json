@@ -2,7 +2,7 @@
   "id": "MAP_TWO_ISLAND_CAPEBRINK_HOLE",
   "name": "TwoIsland_Capebrink_Hole",
   "layout": "LAYOUT_TWO_ISLAND_CAPEBRINK_HOLE",
-  "music": "MUS_PETALBURG_WOODS",
+  "music": "MUS_RG_SEVII_CAVE",
   "region_map_section": "MAPSEC_CAPE_BRINK",
   "requires_flash": true,
   "weather": "WEATHER_NONE",
@@ -22,14 +22,14 @@
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_CAPE_BRINK2",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 2,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_CAPE_BRINK2",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

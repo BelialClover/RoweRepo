@@ -47,6 +47,7 @@ EverGrandeCity_SidneysRoom_EventScript_WalkInCloseDoor:: @ 8227F57
 EverGrandeCity_SidneysRoom_EventScript_Sidney:: @ 8227F64
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_SIDNEY, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, 0
 	msgbox EverGrandeCity_SidneysRoom_Text_IntroSpeech, MSGBOX_DEFAULT
@@ -61,6 +62,7 @@ EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech:: @ 8227F8B
 
 EverGrandeCity_SidneysRoom_EventScript_Defeated:: @ 8227F95
 	setflag FLAG_DEFEATED_ELITE_4_SIDNEY
+	special HealPlayerParty
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	msgbox EverGrandeCity_SidneysRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release

@@ -1968,17 +1968,40 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_PHYSICAL,
     },
 
+    [MOVE_WAVE_CRASH] =
+    {
+        .effect = EFFECT_RECOIL_33,
+        .power = 120,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_GIGATON_HAMMER] =
+    {
+        .effect = EFFECT_HAMMER_ARM,
+        .power = 100,
+        .type = TYPE_STEEL,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_IRON_FIST_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
     [MOVE_CLAMP] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_5
-            .accuracy = 85,
-            .pp = 15,
-        #else
-            .accuracy = 75,
-            .pp = 10,
-        #endif
         .effect = EFFECT_TRAP,
         .power = 35,
+        .accuracy = 100,
+        .pp = 15,
         .type = TYPE_WATER,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -3810,11 +3833,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_EXTREME_SPEED] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_5
-            .priority = 2,
-        #else
-            .priority = 1,
-        #endif
         .effect = EFFECT_SPEED_UP_HIT,
         .power = 80,
         .type = TYPE_NORMAL,
@@ -3824,24 +3842,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         .split = SPLIT_PHYSICAL,
+        .priority = 2,
     },
 
     [MOVE_ANCIENT_POWER] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_4
-            .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #else
-            .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
-        #endif
         .effect = EFFECT_ALL_STATS_UP_HIT,
-        .power = 60,
+        .power = 75,
         .type = TYPE_ROCK,
-        .accuracy = 100,
-        .pp = 5,
-        .secondaryEffectChance = 10,
+        .accuracy = 95,
+        .pp = 10,
+        .secondaryEffectChance = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
     },
 
     [MOVE_SHADOW_BALL] =
@@ -6547,7 +6562,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THUNDER_FANG] =
     {
         .effect = EFFECT_FLINCH_STATUS,
-        .power = 65,
+        .power = 75,
         .type = TYPE_ELECTRIC,
         .accuracy = 95,
         .pp = 15,
@@ -6562,7 +6577,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ICE_FANG] =
     {
         .effect = EFFECT_FLINCH_STATUS,
-        .power = 65,
+        .power = 75,
         .type = TYPE_ICE,
         .accuracy = 95,
         .pp = 15,
@@ -6577,7 +6592,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FIRE_FANG] =
     {
         .effect = EFFECT_FLINCH_STATUS,
-        .power = 65,
+        .power = 75,
         .type = TYPE_FIRE,
         .accuracy = 95,
         .pp = 15,
@@ -8806,6 +8821,20 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_FAIRY,
         .accuracy = 0,
         .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_SOUND,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_ALLURING_VOICE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_FAIRY,
+        .accuracy = 0,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -11431,1346 +11460,229 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_SOUND,
         .split = SPLIT_SPECIAL,
     },
-};
 
-const struct SignatureMove gSignatureMoveList[NUM_SPECIES] = {
-    [SPECIES_VENUSAUR] =
-    {
-        .move = MOVE_SOLAR_BEAM,
-        .modification = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_VENUSAUR_MEGA] =
-    {
-        .move = MOVE_SOLAR_BEAM,
-        .modification = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CHARIZARD] =
-    {
-        .move = MOVE_FLAMETHROWER,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 20,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CHARIZARD_MEGA_Y] =
-    {
-        .move = MOVE_FLAMETHROWER,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CHARIZARD_MEGA_X] =
-    {
-        .move = MOVE_FLAMETHROWER,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_DRAGON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BLASTOISE] =
-    {
-        .move = MOVE_HYDRO_PUMP,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BLASTOISE_MEGA] =
-    {
-        .move = MOVE_HYDRO_PUMP,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BEEDRILL] =
-    {
-        .move = MOVE_TWINEEDLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 45,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BEEDRILL_MEGA] =
-    {
-        .move = MOVE_TWINEEDLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 50,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RATICATE] =
-    {
-        .move = MOVE_HYPER_FANG,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RATICATE_ALOLAN] =
-    {
-        .move = MOVE_CRUNCH,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PICHU] =
-    {
-        .move = MOVE_VOLT_TACKLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 120,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 10,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PIKACHU] =
-    {
-        .move = MOVE_VOLT_TACKLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 120,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 10,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RAICHU] =
-    {
-        .move = MOVE_VOLT_TACKLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 120,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 10,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RAICHU_ALOLAN] =
-    {
-        .move = MOVE_VOLT_TACKLE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 120,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 10,
-        .modification3 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable3 = TYPE_PSYCHIC,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ARBOK] =
-    {
-        .move = MOVE_POISON_FANG,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HYPNO] =
-    {
-        .move = MOVE_HYPNOSIS,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 90,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOLEM] =
-    {
-        .move = MOVE_EXPLOSION,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_STEALTH_ROCK,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOLEM_ALOLAN] =
-    {
-        .move = MOVE_EXPLOSION,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_STEALTH_ROCK,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MEOWTH] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PERSIAN] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MEOWTH_ALOLAN] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_DARK,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PERSIAN_ALOLAN] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_DARK,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MEOWTH_GALARIAN] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_STEEL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PERRSERKER] =
-    {
-        .move = MOVE_PAY_DAY,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_STEEL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PARASECT] =
-    {
-        .move = MOVE_LEECH_LIFE,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CUBONE] =
-    {
-        .move = MOVE_BONE_CLUB,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_IN_CONDITIONS,
-        .chance = SIGNATURE_PRIORITY_CONDITION_WEATHER_SAND,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MAROWAK] =
-    {
-        .move = MOVE_BONE_CLUB,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_IN_CONDITIONS,
-        .chance = SIGNATURE_PRIORITY_CONDITION_WEATHER_SAND,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 75,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MAROWAK_ALOLAN] =
-    {
-        .move = MOVE_SHADOW_BONE,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_CURSE,
-        .chance = 10,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_EXEGGUTOR_ALOLAN] =
-    {
-        .move = MOVE_DRAGON_HAMMER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MACHAMP] =
-    {
-        .move = MOVE_STRENGTH,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LICKITUNG] =
-    {
-        .move = MOVE_LICK,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 75,
-        .modification2 = SIGNATURE_MOD_CURE_WHEN_USED,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LICKILICKY] =
-    {
-        .move = MOVE_LICK,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 85,
-        .modification2 = SIGNATURE_MOD_CURE_WHEN_USED,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HITMONLEE] =
-    {
-        .move = MOVE_HI_JUMP_KICK,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 100,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HITMONCHAN] =
-    {
-        .move = MOVE_MACH_PUNCH,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 60,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HITMONTOP] =
-    {
-        .move = MOVE_TRIPLE_KICK,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ELECTRODE] =
-    {
-        .move = MOVE_ELECTRO_BALL,
-        .modification = SIGNATURE_MOD_DAMAGE_STAT,
-        .variable = STAT_SPEED,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_KOFFING] =
-    {
-        .move = MOVE_SMOG,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 40,
-        .modification3 = SIGNATURE_MOD_ACCURACY,
-        .variable3 = 90,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_WEEZING] =
-    {
-        .move = MOVE_SMOG,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 45,
-        .modification3 = SIGNATURE_MOD_ACCURACY,
-        .variable3 = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_WEEZING_GALARIAN] =
-    {
-        .move = MOVE_SMOG,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 45,
-        .modification3 = SIGNATURE_MOD_ACCURACY,
-        .variable3 = 95,
-        .modification4 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable4 = TYPE_FAIRY,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CLOYSTER] =
-    {
-        .move = MOVE_SPIKE_CANNON,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_SPIKES,
-        .chance = 10,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_WATER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GYARADOS] =
-    {
-        .move = MOVE_THRASH,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_FLYING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GYARADOS_MEGA] =
-    {
-        .move = MOVE_THRASH,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_DARK,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LAPRAS] =
-    {
-        .move = MOVE_SURF,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_FREEZE,
-        .chance = 10,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_ICE,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MOLTRES] =
-    {
-        .move = MOVE_HEAT_WAVE,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_FLYING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MEGANIUM] =
-    {
-        .move = MOVE_PETAL_BLIZZARD,
-        .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
-        .variable = STAT_ATK,
-        .differentDescription = TRUE,
-        .description = _(
-            "The user stirs up a sweet petal\n"
-            "blizzard that damages its foes\n"
-            "and lowers their Attack stat."),
-    },
-    [SPECIES_TYPHLOSION] =
-    {
-        .move = MOVE_ERUPTION,
-        .modification = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_WEATHER_SUN,
-        .chance2 = 10,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FERALIGATR] =
-    {
-        .move = MOVE_JAW_LOCK,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_CONFUSION,
-        .chance = 30,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_WATER,
-        .differentDescription = TRUE,
-        .description = _(
-            "It shakes its head and savagely\n"
-            "bites its foe preventing it fr-\n"
-            "om escape, may cause confusion."),
-    },
-    [SPECIES_FURRET] =
-    {
-        .move = MOVE_COIL,
-        .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable = STAT_SPEED,
-        .modification2 = SIGNATURE_MOD_TYPE, //Only Cosmetic
-        .variable2 = TYPE_NORMAL,
-        .differentDescription = TRUE,
-        .description = _(
-            "The user coils up. This raises\n"
-            "its Attack, Defense and Speed\n" 
-            "stats as well as its accuracy."),
-    },
-    [SPECIES_AMPHAROS] =
-    {
-        .move = MOVE_DISCHARGE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 25,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_AMPHAROS_MEGA] =
-    {
-        .move = MOVE_DISCHARGE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_ELECTRIC,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_XATU] =
-    {
-        .move = MOVE_FUTURE_SIGHT,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_SET_TERRAIN_PSYCHIC,
-        .chance = 100,
-        .modification2 = SIGNATURE_MOD_PRIORITY,
-        .variable2 = SIGNATURE_PRIORITY_ALWAYS,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CHINCHOU] =
-    {
-        .move = MOVE_WATER_PULSE,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .argument = TYPE_WATER,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 70,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LANTURN] =
-    {
-        .move = MOVE_WATER_PULSE,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .argument = TYPE_WATER,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SPINARAK] =
-    {
-        .move = MOVE_TOXIC_THREAD,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_STICKY_WEB,
-        .chance = 50,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ARIADOS] =
-    {
-        .move = MOVE_TOXIC_THREAD,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_STICKY_WEB,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SCIZOR] =
-    {
-        .move = MOVE_BULLET_PUNCH,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 65,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SCIZOR_MEGA] =
-    {
-        .move = MOVE_BULLET_PUNCH,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 70,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_STEELIX] =
-    {
-        .move = MOVE_IRON_TAIL,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_STEELIX_MEGA] =
-    {
-        .move = MOVE_IRON_TAIL,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 100,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_OCTILLERY] =
-    {
-        .move = MOVE_OCTAZOOKA,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_QWILFISH] =
-    {
-        .move = MOVE_PIN_MISSILE,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_TOXIC_SPIKES,
-        .chance = 10,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_POISON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_DELIBIRD] =
-    {
-        .move = MOVE_PRESENT,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_ICE,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_WEATHER_HAIL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BELLOSSOM] =
-    {
-        .move = MOVE_PETAL_DANCE,
-        .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable = STAT_SPEED,
-        .chance = 50,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_GRASS,
-        .chance2 = 100,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CROBAT] =
-    {
-        .move = MOVE_CROSS_POISON,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 85,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SCEPTILE] =
-    {
-        .move = MOVE_LEAF_BLADE,
-        .modification = SIGNATURE_MOD_PSS_CHANGE,
-        .variable = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SCEPTILE_MEGA] =
-    {
-        .move = MOVE_LEAF_BLADE,
-        .modification = SIGNATURE_MOD_PSS_CHANGE,
-        .variable = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BLAZIKEN] =
-    {
-        .move = MOVE_BLAZE_KICK,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BLAZIKEN_MEGA] =
-    {
-        .move = MOVE_BLAZE_KICK,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SWAMPERT] =
-    {
-        .move = MOVE_MUDDY_WATER,
-        .modification = SIGNATURE_MOD_PSS_CHANGE,
-        .variable = SPLIT_PHYSICAL,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_GROUND,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SWAMPERT_MEGA] =
-    {
-        .move = MOVE_MUDDY_WATER,
-        .modification = SIGNATURE_MOD_PSS_CHANGE,
-        .variable = SPLIT_PHYSICAL,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_GROUND,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_MIGHTYENA] =
-    {
-        .move = MOVE_BITE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LINOONE] =
-    {
-        .move = MOVE_EXTREME_SPEED,
-        .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable = STAT_SPEED,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BEAUTIFLY] =
-    {
-        .move = MOVE_SILVER_WIND,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 25,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_DUSTOX] =
-    {
-        .move = MOVE_OMINOUS_WIND,
-        .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable = 25,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_POISON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LUDICOLO] =
-    {
-        .move = MOVE_TEETER_DANCE,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_SET_WEATHER_RAIN,
-        .chance = 100,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_WATER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SHIFTRY] =
-    {
-        .move = MOVE_LEAF_TORNADO,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 0,
-        .modification3 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable3 = SPLIT_PHYSICAL,
-        .modification4 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable4 = TYPE_FLYING,
-        .modification5 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable5 = FIELD_SELF_SET_TAILWIND,
-        .chance5 = 20,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SLAKOTH] =
-    {
-        .move = MOVE_SLACK_OFF,
-        .modification = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SLAKING] =
-    {
-        .move = MOVE_SLACK_OFF,
-        .modification = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_NINJASK] =
-    {
-        .move = MOVE_FURY_CUTTER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_DAMAGE_STAT,
-        .variable2 = STAT_SPEED,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HARIYAMA] =
-    {
-        .move = MOVE_ARM_THRUST,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
-        .chance = 15,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ZANGOOSE] =
-    {
-        .move = MOVE_CRUSH_CLAW,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .modification2 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable2 = TYPE_POISON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SEVIPER] =
-    {
-        .move = MOVE_POISON_TAIL,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 75,
-        .modification2 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable2 = TYPE_NORMAL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SPINDA] =
-    {
-        .move = MOVE_DIZZY_PUNCH,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_ALWAYS,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LUVDISC] =
-    {
-        .move = MOVE_DRAINING_KISS,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_ALWAYS,
-        .modification2 = SIGNATURE_MOD_POWER,
-        .variable2 = 75,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_KECLEON] =
-    {
-        .move = MOVE_LICK,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_ALWAYS,
-        .modification2 = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RELICANTH] =
-    {
-        .move = MOVE_HEAD_SMASH,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_IN_CONDITIONS,
-        .chance = SIGNATURE_PRIORITY_CONDITION_WEATHER_RAIN,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GLALIE] =
-    {
-        .move = MOVE_ICE_FANG,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GLALIE_MEGA] =
-    {
-        .move = MOVE_ICE_FANG,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 75,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 40,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ANORITH] =
-    {
-        .move = MOVE_FURY_CUTTER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 65,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable3 = STAT_SPEED,
-        .chance3 = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_ARMALDO] =
-    {
-        .move = MOVE_FURY_CUTTER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 85,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable3 = STAT_SPEED,
-        .chance3 = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LILEEP] =
-    {
-        .move = MOVE_MEGA_DRAIN,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 65,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable3 = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
-        .chance3 = 20,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CRADILY] =
-    {
-        .move = MOVE_MEGA_DRAIN,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable3 = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
-        .chance3 = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CASTFORM] =
-    {
-        .move = MOVE_WEATHER_BALL,
-        .modification = SIGNATURE_MOD_PRIORITY,
-        .variable = SIGNATURE_PRIORITY_IN_CONDITIONS,
-        .chance = SIGNATURE_PRIORITY_CONDITION_WEATHER_ANY,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_REGICE] =
-    {
-        .move = MOVE_ANCIENT_POWER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 30,
-        .modification3 = SIGNATURE_MOD_TYPE,
-        .variable3 = TYPE_ICE,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_REGIROCK] =
-    {
-        .move = MOVE_ANCIENT_POWER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 30,
-        .modification3 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable3 = SPLIT_PHYSICAL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_REGISTEEL] =
-    {
-        .move = MOVE_ANCIENT_POWER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 90,
-        .modification2 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable2 = 30,
-        .modification3 = SIGNATURE_MOD_TYPE,
-        .variable3 = TYPE_STEEL,
-        .modification4 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable4 = SPLIT_PHYSICAL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_TORTERRA] =
-    {
-        .move = MOVE_WOOD_HAMMER,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_FLINCH,
-        .chance = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BIDOOF] =
-    {
-        .move = MOVE_HYPER_FANG,
-        .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable = TYPE_GRASS,
-        .modification2 = SIGNATURE_MOD_PENETRATING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_BIBAREL] =
-    {
-        .move = MOVE_HYPER_FANG,
-        .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable = TYPE_GRASS,
-        .modification2 = SIGNATURE_MOD_PENETRATING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CHATOT] =
-    {
-        .move = MOVE_CHATTER,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 80,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CRANIDOS] =
-    {
-        .move = MOVE_HEADBUTT,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 50,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_PRIORITY,
-        .variable3 = SIGNATURE_PRIORITY_ALWAYS,
-        .modification4 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable4 = 0,
-        .differentDescription = FALSE, 
-        .description = _("Default Description"),
-    },
-    [SPECIES_RAMPARDOS] =
-    {
-        .move = MOVE_HEADBUTT,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 50,
-        .modification2 = SIGNATURE_MOD_TYPE,
-        .variable2 = TYPE_ROCK,
-        .modification3 = SIGNATURE_MOD_PRIORITY,
-        .variable3 = SIGNATURE_PRIORITY_ALWAYS,
-        .modification4 = SIGNATURE_MOD_EFFECT_CHANCE,
-        .variable4 = 0,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CARNIVINE] =
-    {
-        .move = MOVE_JAW_LOCK,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_GRASS,
-        .modification2 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable2 = TYPE_BUG,
-        .modification3 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable3 = TYPE_FLYING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_STUNKY] =
-    {
-        .move = MOVE_GUNK_SHOT,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 95,
-        .modification2 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable2 = TYPE_STEEL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SKUNTANK] =
-    {
-        .move = MOVE_GUNK_SHOT,
-        .modification = SIGNATURE_MOD_ACCURACY,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_SE_AGAINST_TYPE,
-        .variable2 = TYPE_STEEL,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_CROAGUNK] =
-    {
-        .move = MOVE_SUCKER_PUNCH,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_TAUNT,
-        .chance = 20,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_TOXICROAK] =
-    {
-        .move = MOVE_SUCKER_PUNCH,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_TAUNT,
-        .chance = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LUCARIO] =
-    {
-        .move = MOVE_AURA_SPHERE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .modification2 = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable2 = STAT_SPATK,
-        .chance2 = 10,
-        .modification3 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable3 = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LUCARIO_MEGA] =
-    {
-        .move = MOVE_AURA_SPHERE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 95,
-        .modification2 = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable2 = STAT_SPATK,
-        .chance2 = 10,
-        .modification3 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable3 = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LOPUNNY] =
-    {
-        .move = MOVE_RETURN,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
-        .chance = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_LOPUNNY_MEGA] =
-    {
-        .move = MOVE_RETURN,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
-        .chance = 30,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_FIGHTING,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FROSLASS] =
-    {
-        .move = MOVE_HEX,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_FREEZE,
-        .chance = 20,
-        .modification2 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable2 = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SPIRITOMB] =
-    {
-        .move = MOVE_HEX,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_BURN,
-        .chance = 20,
-        .modification2 = SIGNATURE_MOD_PSS_CHANGE,
-        .variable2 = SPLIT_HIGHEST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SCRAFTY] =
-    {
-        .move = MOVE_LOW_KICK,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_TAUNT,
-        .chance = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_SAWK] =
-    {
-        .move = MOVE_ROCK_SMASH,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_OPPONET_SET_STEALTH_ROCK,
-        .chance = 50,
-        .modification2 = SIGNATURE_MOD_ATTACKER_STAT_UP,
-        .variable2 = STAT_ATK,
-        .chance2 = 50,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_JOLTIK] =
-    {
-        .move = MOVE_ELECTROWEB,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 60,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_OPPONET_SET_STICKY_WEB,
-        .chance2 = 50,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GALVANTULA] =
-    {
-        .move = MOVE_ELECTROWEB,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 70,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_OPPONET_SET_STICKY_WEB,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOLURK] =
-    {
-        .move = MOVE_SHADOW_PUNCH,
-        .modification = SIGNATURE_PRIORITY_IN_CONDITIONS,
-        .variable = SIGNATURE_PRIORITY_CONDITION_TRICK_ROOM,
-        .modification2 = SIGNATURE_MOD_TARGET_STAT_DOWN,
-        .variable2 = STAT_DEF,
-        .chance2 = 30,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_TYRUNT] =
-    {
-        .move = MOVE_CRUNCH,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_DRAGON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_TYRANTRUM] =
-    {
-        .move = MOVE_CRUNCH,
-        .modification = SIGNATURE_MOD_TYPE,
-        .variable = TYPE_DRAGON,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GRENINJA_ASH] =
-    {
-        .move = MOVE_WATER_SHURIKEN,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 20,
-        .modification2 = SIGNATURE_MOD_OTHER,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_HONEDGE] =
-    {
-        .move = MOVE_SACRED_SWORD,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_DOUBLADE] =
-    {
-        .move = MOVE_SACRED_SWORD,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_TREVENANT] =
-    {
-        .move = MOVE_WOOD_HAMMER,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .argument = TYPE_GHOST,
-        .modification2 = SIGNATURE_MOD_SECOND_TYPE,
-        .variable2 = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOURGEIST] =
-    {
-        .move = MOVE_WILL_O_WISP,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .argument = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOURGEIST_LARGE] =
-    {
-        .move = MOVE_WILL_O_WISP,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOURGEIST_SMALL] =
-    {
-        .move = MOVE_WILL_O_WISP,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_GOURGEIST_SUPER] =
-    {
-        .move = MOVE_WILL_O_WISP,
-        .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-        .variable = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_AEGISLASH] =
-    {
-        .move = MOVE_SACRED_SWORD,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_AEGISLASH_BLADE] =
-    {
-        .move = MOVE_SACRED_SWORD,
-        .modification = SIGNATURE_MOD_SECOND_TYPE,
-        .variable = TYPE_GHOST,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FLORGES] =
-    {
-        .move = MOVE_MOONBLAST,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_MISTY,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FLORGES_BLUE_FLOWER] =
-    {
-        .move = MOVE_MOONBLAST,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_MISTY,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FLORGES_ORANGE_FLOWER] =
-    {
-        .move = MOVE_MOONBLAST,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_MISTY,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FLORGES_WHITE_FLOWER] =
-    {
-        .move = MOVE_MOONBLAST,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_MISTY,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_FLORGES_YELLOW_FLOWER] =
-    {
-        .move = MOVE_MOONBLAST,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 100,
-        .modification2 = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable2 = FIELD_SET_TERRAIN_MISTY,
-        .chance2 = 35,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_RILLABOOM] =
-    {
-        .move = MOVE_GRASSY_GLIDE,
-        .modification = SIGNATURE_MOD_POWER,
-        .variable = 70,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
-    },
-    [SPECIES_PALOSSAND] =
-    {
-        .move = MOVE_SHORE_UP,
-        .modification = SIGNATURE_MOD_MODIFY_FIELD,
-        .variable = FIELD_SET_WEATHER_SANDSTORM,
-        .chance2 = 20,
-        .differentDescription = FALSE,
-        .description = _("Default Description"),
+    [MOVE_RAGING_BULL] =
+    {
+        .effect = EFFECT_BRICK_BREAK,
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_NEUTRAL_PULSE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_MEGA_LAUNCHER_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_SEASONAL_BEAM] =
+    {
+        .effect = EFFECT_MISC_HIT,
+        .power = 80,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_MEGA_LAUNCHER_BOOST,
+        .split = SPLIT_HIGHEST,
+        .argument = MISC_EFFECT_SEASONAL_TYPE,
+    },
+
+    [MOVE_RAGE_FIST] =
+    {
+        .effect = EFFECT_MISC_HIT,
+        .power = 50,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+        .argument = MISC_EFFECT_TOOK_DAMAGE_BOOST,
+    },
+
+    [MOVE_PSYBLADE] =
+    {
+        .effect = EFFECT_MISC_HIT,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_BLADEMASTER_BOOST,
+        .split = SPLIT_PHYSICAL,
+        .argument = MISC_EFFECT_ELECTRIC_TERRAIN_BOOST,
+    },
+
+    [MOVE_TEMPER_FLARE] =
+    {
+        .effect = EFFECT_STOMPING_TANTRUM,
+        .power = 75,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+    },
+    
+    [MOVE_MAKE_IT_RAIN] =
+    {
+        .power = 120,
+        .effect = EFFECT_OVERHEAT,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_AXE_KICK] =
+    {
+        .power = 120,
+        .pp = 10,
+        .effect = EFFECT_RECOIL_IF_MISS,
+        .type = TYPE_FIGHTING,
+        .accuracy = 90,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_RECKLESS_BOOST | FLAG_STRIKER_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_SUPERCELL_SLAM] =
+    {
+        .effect = EFFECT_RECOIL_IF_MISS,
+        .power = 100,
+        .pp = 10,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 95,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_RECKLESS_BOOST | FLAG_STRIKER_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_JET_PUNCH] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 60,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_IRON_FIST_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_POUNCE] =
+    {
+        .effect = EFFECT_SPEED_DOWN_HIT,
+        .power = 50,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_CHILLING_WATER] =
+    {
+        .effect = EFFECT_ATTACK_DOWN_HIT,
+        .power = 50,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
+        .split = SPLIT_SPECIAL,
+    },
+
+    [MOVE_ICE_SPINNER] =
+    {
+        .power = 80,
+        .effect = EFFECT_RAPID_SPIN,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_TRAILBLAZE] =
+    {
+        .effect = EFFECT_SPEED_UP_HIT,
+        .power = 50,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_SHEER_FORCE_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_AQUA_CUTTER] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_HIGH_CRIT | FLAG_BLADEMASTER_BOOST,
+        .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_RAGING_FURY] =
+    {
+        .power = 120,
+        .pp = 15,
+        .effect = EFFECT_RAMPAGE,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_RANDOM,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
     },
 };

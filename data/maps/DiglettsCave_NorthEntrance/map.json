@@ -22,14 +22,14 @@
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_DIGGLETS_CAVE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

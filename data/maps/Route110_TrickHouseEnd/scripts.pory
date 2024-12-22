@@ -141,7 +141,7 @@ Route110_TrickHouseEnd_EventScript_CompletedPuzzle7:: @ 826AEEC
 	msgbox Route110_TrickHouseEnd_Text_AllNightSettingUpArrows, MSGBOX_DEFAULT
 	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
 	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_PP_MAX
+	giveitem ITEM_MAGNET
 	compare VAR_RESULT, FALSE
 	call_if_eq Route110_TrickHouseEnd_EventScript_BagFull
 	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT

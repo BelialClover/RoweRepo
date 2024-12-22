@@ -42,15 +42,15 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 32,
-      "y": 6,
+      "x": 21,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NewMauville_Inside_EventScript_BlueButton",
+      "script": "NewMauville_Inside_EventScript_ItemUltraBall",
       "flag": "FLAG_ITEM_NEW_MAUVILLE_THUNDER_STONE"
     },
     {
@@ -120,8 +120,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
-      "x": 39,
-      "y": 5,
+      "x": 32,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_Ampharosite",
-      "flag": "FLAG_UNUSED_0x284"
+      "flag": "FLAG_GOT_AMPHAROS_MEGA_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PORTAL",
@@ -150,8 +150,8 @@
       "x": 32,
       "y": 33,
       "elevation": 3,
-      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
-      "dest_warp_id": 1
+      "dest_map": "MAP_ROUTE110_NEW_MAUVILLE_ENTRANCE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

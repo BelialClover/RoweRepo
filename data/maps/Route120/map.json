@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
+      "map": "MAP_FORTREE_CITY",
       "offset": 0,
-      "map": "MAP_FORTREE_CITY"
+      "direction": "left"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROUTE121",
       "offset": 80,
-      "map": "MAP_ROUTE121"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -157,14 +157,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 5,
+      "x": 2,
       "y": 22,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route120_EventScript_Colin",
       "flag": "0"
     },
@@ -313,14 +313,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 31,
-      "y": 37,
+      "x": 22,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "5",
       "script": "Route120_EventScript_Jennifer",
       "flag": "0"
     },
@@ -404,8 +404,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 19,
-      "y": 28,
+      "x": 28,
+      "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 1,
@@ -417,8 +417,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 19,
-      "y": 32,
+      "x": 28,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -443,8 +443,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 24,
-      "y": 33,
+      "x": 22,
+      "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -461,14 +461,14 @@
       "y": 55,
       "elevation": 0,
       "dest_map": "MAP_ANCIENT_TOMB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 19,
       "y": 23,
       "elevation": 1,
       "dest_map": "MAP_SCORCHED_SLAB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -488,8 +488,8 @@
     },
     {
       "type": "weather",
-      "x": 22,
-      "y": 61,
+      "x": 21,
+      "y": 60,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     },
@@ -502,29 +502,29 @@
     },
     {
       "type": "weather",
-      "x": 35,
-      "y": 63,
+      "x": 22,
+      "y": 61,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
       "x": 36,
-      "y": 63,
+      "y": 64,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
       "x": 37,
-      "y": 63,
+      "y": 64,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
       "x": 38,
-      "y": 63,
+      "y": 64,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
@@ -690,18 +690,18 @@
     },
     {
       "type": "hidden_item",
-      "x": 0,
-      "y": 86,
+      "x": 7,
+      "y": 52,
       "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
+      "item": "ITEM_METAL_COAT",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_120_RARE_CANDY_2"
     },
     {
       "type": "hidden_item",
       "x": 24,
-      "y": 42,
+      "y": 63,
       "elevation": 3,
-      "item": "ITEM_ZINC",
+      "item": "ITEM_WATER_STONE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_120_ZINC"
     },
     {

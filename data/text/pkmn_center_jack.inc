@@ -111,10 +111,6 @@ gText_PkmnCenterJack_Teach_Egg_Moves::
     .string "This will cost you 3000,\n"
     .string "do you want to Continue?$"
 	
-gText_PkmnCenterJack_Teach_Tutor_Moves::
-    .string "This will cost you 4500,\n"
-    .string "do you want to Continue?$"
-	
 gText_PkmnCenterJack_CantTeachMoves::
 	.string "You need to get more badges\n"
 	.string "before I can help you with that.$"

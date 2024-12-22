@@ -1,0 +1,5 @@
+raw `
+NewMap1_MapScripts:: @ Just ignore this. Had to add it, otherwise it wouldn't compile for me.
+	.byte 0
+
+`

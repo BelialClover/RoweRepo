@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
-      "x": 7,
-      "y": 18,
+      "x": 12,
+      "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_ItemGlailite",
-      "flag": "FLAG_UNUSED_0x270"
+      "flag": "FLAG_GOT_GLALIE_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -60,14 +60,7 @@
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
-      "dest_warp_id": 3
-    },
-    {
-      "x": 12,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM",
-      "dest_warp_id": 0
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

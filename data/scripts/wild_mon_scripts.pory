@@ -1,0 +1,224 @@
+//Common Mons
+script Common_EventScript_Wild_Lapras{
+	lock
+	faceplayer
+	playmoncry(SPECIES_LAPRAS, 2)
+	setwildbattle(SPECIES_LAPRAS, 2, ITEM_WATER_GEM)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DAILY_WILD_LAPRAS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, FLAG_DAILY_WILD_LAPRAS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(gText_LegendaryFlewAway, MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+//Legendary Pokemon
+script Common_EventScript_Mesprit_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_MESPRIT, 2)
+    msgbox(format("Mesprit: Mes..."))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_MESPRIT, 75, ITEM_LEFTOVERS, MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_GRASS_KNOT, MOVE_POWER_GEM, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_MESPRIT)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_MESPRIT)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Mesprit teleported to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Cobalion_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_COBALION, 2)
+    msgbox(format("Cobalion: Coba!"))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_COBALION, 75, ITEM_STEEL_GEM, MOVE_POISON_JAB, MOVE_SACRED_SWORD, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE, 0, NATURE_ADAMANT)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_COBALION)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_COBALION)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Cobalion escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Virizion_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_VIRIZION, 2)
+    msgbox(format("Virizion: Viri!"))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_VIRIZION, 75, ITEM_GRASS_GEM, MOVE_LEAF_BLADE, MOVE_SACRED_SWORD, MOVE_X_SCISSOR, MOVE_STONE_EDGE, 0, NATURE_ADAMANT)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_VIRIZION)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_VIRIZION)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Virizion escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Keldeo_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_KELDEO, 2)
+    msgbox(format("Keldeo: Kel!"))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_KELDEO, 75, ITEM_WATER_GEM, MOVE_SECRET_SWORD, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_AIR_SLASH, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_KELDEO)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_KELDEO)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Keldeo escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Victini_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_VICTINI, 2)
+    msgbox(format("Victini: Vic!"))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_VICTINI, 75, ITEM_FIRE_GEM, MOVE_V_CREATE, MOVE_PSYSHOCK, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_VICTINI)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_VICTINI)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Victini teleported to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}

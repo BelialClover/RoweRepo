@@ -247,7 +247,7 @@ OneIsland_KindleRoad_Text_EmberSpaSign:: @ 8189D32
     .string "Ember Spa$"
 	
 OneIsland_KindleRoad_Text_EmberSpaClosed:: @ 8189D32
-    .string "I'm sorry but the Ember Spa\n"
-    .string "is currently closed$"
+    .string "I'm sorry, but the Ember Spa\n"
+    .string "is currently closed.$"
 
 `

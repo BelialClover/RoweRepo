@@ -28,7 +28,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
       "x": 7,
       "y": 24,
       "elevation": 3,
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_Gym_1F_EventScript_Gym_Horsea",
-      "flag": "0"
+      "flag": "FLAG_HIDE_GYM_MONS"
     }
   ],
   "warp_events": [
@@ -60,21 +60,21 @@
       "y": 25,
       "elevation": 0,
       "dest_map": "MAP_SOOTOPOLIS_CITY",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 9,
       "y": 25,
       "elevation": 0,
       "dest_map": "MAP_SOOTOPOLIS_CITY",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 11,
       "y": 22,
       "elevation": 3,
       "dest_map": "MAP_SOOTOPOLIS_CITY_GYM_B1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

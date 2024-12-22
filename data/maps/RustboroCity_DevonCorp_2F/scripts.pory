@@ -79,7 +79,7 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist:: @ 82118F1
 	
 RustboroCity_DevonCorp_2F_EventScript_WhatFossil::
 	msgbox LilycoveCity_MoveDeletersHouse_Text_Chose_Well, MSGBOX_SIGN
-	scrollingmultichoice 5, 2, 3, 5, TRUE
+	scrollingmultichoice SCROLLING_SET_FOSSILS, 2, 3, 5, TRUE
 	switch VAR_RESULT
 	case 0, RustboroCity_DevonCorp_2F_EventScript_Revive_Dome_Fossil
 	case 1, RustboroCity_DevonCorp_2F_EventScript_Revive_Helix_Fossil
@@ -175,8 +175,8 @@ RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber::
 	end
 	
 RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber_Mega::
-	goto_if_unset FLAG_RECEIVED_TM04 RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber
-	goto_if_set FLAG_UNUSED_0x281 RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber
+	goto_if_unset FLAG_GOT_BADGE_11 RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber
+	goto_if_set FLAG_GOT_AERODACTYL_MEGA_STONE RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber
 	checkitem ITEM_OLD_AMBER, 1
 	compare VAR_RESULT, FALSE
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_No_Fossil
@@ -194,7 +194,7 @@ RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber_Mega::
 	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	givemon SPECIES_AERODACTYL, 30, ITEM_AERODACTYLITE
-	setflag FLAG_UNUSED_0x281
+	setflag FLAG_GOT_AERODACTYL_MEGA_STONE
 	waitfanfare
 	msgbox RustboroCity_DevonCorp_2F_Text_More_Fossils, MSGBOX_DEFAULT
 	release
@@ -389,8 +389,8 @@ RustboroCity_DevonCorp_2F_EventScript_Revive_Sail_Fossil::
 RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist:
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM04, RustboroCity_DevonCorp_2F_EventScript_Type_Null_Scientist
-	goto_if_set FLAG_UNUSED_0x2A0, RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygon
+	goto_if_set FLAG_GOT_BADGE_11, RustboroCity_DevonCorp_2F_EventScript_Type_Null_Scientist
+	goto_if_set FLAG_GOT_PORYGON, RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygon
 	msgbox RustboroCity_DevonCorp_2F_Text_PorygonTypeNull, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_DeclinePorygon
@@ -401,7 +401,7 @@ RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist:
 	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	givemon SPECIES_PORYGON, 10, ITEM_NONE
-	setflag FLAG_UNUSED_0x2A0
+	setflag FLAG_GOT_PORYGON
 	waitfanfare
 	msgbox RustboroCity_DevonCorp_2F_Text_PorygonTypeNull_Accepted, MSGBOX_DEFAULT
 	release
@@ -410,8 +410,8 @@ RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist:
 RustboroCity_DevonCorp_2F_EventScript_Type_Null_Scientist:
 	lock
 	faceplayer
-	goto_if_unset FLAG_UNUSED_0x2A0, RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist_2
-	goto_if_set FLAG_UNUSED_0x29F, RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygon
+	goto_if_unset FLAG_GOT_PORYGON, RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist_2
+	goto_if_set FLAG_GOT_TYPE_NULL, RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygon
 	msgbox RustboroCity_DevonCorp_2F_Text_PorygonTypeNull, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_DeclinePorygon
@@ -422,7 +422,7 @@ RustboroCity_DevonCorp_2F_EventScript_Type_Null_Scientist:
 	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	givemon SPECIES_TYPE_NULL, 25, ITEM_NONE
-	setflag FLAG_UNUSED_0x29F
+	setflag FLAG_GOT_TYPE_NULL
 	waitfanfare
 	msgbox RustboroCity_DevonCorp_2F_Text_PorygonTypeNull_Accepted, MSGBOX_DEFAULT
 	release
@@ -454,7 +454,7 @@ RustboroCity_DevonCorp_2F_EventScript_Porygon_Scientist_2:
 	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	givemon SPECIES_PORYGON, 10, ITEM_NONE
-	setflag FLAG_UNUSED_0x2A0
+	setflag FLAG_GOT_PORYGON
 	waitfanfare
 	msgbox RustboroCity_DevonCorp_2F_Text_PorygonTypeNull_Accepted, MSGBOX_DEFAULT
 	release

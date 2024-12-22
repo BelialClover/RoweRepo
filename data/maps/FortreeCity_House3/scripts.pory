@@ -25,7 +25,7 @@ FortreeCity_House3_EventScript_AsktoTrade::
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_No_Space
 	removeitem ITEM_GREEN_SHARD, 2
-	random 8
+	random 9
 	switch VAR_RESULT
 	case 0, FortreeCity_House3_EventScript_Give_Bulbasaur_Mega
 	case 1, FortreeCity_House3_EventScript_Give_Chikorita
@@ -35,6 +35,7 @@ FortreeCity_House3_EventScript_AsktoTrade::
 	case 5, FortreeCity_House3_EventScript_Give_Chespin
 	case 6, FortreeCity_House3_EventScript_Give_Rowlet
 	case 7, FortreeCity_House3_EventScript_Give_Grookey
+	case 8, FortreeCity_House3_EventScript_Give_Sprigatito
 	end
 	
 FortreeCity_House3_EventScript_GrassStarter_Come_Again::
@@ -82,13 +83,13 @@ FortreeCity_House3_EventScript_Give_Bulbasaur::
 	end
 	
 FortreeCity_House3_EventScript_Give_Bulbasaur_Mega::
-	goto_if_unset FLAG_RECEIVED_TM04 FortreeCity_House3_EventScript_Give_Bulbasaur
-	goto_if_set FLAG_UNUSED_0x279 FortreeCity_House3_EventScript_Give_Bulbasaur
+	goto_if_unset FLAG_GOT_BADGE_11 FortreeCity_House3_EventScript_Give_Bulbasaur
+	goto_if_set FLAG_GOT_VENUSAUR_MEGA_STONE FortreeCity_House3_EventScript_Give_Bulbasaur
 	bufferspeciesname 1, SPECIES_BULBASAUR
 	playfanfare MUS_OBTAIN_ITEM
 	message FortreeCity_House3_Text_ReceivedMonFromOldMan
 	givemon SPECIES_BULBASAUR, 30, ITEM_VENUSAURITE
-	setflag FLAG_UNUSED_0x279
+	setflag FLAG_GOT_VENUSAUR_MEGA_STONE
 	waitfanfare
 	msgbox FortreeCity_House3_Text_ComeAgain_Starter, MSGBOX_DEFAULT
 	release
@@ -117,13 +118,13 @@ FortreeCity_House3_EventScript_Give_Treecko::
 	end
 	
 FortreeCity_House3_EventScript_Give_Treecko_Mega::
-	goto_if_unset FLAG_RECEIVED_TM04 FortreeCity_House3_EventScript_Give_Treecko
-	goto_if_set FLAG_UNUSED_0x269 FortreeCity_House3_EventScript_Give_Treecko
+	goto_if_unset FLAG_GOT_BADGE_11 FortreeCity_House3_EventScript_Give_Treecko
+	goto_if_set FLAG_GOT_SCEPTILE_MEGA_STONE FortreeCity_House3_EventScript_Give_Treecko
 	bufferspeciesname 1, SPECIES_TREECKO
 	playfanfare MUS_OBTAIN_ITEM
 	message FortreeCity_House3_Text_ReceivedMonFromOldMan
 	givemon SPECIES_TREECKO, 30, ITEM_SCEPTILITE
-	setflag FLAG_UNUSED_0x269
+	setflag FLAG_GOT_SCEPTILE_MEGA_STONE
 	waitfanfare
 	msgbox FortreeCity_House3_Text_ComeAgain_Starter, MSGBOX_DEFAULT
 	release
@@ -179,6 +180,17 @@ FortreeCity_House3_EventScript_Give_Grookey::
 	playfanfare MUS_OBTAIN_ITEM
 	message FortreeCity_House3_Text_ReceivedMonFromOldMan
 	givemon SPECIES_GROOKEY, 10, ITEM_NONE
+	waitfanfare
+	msgbox FortreeCity_House3_Text_ComeAgain_Starter, MSGBOX_DEFAULT
+	release
+	end
+	
+//Sprigatito
+FortreeCity_House3_EventScript_Give_Sprigatito::
+	bufferspeciesname 1, SPECIES_SPRIGATITO
+	playfanfare MUS_OBTAIN_ITEM
+	message FortreeCity_House3_Text_ReceivedMonFromOldMan
+	givemon SPECIES_SPRIGATITO, 10, ITEM_NONE
 	waitfanfare
 	msgbox FortreeCity_House3_Text_ComeAgain_Starter, MSGBOX_DEFAULT
 	release

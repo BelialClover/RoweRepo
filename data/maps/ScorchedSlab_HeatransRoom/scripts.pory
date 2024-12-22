@@ -24,12 +24,12 @@ ScorchedSlab_HeatransRoom_EventScript_Heatran::
 	goto_if_eq ScorchedSlab_HeatransRoom_EventScript_RanFromHeatran
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq ScorchedSlab_HeatransRoom_EventScript_RanFromHeatran
-	setflag FLAG_UNUSED_0x4A9
+	setflag FLAG_DEFEATED_HEATRAN
 	release
 	end
 	
 ScorchedSlab_HeatransRoom_EventScript_CaughtHeatran::
-	setflag FLAG_UNUSED_0x4A9
+	setflag FLAG_DEFEATED_HEATRAN
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK

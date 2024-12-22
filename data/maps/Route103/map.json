@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_OLDALE_TOWN",
       "offset": 0,
-      "map": "MAP_OLDALE_TOWN"
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROUTE110",
       "offset": -58,
-      "map": "MAP_ROUTE110"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -221,11 +221,11 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 36,
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
+      "x": 30,
       "y": 6,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -234,11 +234,11 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 36,
-      "y": 13,
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
+      "x": 34,
+      "y": 11,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -266,7 +266,7 @@
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ALTERING_CAVE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -275,7 +275,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 11,
+      "x": 10,
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

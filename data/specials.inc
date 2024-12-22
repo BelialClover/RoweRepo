@@ -546,12 +546,6 @@ gSpecials:: @ 81DBA64
 	def_special CutWildEncounter
 	def_special TryStoreCutItem
 	def_special CreateInGameWonderTradePokemon
-	def_special TeachEggTutorMove
-	def_special ChooseMonForEggTutor
-	def_special TeachTMTutorMove
-	def_special ChooseMonForTMTutor
-	def_special TeachTutorMove
-	def_special ChooseMonForNewMoveTutor
 	def_special HeadbuttWildEncounter
 	
 	@Rotom Form Change
@@ -572,3 +566,5 @@ gSpecials:: @ 81DBA64
 	def_special DestroyFollower
 	def_special HideFollower
 	def_special ShouldStaticEncounterBeFirstStage
+	def_special DisableLegendaryMons
+	def_special EnableLegendaryMons

@@ -107,8 +107,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 22,
-      "y": 45,
+      "x": 37,
+      "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -120,8 +120,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 17,
-      "y": 46,
+      "x": 38,
+      "y": 45,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -236,7 +236,7 @@
       "flag": "FLAG_ITEM_MT_PYRE_EXTERIOR_MAX_POTION"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
       "x": 38,
       "y": 10,
       "elevation": 3,
@@ -244,9 +244,9 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route102_EventScript_ItemPotion",
-      "flag": "FLAG_ITEM_VICTORY_ROAD_1F_PP_UP "
+      "trainer_sight_or_berry_tree_id": "ITEM_COALOSSITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_GOT_COALOSSAL_MEGA_STONE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -273,6 +273,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_SYS_GAME_CLEAR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COLRESS",
+      "x": 29,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_EventScript_Colress_One_Island",
+      "flag": "FLAG_GOT_SEVII_TICKET_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 26,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM78",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_HIDE_TM_BALL_ITEM_TM78"
     }
   ],
   "warp_events": [
@@ -281,35 +307,35 @@
       "y": 48,
       "elevation": 3,
       "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 29,
       "y": 48,
       "elevation": 3,
       "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 14,
       "y": 24,
       "elevation": 3,
       "dest_map": "MAP_MT_EMBER_SUMMIT_PATCH_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 39,
       "y": 19,
       "elevation": 3,
       "dest_map": "MAP_MT_EMBER_SUMMIT_PATH_3F",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 29,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_MT_EMBER_SUMMIT",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

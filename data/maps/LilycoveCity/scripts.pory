@@ -601,10 +601,6 @@ LilycoveCity_Text_ContestHallInTown: @ 81E3D9E
 	.string "come from all over the country.\p"
 	.string "My heart swells with excitement!$"
 
-LilycoveCity_Text_StrangeCaveInCove: @ 81E3E3C
-	.string "Have you seen that strange cave in\n"
-	.string "the cove at the edge of town?$"
-
 LilycoveCity_Text_GoingToMoveDeleterForHMs: @ 81E3E7D
 	.string "I'm going to teach my Pokémon some new\n"
 	.string "moves for entering a Contest.\p"
@@ -624,13 +620,6 @@ LilycoveCity_Text_TeamAquaBeenTrainingWailmer: @ 81E3FAB
 	.string "Wailmer in the cove.\p"
 	.string "We Sailors can't get our boats out\n"
 	.string "to sea with them in the way!$"
-
-LilycoveCity_Text_SomeonePuntedTeamAquaOut: @ 81E4020
-	.string "Ahoy, did you know?\p"
-	.string "Someone punted Team Aqua out of\n"
-	.string "the way for us!\p"
-	.string "That got the Wailmer out of the cove,\n"
-	.string "so we can get our boats out again.$"
 
 LilycoveCity_Text_SomeoneStoleMyPokemon: @ 81E40AD
 	.string "I was taking a relaxing snooze at the\n"
@@ -661,24 +650,6 @@ LilycoveCity_Text_SixtyYearsAgoHusbandProposed: @ 81E4283
 	.string "proposed to me here.\l"
 	.string "The sea remains as beautiful as ever.\p"
 	.string "Mufufufu mufufufufufu…$"
-
-LilycoveCity_Text_TeamAquaRenovatedCavern: @ 81E42FC
-	.string "Hm, you know of the peculiar cavern\n"
-	.string "in this cove?\p"
-	.string "That had been a natural formation,\n"
-	.string "but then that Team Aqua lot came\l"
-	.string "along and made their renovations.\p"
-	.string "They call themselves\n"
-	.string "the “nature-loving Team Aqua”!\p"
-	.string "But what they do and what they say\n"
-	.string "don't match at all!$"
-
-LilycoveCity_Text_TeamAquaLotGoneForGood: @ 81E43FF
-	.string "That cave in the cove…\p"
-	.string "I didn't notice it right away,\n"
-	.string "but it's completely empty now.\p"
-	.string "That Team Aqua lot, they must\n"
-	.string "have gone away for good.$"
 
 LilycoveCity_Text_CitySign: @ 81E448B
 	.string "Lilycove City\p"
@@ -774,3 +745,19 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon: @ 81E49F4
 	.string "I mean, we are totally happy!$"
 
 `
+
+text LilycoveCity_Text_StrangeCaveInCove{
+	format("There used to be an strange cave in the cove at the edge of town but it got destroyed some time ago")
+}
+
+text LilycoveCity_Text_TeamAquaLotGoneForGood{
+	format("Using the ferry here you can go and visit the sevii Islands in Kanto, they say there are 8 new gyms there.")
+}
+
+text LilycoveCity_Text_TeamAquaRenovatedCavern{
+	format("Did you know that the island next to Lilycove became really cold after an strong Pokémon made it's nest inside of shoal cave?")
+}
+
+text LilycoveCity_Text_SomeonePuntedTeamAquaOut{
+	format("I just came back from a trip to Sevii, I found some strange Pokémon that look like tentacools there!")
+}

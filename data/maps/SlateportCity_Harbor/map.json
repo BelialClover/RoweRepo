@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LilycoveCity_Slateport_Harbor_EventScript_FerryAttendant",
+      "script": "SlateportCity_Harbor_EventScript_FerryAttendant",
       "flag": "0"
     },
     {
@@ -86,28 +86,28 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 8
+      "dest_warp_id": "8"
     },
     {
       "x": 12,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 8
+      "dest_warp_id": "8"
     },
     {
       "x": 19,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 9
+      "dest_warp_id": "9"
     },
     {
       "x": 20,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY",
-      "dest_warp_id": 9
+      "dest_warp_id": "9"
     }
   ],
   "coord_events": [

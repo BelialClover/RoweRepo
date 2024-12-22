@@ -25,11 +25,11 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MagmaHideout_3F_2R_EventScript_Grunt10",
-      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+      "flag": "FLAG_SYS_POKEMON_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
-      "x": 5,
+      "x": 8,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MegaStone_EventScript_ItemCameruptite",
-      "flag": "FLAG_UNUSED_0x26E"
+      "flag": "FLAG_GOT_CAMERUPT_MEGA_STONE"
     }
   ],
   "warp_events": [
@@ -47,14 +47,14 @@
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_MAGMA_HIDEOUT_3F_1R",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 13,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_MAGMA_HIDEOUT_2F_3R",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

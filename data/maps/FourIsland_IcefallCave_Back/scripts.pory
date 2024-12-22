@@ -18,7 +18,7 @@ mapscripts FourIsland_IcefallCave_Back_MapScripts {
 script FourIsland_IcefallCave_Back_EventScript_Suicune{
 	lock
 	faceplayer
-	//playmoncry(SPECIES_SUICUNE, 2)
+	playmoncry(SPECIES_SUICUNE, 2)
 	//delay(40)
 	//waitmoncry
 	setflag(FLAG_TOTEM_BATTLE)

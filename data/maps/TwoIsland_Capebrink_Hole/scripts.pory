@@ -4,7 +4,7 @@ TwoIsland_Capebrink_Hole_MapScripts::
 	.byte 0
 	
 TwoIsland_Capebrink_Hole_OnLoad: @ 8236F16
-	goto_if_set FLAG_DEFEATED_RAYQUAZA, TwoIsland_Capebrink_Hole_EventScript_OpenAzelfCave
+	goto_if_set FLAG_ENABLE_POST_RAYQUAZA_CONTENT, TwoIsland_Capebrink_Hole_EventScript_OpenAzelfCave
 	end
 	
 TwoIsland_Capebrink_Hole_EventScript_OpenAzelfCave:

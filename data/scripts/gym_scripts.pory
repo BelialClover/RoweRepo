@@ -1,0 +1,3902 @@
+//Gym Items
+const BADGE_ITEM_01 = ITEM_CUT_TOOL
+const BADGE_ITEM_02 = ITEM_WATERFALL_TOOL
+const BADGE_ITEM_03 = ITEM_GOOD_ROD
+const BADGE_ITEM_04 = ITEM_ROCK_SMASH_TOOL
+const BADGE_ITEM_05 = ITEM_CATCHING_CHARM
+const BADGE_ITEM_06 = ITEM_STRENGTH_TOOL
+const BADGE_ITEM_07 = ITEM_ROCK_CLIMB_TOOL
+const BADGE_ITEM_08 = ITEM_SUPER_ROD
+const BADGE_ITEM_09 = ITEM_FLY_CHARM
+const BADGE_ITEM_10 = ITEM_FLY_TOOL
+const BADGE_ITEM_11 = ITEM_MEGA_BRACELET
+const BADGE_ITEM_12 = ITEM_EXP_CHARM
+const BADGE_ITEM_13 = ITEM_OVAL_CHARM
+const BADGE_ITEM_14 = ITEM_CASINO_CHARM
+const BADGE_ITEM_15 = ITEM_WONDER_CHARM
+const BADGE_ITEM_16 = ITEM_SHINY_CHARM
+
+const NUM_BADGES_NEEDED_FOR_MEGA = 11
+
+//Cut Tool
+text Special_Gym_Text_Explain_Item_01{
+	format("This item is the Axe. You can use it cut small trees on your path.")
+}
+
+//Flash Tool
+//text Special_Gym_Text_Explain_Item_02{
+//	format("This item is the Lantern. You can use it light dark caves.")
+//}
+
+//Waterfall Tool
+text Special_Gym_Text_Explain_Item_02{
+	format("This item is the Waterfall Tool. It lets you ascend using any waterfall you find.")
+}
+
+//Good Rod
+text Special_Gym_Text_Explain_Item_03{
+	format("This item is the Good Rod. You can use it to find stronger Pokémon than the Old Rod.")
+}
+
+//Rock Smash Tool
+text Special_Gym_Text_Explain_Item_04{
+	format("This item is the Pickaxe. It lets you break small rocks.")
+}
+
+//Catching Charm
+text Special_Gym_Text_Explain_Item_05{
+	format("This item is a Catching Charm. It increase the chance of getting a critical catch.")
+}
+
+//Strength Tool
+text Special_Gym_Text_Explain_Item_06{
+	format("This item is the Power Glove. It lets you move big rocks.")
+}
+
+//Rock Climb Tool
+text Special_Gym_Text_Explain_Item_07{
+	format("This item is the Rock Climb Tool. It lets ascend or descend using any rocky path.")
+}
+
+//Super Rod
+text Special_Gym_Text_Explain_Item_08{
+	format("This item is the Super Rod. Its the ultimate Rod you can find, its used by the pros for catching the strongest water Pokémon.")
+}
+
+//Fly Charm
+text Special_Gym_Text_Explain_Item_09{
+	format("This item is the Fly Charm. It lets you use the Flying taxis for free.")
+}
+
+//Fly Tool
+text Special_Gym_Text_Explain_Item_10{
+	format("This item is the Flying Mount. It lets you move use Fly using your own Pokémon at any time!")
+}
+
+//Mega Bracelet
+text Special_Gym_Text_Explain_Item_11{
+	format("This item is the Mega Bracelet. This item will make you able to Mega Evolve your Pokémon Pressing Start with a Pokémon that can Mega Evolve in Battle.")
+}
+
+//Exp Charm
+text Special_Gym_Text_Explain_Item_12{
+	format("This item is the Exp Charm. This item will make it so you receive double the Experience from battle.")
+}
+
+//Oval Charm
+text Special_Gym_Text_Explain_Item_13{
+	format("This item is an Oval Charm. Its an item that doubles the possibilites of getting an Baby Pokémon from the Daycare.")
+}
+
+//Casino Charm
+text Special_Gym_Text_Explain_Item_14{
+	format("This item is the Casino Charm. It will let you use any of the casino machines for free.")
+}
+
+//Wonder Charm
+text Special_Gym_Text_Explain_Item_15{
+	format("This item is the Wonder Charm. It will let you Wonder Trade for free.")
+}
+
+//Shiny Charm
+text Special_Gym_Text_Explain_Item_16{
+	format("This item is the Shiny Charm. Its an item that doubles the possibilites of getting a shiny Pokémon.")
+}
+
+script Special_Gym_EventScript_Give_Item{
+	setflag(FLAG_GYM_ATTENDANT_CALL)
+    switch(var(VAR_NUM_BADGES)){
+        case 0:
+			setflag(FLAG_GOT_BADGE_01)
+            giveitem(BADGE_ITEM_01)
+            msgbox(Special_Gym_Text_Explain_Item_01, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 1)
+        break
+        case 1:
+			setflag(FLAG_GOT_BADGE_02)
+            giveitem(BADGE_ITEM_02)
+            msgbox(Special_Gym_Text_Explain_Item_02, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 2)
+        break
+        case 2:
+			setflag(FLAG_GOT_BADGE_03)
+            giveitem(BADGE_ITEM_03)
+            msgbox(Special_Gym_Text_Explain_Item_03, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 3)
+        break
+        case 3:
+			setflag(FLAG_GOT_BADGE_04)
+            giveitem(BADGE_ITEM_04)
+            msgbox(Special_Gym_Text_Explain_Item_04, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 4)
+        break
+        case 4:
+			setflag(FLAG_GOT_BADGE_05)
+            giveitem(BADGE_ITEM_05)
+            msgbox(Special_Gym_Text_Explain_Item_05, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 5)
+        break
+        case 5:
+			setflag(FLAG_GOT_BADGE_06)
+            giveitem(BADGE_ITEM_06)
+            msgbox(Special_Gym_Text_Explain_Item_06, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 6)
+        break
+        case 6:
+			setflag(FLAG_GOT_BADGE_07)
+            giveitem(BADGE_ITEM_07)
+            msgbox(Special_Gym_Text_Explain_Item_07, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 7)
+        break
+        case 7:
+			setflag(FLAG_GOT_BADGE_08)
+            giveitem(BADGE_ITEM_08)
+            msgbox(Special_Gym_Text_Explain_Item_08, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 8)
+        break
+        case 8:
+			setflag(FLAG_GOT_BADGE_09)
+            giveitem(BADGE_ITEM_09)
+            msgbox(Special_Gym_Text_Explain_Item_09, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 9)
+        break
+        case 9:
+			setflag(FLAG_GOT_BADGE_10)
+            giveitem(BADGE_ITEM_10)
+            msgbox(Special_Gym_Text_Explain_Item_10, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 10)
+        break
+        case 10:
+			setflag(FLAG_GOT_BADGE_11)
+            giveitem(BADGE_ITEM_11)
+            msgbox(Special_Gym_Text_Explain_Item_11, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 11)
+        break
+        case 11:
+			setflag(FLAG_GOT_BADGE_12)
+            giveitem(BADGE_ITEM_12)
+            msgbox(Special_Gym_Text_Explain_Item_12, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 12)
+        break
+        case 12:
+			setflag(FLAG_GOT_BADGE_13)
+            giveitem(BADGE_ITEM_13)
+            msgbox(Special_Gym_Text_Explain_Item_13, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 13)
+        break
+        case 13:
+			setflag(FLAG_GOT_BADGE_14)
+            giveitem(BADGE_ITEM_14)
+            msgbox(Special_Gym_Text_Explain_Item_14, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 14)
+        break
+        case 14:
+			setflag(FLAG_GOT_BADGE_15)
+            giveitem(BADGE_ITEM_15)
+            msgbox(Special_Gym_Text_Explain_Item_15, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 15)
+        break
+        case 15:
+			setflag(FLAG_GOT_BADGE_16)
+            giveitem(BADGE_ITEM_16)
+            msgbox(Special_Gym_Text_Explain_Item_16, MSGBOX_DEFAULT)
+            setvar(VAR_NUM_BADGES, 16)
+        break
+    }
+}
+
+script EventScript_Gym_Attendant_Call {
+	lockall
+	switch (var(VAR_NUM_BADGES)) {
+		case 1:  pokenavcall(format("Scott: Hey {PLAYER}, I heard you won your first Gym battle! That's an incredible start.\pYou should head to Lilycove or Slateport. From there, you can reach the Sevii Islands, which also have 8 Gyms.\pGood luck!", "1_latin_rse", 180))
+		case 2:  pokenavcall(format("Scott: Great job on earning your second badge, {PLAYER}! I knew you had what it takes.\pBy the way, did you know your Pokémon can share Egg or Tutor moves through the 'Learn Move' feature in the Party screen?\pKeep pushing forward!", "1_latin_rse", 180))
+		case 3:  pokenavcall(format("Scott: Wow, three badges already, {PLAYER}! You're moving fast!\pIf you give your lead Pokémon an Everstone or Eviolite, you'll encounter only first stage Pokémon in the wild. Cool trick, huh?\pTake care!", "1_latin_rse", 180))
+		case 4:  pokenavcall(format("Scott: Four badges, {PLAYER}! That's halfway through the challenge.\pHave you visited the Battle Mart in Oldale? They've got Nature Mints that might help your Pokémon grow stronger.\pKeep up the momentum!", "1_latin_rse", 180))
+		case 5:  pokenavcall(format("Scott: Five badges, {PLAYER}! You're making amazing progress!\pHave you tried Wonder Trading yet? It costs 5BP, but you can get some incredible Pokémon that way.\pBest of luck on the next one!", "1_latin_rse", 180))
+		case 6:  pokenavcall(format("Scott: Six badges under your belt, {PLAYER}. That's impressive!\pDid you know the blue haired nurse in Pokémon Centers now teaches Egg Moves? That might be useful for your team.\pKeep up the hard work!", "1_latin_rse", 180))
+		case 7:  pokenavcall(format("Scott: Seven badges, {PLAYER}! You're so close to conquering this challenge!\pI heard the Lilycove Department Store has stocked up on Evolution items. It's worth checking out.\pGood luck!", "1_latin_rse", 180))
+		case 8:  pokenavcall(format("Scott: Eight badges already, {PLAYER}? That's incredible!\pIf this were a single region league, you'd be ready for the Elite Four, but there's still more to go. I believe in you!", "1_latin_rse", 180))
+		case 9:  pokenavcall(format("Scott: Nine badges, {PLAYER}! You're on a roll.\pThe blue haired nurse in Pokémon Centers now offers to teach Tutor Moves. Maybe give it a look.\pKeep it up!", "1_latin_rse", 180))
+		case 10: pokenavcall(format("Scott: Ten badges? Amazing work, {PLAYER}!\pThe next Gym Leader should give you a Mega Ring. With that, your team will reach a whole new level. Keep going!", "1_latin_rse", 180))
+		case 11: pokenavcall(format("Scott: Eleven badges, {PLAYER}. You're almost there!\pNow that you have a Mega Ring, you can Mega Evolve your Pokémon. Just press the Start Button during battle while selecting a move.\pGood luck!", "1_latin_rse", 180))
+		case 12: pokenavcall(format("Scott: Twelve badges? You're unstoppable, {PLAYER}!\pThe blue haired nurse in Pokémon Centers can now teach TM Moves to your Pokémon. That might help for the next challenge.\pYou've got this!", "1_latin_rse", 180))
+		case 13: pokenavcall(format("Scott: Three more badges to go, {PLAYER}. You're in the final stretch now!\pI'm rooting for you all the way!", "1_latin_rse", 180))
+		case 14: pokenavcall(format("Scott: Fourteen badges just two more left, {PLAYER}!\pI know you've got what it takes to finish strong!", "1_latin_rse", 180))
+		case 15: pokenavcall(format("Scott: Fifteen badges! Only one more, {PLAYER}!\pThe Wonder Charm should let you Wonder Trade for free now, so check that out at the Pokémon Center.\pI'm waiting to hear the big news!", "1_latin_rse", 180))
+		case 16: pokenavcall(format("Scott: {PLAYER}, you did it! All Gym badges in Hoenn and Sevii are yours!\pCome see me at the Pokémon Center in Ever Grande City before tackling Victory Road and the Pokémon League.\pThere's a green haired trainer here who seems really strong you might want to test your skills against them.\pGood luck!", "1_latin_rse", 180))
+	}
+	waitmessage
+	clearflag(FLAG_GYM_ATTENDANT_CALL)
+	setvar(VAR_GYM_ATTENDANT_STEP_COUNTER, 0)
+	releaseall
+	end
+}
+
+//
+script Gym_EventScript_Reset_Rematches{
+	clearflag (FLAG_ROXANNE_REMATCH)
+	clearflag (FLAG_BRAWLY_REMATCH)
+	clearflag (FLAG_WATTSON_REMATCH)
+	clearflag (FLAG_FLANNERY_REMATCH)
+	clearflag (FLAG_NORMAN_REMATCH)
+	clearflag (FLAG_WINONA_REMATCH)
+	clearflag (FLAG_TATE_AND_LIZA_REMATCH)
+	clearflag (FLAG_JUAN_REMATCH)
+
+	clearflag (FLAG_FALKNER_REMATCH)
+	clearflag (FLAG_BUGSY_REMATCH)
+	clearflag (FLAG_WHITNEY_REMATCH)
+	clearflag (FLAG_MORTY_REMATCH)
+	clearflag (FLAG_CHUCK_REMATCH)
+	clearflag (FLAG_JASMINE_REMATCH)
+	clearflag (FLAG_PRYCE_REMATCH)
+	clearflag (FLAG_CLAIR_REMATCH)
+}
+
+//Roxanne -----------------------------------------------------------------------------------------------------------------------------------------------------
+script RustboroCity_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_RUSTBORO_GYM)){
+		if(!flag(FLAG_ROXANNE_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_RUSTBORO_CITY_GYM, 255, 5, 3)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(RustboroCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(RustboroCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script RustboroCity_Gym_EventScript_Roxanne_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE01_GET) && !flag(FLAG_ROXANNE_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(RustboroCity_Gym_Text_RoxannePreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(RustboroCity_Gym_EventScript_Roxanne_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(RustboroCity_Gym_EventScript_Roxanne_Give_Gifts)
+
+		msgbox(format("Roxanne: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_ROXANNE_REMATCH)
+    }
+	elif(flag(FLAG_BADGE01_GET) && flag(FLAG_ROXANNE_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Roxanne: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 1)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Roxanne: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 1)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Roxanne: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(RustboroCity_Gym_Text_RoxanneIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(RustboroCity_Gym_EventScript_Roxanne_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Stone Badge from Roxanne."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_DEFEATED_RUSTBORO_GYM)
+		setflag(FLAG_BADGE01_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM39_ROCK_TOMB)
+		msgbox(format("That Technical Machine contains the move Rock Tomb.\p"
+                      "It not only inflicts damage by dropping rocks, it also lowers the target Speed.\p"
+                      "If you use a TM, it instantly teaches the move to a Pokémon.\p"
+                      "A TM can be used indefinitely, so use it without thinking it twice.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(RustboroCity_Gym_EventScript_Roxanne_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 1)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(RustboroCity_Gym_Text_RegisteredRoxanne, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_ROXANNE_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_ROXANNE_REMATCH)
+	}
+    release
+    end
+}
+
+script RustboroCity_Gym_EventScript_Roxanne_Battle_New{
+    if(!flag(FLAG_BADGE01_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_ROXANNE_2, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_ROXANNE_3, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_ROXANNE_4, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_ROXANNE_5, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneRematchDefeat)
+        }
+	}
+	return
+}
+
+script RustboroCity_Gym_EventScript_Roxanne_Give_Gifts{
+	//Give Rock Polish
+	checkitem(ITEM_TM69_ROCK_POLISH, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM69_ROCK_POLISH)
+		msgbox(format("Roxanne: This move raises the speed of Rock-type Pokémon by 2 stages, its really useful."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Stealth Rock
+	checkitem(ITEM_TM110_STEALTH_ROCK, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM110_STEALTH_ROCK)
+		msgbox(format("Roxanne: This move does damage every time an opposing Pokémon enters to the battle, try it at the start of the battle."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Power Gem
+	checkitem(ITEM_TM107_POWER_GEM, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM107_POWER_GEM)
+		msgbox(format("Roxanne: This is a Rock-type damage move made specially for Rock-type Pokémon with high Special Attack."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Power Gem
+	checkitem(ITEM_TM71_STONE_EDGE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM71_STONE_EDGE)
+		msgbox(format("Roxanne: This is a Rock-type damage move with a high base attack, but misses a lot too so be careful when using it."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_AGGRON_MEGA_STONE)){
+		msgbox(format("Roxanne: Take this as an special gift from me, it's an Aggronite."), MSGBOX_NPC)
+		giveitem(ITEM_AGGRONITE)
+		msgbox(format("Make an Aggron hold it to unleash its true potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_AGGRON_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating her
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_ROCK_GEM,     2)
+			case 1: giveitem(ITEM_ROCKY_HELMET, 2)
+			case 2: giveitem(ITEM_FOCUS_SASH,   2)
+			case 3: giveitem(ITEM_HARD_STONE,   2)
+			case 4: giveitem(ITEM_FLOAT_STONE,  2)
+			case 5: giveitem(ITEM_METAL_COAT,   2)
+			case 6: giveitem(ITEM_PROTECTOR,    2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script RustboroCity_Gym_EventScript_Gym_Aaron{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_ARON:
+			if (flag(FLAG_BADGE01_GET) && !flag(FLAG_ROXANNE_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Aron: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, its skin look's really shiny."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE01_GET) && flag(FLAG_ROXANNE_REMATCH)){
+				//After a rematch
+				msgbox(format("Aron: ron..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Aron: ron?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently eating a little chunk of metal."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_LAIRON:
+			if (flag(FLAG_BADGE01_GET) && !flag(FLAG_ROXANNE_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Lairon: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, its skin look's really shiny."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE01_GET) && flag(FLAG_ROXANNE_REMATCH)){
+				msgbox(format("Lairon: ron..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Lairon: ron?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently eating a chunk of metal."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_AGGRON:
+			if (flag(FLAG_BADGE01_GET) && !flag(FLAG_ROXANNE_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Aggron: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, its skin look's really tought."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE01_GET) && flag(FLAG_ROXANNE_REMATCH)){
+				//Defeated
+				msgbox(format("Aggron: ron..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_AGGRON_MEGA_STONE)){
+				//Mega Stone
+				msgbox(format("Aggron: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently looking at a shiny rock on its arm with determination."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				//First time
+				msgbox(format("Aggron: ron?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently eating what it looks to be a big rock."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script RustboroCity_Gym_EventScript_Set_Gym_Pokemon_Species{
+	setflag(FLAG_HIDE_GYM_MONS)
+	switch (var(VAR_NUM_BADGES)) {
+		case  0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 13 
+		case  1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 13 
+		case  2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 19
+		case  3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 19
+		case  4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 25
+		case  5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON)   setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)   //Level 25
+		case  6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_LAIRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_LAIRON) //Level 31
+		case  7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_LAIRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_LAIRON) //Level 31
+		case  8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_LAIRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_LAIRON) //Level 38
+		case  9: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_LAIRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_LAIRON) //Level 38
+		case 10: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 45
+		case 11: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 45
+		case 12: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 51
+		case 13: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 51
+		case 14: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 62
+		case 15: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 62
+		case 16: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 70
+		case 17: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 70
+	}
+
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)
+	}
+	return
+}
+
+//Brawly -----------------------------------------------------------------------------------------------------------------------------------------------------
+script DewfordTown_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_DEWFORD_GYM)){
+		if(!flag(FLAG_BRAWLY_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_DEWFORD_TOWN_GYM, 255, 4, 4)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(DewfordTown_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(DewfordTown_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script DewfordTown_Gym_EventScript_Brawly_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE02_GET) && !flag(FLAG_BRAWLY_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(DewfordTown_Gym_Text_BrawlyPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(DewfordTown_Gym_EventScript_Brawly_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(DewfordTown_Gym_EventScript_Brawly_Give_Gifts)
+
+		msgbox(format("Brawly: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_BRAWLY_REMATCH)
+    }
+	elif(flag(FLAG_BADGE02_GET) && flag(FLAG_BRAWLY_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Brawly: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 2)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Brawly: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 2)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Brawly: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(DewfordTown_Gym_Text_BrawlyIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(DewfordTown_Gym_EventScript_Brawly_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Knuckle Badge from Brawly."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_DEWFORD_GYM)
+		setflag(FLAG_BADGE02_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM08_BULK_UP)
+		msgbox(format("That technical machine contains the move Bulk Up.\p"
+					  "It's a move that raises both Attack and Defense stats for the User.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(DewfordTown_Gym_EventScript_Brawly_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 2)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_BRAWLY_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_BRAWLY_REMATCH)
+	}
+    release
+    end
+}
+
+script DewfordTown_Gym_EventScript_Brawly_Battle_New{
+    if(!flag(FLAG_BADGE02_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_BRAWLY_2, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_BRAWLY_3, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_BRAWLY_4, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_BRAWLY_5, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyRematchDefeat)
+        }
+	}
+	return
+}
+
+script DewfordTown_Gym_EventScript_Brawly_Give_Gifts{
+	//Give Low Sweep
+	checkitem(ITEM_TM51_LOW_SWEEP, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM51_LOW_SWEEP)
+		msgbox(format("Brawly: This move not only inflicts damage, it also lowers the target Speed stat by one stage."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Swagger
+	checkitem(ITEM_TM87_SWAGGER, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM87_SWAGGER)
+		msgbox(format("Brawly: This move confuses the target but it also raises its attack stat, use it with caution."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Power Gem
+	checkitem(ITEM_TM52_FOCUS_BLAST, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM52_FOCUS_BLAST)
+		msgbox(format("Brawly: This is a Fighting-type damage move with a really high base attack, but misses a lot too so be careful when using it."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Aura Sphere
+	checkitem(ITEM_TM106_AURA_SPHERE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM106_AURA_SPHERE)
+		msgbox(format("Brawly: This is a Fighting-type damage move made specially for Fighting-type Pokémon with high Special Attack."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_HERACROSS_MEGA_STONE)){
+		msgbox(format("Brawly: Take this as an special gift from me, it's a Heracronite."), MSGBOX_NPC)
+		giveitem(ITEM_HERACRONITE)
+		msgbox(format("Make a Heracross hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_HERACROSS_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_FIGHTING_GEM, 2)
+			case 1: giveitem(ITEM_MUSCLE_WING, 10)
+			case 2: giveitem(ITEM_FOCUS_BAND, 2)
+			case 3: giveitem(ITEM_CHOICE_BAND, 2)
+			case 4: giveitem(ITEM_PAYAPA_BERRY, 5)
+			case 5: giveitem(ITEM_KINGS_ROCK, 2)
+			case 6: giveitem(ITEM_EXPERT_BELT, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script DewfordTown_Gym_EventScript_Gym_Makuhita{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_MAKUHITA:
+			if (flag(FLAG_BADGE02_GET) && !flag(FLAG_BRAWLY_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Makuhita: hita!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, it has a really professional fighting stance."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE02_GET) && flag(FLAG_BRAWLY_REMATCH)){
+				//After a rematch
+				msgbox(format("Makuhita: hita..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, but even then it has a lot of energy left."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Makuhita: hita?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is looking at a little surfboard on its hand."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_HARIYAMA:
+			if (flag(FLAG_BADGE02_GET) && !flag(FLAG_BRAWLY_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Hariyama: yama!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch, it is stomping the ground with determination."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE02_GET) && flag(FLAG_BRAWLY_REMATCH)){
+				msgbox(format("Hariyama: yama..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, but its thanking you for the battle very politely."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Hariyama: yama?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently looking at you, it may be studying your movements."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script DewfordTown_Gym_EventScript_Set_Gym_Pokemon_Species{
+	setflag(FLAG_HIDE_GYM_MONS)
+	switch (var(VAR_NUM_BADGES)) {
+		case 0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MAKUHITA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MAKUHITA) //Level 13 
+		case 1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MAKUHITA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MAKUHITA) //Level 19
+		case 2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 25
+		case 3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 31
+		case 4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 38
+		case 5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 45
+		case 6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 51
+		case 7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 62
+		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 70
+	}
+
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MAKUHITA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MAKUHITA)
+	}
+	return
+}
+
+//Wattson
+script MauvilleCity_Gym_EventScript_Wattson_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE03_GET) && !flag(FLAG_WATTSON_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(MauvilleCity_Gym_Text_WattsonPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(MauvilleCity_Gym_EventScript_Wattson_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(MauvilleCity_Gym_Text_WattsonPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(MauvilleCity_Gym_EventScript_Wattson_Give_Gifts)
+
+		msgbox(format("Wattson: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_WATTSON_REMATCH)
+    }
+	elif(flag(FLAG_BADGE03_GET) && flag(FLAG_WATTSON_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Wattson: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 3)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Wattson: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 3)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Wattson: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(MauvilleCity_Gym_Text_WattsonIntro_New, MSGBOX_NPC)
+		//Trainer Battle
+		call(MauvilleCity_Gym_EventScript_Wattson_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Dynamo Badge from Wattson."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_MAUVILLE_GYM)
+		setflag(FLAG_BADGE03_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM73_THUNDER_WAVE)
+		msgbox(format("That technical machine contains the move Thunder Wave.\p"
+					  "This move paralyzes the target so you can attack before them, its really useful.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(MauvilleCity_Gym_EventScript_Wattson_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 3)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_WATTSON_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_WATTSON_REMATCH)
+	}
+    release
+    end
+}
+
+script MauvilleCity_Gym_EventScript_Wattson_Battle_New{
+    if(!flag(FLAG_BADGE03_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_WATTSON_2, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_WATTSON_3, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_WATTSON_4, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_WATTSON_5, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+        }
+	}
+	return
+}
+
+script MauvilleCity_Gym_EventScript_Wattson_Give_Gifts{
+	//Give Shock Wave
+	checkitem(ITEM_TM34_SHOCK_WAVE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM34_SHOCK_WAVE)
+		msgbox(format("Wattson: This move inflicts damage and always lands, use it if you had your accuracy lowered."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Charge Beam
+	checkitem(ITEM_TM57_CHARGE_BEAM, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM57_CHARGE_BEAM)
+		msgbox(format("Wattson: This move inflicts damage and always rises the user Special Attack so it becomes stronger on each hit."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Volt Switch
+	checkitem(ITEM_TM72_VOLT_SWITCH, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM72_VOLT_SWITCH)
+		msgbox(format("Wattson: This move inflicts damage and lets you switch your Pokémon on the same turn, use it to switch if you are faster than your enemy."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Wild Charge
+	checkitem(ITEM_TM93_WILD_CHARGE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM93_WILD_CHARGE)
+		msgbox(format("Wattson: This is an Electric-type damage move made specially for Electric-type Pokémon with high Physical Attack, it also inflicts recoil damage to the user so use it wisely."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_MANECTRIC_MEGA_STONE)){
+		msgbox(format("Wattson: Take this as an special gift from me, it's a Manectite."), MSGBOX_NPC)
+		giveitem(ITEM_MANECTITE)
+		msgbox(format("Make a Manectric hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_MANECTRIC_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_CELL_BATTERY, 2)
+			case 1: giveitem(ITEM_MAGNET, 2)
+			case 2: giveitem(ITEM_LIGHT_BALL, 2)
+			case 3: giveitem(ITEM_ELECTRIC_SEED, 2)
+			case 4: giveitem(ITEM_WACAN_BERRY, 5)
+			case 5: giveitem(ITEM_THUNDER_STONE, 2)
+			case 6: giveitem(ITEM_ELECTRIC_GEM, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script MauvilleCity_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_MAUVILLE_GYM)){
+		if(!flag(FLAG_WATTSON_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_MAUVILLE_CITY_GYM, 255, 5, 3)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(MauvilleCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(MauvilleCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script MauvilleCity_Gym_EventScript_Gym_Electrike{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_ELECTRIKE:
+			if (flag(FLAG_BADGE03_GET) && !flag(FLAG_WATTSON_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Electrike: trike!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, its fur looks like it has a lot of electricity."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE03_GET) && flag(FLAG_WATTSON_REMATCH)){
+				//After a rematch
+				msgbox(format("Electrike: trike..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, it let out a loud yawn."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Electrike: trike?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is chewing on a little toy."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_MANECTRIC:
+			if (flag(FLAG_BADGE03_GET) && !flag(FLAG_WATTSON_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Manectric: tric!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch, it may even create thunderclouds."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE03_GET) && flag(FLAG_WATTSON_REMATCH)){
+				msgbox(format("Manectric: tric..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, but it is still alert."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(var(VAR_NUM_BADGES) >= 6 && !flag(FLAG_GOT_MANECTRIC_MEGA_STONE)){
+				//Mega Stone
+				msgbox(format("Manectric: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is proudly wearing a collar with an stone attatched to it."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Manectric: tric?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently eating something."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script MauvilleCity_Gym_EventScript_Set_Gym_Pokemon_Species{
+	setflag(FLAG_HIDE_GYM_MONS)
+	switch (var(VAR_NUM_BADGES)) {
+		case 0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ELECTRIKE) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ELECTRIKE) //Level 13 
+		case 1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ELECTRIKE) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ELECTRIKE) //Level 19
+		case 2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 25
+		case 3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 31
+		case 4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 38
+		case 5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 45
+		case 6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 51
+		case 7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 62
+		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 70
+	}
+
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ELECTRIKE) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ELECTRIKE)
+	}
+	return
+}
+
+text MauvilleCity_Gym_Text_WattsonIntro{
+	"I've given up on my plans to convert\n"
+	"the city, I have.\p"
+	"And so, I put my time into making\n"
+	"door traps in my Gym.\p"
+	"Oh? Now, what are you doing here?\p"
+	"What's that? You say you've gotten\n"
+	"past all my rigged doors?\p"
+	"Wahahahah!\n"
+	"Now, that is amusing!\p"
+	"Then, I, Wattson, the Leader of\n"
+	"Mauville Gym, shall electrify you!$"
+}
+
+text MauvilleCity_Gym_Text_WattsonIntro_New{
+	format("What? You say you've gotten past all my rigged doors? Wahahahah! Now, that is amusing! The plans to reform Mauville are done for now. Making traps for my Gym and battling with young Trainers like you are the things I live for now! Then I, Wattson, the Leader of Mauville Gym, shall electrify you!")
+}
+
+//Flannery
+script LavaridgeTown_Gym_1F_EventScript_Flannery_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE04_GET) && !flag(FLAG_FLANNERY_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(LavaridgeTown_Gym_1F_Text_FlanneryPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(LavaridgeTown_Gym_1F_EventScript_Flannery_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(LavaridgeTown_Gym_1F_Text_FlanneryPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(LavaridgeTown_Gym_1F_EventScript_Flannery_Give_Gifts)
+
+		msgbox(format("Flannery: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_FLANNERY_REMATCH)
+    }
+	elif(flag(FLAG_BADGE04_GET) && flag(FLAG_FLANNERY_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Flannery: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 4)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Flannery: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 4)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Flannery: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(LavaridgeTown_Gym_1F_Text_FlanneryIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(LavaridgeTown_Gym_1F_EventScript_Flannery_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Heat Badge from Flannery."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_LAVARIDGE_GYM)
+		setflag(FLAG_BADGE04_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM61_WILL_O_WISP)
+		msgbox(format("That technical machine contains the move Will-o-Wisp.\p"
+					  "This move burns the target damaging the Pokémon every turn while also lowering its Physical Attack.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(LavaridgeTown_Gym_1F_EventScript_Flannery_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 4)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(LavaridgeTown_Gym_1F_Text_RegisteredFlannery, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_FLANNERY_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_FLANNERY_REMATCH)
+	}
+    release
+    end
+}
+
+script LavaridgeTown_Gym_1F_EventScript_Flannery_Battle_New{
+    if(!flag(FLAG_BADGE04_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_FLANNERY_2, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_FLANNERY_3, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_FLANNERY_4, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_FLANNERY_5, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat)
+        }
+	}
+	return
+}
+
+script LavaridgeTown_Gym_1F_EventScript_Flannery_Give_Gifts{
+	//Give Mystical Fire
+	checkitem(ITEM_TM120_MYSTICAL_FIRE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM120_MYSTICAL_FIRE)
+		msgbox(format("Flannery: This move inflicts damage and always lowers the enemy Special Attack."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Heat Crash
+	checkitem(ITEM_TM111_HEAT_CRASH, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM111_HEAT_CRASH)
+		msgbox(format("Flannery: This move inflicts damage depending on the user's weight, use it with Pokémon like my Torkoal."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Blaze Kick
+	checkitem(ITEM_TM117_BLAZE_KICK, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM117_BLAZE_KICK)
+		msgbox(format("Flannery: This is an Fire-type damage move made specially for Fire-type Pokémon with high Physical Attack."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Wild Charge
+	checkitem(ITEM_TM50_OVERHEAT, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM50_OVERHEAT)
+		msgbox(format("Flannery: This is one of the strongest Fire-type moves but it also lowers the user Special Attack after each use, use it only while you are in a pinch or with a Pokémon holding a White Herb."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_HOUNDOOM_MEGA_STONE)){
+		msgbox(format("Flannery: Take this as an special gift from me, it's a Houndoomite."), MSGBOX_NPC)
+		giveitem(ITEM_HOUNDOOMINITE)
+		msgbox(format("Make a Houndoom hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_HOUNDOOM_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_FIRE_GEM, 2)
+			case 1: giveitem(ITEM_CHARCOAL, 2)
+			case 2: giveitem(ITEM_FLAME_ORB, 2)
+			case 3: giveitem(ITEM_HEAT_ROCK, 2)
+			case 4: giveitem(ITEM_OCCA_BERRY, 5)
+			case 5: giveitem(ITEM_FIRE_STONE, 2)
+			case 6: giveitem(ITEM_MAGMARIZER, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script LavaridgeTown_Gym_1F_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_LAVARIDGE_GYM)){
+		if(!flag(FLAG_FLANNERY_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_LAVARIDGE_TOWN_GYM_1F, 255, 13, 10)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(LavaridgeTown_Gym_1F_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(LavaridgeTown_Gym_1F_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script LavaridgeTown_Gym_1F_EventScript_Gym_Torkoal{
+	lock
+	faceplayer
+	if (flag(FLAG_BADGE04_GET) && !flag(FLAG_FLANNERY_REMATCH)){
+		//Ready for a rematch
+		msgbox(format("Torkoal: koal!"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems like it wants a rematch with You, the smoke on its back its really hot."), MSGBOX_SIGN)
+		waitmessage
+	}
+	elif(flag(FLAG_BADGE04_GET) && flag(FLAG_FLANNERY_REMATCH)){
+		msgbox(format("Torkoal: koal..."), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems tired after today's battle, its better to leave it rest"), MSGBOX_SIGN)
+		waitmessage
+	}
+	else{
+		msgbox(format("Torkoal: koal?"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems curious about how strong you are."), MSGBOX_SIGN)
+		waitmessage
+	}
+	release
+	end
+}
+
+//Norman
+script PetalburgCity_Gym_EventScript_Norman_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE05_GET) && !flag(FLAG_NORMAN_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(PetalburgCity_Gym_Text_NormanPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(PetalburgCity_Gym_EventScript_Norman_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(PetalburgCity_Gym_Text_NormanPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(PetalburgCity_Gym_EventScript_Norman_Give_Gifts)
+
+		msgbox(format("Dad: {PLAYER}, please come back tomorrow so you can battle with your dad again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_NORMAN_REMATCH)
+    }
+	elif(flag(FLAG_BADGE05_GET) && flag(FLAG_NORMAN_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Dad: {PLAYER}, I'm tired for today, but the trainers here need training, could you shape them a little?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 5)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Dad: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 5)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Dad: {PLAYER}, please come back tomorrow so you can battle with your dad again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(PetalburgCity_Gym_Text_NormanIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(PetalburgCity_Gym_EventScript_Norman_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Balance Badge from Norman."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_PETALBURG_GYM)
+		setflag(FLAG_BADGE05_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM54_FALSE_SWIPE)
+		msgbox(format("That technical machine contains the move False swipe.\p"
+					  "This move inflicts damage but never defeats the target, its a perfect for catching wild Pokémon.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(PetalburgCity_Gym_EventScript_Norman_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 5)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		//msgbox(PetalburgCity_Gym_Text_RegisteredNorman, MSGBOX_DEFAULT)
+		//playfanfare(MUS_REGISTER_MATCH_CALL)
+		//setflag(FLAG_ENABLE_NORMAN_MATCH_CALL)
+		//waitfanfare
+		//closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_NORMAN_REMATCH)
+	}
+    release
+    end
+}
+
+script PetalburgCity_Gym_EventScript_Norman_Battle_New{
+    if(!flag(FLAG_BADGE05_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_NORMAN_1,PetalburgCity_Gym_Text_NormanDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_NORMAN_2, PetalburgCity_Gym_Text_NormanRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_NORMAN_3, PetalburgCity_Gym_Text_NormanRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_NORMAN_4, PetalburgCity_Gym_Text_NormanRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_NORMAN_5, PetalburgCity_Gym_Text_NormanRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanRematchDefeat)
+        }
+	}
+	return
+}
+
+script PetalburgCity_Gym_EventScript_Norman_Give_Gifts{
+	//Give Confide
+	checkitem(ITEM_TM100_CONFIDE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM100_CONFIDE)
+		msgbox(format("Dad: This move lowers the target Special Attack by 1 stage."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Nature Power
+	checkitem(ITEM_TM96_NATURE_POWER, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM96_NATURE_POWER)
+		msgbox(format("Dad: This move changes depending on where you use it, its great for Pokémon without a lot of variety."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Facade
+	checkitem(ITEM_TM42_FACADE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM42_FACADE)
+		msgbox(format("Dad: This move inflicts damage and becomes stronger if the user has."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Giga Impact
+	checkitem(ITEM_TM68_GIGA_IMPACT, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM68_GIGA_IMPACT)
+		msgbox(format("Dad: This is the strongest physical Normal-type move, it does not let you attack on the next turn, so use it wisely."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_KANGASKHAN_MEGA_STONE)){
+		msgbox(format("Dad: Take this as an special gift from me, it's a Kangaskhanite."), MSGBOX_NPC)
+		giveitem(ITEM_KANGASKHANITE)
+		msgbox(format("Make a Kangaskhan hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_KANGASKHAN_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_NORMAL_GEM, 2)
+			case 1: giveitem(ITEM_CHILAN_BERRY, 5)
+			case 2: giveitem(ITEM_SILK_SCARF, 2)
+			case 3: giveitem(ITEM_LUCKY_EGG, 2)
+			case 4: giveitem(ITEM_NUGGET, 2)
+			case 5: giveitem(ITEM_SAFETY_GOGGLES, 2)
+			case 6: giveitem(ITEM_QUICK_POWDER, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script PetalburgCity_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	//setflag(FLAG_GYM_ATTENDANT_CALL)
+	if(flag(FLAG_BADGE05_GET)){
+		if(!flag(FLAG_NORMAN_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_PETALBURG_CITY_GYM, 255, 4, 3)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(PetalburgCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(PetalburgCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script PetalburgCity_Gym_EventScript_Gym_Slakoth{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_SLAKOTH:
+			if (flag(FLAG_BADGE05_GET) && !flag(FLAG_NORMAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Slakoth: koth!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it has some energy and wants to battle you."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE05_GET) && flag(FLAG_NORMAN_REMATCH)){
+				//After a rematch
+				msgbox(format("Slakoth: koth..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, it let out a really loud yawn."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Slakoth: koth?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently loafing around while looking at you."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_VIGOROTH:
+			if (flag(FLAG_BADGE05_GET) && !flag(FLAG_NORMAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Vigoroth: roth!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, it looks determined to beat you."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE05_GET) && flag(FLAG_NORMAN_REMATCH)){
+				//After a rematch
+				msgbox(format("Vigoroth: roth..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, it let out a loud yawn."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Vigoroth: roth!!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is warmly welcoming you."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_SLAKING:
+			if (flag(FLAG_BADGE05_GET) && !flag(FLAG_NORMAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Slaking: king!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch, it looks proud on how much you have grown."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE05_GET) && flag(FLAG_NORMAN_REMATCH)){
+				msgbox(format("Slaking: king..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, but it still looks happy that you are so strong."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Slaking: king!!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon looks surprised on how muh you have grown."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script PetalburgCity_Gym_EventScript_Set_Gym_Pokemon_Species{
+	setflag(FLAG_HIDE_GYM_MONS)
+	switch (var(VAR_NUM_BADGES)) {
+		case 0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKOTH)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKOTH) //Level 13 
+		case 1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_VIGOROTH) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_VIGOROTH) //Level 19
+		case 2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_VIGOROTH) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_VIGOROTH) //Level 25
+		case 3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_VIGOROTH) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_VIGOROTH) //Level 31
+		case 4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKING)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKING) //Level 38
+		case 5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKING)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKING) //Level 45
+		case 6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKING)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKING) //Level 51
+		case 7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKING)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKING) //Level 62
+		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKING)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKING) //Level 70
+	}
+
+	
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKOTH) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKOTH)
+	}
+	return
+}
+
+//Winona
+script FortreeCity_Gym_EventScript_Winona_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE06_GET) && !flag(FLAG_WINONA_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(FortreeCity_Gym_Text_WinonaPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(FortreeCity_Gym_EventScript_Winona_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(FortreeCity_Gym_Text_WinonaPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(FortreeCity_Gym_EventScript_Winona_Give_Gifts)
+
+		msgbox(format("Winona: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_WINONA_REMATCH)
+    }
+	elif(flag(FLAG_BADGE06_GET) && flag(FLAG_WINONA_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Winona: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 6)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Winona: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 6)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Winona: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(FortreeCity_Gym_Text_WinonaIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(FortreeCity_Gym_EventScript_Winona_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Feather Badge from Winona."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_FORTREE_GYM)
+		setflag(FLAG_BADGE06_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM58_ROOST)
+		msgbox(format("That technical machine contains the move Roost.\p"
+					  "It's a move that cures your Flying-type Pokémon."), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(FortreeCity_Gym_EventScript_Winona_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 6)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(FortreeCity_Gym_Text_RegisteredWinona, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_WINONA_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(FortreeCity_Gym_Text_WinonaPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_WINONA_REMATCH)
+	}
+    release
+    end
+}
+
+script FortreeCity_Gym_EventScript_Winona_Battle_New{
+    if(!flag(FLAG_BADGE06_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_WINONA_2, FortreeCity_Gym_Text_WinonaRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_WINONA_3, FortreeCity_Gym_Text_WinonaRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_WINONA_4, FortreeCity_Gym_Text_WinonaRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_WINONA_5, FortreeCity_Gym_Text_WinonaRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaRematchDefeat)
+        }
+	}
+	return
+}
+
+script FortreeCity_Gym_EventScript_Winona_Give_Gifts{
+	//Give Aerial Ace
+	checkitem(ITEM_TM40_AERIAL_ACE, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT&& var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM40_AERIAL_ACE)
+		msgbox(format("Winona: This move inflicts damage and never fails, use it when you are low on accuracy."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Fly
+	checkitem(ITEM_TM62_ACROBATICS, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM62_ACROBATICS)
+		msgbox(format("Winona: This move inflicts double the damage if its used by a Pokémon without a held item."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Fly
+	checkitem(ITEM_TM76_FLY, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM76_FLY)
+		msgbox(format("Winona: This is a two turns Flying-type move, its really powerful and lets you stay out of the enemy range for 1 turn."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Brave Bird
+	checkitem(ITEM_TM114_BRAVE_BIRD, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM114_BRAVE_BIRD)
+		msgbox(format("Winona: This is one of the best Flying-type moves, it does a lot of damage but also hurts the user."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_ALTARIA_MEGA_STONE)){
+		msgbox(format("Winona: Take this as an special gift from me, it's a Altaria."), MSGBOX_NPC)
+		giveitem(ITEM_ALTARIANITE)
+		msgbox(format("Make a Altaria hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_ALTARIA_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_FLYING_GEM, 2)
+			case 1: giveitem(ITEM_POWER_HERB, 2)
+			case 2: giveitem(ITEM_AIR_BALLOON, 2)
+			case 3: giveitem(ITEM_SWIFT_WING, 2)
+			case 4: giveitem(ITEM_SHARP_BEAK, 5)
+			case 5: giveitem(ITEM_COBA_BERRY, 2)
+			case 6: giveitem(ITEM_GREPA_BERRY, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script FortreeCity_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_FORTREE_GYM)){
+		if(!flag(FLAG_WINONA_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_FORTREE_CITY_GYM, 255, 15, 3)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(FortreeCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(FortreeCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script FortreeCity_Gym_EventScript_Gym_Taillow{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_TAILLOW:
+			if (flag(FLAG_BADGE06_GET) && !flag(FLAG_WINONA_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Taillow: low!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, it is flying really fast."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE06_GET) && flag(FLAG_WINONA_REMATCH)){
+				//After a rematch
+				msgbox(format("Taillow: low..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, it is currently eating a sunflower seed."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Taillow: low?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is looking confused on how you finished the puzzle."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_SWELLOW:
+			if (flag(FLAG_BADGE06_GET) && !flag(FLAG_WINONA_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Swellow: low!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch, it is flying really fast."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE06_GET) && flag(FLAG_WINONA_REMATCH)){
+				msgbox(format("Swellow: low..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, it may want to rest a little more."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Swellow: low?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently looking at you while flying."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script FortreeCity_Gym_EventScript_Set_Gym_Pokemon_Species{
+	setflag(FLAG_HIDE_GYM_MONS)
+	switch (var(VAR_NUM_BADGES)) {
+		case 0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_TAILLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_TAILLOW) //Level 13 
+		case 1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_TAILLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_TAILLOW) //Level 19
+		case 2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_TAILLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_TAILLOW) //Level 25
+		case 3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 31
+		case 4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 38
+		case 5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 45
+		case 6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 51
+		case 7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 62
+		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 70
+	}
+
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_TAILLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_TAILLOW)
+	}
+	return
+}
+//Tate and Liza
+script MossdeepCity_Gym_EventScript_TateAndLiza_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE07_GET) && !flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(MossdeepCity_Gym_Text_TateAndLizaPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(MossdeepCity_Gym_EventScript_TateAndLiza_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(MossdeepCity_Gym_Text_TateAndLizaPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Tate: Please take "), MSGBOX_NPC)
+		msgbox(format("Liza: these items with you."), MSGBOX_NPC)
+		call(MossdeepCity_Gym_EventScript_TateAndLiza_Give_Gifts)
+
+		msgbox(format("Tate: Come back tomorrow"), MSGBOX_NPC)
+		msgbox(format("Liza: so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_TATE_AND_LIZA_REMATCH)
+    }
+	elif(flag(FLAG_BADGE07_GET) && flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Tate: Our Pokémon are tired for today, do you want to try battling them again?"), MSGBOX_NPC)
+		msgbox(format("Liza: but the other trainers here need training"), MSGBOX_NPC)
+		msgbox(format("Tate: Do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 7)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Tate: I will tell them to get ready."), MSGBOX_NPC)
+			msgbox(format("Liza: so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			setvar(VAR_0x8008, 7)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Tate: Come back tomorrow"), MSGBOX_NPC)
+			msgbox(format("Liza: so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(MossdeepCity_Gym_Text_TateAndLizaIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(MossdeepCity_Gym_EventScript_TateAndLiza_Battle_New)
+
+		//Get the Badge
+		message(format("{PLAYER} received the Mind Badge from Tate and Liza."))
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_MOSSDEEP_GYM)
+		setflag(FLAG_BADGE07_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM04_CALM_MIND)
+		msgbox(format("Tate: That technical machine contains the move Calm Mind.\p"
+					  "Liza: This move raises your Pokémon Special Attack and Special Defense at the same time.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(MossdeepCity_Gym_EventScript_TateAndLiza_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 7)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(MossdeepCity_Gym_Text_RegisteredTateAndLiza, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(MossdeepCity_Gym_Text_TateAndLizaPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_TATE_AND_LIZA_REMATCH)
+	}
+    release
+    end
+}
+
+script MossdeepCity_Gym_EventScript_TateAndLiza_Battle_New{
+    if(!flag(FLAG_BADGE07_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_2, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_3, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_4, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_5, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaRematchDefeat)
+        }
+	}
+	return
+}
+
+script MossdeepCity_Gym_EventScript_TateAndLiza_Give_Gifts{
+	//Give Dream Eater
+	checkitem(ITEM_TM85_DREAM_EATER, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM85_DREAM_EATER)
+		msgbox(format("Tate: This move can only hit."), MSGBOX_NPC)
+		msgbox(format("Liza: if the Target is asleep."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Trick Room
+	checkitem(ITEM_TM92_TRICK_ROOM, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM92_TRICK_ROOM)
+		msgbox(format("Tate: This move reverses the turn order."), MSGBOX_NPC)
+		msgbox(format("Liza: but only for 5 turns."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Psyshock
+	checkitem(ITEM_TM105_PSYSHOCK, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM105_PSYSHOCK)
+		msgbox(format("Tate: This move inflicts damage."), MSGBOX_NPC)
+		msgbox(format("Liza: but its based on the target physical Defense."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Wild Charge
+	//checkitem(ITEM_TM50_OVERHEAT, 1)
+	//if(var(VAR_NUM_BADGES) >= 8 && var(VAR_RESULT) == FALSE){
+	//	giveitem(ITEM_TM50_OVERHEAT)
+	//	msgbox(format("TateAndLiza: This is one of the strongest Fire-type moves but it also lowers the user Special Attack after each use, use it only while you are in a pinch or with a Pokémon holding a White Herb."), MSGBOX_NPC)
+	//	setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	//}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_GARDEVOIR_MEGA_STONE)){
+		msgbox(format("Tate: Take this as an special gift from us, it's a pair of Mega Stones."), MSGBOX_NPC)
+		giveitem(ITEM_GARDEVOIRITE)
+		giveitem(ITEM_GALLADITE)
+		msgbox(format("Liza: Make a Gardevoir or a Gallade hold it to unleash their real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_GARDEVOIR_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_LIFE_ORB, 2)
+			case 1: giveitem(ITEM_PSYCHIC_GEM, 2)
+			case 2: giveitem(ITEM_SUN_STONE, 2)
+			case 3: giveitem(ITEM_MOON_STONE, 2)
+			case 4: giveitem(ITEM_SCOPE_LENS, 2)
+			case 5: giveitem(ITEM_TERRAIN_EXTENDER, 2)
+			case 6: giveitem(ITEM_COLBUR_BERRY, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+script MossdeepCity_Gym_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_MOSSDEEP_GYM)){
+		if(!flag(FLAG_TATE_AND_LIZA_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leaders?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell them that you are here."), MSGBOX_NPC)
+				warp(MAP_MOSSDEEP_CITY_GYM, 255, 12, 13)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(MossdeepCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(MossdeepCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script MossdeepCity_Gym_EventScript_Gym_Solrock{
+	lock
+	faceplayer
+	if (flag(FLAG_BADGE07_GET) && !flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		//Ready for a rematch
+		msgbox(format("Solrock: rock!"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems like it wants a rematch with You, it looks really bright."), MSGBOX_SIGN)
+		waitmessage
+	}
+	elif(flag(FLAG_BADGE07_GET) && flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		msgbox(format("Solrock: rock..."), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems tired after today's battle, its better to leave it rest"), MSGBOX_SIGN)
+		waitmessage
+	}
+	else{
+		msgbox(format("Solrock: rock?"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems curious about how strong you are."), MSGBOX_SIGN)
+		waitmessage
+	}
+	release
+	end
+}
+
+script MossdeepCity_Gym_EventScript_Gym_Lunatone{
+	lock
+	faceplayer
+	if (flag(FLAG_BADGE07_GET) && !flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		//Ready for a rematch
+		msgbox(format("Lunatone: tone!"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems like it wants a rematch with You, it looks really bright."), MSGBOX_SIGN)
+		waitmessage
+	}
+	elif(flag(FLAG_BADGE07_GET) && flag(FLAG_TATE_AND_LIZA_REMATCH)){
+		msgbox(format("Lunatone: tone..."), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems tired after today's battle, its better to leave it rest"), MSGBOX_SIGN)
+		waitmessage
+	}
+	else{
+		msgbox(format("Lunatone: tone?"), MSGBOX_NPC)
+		msgbox(format("The Pokémon seems curious about how strong you are."), MSGBOX_SIGN)
+		waitmessage
+	}
+	release
+	end
+}
+//Juan
+script SootopolisCity_Gym_1F_EventScript_Juan_New{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE08_GET) && !flag(FLAG_JUAN_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(SootopolisCity_Gym_1F_Text_JuanPreRematch, MSGBOX_NPC)
+		//Trainer Battle
+		call(SootopolisCity_Gym_1F_EventScript_Juan_Battle_New)
+
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(SootopolisCity_Gym_1F_Text_JuanPostRematch, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Give TMs or Items
+		msgbox(format("Please take these items with you."), MSGBOX_NPC)
+		call(SootopolisCity_Gym_1F_EventScript_Juan_Give_Gifts)
+
+		msgbox(format("Juan: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_JUAN_REMATCH)
+    }
+	elif(flag(FLAG_BADGE08_GET) && flag(FLAG_JUAN_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Juan: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 8)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Juan: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 8)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Juan: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(SootopolisCity_Gym_1F_Text_JuanIntro, MSGBOX_NPC)
+		//Trainer Battle
+		call(SootopolisCity_Gym_1F_EventScript_Juan_Battle_New)
+
+		//Get the Badge
+		message(SootopolisCity_Gym_1F_Text_ReceivedRainBadge)
+		waitmessage
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_DEFEATED_SOOTOPOLIS_GYM)
+		setflag(FLAG_BADGE08_GET)
+
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+
+		//Give TM
+		giveitem(ITEM_TM03_WATER_PULSE)
+		msgbox(format("That Technical Machine contains the move Water Pulse.\p"
+                      "This move inflicts damage and has a chance of confusing the target.$"), MSGBOX_NPC)
+		waitfanfare
+		closemessage
+		setflag(FLAG_TEMP_9)
+
+		//Give TMs or Items
+		call(SootopolisCity_Gym_1F_EventScript_Juan_Give_Gifts)
+
+		//Set all the trainers in the Gym as Defeated
+		setvar(VAR_0x8008, 8)
+		call(Common_EventScript_SetGymTrainers)
+
+		//Register Trainer in your PokeNav
+		msgbox(SootopolisCity_Gym_1F_Text_RegisteredJuan, MSGBOX_DEFAULT)
+		playfanfare(MUS_REGISTER_MATCH_CALL)
+		setflag(FLAG_ENABLE_JUAN_MATCH_CALL)
+		waitfanfare
+		closemessage
+
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(SootopolisCity_Gym_1F_Text_JuanPostBattle, MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+
+		//Set the Rematch Flag as False
+		setflag(FLAG_JUAN_REMATCH)
+	}
+    release
+    end
+}
+
+script SootopolisCity_Gym_1F_EventScript_Juan_Battle_New{
+    if(!flag(FLAG_BADGE08_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanDefeat)
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+			random(5)
+			switch (var(VAR_RESULT)) {
+				case 0: trainerbattle_no_intro(TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+				case 1: trainerbattle_no_intro(TRAINER_JUAN_2, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+				case 2: trainerbattle_no_intro(TRAINER_JUAN_3, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+				case 3: trainerbattle_no_intro(TRAINER_JUAN_4, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+		    	case 4: trainerbattle_no_intro(TRAINER_JUAN_5, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+			}
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanRematchDefeat)
+        }
+	}
+	return
+}
+script SootopolisCity_Gym_1F_EventScript_Juan_Give_Gifts{
+	//Give Rock Polish
+	checkitem(ITEM_TM55_SCALD, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_SECOND_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM55_SCALD)
+		msgbox(format("Juan: This move inflicts damage and has a high chance of burning the target."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Stealth Rock
+	checkitem(ITEM_TM94_SURF, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_THIRD_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM94_SURF)
+		msgbox(format("Juan: This move does damages everything on the field even your allies."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Power Gem
+	checkitem(ITEM_TM98_WATERFALL, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FOURTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM98_WATERFALL)
+		msgbox(format("Juan: This is a Physical oriented Water-type move, it can flinch the target."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Power Gem
+	checkitem(ITEM_TM102_LIQUIDATION, 1)
+	if(var(VAR_NUM_BADGES) >= GYM_FIFTH_TM_BADGES_COUNT && var(VAR_RESULT) == FALSE){
+		giveitem(ITEM_TM102_LIQUIDATION)
+		msgbox(format("Juan: This is one of the best physical Water-type moves it has a chance of lowering the target defense."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+
+	//Give Megastone
+	if(var(VAR_NUM_BADGES) >= GYM_MEGA_STONES_BADGES_COUNT && !flag(FLAG_GOT_GYARADOS_MEGA_STONE)){
+		msgbox(format("Juan: Take this as an special gift from me, it's an Gyarados."), MSGBOX_NPC)
+		giveitem(ITEM_GYARADOSITE)
+		msgbox(format("Make an Gyarados hold it to unleash its real potential."), MSGBOX_NPC)
+		setflag(FLAG_GOT_GYARADOS_MEGA_STONE)
+		setflag(FLAG_TEMP_9) //To check if you have been given multiple items
+	}
+	elif(!flag(FLAG_TEMP_9)){
+		//Get 2 random items for beating him
+		random(7)
+		switch (var(VAR_RESULT)) {
+			case 0: giveitem(ITEM_WATER_GEM, 2)
+			case 1: giveitem(ITEM_WATER_STONE, 2)
+			case 2: giveitem(ITEM_LURE_BALL_SEAL, 2)
+			case 3: giveitem(ITEM_DRAGON_SCALE, 2)
+			case 4: giveitem(ITEM_PRISM_SCALE, 2)
+			case 5: giveitem(ITEM_DAMP_ROCK, 2)
+			case 6: giveitem(ITEM_LUSTROUS_ORB, 2)
+		}
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+script SootopolisCity_Gym_1F_EventScript_GymGuide_New{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_SOOTOPOLIS_GYM)){
+		if(!flag(FLAG_JUAN_REMATCH)){
+			msgbox(format("Guide: Hello {PLAYER}, I see you came to this Gym again, do you want me to take you to the Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == 1){
+				msgbox(format("Let me tell the leader that you are here."), MSGBOX_NPC)
+				warp(MAP_SOOTOPOLIS_CITY_GYM_1F, 255, 8, 3)
+			}
+			else{
+				msgbox(format("I see, you can also go throught the Gym if you want."), MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox(SootopolisCity_Gym_1F_Text_GymGuidePostVictory, MSGBOX_NPC)
+		}
+	}
+	else{
+		msgbox(SootopolisCity_Gym_1F_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
+	release
+	end
+}
+
+script SootopolisCity_Gym_1F_EventScript_Gym_Horsea{
+	lock
+	faceplayer
+	switch(var(VAR_GYM_POKEMON_SPECIES)){
+		case SPECIES_HORSEA:
+			if (flag(FLAG_BADGE08_GET) && !flag(FLAG_JUAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Horsea: sea!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, it looks really excited."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE08_GET) && flag(FLAG_JUAN_REMATCH)){
+				//After a rematch
+				msgbox(format("Horsea: sea..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Horsea: sea?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently looking shooting ink from its mouth."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_SEADRA:
+			if (flag(FLAG_BADGE08_GET) && !flag(FLAG_JUAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Seadra: dra!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, it looks really excited."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE08_GET) && flag(FLAG_JUAN_REMATCH)){
+				msgbox(format("Seadra: dra..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				msgbox(format("Seadra: dra?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently looking at some ring targets."), MSGBOX_SIGN)
+				waitmessage
+			}
+		case SPECIES_KINGDRA:
+			if (flag(FLAG_BADGE08_GET) && !flag(FLAG_JUAN_REMATCH)){
+				//Ready for a rematch
+				msgbox(format("Seaking: ron!"), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems like it wants a rematch with You, its skin look's really tought."), MSGBOX_SIGN)
+				waitmessage
+			}
+			elif(flag(FLAG_BADGE08_GET) && flag(FLAG_JUAN_REMATCH)){
+				//Defeated
+				msgbox(format("Seaking: king..."), MSGBOX_NPC)
+				msgbox(format("The Pokémon seems tired after today's battle, its better to let it rest."), MSGBOX_SIGN)
+				waitmessage
+			}
+			else{
+				//First time
+				msgbox(format("Seaking: king?"), MSGBOX_NPC)
+				msgbox(format("The Pokémon is currently shooting some ring targets."), MSGBOX_SIGN)
+				waitmessage
+			}
+	}
+	release
+	end
+}
+
+script SootopolisCity_Gym_1F_EventScript_Set_Gym_Pokemon_Species{
+	switch (var(VAR_NUM_BADGES)) {
+		case 0: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HORSEA)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HORSEA)  //Level 13 
+		case 1: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HORSEA)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HORSEA)  //Level 19
+		case 2: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HORSEA)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HORSEA)  //Level 25
+		case 3: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SEADRA)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SEADRA)  //Level 31
+		case 4: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SEADRA)  setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SEADRA)  //Level 38
+		case 5: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_KINGDRA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_KINGDRA) //Level 45
+		case 6: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_KINGDRA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_KINGDRA) //Level 51
+		case 7: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_KINGDRA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_KINGDRA) //Level 62
+		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_KINGDRA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_KINGDRA) //Level 70
+	}
+
+	if(flag(FLAG_NO_EVOLUTION_MODE)){
+		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HORSEA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HORSEA)
+	}
+	return
+}
+
+const NUM_GYM_REWARDS_BERRIES = 3
+const NUM_GYM_REWARDS_GEMS    = 2
+
+const FLAG_BADGE09_GET = FLAG_RECEIVED_BADGE_09
+//Sevii Gyms
+script Common_Eventscript_Gym_Leader_Falkner{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE09_GET) && !flag(FLAG_FALKNER_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Falkner: Hi! I've been waiting for you! It's a pleasure to be able to battle you again."), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Falkner_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Falkner: Mmm... It's still a long way to become the best Trainer, but I won't give up!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Falkner_Give_Gifts)
+		msgbox(format("Falkner: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_FALKNER_REMATCH)
+    }
+	elif(flag(FLAG_BADGE09_GET) && flag(FLAG_FALKNER_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Falkner: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 9)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Falkner: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 9)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Falkner: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("I'm Falkner, this Island Pokémon Gym Leader! People say you can clip Flying-type Pokémon's wings with a jolt of electricity... I won't allow such insults to bird Pokémon! I'll show you the real power of the magnificent bird Pokémon!"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Falkner_Battle_New)
+		//Get the Badge
+		msgbox(format("For pity's sake! My dad's cherished bird Pokémon... But a defeat is a defeat. All right. Take this official Pokémon League Badge. This one is the Zephyr Badge."), MSGBOX_NPC)
+		message(format("{PLAYER} received the Zephyr Badge from Falkner."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_BADGE09_GET)
+		setflag(FLAG_TEMP_9)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Falkner_Give_Gifts)
+		setflag(FLAG_BADGE09_GET)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("I'm going to train harder to become the greatest Bird Keeper of all so let's fight again tomorrow!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_FALKNER_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Falkner_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_CORVIKNIGHT_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+	
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_COBA_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FLYING_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FLYING_MEMORY, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_AIR_BALLOON, 1)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_UTILITY_UMBRELLA, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_HEAVY_DUTY_BOOTS, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_POWER_HERB, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_CORVIKNITE, 1)
+			setflag(FLAG_GOT_CORVIKNIGHT_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Falkner_Battle_New{
+    if(!flag(FLAG_BADGE09_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_FALKNER, format("...Darn! My Dad's cherished bird Pokémon..."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_FALKNER, format("A defeat is a defeat. You are strong indeed. I'm going to train harder with my Pokémon to become the greatest Bird Keeper of all!"))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_FALKNER, format("I understand... I'll bow out gracefully."))
+        }
+	}
+	return
+}
+
+//Bugsy
+const FLAG_BADGE10_GET = FLAG_RECEIVED_BADGE_10
+script Common_Eventscript_Gym_Leader_Bugsy{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE10_GET) && !flag(FLAG_BUGSY_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Bugsy: Good to see you again! Behold my bug research!"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Bugsy_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Bugsy: You must have studied a lot about Pokémon!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Bugsy_Give_Gifts)
+		msgbox(format("Bugsy: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_BUGSY_REMATCH)
+    }
+	elif(flag(FLAG_BADGE10_GET) && flag(FLAG_BUGSY_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Bugsy: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 10)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Bugsy: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 10)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Bugsy: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("I'm Bugsy! I never lose when it comes to bug Pokémon. My research is going to make me the authority on bug Pokémon! Let me demonstrate what I've learned from my studies."), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Bugsy_Battle_New)
+		//Get the Badge
+		msgbox(format("Whoa, amazing! You're an expert on Pokémon! My research isn't complete yet. OK, you win. Take this Badge."), MSGBOX_NPC)
+		message(format("{PLAYER} received the Hive Badge from Bugsy."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE10_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Bugsy_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Bug-type Pokémon are deep. There are many mysteries to explore. Study your top choices thoroughly. Let's fight again tomorrow!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_BUGSY_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Bugsy_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_BUTTERFREE_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_TANGA_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_BUG_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_BUG_MEMORY, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_NET_BALL, 5)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_HONEY, 3)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SHED_SHELL, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_GRIP_CLAW, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_BUTTERFRITE, 1)
+			setflag(FLAG_GOT_BUTTERFREE_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Bugsy_Battle_New{
+    if(!flag(FLAG_BADGE10_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_BUGSY, format("Aw, that's the end of it..."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_BUGSY, format("Whoa, amazing! You're an expert on Pokémon!"))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_BUGSY, format("Whoa, amazing!"))
+        }
+	}
+	return
+}
+
+//Whitney
+const FLAG_BADGE11_GET = FLAG_RECEIVED_BADGE_11
+script Common_Eventscript_Gym_Leader_Whitney{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE11_GET) && !flag(FLAG_WHITNEY_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Whitney: I never break my promises! Are you ready?"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Whitney_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Whitney: You really are strong! But I won't lose next time!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Whitney_Give_Gifts)
+		msgbox(format("Whitney: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_WHITNEY_REMATCH)
+    }
+	elif(flag(FLAG_BADGE11_GET) && flag(FLAG_WHITNEY_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Whitney: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 11)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Whitney: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 11)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Whitney: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("Hi! I'm Whitney! Everyone was into Pokémon, so I got into it too! Pokémon are super-cute! You want to battle? I'm warning you--I'm good!"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Whitney_Battle_New)
+		//Get the Badge
+		msgbox(format("...Sniff... What? What do you want? A Badge? Oh, right. I forgot. Here's Plain Badge, isn't it just perfect for a cutie like me?"), MSGBOX_NPC)
+		message(format("{PLAYER} received the Plain Badge from Whitney."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE11_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Whitney_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Ah, that was a good cry! Come for a visit again! Bye-bye!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_WHITNEY_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Whitney_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_SNORLAX_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FAIRY_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_NORMAL_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SILK_SCARF, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ROSELI_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FAIRY_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_CHILAN_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SAFETY_GOGGLES, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SNORLAXITE, 1)
+			setflag(FLAG_GOT_SNORLAX_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Whitney_Battle_New{
+    if(!flag(FLAG_BADGE11_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_WHITNEY, format("Sob... ...Waaaaaaah! You're mean! You shouldn't be so serious! You...you child, you! Waaaaah! Waaaaah! ...Snivel, hic... ...You meanie!"))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_WHITNEY, format("Poor me!"))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_WHITNEY, format("Waaaaah! Waaaaah! ...Snivel, hic. ... You meanie!"))
+        }
+	}
+	return
+}
+
+//Morty
+const FLAG_BADGE12_GET = FLAG_RECEIVED_BADGE_12
+script Common_Eventscript_Gym_Leader_Morty{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE12_GET) && !flag(FLAG_MORTY_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Morty: I was just talking about you... Let's battle!"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Morty_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Morty: I've lost again... You may have something more than just strength."), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Morty_Give_Gifts)
+		msgbox(format("Morty: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_MORTY_REMATCH)
+    }
+	elif(flag(FLAG_BADGE12_GET) && flag(FLAG_MORTY_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Morty: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 12)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Morty: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 12)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Morty: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("Whether you choose to believe or not, mystic power does exist.\pYou can bear witness to the fruits of my training.\pYou must make your soul one with that of Pokémon. Can you do this?"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Morty_Battle_New)
+		//Get the Badge
+		msgbox(format("I don't think our potentials are so different. But you seem to have something more than that... So be it. This Badge is yours."), MSGBOX_NPC)
+		message(format("{PLAYER} received the Fog Badge from Morty."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE12_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Morty_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("I see... Your journey has taken you to far-away places. And you have witnessed much more than I. I envy you for that..."), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_MORTY_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Morty_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_GENGAR_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_GHOST_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_CLEANSE_TAG, NUM_GYM_REWARDS_GEMS)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SPELL_TAG, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_KASIB_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_GHOST_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ODD_INCENSE, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_DUSK_BALL, 5)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_GENGARITE, 1)
+			setflag(FLAG_GOT_GENGAR_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Morty_Battle_New{
+    if(!flag(FLAG_BADGE12_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_MORTY, format("How is this possible..."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_MORTY, format("I'm not good enough yet..."))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_MORTY, format("How is this possible..."))
+        }
+	}
+	return
+}
+
+//Chuck
+const FLAG_BADGE13_GET = FLAG_RECEIVED_BADGE_13
+script Common_Eventscript_Gym_Leader_Chuck{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE13_GET) && !flag(FLAG_CHUCK_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Chuck: There you are! Taste my 24-hour training!"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Chuck_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Chuck: Wahaha! A battle with you is never boring!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Chuck_Give_Gifts)
+		msgbox(format("Chuck: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_CHUCK_REMATCH)
+    }
+	elif(flag(FLAG_BADGE13_GET) && flag(FLAG_CHUCK_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Chuck: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 13)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Chuck: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 13)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Chuck: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("WAHAHAH! So you've come this far! Let me tell you, I'm tough!\pI can crush stones and shatter bones!\pScared now, are you? What? It has nothing to do with Pokémon? That's true! Come on. We shall do battle!"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Chuck_Battle_New)
+		//Get the Badge
+		msgbox(format("Hmm... I lost? How about that! All right. You're worthy of the Storm Badge!"), MSGBOX_NPC)
+		message(format("{PLAYER} received the Storm Badge from Chuck."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE13_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Chuck_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Wahahah! I enjoyed battling you! But a loss is a loss! From now on, I'm going to train 24 hours a day!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_CHUCK_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Chuck_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_MACHAMP_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FIGHTING_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_CHOPLE_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_BLACK_BELT, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FOCUS_SASH, 1)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FIGHTING_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_CHOICE_BAND, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_EXPERT_BELT, 1)
+		break
+		default: 
+		case 7:
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_MACHAMPITE, 1)
+			setflag(FLAG_GOT_MACHAMP_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Chuck_Battle_New{
+    if(!flag(FLAG_BADGE13_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_CHUCK, format("Wha? Huh? I lost?..."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_CHUCK, format("Wahaha! I enjoyed battling you."))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_CHUCK, format("Wahaha! I enjoyed battling you."))
+        }
+	}
+	return
+}
+
+//Jasmine
+const FLAG_BADGE14_GET = FLAG_RECEIVED_BADGE_14
+script Common_Eventscript_Gym_Leader_Jasmine{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE14_GET) && !flag(FLAG_JASMINE_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Jasmine: We're here as we promised... Are you prepared?"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Jasmine_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Jasmine: Properly tempered steel won't be made rusty by things like this!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Jasmine_Give_Gifts)
+		msgbox(format("Jasmine: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_JASMINE_REMATCH)
+    }
+	elif(flag(FLAG_BADGE14_GET) && flag(FLAG_JASMINE_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Jasmine: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 14)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Jasmine: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 14)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Jasmine: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("Please allow me to introduce myself. I'm Jasmine, a Gym Leader. I use the...clang! Steel type! ...Do you know about the Steel type? They are very hard, cold, sharp, and really strong! Um... I'm not lying."), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Jasmine_Battle_New)
+		//Get the Badge
+		msgbox(format("You are a better trainer than me, in both skill and kindness. In accordance with League rules, I confer upon you this Badge."), MSGBOX_NPC)
+		message(format("{PLAYER} received the Mineral Badge from Jasmine."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE14_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Jasmine_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Um... I don't know how to say this, but good luck..."), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_JASMINE_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Jasmine_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_STEELIX_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_STEEL_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_BABIRI_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_METAL_COAT, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ASSAULT_VEST, 1)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_STEEL_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_EJECT_BUTTON, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_IRON_BALL, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_STEELIXITE, 1)
+			setflag(FLAG_GOT_STEELIX_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Jasmine_Battle_New{
+    if(!flag(FLAG_BADGE14_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_JASMINE, format("Well done..."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_JASMINE, format("True to your reputation..."))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_JASMINE, format("True to your reputation..."))
+        }
+	}
+	return
+}
+
+//Pryce
+const FLAG_BADGE15_GET = FLAG_RECEIVED_BADGE_15
+script Common_Eventscript_Gym_Leader_Pryce{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE15_GET) && !flag(FLAG_PRYCE_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("Pryce: Finally. No need for words. A Pokémon battle is the way for us to communicate."), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Pryce_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Pryce: If it's someone like you, I'm sure you'll keep winning and will find something important. Keep it up."), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Pryce_Give_Gifts)
+		msgbox(format("Pryce: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_PRYCE_REMATCH)
+    }
+	elif(flag(FLAG_BADGE15_GET) && flag(FLAG_PRYCE_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("Pryce: My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 15)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("Pryce: I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 15)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Pryce: Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("Pokémon have many experiences in their lives, just like we do. I, too, have seen and suffered much in my life. Since I am your elder, let me show you what I mean. I have been with Pokémon since before you were born. I do not lose easily. I, Pryce--the winter trainer--shall demonstrate my power!"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Pryce_Battle_New)
+		//Get the Badge
+		msgbox(format("I am impressed by your prowess. With your strong will, I know you will overcome all life's obstacles. You are worthy of this Badge!"), MSGBOX_NPC)
+		message(format("{PLAYER} received the Glacier Badge from Pryce."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE15_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Pryce_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("When the ice and snow melt, spring arrives. You and your Pokémon will be together for many years to come. Cherish your time together!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_PRYCE_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Pryce_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_LAPRAS_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ICE_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_YACHE_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_SNOWBALL, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_NEVER_MELT_ICE, 1)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ICE_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ICY_ROCK, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_ICE_STONE, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_LAPRITE, 1)
+			setflag(FLAG_GOT_LAPRAS_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Pryce_Battle_New{
+    if(!flag(FLAG_BADGE15_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_PRYCE, format("Hmm. Seems as if my luck has run out."))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_PRYCE, format("Mmm... Impressive!"))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_PRYCE, format("Mmm... Impressive!"))
+        }
+	}
+	return
+}
+
+
+//Clair
+const FLAG_BADGE16_GET = FLAG_RECEIVED_BADGE_16
+script Common_Eventscript_Gym_Leader_Clair{
+	lock
+	faceplayer
+    if (flag(FLAG_BADGE16_GET) && !flag(FLAG_CLAIR_REMATCH)){
+		//Rematch
+		//Intro
+		msgbox(format("...You are here. Now let's battle!"), MSGBOX_NPC)
+		//Trainer Battle
+		special(HealPlayerParty)
+		call(Common_Eventscript_Gym_Leader_Clair_Battle_New)
+        //Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Way to go. ... Now give it your all!"), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Clair_Give_Gifts)
+		msgbox(format("Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		//Set the Rematch Flag as False
+		setflag(FLAG_CLAIR_REMATCH)
+    }
+	elif(flag(FLAG_BADGE16_GET) && flag(FLAG_CLAIR_REMATCH)){
+		//You can challenge the other trainers an infinite number of times
+		msgbox(format("My Pokémon are tired for today, but the other trainers here need training, do you want to try battling them again?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1){
+			setvar(VAR_0x8008, 16)
+			call(Common_EventScript_ClearGymTrainers)
+			msgbox(format("I will tell them to get ready, so take care on your way out."), MSGBOX_NPC)
+		}
+		else{
+			//Set all the trainers in the Gym as Defeated
+			setvar(VAR_0x8008, 16)
+			call(Common_EventScript_SetGymTrainers)
+			msgbox(format("Come back tomorrow so we can battle again."), MSGBOX_NPC)
+		}
+	}
+	else{
+		//First Battle
+		//Intro
+		msgbox(format("I am Clair. The world's best Dragon master. I can hold my own against even the Pokémon League's Elite Four. Do you still want to take me on? ...Fine. Let's do it! As a trainer, I will use my full power against any opponent!"), MSGBOX_NPC)
+		//Trainer Battle
+		call(Common_Eventscript_Gym_Leader_Clair_Battle_New)
+		//Get the Badge
+		msgbox(format("What I was missing until now... Battling with you made me realize what it is. That's how I feel. You are worthy of this Badge!"), MSGBOX_NPC)
+		message(format("{PLAYER} received the Rising Badge from Clair."))
+		call(Common_EventScript_PlayGymBadgeFanfare)
+		waitmessage
+		msgbox(format("Please take these items with you too."), MSGBOX_NPC)
+		setflag(FLAG_TEMP_9)
+		setflag(FLAG_BADGE16_GET)
+		//Give Special Key Item
+		call(Special_Gym_EventScript_Give_Item)
+		waitfanfare
+		closemessage
+		//Give TMs or Items
+		call(Common_Eventscript_Gym_Leader_Clair_Give_Gifts)
+		//Defeated Message and Reset Rematches for other Leaders
+		msgbox(format("Whatever you have to face from now, don't you dare give up! If you do, I'll feel even worse about having lost to you! Give it your all."), MSGBOX_NPC)
+		call(Gym_EventScript_Reset_Rematches)
+		clearflag(FLAG_CLAIR_REMATCH)
+		special(HealPlayerParty)
+	}
+    release
+    end
+}
+
+//Give Gifts
+script Common_Eventscript_Gym_Leader_Clair_Give_Gifts{
+	random(8)
+
+	if(!flag(FLAG_GOT_FLAPPLE_MEGA_STONE) && var(VAR_NUM_BADGES) > NUM_BADGES_NEEDED_FOR_MEGA){
+		setvar(VAR_RESULT, 7)
+	}
+	switch (var(VAR_RESULT)) {
+		case 0: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_DRAGON_GEM, NUM_GYM_REWARDS_GEMS)
+		break
+		case 1: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take these items with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_HABAN_BERRY, NUM_GYM_REWARDS_BERRIES)
+		break
+		case 2: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_DRAGON_SCALE, 1)
+		break
+		case 3: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_DRAGON_FANG, 1)
+		break
+		case 4: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_DRAGON_MEMORY, 1)
+		break
+		case 5: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_LIFE_ORB, 1)
+		break
+		case 6: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_EVIOLITE, 1)
+		break
+		case 7:
+		default: 
+			if(!flag(FLAG_TEMP_9)){
+				msgbox(format("Please take this item with you."), MSGBOX_NPC)
+			}
+			giveitem(ITEM_FLAPPLITE, 1)
+			setflag(FLAG_GOT_FLAPPLE_MEGA_STONE)
+		break
+	}
+	call(Common_Eventscript_Gym_Leader_CheckForAllBadges)
+	return
+}
+
+//Battle Script
+script Common_Eventscript_Gym_Leader_Clair_Battle_New{
+    if(!flag(FLAG_BADGE16_GET)){
+		//First Battle
+        trainerbattle_no_intro(TRAINER_LEADER_CLAIR, format("I lost? I don't believe it. There must be some mistake... ...You can brag about it. Because you beat me!"))
+    }
+	else{
+		//Rematch
+        if(flag(FLAG_SYS_GAME_CLEAR)){
+            //When you beat the game you can get a random rematch each day
+            //setflag(FLAG_SYS_DISABLE_SCALED_TRAINERS)
+        	trainerbattle_no_intro(TRAINER_LEADER_CLAIR, format("It's over..."))
+        }
+        else{
+            trainerbattle_no_intro(TRAINER_LEADER_CLAIR, format("Oh, I see.."))
+        }
+	}
+	return
+}
+
+script Common_Eventscript_Gym_Leader_CheckForAllBadges{
+	if(flag(FLAG_BADGE01_GET) &&
+	   flag(FLAG_BADGE02_GET) &&
+	   flag(FLAG_BADGE03_GET) &&
+	   flag(FLAG_BADGE04_GET) &&
+	   flag(FLAG_BADGE05_GET) &&
+	   flag(FLAG_BADGE06_GET) &&
+	   flag(FLAG_BADGE07_GET) &&
+	   flag(FLAG_BADGE08_GET) &&
+	   flag(FLAG_BADGE09_GET) &&
+	   flag(FLAG_BADGE10_GET) &&
+	   flag(FLAG_BADGE11_GET) &&
+	   flag(FLAG_BADGE12_GET) &&
+	   flag(FLAG_BADGE13_GET) &&
+	   flag(FLAG_BADGE14_GET) &&
+	   flag(FLAG_BADGE15_GET) &&
+	   flag(FLAG_BADGE16_GET)){
+		setflag(FLAG_DEFEATED_ALL_GYMS)
+	}
+}
+
+
+
+script Common_EventScript_SetGymTrainers{
+	switch(var(VAR_0x8008)){
+		//RustboroCity_Gym_SetGymTrainers
+		case 1:
+			settrainerflag(TRAINER_JOSH)
+			settrainerflag(TRAINER_TOMMY)
+			settrainerflag(TRAINER_MARC)
+			settrainerflag(TRAINER_SYLVIA)
+		break
+		//DewfordTown_Gym_SetGymTrainers
+		case 2:
+			settrainerflag(TRAINER_TAKAO)
+			settrainerflag(TRAINER_JOCELYN)
+			settrainerflag(TRAINER_LAURA)
+			settrainerflag(TRAINER_BRENDEN)
+			settrainerflag(TRAINER_CRISTIAN)
+			settrainerflag(TRAINER_LILITH)
+		break
+		//MauvilleCity_Gym_SetGymTrainers
+		case 3:
+			settrainerflag(TRAINER_KIRK)
+			settrainerflag(TRAINER_SHAWN)
+			settrainerflag(TRAINER_BEN)
+			settrainerflag(TRAINER_VIVIAN)
+			settrainerflag(TRAINER_ANGELO)
+		break
+		//LavaridgeTown_Gym_SetGymTrainers
+		case 4:
+			settrainerflag(TRAINER_COLE)
+			settrainerflag(TRAINER_AXLE)
+			settrainerflag(TRAINER_KEEGAN)
+			settrainerflag(TRAINER_GERALD)
+			settrainerflag(TRAINER_DANIELLE)
+			settrainerflag(TRAINER_JACE)
+			settrainerflag(TRAINER_JEFF)
+			settrainerflag(TRAINER_ELI)
+		break
+		//PetalburgCity_Gym_SetGymTrainers
+		case 5:
+			settrainerflag(TRAINER_RANDALL)
+			settrainerflag(TRAINER_PARKER)
+			settrainerflag(TRAINER_GEORGE)
+			settrainerflag(TRAINER_BERKE)
+			settrainerflag(TRAINER_MARY)
+			settrainerflag(TRAINER_ALEXIA)
+			settrainerflag(TRAINER_JODY)
+		break
+		//FortreeCity_Gym_SetGymTrainers
+		case 6:
+			settrainerflag(TRAINER_JARED)
+			settrainerflag(TRAINER_FLINT)
+			settrainerflag(TRAINER_ASHLEY)
+			settrainerflag(TRAINER_EDWARDO)
+			settrainerflag(TRAINER_HUMBERTO)
+			settrainerflag(TRAINER_DARIUS)
+		break
+		//MossdeepCity_Gym_SetGymTrainers
+		case 7:
+			settrainerflag(TRAINER_PRESTON)
+			settrainerflag(TRAINER_VIRGIL)
+			settrainerflag(TRAINER_BLAKE)
+			settrainerflag(TRAINER_HANNAH)
+			settrainerflag(TRAINER_SAMANTHA)
+			settrainerflag(TRAINER_MAURA)
+			settrainerflag(TRAINER_NATE)
+			settrainerflag(TRAINER_KATHLEEN)
+			settrainerflag(TRAINER_CLIFFORD)
+			settrainerflag(TRAINER_MACEY)
+			settrainerflag(TRAINER_NICHOLAS)
+		break
+		//SootopolisCity_Gym_SetGymTrainers
+		case 8:
+			settrainerflag(TRAINER_ANDREA)
+			settrainerflag(TRAINER_CRISSY)
+			settrainerflag(TRAINER_BRIANNA)
+			settrainerflag(TRAINER_CONNIE)
+			settrainerflag(TRAINER_BRIDGET)
+			settrainerflag(TRAINER_OLIVIA)
+			settrainerflag(TRAINER_TIFFANY)
+			settrainerflag(TRAINER_BETHANY)
+			settrainerflag(TRAINER_ANNIKA)
+			settrainerflag(TRAINER_DAPHNE)
+		break
+		//Falkner's Gym
+		case 9:
+			settrainerflag(TRAINER_BIRD_KEEPER_ROD)
+			settrainerflag(TRAINER_BIRD_KEEPER_ABE)
+		break
+		//Bugsy's Gym
+		case 10:
+			settrainerflag(TRAINER_TWINS_AMY_AND_MAY)
+			settrainerflag(TRAINER_BUG_CATCHER_BENNY)
+			settrainerflag(TRAINER_BUG_CATCHER_AL)
+			settrainerflag(TRAINER_BUG_CATCHER_JOSH)
+		break
+		//Whitney's Gym
+		case 11:
+			settrainerflag(TRAINER_BEAUTY_VICTORIA)
+			settrainerflag(TRAINER_BEAUTY_SAMANTHA)
+			settrainerflag(TRAINER_LASS_CARRIE)
+			settrainerflag(TRAINER_LASS_BRIDGET)
+		break
+		//Morty's Gym
+		case 12:
+			settrainerflag(TRAINER_SAGE_JEFFREY)
+			settrainerflag(TRAINER_SAGE_PING)
+			settrainerflag(TRAINER_MEDIUM_MARTHA)
+			settrainerflag(TRAINER_MEDIUM_GRACE)
+		break
+		//Chuck's Gym
+		case 13:
+			settrainerflag(TRAINER_BLACKBELT_YOSHI)
+			settrainerflag(TRAINER_BLACKBELT_LAO)
+			settrainerflag(TRAINER_BLACKBELT_NOB)
+			settrainerflag(TRAINER_BLACKBELT_LUNG)
+		break
+		//Jasmine's Gym
+		case 14:
+		break
+		//Chuck's Gym
+		case 15:
+			settrainerflag(TRAINER_SKIER_ROXANNE)
+			settrainerflag(TRAINER_SKIER_CLARISSA)
+			settrainerflag(TRAINER_BOARDER_RONALD)
+			settrainerflag(TRAINER_BOARDER_BRAD)
+			settrainerflag(TRAINER_BOARDER_DOUGLAS)
+		break
+		//Clair's Gym
+		case 16:
+			settrainerflag(TRAINER_COOLTRAINERM_CODY)
+			settrainerflag(TRAINER_COOLTRAINERF_FRAN)
+			settrainerflag(TRAINER_COOLTRAINERM_PAUL)
+			settrainerflag(TRAINER_COOLTRAINERM_MIKE)
+			settrainerflag(TRAINER_COOLTRAINERF_LOLA)
+		break
+	}
+	return
+}
+
+script Common_EventScript_ClearGymTrainers{
+	switch(var(VAR_0x8008)){
+		//RustboroCity_Gym_SetGymTrainers
+		case 1:
+			cleartrainerflag(TRAINER_JOSH)
+			cleartrainerflag(TRAINER_TOMMY)
+			cleartrainerflag(TRAINER_MARC)
+			cleartrainerflag(TRAINER_SYLVIA)
+		break
+		//DewfordTown_Gym_SetGymTrainers
+		case 2:
+			cleartrainerflag(TRAINER_TAKAO)
+			cleartrainerflag(TRAINER_JOCELYN)
+			cleartrainerflag(TRAINER_LAURA)
+			cleartrainerflag(TRAINER_BRENDEN)
+			cleartrainerflag(TRAINER_CRISTIAN)
+			cleartrainerflag(TRAINER_LILITH)
+		break
+		//MauvilleCity_Gym_SetGymTrainers
+		case 3:
+			cleartrainerflag(TRAINER_KIRK)
+			cleartrainerflag(TRAINER_SHAWN)
+			cleartrainerflag(TRAINER_BEN)
+			cleartrainerflag(TRAINER_VIVIAN)
+			cleartrainerflag(TRAINER_ANGELO)
+		break
+		//LavaridgeTown_Gym_SetGymTrainers
+		case 4:
+			cleartrainerflag(TRAINER_COLE)
+			cleartrainerflag(TRAINER_AXLE)
+			cleartrainerflag(TRAINER_KEEGAN)
+			cleartrainerflag(TRAINER_GERALD)
+			cleartrainerflag(TRAINER_DANIELLE)
+			cleartrainerflag(TRAINER_JACE)
+			cleartrainerflag(TRAINER_JEFF)
+			cleartrainerflag(TRAINER_ELI)
+		break
+		//PetalburgCity_Gym_SetGymTrainers
+		case 5:
+			cleartrainerflag(TRAINER_RANDALL)
+			cleartrainerflag(TRAINER_PARKER)
+			cleartrainerflag(TRAINER_GEORGE)
+			cleartrainerflag(TRAINER_BERKE)
+			cleartrainerflag(TRAINER_MARY)
+			cleartrainerflag(TRAINER_ALEXIA)
+			cleartrainerflag(TRAINER_JODY)
+		break
+		//FortreeCity_Gym_SetGymTrainers
+		case 6:
+			cleartrainerflag(TRAINER_JARED)
+			cleartrainerflag(TRAINER_FLINT)
+			cleartrainerflag(TRAINER_ASHLEY)
+			cleartrainerflag(TRAINER_EDWARDO)
+			cleartrainerflag(TRAINER_HUMBERTO)
+			cleartrainerflag(TRAINER_DARIUS)
+		break
+		//MossdeepCity_Gym_SetGymTrainers
+		case 7:
+			cleartrainerflag(TRAINER_PRESTON)
+			cleartrainerflag(TRAINER_VIRGIL)
+			cleartrainerflag(TRAINER_BLAKE)
+			cleartrainerflag(TRAINER_HANNAH)
+			cleartrainerflag(TRAINER_SAMANTHA)
+			cleartrainerflag(TRAINER_MAURA)
+			cleartrainerflag(TRAINER_NATE)
+			cleartrainerflag(TRAINER_KATHLEEN)
+			cleartrainerflag(TRAINER_CLIFFORD)
+			cleartrainerflag(TRAINER_MACEY)
+			cleartrainerflag(TRAINER_NICHOLAS)
+		break
+		//SootopolisCity_Gym_SetGymTrainers
+		case 8:
+			cleartrainerflag(TRAINER_ANDREA)
+			cleartrainerflag(TRAINER_CRISSY)
+			cleartrainerflag(TRAINER_BRIANNA)
+			cleartrainerflag(TRAINER_CONNIE)
+			cleartrainerflag(TRAINER_BRIDGET)
+			cleartrainerflag(TRAINER_OLIVIA)
+			cleartrainerflag(TRAINER_TIFFANY)
+			cleartrainerflag(TRAINER_BETHANY)
+			cleartrainerflag(TRAINER_ANNIKA)
+			cleartrainerflag(TRAINER_DAPHNE)
+		break
+		//Falkner's Gym
+		case 9:
+			cleartrainerflag(TRAINER_BIRD_KEEPER_ROD)
+			cleartrainerflag(TRAINER_BIRD_KEEPER_ABE)
+		break
+		//Bugsy's Gym
+		case 10:
+			cleartrainerflag(TRAINER_TWINS_AMY_AND_MAY)
+			cleartrainerflag(TRAINER_BUG_CATCHER_BENNY)
+			cleartrainerflag(TRAINER_BUG_CATCHER_AL)
+			cleartrainerflag(TRAINER_BUG_CATCHER_JOSH)
+		break
+		//Whitney's Gym
+		case 11:
+			cleartrainerflag(TRAINER_BEAUTY_VICTORIA)
+			cleartrainerflag(TRAINER_BEAUTY_SAMANTHA)
+			cleartrainerflag(TRAINER_LASS_CARRIE)
+			cleartrainerflag(TRAINER_LASS_BRIDGET)
+		break
+		//Morty's Gym
+		case 12:
+			cleartrainerflag(TRAINER_SAGE_JEFFREY)
+			cleartrainerflag(TRAINER_SAGE_PING)
+			cleartrainerflag(TRAINER_MEDIUM_MARTHA)
+			cleartrainerflag(TRAINER_MEDIUM_GRACE)
+		break
+		//Chuck's Gym
+		case 13:
+			cleartrainerflag(TRAINER_BLACKBELT_YOSHI)
+			cleartrainerflag(TRAINER_BLACKBELT_LAO)
+			cleartrainerflag(TRAINER_BLACKBELT_NOB)
+			cleartrainerflag(TRAINER_BLACKBELT_LUNG)
+		break
+		//Jasmine's Gym
+		case 14:
+		break
+		//Chuck's Gym
+		case 15:
+			cleartrainerflag(TRAINER_SKIER_ROXANNE)
+			cleartrainerflag(TRAINER_SKIER_CLARISSA)
+			cleartrainerflag(TRAINER_BOARDER_RONALD)
+			cleartrainerflag(TRAINER_BOARDER_BRAD)
+			cleartrainerflag(TRAINER_BOARDER_DOUGLAS)
+		break
+		//Clair's Gym
+		case 16:
+			cleartrainerflag(TRAINER_COOLTRAINERM_CODY)
+			cleartrainerflag(TRAINER_COOLTRAINERF_FRAN)
+			cleartrainerflag(TRAINER_COOLTRAINERM_PAUL)
+			cleartrainerflag(TRAINER_COOLTRAINERM_MIKE)
+			cleartrainerflag(TRAINER_COOLTRAINERF_LOLA)
+		break
+	}
+	return
+}

@@ -45,9 +45,9 @@ TwoIsland_EventScript_SetShopExpanded3:: @ 8167606
 TwoIsland_EventScript_Clerk:: @ 816760F
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_BADGE_06, TwoIsland_EventScript_ClerkShopExpanded3
-	goto_if_set FLAG_RECEIVED_BADGE_04, TwoIsland_EventScript_ClerkShopExpanded2
-	goto_if_set FLAG_RECEIVED_BADGE_02, TwoIsland_EventScript_ClerkShopExpanded1
+	goto_if_set FLAG_GOT_BADGE_06, TwoIsland_EventScript_ClerkShopExpanded3
+	goto_if_set FLAG_GOT_BADGE_04, TwoIsland_EventScript_ClerkShopExpanded2
+	goto_if_set FLAG_GOT_BADGE_02, TwoIsland_EventScript_ClerkShopExpanded1
 	goto TwoIsland_EventScript_ClerkShopInitial
 	end
 
@@ -92,8 +92,6 @@ TwoIsland_Items_ShopInitial:: @ 81676E4
 	.2byte ITEM_LAVA_COOKIE
 	.2byte ITEM_FRESH_WATER
 	.2byte ITEM_METAL_POWDER
-	.2byte ITEM_HEALTH_WING
-	.2byte ITEM_PRETTY_WING
 	.2byte ITEM_NONE
 	release
 	end
@@ -112,10 +110,6 @@ TwoIsland_Items_ShopExpanded1:: @ 81676FC
 	.2byte ITEM_METAL_POWDER
 	.2byte ITEM_LIGHT_BALL
 	.2byte ITEM_FRESH_WATER
-	.2byte ITEM_HEALTH_WING
-	.2byte ITEM_RESIST_WING
-	.2byte ITEM_CLEVER_WING
-	.2byte ITEM_PRETTY_WING
 	.2byte ITEM_NONE
 	release
 	end
@@ -140,11 +134,6 @@ TwoIsland_Items_ShopExpanded2:: @ 8167718
 	.2byte ITEM_LUCKY_PUNCH
 	.2byte ITEM_METAL_POWDER
 	.2byte ITEM_LIGHT_BALL
-	.2byte ITEM_HEALTH_WING
-	.2byte ITEM_RESIST_WING
-	.2byte ITEM_CLEVER_WING
-	.2byte ITEM_SWIFT_WING
-	.2byte ITEM_PRETTY_WING
 	.2byte ITEM_NONE
 	release
 	end
@@ -173,13 +162,6 @@ TwoIsland_Items_ShopExpanded3:: @ 8167738
 	.2byte ITEM_METAL_POWDER
 	.2byte ITEM_LIGHT_BALL
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_HEALTH_WING
-	.2byte ITEM_MUSCLE_WING
-	.2byte ITEM_RESIST_WING
-	.2byte ITEM_GENIUS_WING
-	.2byte ITEM_CLEVER_WING
-	.2byte ITEM_SWIFT_WING
-	.2byte ITEM_PRETTY_WING
 	.2byte ITEM_NONE
 	release
 	end

@@ -1,0 +1,237 @@
+//gSpecialvar_0x8008: HM move being used
+//gSpecialvar_0x8009: if 0, use player's mon. Otherwise, use Gym Leader's mon
+
+text Text_MonUsedFieldMove{
+	"{STR_VAR_1} used {STR_VAR_2}!"
+}
+
+//Interact with cuttable tree ------------------------------------------------------------------------------------------
+script EventScript_CutTree{
+	lockall
+    checkitem(ITEM_CUT_TOOL, 1)
+    if(var(VAR_RESULT) == TRUE){
+        //Add Fast Hidden Machine stuff here
+	    msgbox(format("This tree looks like it can be cut down! Would you like to cut it using your Axe?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            applymovement(VAR_LAST_TALKED, Movement_CutTreeDown)
+            waitmovement(0)
+            removeobject(VAR_LAST_TALKED)
+        }
+    }
+    else{
+	    msgbox(format("This tree looks like it can be cut down."))
+    }
+	closemessage
+	releaseall
+	end
+}
+
+script EventScript_UseCut{
+	lockall
+	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
+	waitstate
+	applymovement(VAR_LAST_TALKED, Movement_CutTreeDown)
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	releaseall
+	end
+}
+
+movement Movement_CutTreeDown{
+	cut_tree
+	step_end
+}
+
+//Interact with smashable rock ------------------------------------------------------------------------------------------
+script EventScript_RockSmash{
+	lockall
+    checkitem(ITEM_ROCK_SMASH_TOOL, 1)
+    if(var(VAR_RESULT) == TRUE){
+        //Add Fast Hidden Machine stuff here
+	    msgbox(format("This rock appears to be breakable. Would you like to break it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            applymovement(VAR_LAST_TALKED, Movement_SmashRock)
+            waitmovement(0)
+            removeobject(VAR_LAST_TALKED)
+            special(RockSmashWildEncounter)
+            //Rock Smash Item
+            if(var(VAR_RESULT) == FALSE){
+	            goto(EventScript_TryRockSmashItem)
+            }
+        }
+    }
+    else{
+	    msgbox(format("It's a rugged rock, but a Pickaxe may be able to smash it."))
+    }
+	closemessage
+	releaseall
+	end
+}
+	
+script EventScript_TryRockSmashItem{
+	special(TryStoreCutItem)
+	//Rock Smash Item
+    if(var(VAR_RESULT) == FALSE){
+        special(TryStoreCutItem)
+        if(var(VAR_RESULT) == TRUE){
+            giveitem(VAR_RESULT)
+        }
+    }
+	releaseall
+	end
+}
+
+movement Movement_SmashRock{
+	rock_smash_break
+	step_end
+}
+
+//Use rock smash from party menu
+script EventScript_UseRockSmash{
+	lockall
+	dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+	waitstate
+	goto(EventScript_SmashRock)
+	end
+}
+
+script EventScript_SmashRock{
+	applymovement(VAR_LAST_TALKED, Movement_SmashRock)
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	special(RockSmashWildEncounter)
+	compare(VAR_RESULT, FALSE)
+	goto_if_eq(EventScript_TryRockSmashItem)
+	releaseall
+	end
+}
+
+//Interact with strength boulders ------------------------------------------------------------------------------------------
+script EventScript_StrengthBoulder{
+	lockall
+    checkitem(ITEM_STRENGTH_TOOL, 1)
+    if(var(VAR_RESULT) == TRUE){
+        //Add Fast Hidden Machine stuff here
+	    msgbox(format("It's a big boulder, do you want to use the Power Glove to push it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+			dofieldeffect(FLDEFF_USE_STRENGTH)
+			waitstate
+			setflag(FLAG_SYS_USE_STRENGTH)
+			msgbox(format("The Power Glove made it possible to move boulders around!"), MSGBOX_DEFAULT)
+        }
+    }
+    else{
+	    msgbox(format("It's a big boulder, but a tool may help to push it aside."))
+    }
+	closemessage
+	releaseall
+	end
+}
+
+script EventScript_UseStrength{
+	lockall
+	dofieldeffect(FLDEFF_USE_STRENGTH)
+	waitstate
+	setflag(FLAG_SYS_USE_STRENGTH)
+	msgbox(format("{STR_VAR_1} used Strength!\p, {STR_VAR_1}'s Strength made it possible to move boulders around!"), MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//Interact with Waterfalls ------------------------------------------------------------------------------------------
+script EventScript_UseWaterfall{
+	lockall
+    checkitem(ITEM_WATERFALL_TOOL, 1)
+    if(var(VAR_RESULT) == TRUE){
+        //Add Fast Hidden Machine stuff here
+	    msgbox(format("It's a large waterfall, do you want to use the Waterfall Tool to climb it?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+			dofieldeffect(FLDEFF_USE_WATERFALL)
+        }
+    }
+    else{
+	    msgbox(format("A wall of water is crashing down with a mighty roar."))
+    }
+	releaseall
+	end
+}
+
+script EventScript_CannotUseWaterfall{
+	lockall
+	msgbox(format("A wall of water is crashing down with a mighty roar."))
+	releaseall
+	end
+}
+
+//Interact with Underwater ------------------------------------------------------------------------------------------
+script EventScript_UseDive{
+	lockall
+    //Add Fast Hidden Machine stuff here
+	msgbox(format("The sea is deep here. Would you like to Dive?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+		dofieldeffect(FLDEFF_USE_DIVE)
+    }
+	releaseall
+	end
+}
+
+script EventScript_UseDiveUnderwater{
+	lockall
+    //Add Fast Hidden Machine stuff here
+	msgbox(format("Light is filtering down from above. Would you like to surface?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+		dofieldeffect(FLDEFF_USE_DIVE)
+    }
+	releaseall
+	end
+}
+
+//Use Headbutt ------------------------------------------------------------------------------------------
+script EventScript_Headbutt{
+	lockall
+    checkitem(ITEM_HEADBUTT_TOOL, 1)
+    if(var(VAR_RESULT) == FALSE){
+		additem(ITEM_HEADBUTT_TOOL, 1)
+	}
+
+    checkitem(ITEM_HEADBUTT_TOOL, 1)
+    if(var(VAR_RESULT) == TRUE){
+        //Add Fast Hidden Machine stuff here
+	    msgbox(format("This moderately sized tree looks like it might hide something. Would you like to shake it using your Shaking tool?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+			goto(EventScript_HeadbuttTree)
+        }
+    }
+    else{
+	    msgbox(format("This moderately sized tree looks like it might hide something."))
+    }
+	releaseall
+	end
+}
+
+//Use headbutt from party menu
+script EventScript_UseHeadbutt{
+	lockall
+	goto(EventScript_HeadbuttTree)
+}
+
+script EventScript_HeadbuttTree{
+	setvar(VAR_0x8004, 1) //vertical pan
+	setvar(VAR_0x8005, 1) //horizontal pan
+	setvar(VAR_0x8006, 8) //num shakes
+	setvar(VAR_0x8007, 5) //shake delay
+	special(ShakeCamera)
+	waitstate
+	special(HeadbuttWildEncounter)
+	if(var(VAR_RESULT) == TRUE){
+		waitstate
+	}
+	releaseall
+	end
+}
+
+//Others ------------------------------------------------------------------------------------------
+script EventScript_FailSweetScent{
+	msgbox(format("Looks like there's nothing here…"), MSGBOX_SIGN)
+	end
+}

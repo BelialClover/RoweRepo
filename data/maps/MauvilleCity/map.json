@@ -5,40 +5,19 @@
   "music": "MUS_RUSTBORO",
   "region_map_section": "MAPSEC_MAUVILLE_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
-  "map_type": "MAP_TYPE_CITY",
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": true,
-  "allow_escaping": false,
+  "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "direction": "up",
-      "offset": 0,
-      "map": "MAP_ROUTE111"
-    },
-    {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_ROUTE110"
-    },
-    {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_ROUTE117"
-    },
-    {
-      "direction": "right",
-      "offset": 0,
-      "map": "MAP_ROUTE118"
-    }
-  ],
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
       "x": 29,
-      "y": 16,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -50,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
-      "x": 24,
-      "y": 10,
+      "x": 28,
+      "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -63,21 +42,21 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 13,
-      "y": 14,
+      "x": 16,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_EventScript_Maniac",
+      "script": "MauvilleCity_EventScript_NewMauvilleMan",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 18,
-      "y": 6,
+      "x": 38,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -89,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
-      "x": 18,
-      "y": 14,
+      "x": 25,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -102,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WATTSON",
-      "x": 29,
-      "y": 9,
+      "x": 38,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -115,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 28,
-      "y": 19,
+      "x": 17,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -128,7 +107,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 13,
+      "x": 9,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -141,7 +120,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
-      "x": 20,
+      "x": 30,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -151,57 +130,199 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Common_EventScript_FlyingTaxi",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ELECTRIC_WORKER",
+      "x": 7,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_EventScript_Man_Fixing_Elevator",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEMON_312",
+      "x": 19,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_EventScript_Minun",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEMON_311",
+      "x": 53,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_EventScript_Plusle",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEMON_417",
+      "x": 23,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_EventScript_Pachirisu",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
+      "x": 29,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_EventScript_Clerk",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 5,
+      "x": 21,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY_GYM",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
-      "x": 22,
+      "x": 34,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
-      "x": 35,
+      "x": 47,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY_BIKE_SHOP",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
-      "x": 24,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY_MART",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 32,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY_HOUSE1",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 10,
+      "x": 35,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY_GAME_CORNER",
-      "dest_warp_id": 0
+      "dest_map": "MAP_MAUVILLE_CITY_MART",
+      "dest_warp_id": "0"
     },
     {
-      "x": 20,
-      "y": 14,
+      "x": 43,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_GAME_CORNER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY_HOUSE2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 27,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 26,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE117",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE117",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 58,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 58,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 26,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 27,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_OUTSIDE",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_GAME_CORNER",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -210,7 +331,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 23,
+      "x": 32,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -218,31 +339,31 @@
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 6,
+      "x": 24,
+      "y": 13,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MauvilleCity_EventScript_GymSign"
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 14,
+      "x": 33,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 26,
-      "y": 14,
+      "x": 34,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 24,
+      "x": 33,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -250,7 +371,7 @@
     },
     {
       "type": "sign",
-      "x": 19,
+      "x": 29,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -258,7 +379,7 @@
     },
     {
       "type": "sign",
-      "x": 33,
+      "x": 45,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -266,11 +387,51 @@
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 14,
+      "x": 16,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MauvilleCity_EventScript_GameCornerSign"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine"
+    },
+    {
+      "type": "sign",
+      "x": 53,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LilycoveCity_DepartmentStoreRooftop_EventScript_VendingMachine"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

@@ -135,6 +135,13 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_RS_PROTAG] = _("{PKMN} Trainer"),
 	[TRAINER_CLASS_PKMN_MASTER] = _("{PKMN} Master"),
 	[TRAINER_CLASS_CRUSH_KIN] = _("Crush Kin"),
-	[TRAINER_CLASS_NURSE] = _("Nurse"),
+	[TRAINER_CLASS_NURSE]       = _("Nurse"),
+	[TRAINER_CLASS_PAINTER]     = _("Painter"),
+	[TRAINER_CLASS_TEAM_ROCKET] = _("Rocket"),
+	[TRAINER_CLASS_SCIENTIST]   = _("Scientist"),
+	[TRAINER_CLASS_JUGGLER]     = _("Juggler"),
+	[TRAINER_CLASS_COOL_COUPLE] = _("Cool Couple"),
+	[TRAINER_CLASS_TAMER]       = _("Tamer"),
+	[TRAINER_CLASS_CRUSH_GIRL]  = _("Crush Girl"),
 #endif
 };

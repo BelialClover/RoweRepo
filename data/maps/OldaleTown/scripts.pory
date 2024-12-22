@@ -356,6 +356,10 @@ OldaleTown_Movement_ReturnToOriginalPosition: @ 81E918B
 OldaleTown_EventScript_BattleMartSign:: @ 81E910C
 	msgbox OldaleTown_Text_BattleMartSign, MSGBOX_SIGN
 	end
+
+EightIsland_EventScript_BattleMartSign:: @ 81E910C
+	msgbox EightIsland_Text_BattleMartSign, MSGBOX_SIGN
+	end
 	
 OldaleTown_EventScript_FatMan::
 	lock
@@ -420,6 +424,9 @@ OldaleTown_Text_CitySign: @ 81E94DA
 	
 OldaleTown_Text_BattleMartSign: @ 81E94DA
 	.string "Oldale Town - Battle Mart.$"
+
+EightIsland_Text_BattleMartSign: @ 81E94DA
+	.string "Eight Island - Battle Mart.$"
 	
 OldaleTown_Text_RuinsSign: @ 81E94DA
 	.string "Oldale Ruins ahead, be wary of rocks.$"
