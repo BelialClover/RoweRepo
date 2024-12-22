@@ -737,6 +737,7 @@
 #define ITEM_TM20_SAFEGUARD     ITEM_TM20
 #define ITEM_TM21_FRUSTRATION   ITEM_TM21
 #define ITEM_TM22_SOLARBEAM     ITEM_TM22
+#define ITEM_TM22_SOLAR_BEAM    ITEM_TM22
 #define ITEM_TM23_IRON_TAIL     ITEM_TM23
 #define ITEM_TM24_THUNDERBOLT   ITEM_TM24
 #define ITEM_TM25_THUNDER       ITEM_TM25
@@ -845,46 +846,49 @@
 #define ITEM_HM06_ROCK_SMASH    ITEM_HM06
 #define ITEM_HM07_WATERFALL     ITEM_HM07
 #define ITEM_HM08_DIVE          ITEM_HM08
-#define ITEM_ABILITY_PATCH 690
-#define ITEM_POWER_CANDY 691
+
+#define ITEM_ABILITY_PATCH    690
+#define ITEM_POWER_CANDY      691
 #define ITEM_HEAVY_DUTY_BOOTS 692
+
 // Unused Items
-#define ITEM_BIKE_VOUCHER 693
-#define ITEM_GOLD_TEETH 694
-#define ITEM_OLD_AMBER 695
-#define ITEM_CARD_KEY 696
-#define ITEM_LIFT_KEY 697
-#define ITEM_SILPH_SCOPE 698
-#define ITEM_BICYCLE 699
-#define ITEM_TOWN_MAP 700
-#define ITEM_VS_SEEKER 701
-#define ITEM_FAME_CHECKER 702
-#define ITEM_TM_CASE 703
-#define ITEM_BERRY_POUCH 704
-#define ITEM_TEACHY_TV 705
-#define ITEM_TRI_PASS 706
-#define ITEM_RAINBOW_PASS 707
-#define ITEM_TEA 608
+#define ITEM_BIKE_VOUCHER  693
+#define ITEM_GOLD_TEETH    694
+#define ITEM_OLD_AMBER     695 //Used
+#define ITEM_CARD_KEY      696
+#define ITEM_LIFT_KEY      697
+#define ITEM_SILPH_SCOPE   698
+#define ITEM_BICYCLE       699
+#define ITEM_TOWN_MAP      700
+#define ITEM_VS_SEEKER     701
+#define ITEM_FAME_CHECKER  702
+#define ITEM_TM_CASE       703
+#define ITEM_BERRY_POUCH   704
+#define ITEM_TEACHY_TV     705
+#define ITEM_TRI_PASS      706
+#define ITEM_RAINBOW_PASS  707
+#define ITEM_TEA           608
 #define ITEM_MYSTIC_TICKET 709
 #define ITEM_AURORA_TICKET 710
-#define ITEM_POWDER_JAR 711
-#define ITEM_RUBY 712
-#define ITEM_SAPPHIRE 713
-// Emerald
-#define ITEM_MAGMA_EMBLEM 714
-#define ITEM_OLD_SEA_MAP 715
+#define ITEM_POWDER_JAR    711
+#define ITEM_RUBY          712
+#define ITEM_SAPPHIRE      713
 
-#define ITEM_SHINY_CHARM 716
-#define ITEM_OVAL_CHARM 717
+// Emerald
+#define ITEM_MAGMA_EMBLEM        714
+#define ITEM_OLD_SEA_MAP         715
+#define ITEM_SHINY_CHARM         716
+#define ITEM_OVAL_CHARM          717
 
 // Mod Items
-#define ITEM_LINK_CABLE 718
-#define ITEM_STRANGE_SOUVENIR 719
-#define ITEM_EON_FLUTE 720
-#define ITEM_LURE 721
-#define ITEM_SUPER_LURE 722
-#define ITEM_MAX_LURE 723
-#define ITEM_SAFARI_PASS 724
+#define ITEM_LINK_CABLE          718
+#define ITEM_STRANGE_SOUVENIR    719
+#define ITEM_EON_FLUTE           720
+#define ITEM_LURE                721
+#define ITEM_SUPER_LURE          722
+#define ITEM_MAX_LURE            723
+#define ITEM_SAFARI_PASS         724
+
 // Mints
 #define ITEM_ADAMANT_MINT        725
 #define ITEM_BOLD_MINT           726
@@ -908,6 +912,7 @@
 #define ITEM_SERIOUS_MINT        744
 #define ITEM_TIMID_MINT          745
 
+// Pokeball Seals
 #define ITEM_POKE_BALL_SEAL       746
 #define ITEM_MASTER_BALL_SEAL     747
 #define ITEM_ULTRA_BALL_SEAL      748
@@ -941,8 +946,100 @@
 #define ITEM_EXP_CHARM            775
 #define ITEM_CATCHING_CHARM       776
 
-#define ITEMS_COUNT 778
-#define ITEM_FIELD_ARROW ITEMS_COUNT
+#define ITEM_UNREMARKABLE_TEACUP  777
+#define ITEM_MASTERPIECE_TEACUP   778
+#define ITEM_PEAT_BLOCK           779
+#define ITEM_AUSPICIOUS_ARMOR     780
+#define ITEM_MALICIOUS_ARMOR      781
+#define ITEM_SWEET_APPLE          782
+#define ITEM_TART_APPLE           783
+#define ITEM_SYRUP_APPLE          784
+#define ITEM_SCROLL_OF_DARKNESS   785
+#define ITEM_SCROLL_OF_WATERS     786
+#define ITEM_METAL_ALLOY          787
+#define ITEM_BLACK_AUGURITE       788
+#define ITEM_CHIPPED_POT          789
+#define ITEM_CRACKED_POT          790
+#define ITEM_GALARICA_CUFF        791
+#define ITEM_GALARICA_TWIG        792
+#define ITEM_RAINBOW_SWEET        793
+
+#define ITEM_ABILITY_SHIELD       794
+#define ITEM_COVERT_CLOAK         795
+#define ITEM_MIRROR_HERB          796
+#define ITEM_PUNCHING_GLOVE       797
+#define ITEM_CLEAR_AMULET         798
+#define ITEM_BOOSTER_ENERGY       799
+#define ITEM_FAIRY_FEATHER        800
+
+#define ITEM_CORNERSTONE_MASK     801
+#define ITEM_WELLSPRING_MASK      802
+#define ITEM_HEARTHFLAME_MASK     803
+#define ITEM_TEAL_MASK            804
+
+#define ITEM_FOSSILIZED_BIRD      805
+#define ITEM_FOSSILIZED_DINO      806
+#define ITEM_FOSSILIZED_FISH      807
+#define ITEM_FOSSILIZED_DRAKE     808
+
+#define ITEM_RUSTED_SHIELD        809
+#define ITEM_RUSTED_SWORD         810
+
+#define ITEM_ROOM_SERVICE         811
+#define ITEM_ROTOM_CATALOG        812
+#define ITEM_THROAT_SPRAY         813
+#define ITEM_UTILITY_UMBRELLA     814
+
+#define ITEM_TYPE_SUPPRESOR       815
+#define ITEM_ABILITY_SUPPRESOR    816
+#define ITEM_BOOSTER_STONE        817
+#define ITEM_LOADED_DICE          818
+#define ITEM_SKILL_CHARM          819
+#define ITEM_BP_TICKET            820 //Can be changed for 5BP
+
+#define ITEM_SEVII_TICKET_1       821 //Gives you access to Sevii 1
+#define ITEM_SEVII_TICKET_2       822 //Gives you access to Sevii 2
+#define ITEM_SEVII_TICKET_3       823 //Gives you access to Sevii 3
+#define ITEM_SEVII_TICKET_4       824 //Gives you access to Sevii 4
+#define ITEM_SEVII_TICKET_5       825 //Gives you access to Sevii 5
+#define ITEM_SEVII_TICKET_6       826 //Gives you access to Sevii 6
+#define ITEM_SEVII_TICKET_7       827 //Gives you access to Sevii 7
+
+#define ITEM_CUT_TOOL             828 //Let's you use Cut outside of battle
+#define ITEM_FLASH_TOOL           829 //Let's you use Flash outside of battle
+#define ITEM_ROCK_SMASH_TOOL      830 //Let's you use Rock Smash outside of battle
+#define ITEM_STRENGTH_TOOL        831 //Let's you use Strength outside of battle
+#define ITEM_SURF_TOOL            832 //Let's you use Surf outside of battle
+#define ITEM_FLY_TOOL             833 //Let's you use Fly outside of battle
+#define ITEM_DIVE_TOOL            834 //Let's you use Dive outside of battle
+#define ITEM_WATERFALL_TOOL       835 //Let's you use Waterfall outside of battle
+#define ITEM_HEADBUTT_TOOL        836 //Let's you use Headbutt outside of battle
+#define ITEM_FLY_CHARM            837 //Let's you use the Flying taxis for free
+#define ITEM_WONDER_CHARM         838 //Let's you wonder trade for free
+#define ITEM_CASINO_CHARM         839 //Let's you Play on the casino for free
+
+#define ITEM_ROCK_CLIMB_TOOL      840 //Let's you use Rock Slide outside of battle
+#define ITEM_SEVII_TICKET_8       841 //Gives you access to Sevii 7
+
+#define ITEM_ALCREMITE            842
+#define ITEM_APPLETITE            843
+#define ITEM_BUTTERFRITE          844
+#define ITEM_CENTISITE            845
+#define ITEM_COALOSSITE           846
+#define ITEM_CORVIKNITE           847
+#define ITEM_DREDNAWITE           848
+#define ITEM_FLAPPLITE            849
+#define ITEM_GARBODORITE          850
+#define ITEM_HATTERENITE          851
+#define ITEM_KINGLERITE           852
+#define ITEM_LAPRITE              853
+#define ITEM_MACHAMPITE           854
+#define ITEM_ORBEETLITE           855
+#define ITEM_SANDACONDITE         856
+#define ITEM_SNORLAXITE           857
+
+#define ITEMS_COUNT               1000 //To have space for extra items
+#define ITEM_FIELD_ARROW          ITEMS_COUNT
 
 #define FIRST_BERRY_INDEX             ITEM_CHERI_BERRY
 #define LAST_BERRY_INDEX              ITEM_MARANGA_BERRY
