@@ -290,44 +290,82 @@
 #define ABILITY_AS_ONE_ICE_RIDER 266
 #define ABILITY_AS_ONE_SHADOW_RIDER 267
 
-#define ABILITY_LUCKY_BOOST 	268
-#define ABILITY_SHARPNESS 	269
-#define ABILITY_STRIKER 		270
-#define ABILITY_FELINE_PROWESS 	271
-#define ABILITY_SAGE_POWER 		272
-#define ABILITY_JUSTICE_FISTS 	273
-#define ABILITY_SIGNATURE_MOVE 	274
-#define ABILITY_EARLY_EVOLVER 	275
-#define ABILITY_CACOPHONY 		276
-#define ABILITY_AIR_CURRENT 	277
-#define ABILITY_AUTO_HEAL 		278
-#define ABILITY_WIND_RIDER		279
-#define ABILITY_OPPOSITE_DAY	280
-#define ABILITY_AURORA_BODY		281
-#define ABILITY_SCREEN_SETTER	282
-#define ABILITY_LOOSE_QUILLS	283
-#define ABILITY_WATER_SPILL	    284
-#define ABILITY_DREAM_WORLD	    285
-#define ABILITY_ROOTED	        286
-#define ABILITY_MAGNETIC_BODY	287
-#define ABILITY_POSSESSED		288
-#define ABILITY_COILED_UP 		289
-#define ABILITY_TOTTERING_STEP 	290
-#define ABILITY_GRAVITATION 	291
-#define ABILITY_SLIMY 	        292
-#define ABILITY_SHOOTING_STAR 	293
-#define ABILITY_HOLLOW_BODY 	294
-#define ABILITY_TRICKSTER		295
-#define ABILITY_FLAMING_SOUL    296
-#define ABILITY_MOLTEN_DOWN     297
-#define ABILITY_OVERCHARGE      298
-#define ABILITY_MOUNTAINEER     299
-#define ABILITY_INSECT_EATER    300
-#define ABILITY_EARTH_EATER     301
-#define ABILITY_STEEL_EATER     302
-#define ABILITY_BUGGED_OUT      303
+#define ABILITY_LUCKY_BOOST 	    268
+#define ABILITY_SHARPNESS 	        269
+#define ABILITY_STRIKER 		    270
+#define ABILITY_FELINE_PROWESS 	    271
+#define ABILITY_SAGE_POWER 		    272
+#define ABILITY_JUSTICE_FISTS 	    273
+#define ABILITY_SIGNATURE_MOVE 	    274
+#define ABILITY_POWER_SURGE 	    275
+#define ABILITY_CACOPHONY 		    276
+#define ABILITY_AIR_CURRENT 	    277
+#define ABILITY_AUTO_HEAL 		    278
+#define ABILITY_WIND_RIDER		    279
+#define ABILITY_OPPOSITE_DAY	    280
+#define ABILITY_AURORA_BODY		    281
+#define ABILITY_SCREEN_SETTER	    282
+#define ABILITY_LOOSE_QUILLS	    283
+#define ABILITY_WATER_SPILL	        284
+#define ABILITY_DREAM_WORLD	        285
+#define ABILITY_ROOTED	            286
+#define ABILITY_MAGNETIC_BODY	    287
+#define ABILITY_POSSESSED		    288
+#define ABILITY_COILED_UP 		    289
+#define ABILITY_TOTTERING_STEP 	    290
+#define ABILITY_GRAVITATION 	    291
+#define ABILITY_SLIMY 	            292
+#define ABILITY_SHOOTING_STAR 	    293
+#define ABILITY_HOLLOW_BODY 	    294
+#define ABILITY_TRICKSTER		    295
+#define ABILITY_FLAMING_SOUL        296
+#define ABILITY_MOLTEN_DOWN         297
+#define ABILITY_OVERCHARGE          298
+#define ABILITY_MOUNTAINEER         299
+#define ABILITY_INSECT_EATER        300
+#define ABILITY_EARTH_EATER         301
+#define ABILITY_STEEL_EATER         302
+#define ABILITY_BUGGED_OUT          303
+#define ABILITY_PSYCHIC_MIND        304
+#define ABILITY_DRACO_ENERGY        305
+#define ABILITY_OMINOUS_VIBE        306
+#define ABILITY_POISONATE           307
+#define ABILITY_EVAPORATE           308
+#define ABILITY_POLLUTION           309
+#define ABILITY_TOXIC_JAWS          310
 
-#define ABILITIES_COUNT_GEN8    ABILITY_BUGGED_OUT + 1
+#define ABILITY_LINGERING_AROMA     311 //Mummy clone - Working
+#define ABILITY_WELL_BAKED_BODY     312 //Similar to storm drain - Working
+#define ABILITY_WIND_POWER          313 //Similar to Flash Fire
+#define ABILITY_COMMANDER           314 //When the Pokémon enters a battle, it goes inside the mouth of an ally Dondozo if one is on the field. The Pokémon then issues commands from there.
+#define ABILITY_PURIFYING_SALT      315 //No status conditions + ghost resistance - Working
+#define ABILITY_MYCELIUM_MIGHT      316 //Similar to stall but for status moves
+#define ABILITY_COSTAR              317 //Similar to trace but for stat changes
+#define ABILITY_TOXIC_DEBRIS        318 //Similar to loose quills but for toxic spikes
+#define ABILITY_TOXIC_CHAIN         319 //The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move.
+#define ABILITY_GUARD_DOG           320 //Boosts the Pokémon’s Attack stat if intimidated. Moves and items that would force the Pokémon to switch out also fail to work.
+#define ABILITY_BEADS_OF_RUIN       321 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
+#define ABILITY_SWORD_OF_RUIN       322 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
+#define ABILITY_TABLETS_OF_RUIN     323 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
+#define ABILITY_VESSEL_OF_RUIN      324 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
+#define ABILITY_GOOD_AS_GOLD        325 //Immunity to status moves - Working
+#define ABILITY_THERMAL_EXCHANGE    326 //Similar to storm drain + no burn - Working
+#define ABILITY_PROTOSYNTHESIS      327 //Boosts the Pokémon's most proficient stat in harsh sunlight or if the Pokémon is holding Booster Energy.
+#define ABILITY_SUPREME_OVERLORD    328 //When the Pokémon enters a battle, its Attack and Sp. Atk stats are slightly boosted for each of the allies in its party that have already been defeated.
+#define ABILITY_ARMOR_TAIL          329 //No priority moves against this mon
+#define ABILITY_ORICHALCUM_PULSE    330 //Turns the sunlight harsh when the Pokémon enters a battle. The ancient pulse thrumming through the Pokémon also boosts its Attack stat in harsh sunlight.
+#define ABILITY_HADRON_ENGINE       331 //Turns the ground into Electric Terrain when the Pokémon enters a battle. The futuristic engine within the Pokémon also boosts its Sp. Atk stat on Electric Terrain.
+#define ABILITY_SUPERSWEET_SYRUP    332 //Intimidate but for evasion
+#define ABILITY_TERA_SHIFT          333 //When the Pokémon enters a battle, it absorbs the energy around itself and transforms into its Terastal Form.
+#define ABILITY_POISON_PUPPETEER    334 //Pokémon poisoned by Pecharunt's moves will also become confused.
+#define ABILITY_CUD_CHEW            335 //When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time
+#define ABILITY_MINDS_EYE           336 //The Pokémon ignores changes to opponents' evasiveness, its accuracy can't be lowered, and it can hit Ghost types with Normal- and Fighting-type moves.
+#define ABILITY_ZERO_TO_HERO        337 //The Pokémon transforms into its Hero Form when it switches out. - Will be added
+#define ABILITY_HOSPITALITY         338 //When the Pokémon enters a battle, it showers its ally with hospitality, restoring a small amount of the ally's HP.
+#define ABILITY_SELF_SUFFICIENT 	339 //Working
+#define ABILITY_ICY_VOICE        	340 //Working
+
+#define ABILITIES_COUNT_GEN8    ABILITY_ICY_VOICE + 1
 
 #define ABILITIES_COUNT ABILITIES_COUNT_GEN8
 
