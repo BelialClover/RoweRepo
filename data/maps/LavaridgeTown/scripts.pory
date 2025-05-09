@@ -389,10 +389,10 @@ LavaridgeTown_EventScript_Give_Litten::
 	
 //Scorbunny
 LavaridgeTown_EventScript_Give_Scorbunny::
-	bufferspeciesname 1, SPECIES_FUECOCO
+	bufferspeciesname 1, SPECIES_SCORBUNNY
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedMonFromOldMan
-	givemon SPECIES_FUECOCO, 10, ITEM_NONE
+	givemon SPECIES_SCORBUNNY, 10, ITEM_NONE
 	waitfanfare
 	msgbox LavaridgeTown_Text_ComeAgain_Starter, MSGBOX_DEFAULT
 	release
@@ -400,10 +400,10 @@ LavaridgeTown_EventScript_Give_Scorbunny::
 
 //Fuecoco
 LavaridgeTown_EventScript_Give_Fuecoco::
-	bufferspeciesname 1, SPECIES_CHARMANDER
+	bufferspeciesname 1, SPECIES_FUECOCO
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedMonFromOldMan
-	givemon SPECIES_CHARMANDER, 10, ITEM_NONE
+	givemon SPECIES_FUECOCO, 10, ITEM_NONE
 	waitfanfare
 	msgbox LavaridgeTown_Text_ComeAgain_Starter, MSGBOX_DEFAULT
 	release

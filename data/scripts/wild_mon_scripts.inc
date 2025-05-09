@@ -45,7 +45,7 @@ Common_EventScript_Wild_Lapras_3:
 
 Common_EventScript_Wild_Lapras_4:
 # 22 "data/scripts/wild_mon_scripts.pory"
-	setvar VAR_0x8004, FLAG_DAILY_WILD_LAPRAS
+	setvar VAR_0x8004, SPECIES_LAPRAS
 # 23 "data/scripts/wild_mon_scripts.pory"
 	setweather WEATHER_NONE
 # 24 "data/scripts/wild_mon_scripts.pory"
@@ -57,7 +57,7 @@ Common_EventScript_Wild_Lapras_4:
 # 27 "data/scripts/wild_mon_scripts.pory"
 	bufferspeciesname 0, VAR_0x8004
 # 28 "data/scripts/wild_mon_scripts.pory"
-	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	msgbox Common_EventScript_Wild_Lapras_Text_0, MSGBOX_DEFAULT
 	goto Common_EventScript_Wild_Lapras_1
 
 
@@ -405,6 +405,10 @@ Common_EventScript_Victini_Encounter_4:
 	msgbox Common_EventScript_Victini_Encounter_Text_1, MSGBOX_DEFAULT
 	goto Common_EventScript_Victini_Encounter_1
 
+
+Common_EventScript_Wild_Lapras_Text_0:
+# 28 "data/scripts/wild_mon_scripts.pory"
+	.string "Lapras dove away$"
 
 Common_EventScript_Mesprit_Encounter_Text_0:
 # 40 "data/scripts/wild_mon_scripts.pory"

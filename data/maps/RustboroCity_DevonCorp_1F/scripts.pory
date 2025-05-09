@@ -50,82 +50,6 @@ RustboroCity_DevonCorp_1F_EventScript_GotRobbed:: @ 82112C4
 	release
 	end
 
-RustboroCity_DevonCorp_1F_EventScript_Greeter:: @ 82112CE
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	goto_if_set FLAG_RECEIVED_TM40, RustboroCity_DevonCorp_1F_EventScript_Greeter2
-	pokemart RustboroCity_DevonCorp_1F_EventScript_Ballmart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-	
-RustboroCity_DevonCorp_1F_EventScript_Greeter2::
-	pokemart RustboroCity_DevonCorp_1F_EventScript_Ballmart2
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-	
-RustboroCity_DevonCorp_1F_EventScript_Ballmart:
-	.2byte ITEM_POKE_BALL_SEAL
-	.2byte ITEM_GREAT_BALL_SEAL
-	.2byte ITEM_ULTRA_BALL_SEAL
-	.2byte ITEM_PREMIER_BALL_SEAL
-	.2byte ITEM_LUXURY_BALL_SEAL
-	.2byte ITEM_HEAL_BALL_SEAL
-	.2byte ITEM_TIMER_BALL_SEAL
-	.2byte ITEM_REPEAT_BALL_SEAL
-	.2byte ITEM_NET_BALL_SEAL
-	.2byte ITEM_DIVE_BALL_SEAL
-	.2byte ITEM_NONE
-	release
-	end
-	
-RustboroCity_DevonCorp_1F_EventScript_Ballmart2:
-	.2byte ITEM_POKE_BALL_SEAL
-	.2byte ITEM_GREAT_BALL_SEAL
-	.2byte ITEM_ULTRA_BALL_SEAL
-	.2byte ITEM_PREMIER_BALL_SEAL
-	.2byte ITEM_LUXURY_BALL_SEAL
-	.2byte ITEM_HEAL_BALL_SEAL
-	.2byte ITEM_TIMER_BALL_SEAL
-	.2byte ITEM_REPEAT_BALL_SEAL
-	.2byte ITEM_NET_BALL_SEAL
-	.2byte ITEM_DIVE_BALL_SEAL
-	.2byte ITEM_LURE_BALL_SEAL
-	.2byte ITEM_LEVEL_BALL_SEAL
-	.2byte ITEM_MOON_BALL_SEAL
-	.2byte ITEM_HEAVY_BALL_SEAL
-	.2byte ITEM_FAST_BALL_SEAL
-	.2byte ITEM_FRIEND_BALL_SEAL
-	.2byte ITEM_LOVE_BALL_SEAL
-	.2byte ITEM_DREAM_BALL_SEAL
-	.2byte ITEM_WATER_MEMORY
-	.2byte ITEM_STEEL_MEMORY
-	.2byte ITEM_ROCK_MEMORY
-	.2byte ITEM_PSYCHIC_MEMORY
-	.2byte ITEM_POISON_MEMORY
-	.2byte ITEM_ICE_MEMORY
-	.2byte ITEM_GROUND_MEMORY
-	.2byte ITEM_GRASS_MEMORY
-	.2byte ITEM_GHOST_MEMORY
-	.2byte ITEM_FLYING_MEMORY
-	.2byte ITEM_FIRE_MEMORY
-	.2byte ITEM_FIGHTING_MEMORY
-	.2byte ITEM_FAIRY_MEMORY
-	.2byte ITEM_ELECTRIC_MEMORY
-	.2byte ITEM_DRAGON_MEMORY
-	.2byte ITEM_DARK_MEMORY
-	.2byte ITEM_BUG_MEMORY
-	.2byte ITEM_EXIOLITE
-	.2byte ITEM_EVIOLITE
-	.2byte ITEM_EVERSTONE
-	.2byte ITEM_DESTINY_KNOT
-	.2byte ITEM_NONE
-	release
-	end
-
 RustboroCity_DevonCorp_1F_EventScript_WelcomeToDevonCorp:: @ 82112F5
 	msgbox RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp, MSGBOX_DEFAULT
 	release
@@ -209,3 +133,75 @@ RustboroCity_DevonCorp_1F_Text_ProductDisplay: @ 8211722
 	.string "Poké Balls and Pokénav systems.”$"
 
 `
+script RustboroCity_DevonCorp_1F_EventScript_Greeter{
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	if(var(VAR_NUM_BADGES) < 8){
+		pokemart(RustboroCity_DevonCorp_1F_EventScript_Ballmart)
+	}
+	else{
+		pokemart(RustboroCity_DevonCorp_1F_EventScript_Ballmart2)
+	}
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart RustboroCity_DevonCorp_1F_EventScript_Ballmart {
+	ITEM_POKE_BALL_SEAL
+	ITEM_GREAT_BALL_SEAL
+	ITEM_ULTRA_BALL_SEAL
+	ITEM_PREMIER_BALL_SEAL
+	ITEM_LUXURY_BALL_SEAL
+	ITEM_HEAL_BALL_SEAL
+	ITEM_TIMER_BALL_SEAL
+	ITEM_REPEAT_BALL_SEAL
+	ITEM_NET_BALL_SEAL
+	ITEM_DIVE_BALL_SEAL
+	ITEM_NONE
+}
+
+mart RustboroCity_DevonCorp_1F_EventScript_Ballmart2 {
+	ITEM_POKE_BALL_SEAL
+	ITEM_GREAT_BALL_SEAL
+	ITEM_ULTRA_BALL_SEAL
+	ITEM_PREMIER_BALL_SEAL
+	ITEM_LUXURY_BALL_SEAL
+	ITEM_HEAL_BALL_SEAL
+	ITEM_TIMER_BALL_SEAL
+	ITEM_REPEAT_BALL_SEAL
+	ITEM_NET_BALL_SEAL
+	ITEM_DIVE_BALL_SEAL
+	ITEM_LURE_BALL_SEAL
+	ITEM_LEVEL_BALL_SEAL
+	ITEM_MOON_BALL_SEAL
+	ITEM_HEAVY_BALL_SEAL
+	ITEM_FAST_BALL_SEAL
+	ITEM_FRIEND_BALL_SEAL
+	ITEM_LOVE_BALL_SEAL
+	ITEM_DREAM_BALL_SEAL
+	ITEM_WATER_MEMORY
+	ITEM_STEEL_MEMORY
+	ITEM_ROCK_MEMORY
+	ITEM_PSYCHIC_MEMORY
+	ITEM_POISON_MEMORY
+	ITEM_ICE_MEMORY
+	ITEM_GROUND_MEMORY
+	ITEM_GRASS_MEMORY
+	ITEM_GHOST_MEMORY
+	ITEM_FLYING_MEMORY
+	ITEM_FIRE_MEMORY
+	ITEM_FIGHTING_MEMORY
+	ITEM_FAIRY_MEMORY
+	ITEM_ELECTRIC_MEMORY
+	ITEM_DRAGON_MEMORY
+	ITEM_DARK_MEMORY
+	ITEM_BUG_MEMORY
+	ITEM_EXIOLITE
+	ITEM_EVIOLITE
+	ITEM_EVERSTONE
+	ITEM_DESTINY_KNOT
+	ITEM_NONE
+}

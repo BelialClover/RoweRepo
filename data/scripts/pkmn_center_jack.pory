@@ -205,9 +205,20 @@ Common_EventScript_PkmnCenterJack_MoveReminder_ComeBackAnytime:: @ 8201452
 
 `
 
+script Common_Eventscript_CheckForItems{
+	//Item Finder
+	checkitem(ITEM_ITEMFINDER, 1)
+	if(var(VAR_RESULT) == FALSE){
+		additem(ITEM_ITEMFINDER)
+	}
+	return
+}
+
 //Blue Nurse Stuff
 script Common_EventScript_PkmnCenterJack{
 	lockall
+	call(Common_Eventscript_CheckForItems)
+	call(Common_Eventscript_CheckForSeviiTicket)
 	msgbox(gText_PkmnCenterJack_GotPokemonQuestions, MSGBOX_DEFAULT)
 	scrollingmultichoice(SCROLLING_BLUE_NURSE_OPTIONS, 0, 0, 6, TRUE)
 	switch(var(VAR_RESULT)){

@@ -4569,7 +4569,7 @@ void ChangeRotomForm (void)
     newForm = GetFormIdFromFormSpeciesId(gSpecialVar_0x8005);
     
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_FORM_ID, &newForm);
-    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    CalculateMonStatsWithoutRestoringPP(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
 // Teaches Rotom's forms their special moves

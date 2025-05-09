@@ -57,14 +57,14 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 17,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND",
       "dest_warp_id": "3"
     },
     {
       "x": 4,
-      "y": 17,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND",
       "dest_warp_id": "3"
@@ -77,7 +77,7 @@
     {
       "type": "sign",
       "x": 3,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OneIsland_EventScript_Island_GymSign"
@@ -85,7 +85,7 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OneIsland_EventScript_Island_GymSign"

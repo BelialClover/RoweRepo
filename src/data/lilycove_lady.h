@@ -280,11 +280,8 @@ static const u16 sQuizLadyPrizes[] =
     ITEM_BELUE_BERRY,
     ITEM_DURIN_BERRY,
     ITEM_LUXURY_BALL,
-    ITEM_TM15_HYPER_BEAM,
     ITEM_BIG_PEARL,
     ITEM_STAR_PIECE,
-    ITEM_RARE_CANDY,
-    ITEM_RARE_CANDY,
     ITEM_PREMIER_BALL
 };
 
@@ -427,7 +424,6 @@ static const u16 sFavorLadyPrizes[] =
     ITEM_NUGGET,
     ITEM_PROTEIN,
     ITEM_HEART_SCALE,
-    ITEM_RARE_CANDY,
     ITEM_ABILITY_CAPSULE
 };
 

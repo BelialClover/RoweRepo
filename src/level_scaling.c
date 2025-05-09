@@ -137,6 +137,8 @@ enum{
 	},
 };*/
 
+/*
+//Pre 2.2 Scaling
 const u16 gScalingInfo[DIFFICULTY_HARD + 1][NUM_SCALING_OPTIONS][NUM_CURRENT_SCALING_LEVELS] = {
 	[DIFFICULTY_EASY] = {               //  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
 		[SCALING_WILD_MON_LEVEL]      = {  4,  7, 10, 13, 15, 18, 20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 50, 60 },
@@ -164,6 +166,46 @@ const u16 gScalingInfo[DIFFICULTY_HARD + 1][NUM_SCALING_OPTIONS][NUM_CURRENT_SCA
 		[SCALING_WILD_MON_LEVEL]      = {  5,  7, 10, 13, 16, 19, 21, 24, 26, 29, 32, 35, 38, 41, 45, 50, 55, 62, 68 },
 		[SCALING_TRAINER_MON_LEVEL]   = {  7, 10, 13, 16, 19, 22, 25, 28, 32, 35, 38, 41, 44, 47, 50, 55, 60, 67, 73 },
 		[SCALING_BOSS_MON_LEVEL]      = { 13, 16, 19, 22, 25, 28, 31, 35, 38, 41, 45, 48, 51, 54, 57, 65, 70, 77, 85 },
+		[SCALING_TRAINER_MAX_MON_NUM] = {  2,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  4,  5,  5,  5,  5,  6,  6,  6 },
+		[SCALING_DOUBLE_MAX_MON_NUM]  = {  2,  2,  2,  2,  4,  4,  4,  4,  4,  4,  4,  4,  6,  6,  6,  6,  6,  6,  6 },
+		[SCALING_BOSS_MAX_MON_NUM]    = {  3,  3,  4,  4,  4,  5,  5,  5,  5,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6 },
+		                                //  0    1    2    3    4    5     6     7     8    9   10   11   12   13   14   15   16   17   18
+		[SCALING_MOVE_POWER_LIMIT]    = {  60,  70,  75,  80,  85,  90,  95,  100,  125, 150,  175, 200, 250, 275, 300, 325, 350, 375, 500},
+		[SCALING_WHITEOUT_MONEY]      = {   8,  16,  24,  32,  40,  48,  56,   64,   72,  80,   88,  96, 104, 116, 120, 120, 120, 120, 120},
+	},
+};*/
+
+//New Scaling Info
+const u16 gScalingInfo[DIFFICULTY_HARD + 1][NUM_SCALING_OPTIONS][NUM_CURRENT_SCALING_LEVELS] = {
+	[DIFFICULTY_EASY] = {               //  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+		[SCALING_WILD_MON_LEVEL]      = {  4,  8, 12, 15, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 43, 48, 60 },
+		[SCALING_TRAINER_MON_LEVEL]   = {  6, 10, 13, 16, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 42, 45, 50, 60 },
+		[SCALING_BOSS_MON_LEVEL]      = { 12, 16, 20, 23, 26, 28, 30, 32, 34, 36, 38, 41, 44, 48, 52, 55, 58, 64, 70 },
+		
+		[SCALING_TRAINER_MAX_MON_NUM] = {  2,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  4,  5,  5,  5,  5,  6,  6,  6 },
+		[SCALING_DOUBLE_MAX_MON_NUM]  = {  2,  2,  2,  2,  2,  4,  4,  4,  4,  4,  4,  4,  4,  4,  6,  6,  6,  6,  6 },
+		[SCALING_BOSS_MAX_MON_NUM]    = {  3,  3,  4,  4,  4,  5,  5,  5,  5,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6 },
+		                                //  0    1    2    3    4    5     6     7     8    9   10   11   12   13   14   15   16   17   18
+		[SCALING_MOVE_POWER_LIMIT]    = {  60,  70,  75,  80,  85,  90,  95,  100,  125, 150,  175, 200, 250, 275, 300, 325, 350, 375, 500},
+		[SCALING_WHITEOUT_MONEY]      = {   8,  16,  24,  32,  40,  48,  56,   64,   72,  80,   88,  96, 104, 116, 120, 120, 120, 120, 120},
+	},
+	[DIFFICULTY_NORMAL] = {             // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+		[SCALING_WILD_MON_LEVEL]      = {  5,  9, 12, 15, 17, 19, 21, 23, 25, 27, 30, 32, 35, 37, 40, 43, 47, 53, 65 },
+		[SCALING_TRAINER_MON_LEVEL]   = {  7, 11, 14, 17, 20, 23, 25, 28, 31, 34, 36, 39, 42, 45, 48, 51, 55, 60, 70 },
+		[SCALING_BOSS_MON_LEVEL]      = { 13, 18, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 51, 54, 57, 64, 70, 76, 82 },
+
+		[SCALING_TRAINER_MAX_MON_NUM] = {  2,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  4,  5,  5,  5,  5,  6,  6,  6 },
+		[SCALING_DOUBLE_MAX_MON_NUM]  = {  2,  2,  2,  2,  2,  4,  4,  4,  4,  4,  4,  4,  4,  4,  6,  6,  6,  6,  6 },
+		[SCALING_BOSS_MAX_MON_NUM]    = {  3,  3,  4,  4,  4,  5,  5,  5,  5,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6 },
+		                                //  0    1    2    3    4    5     6     7     8    9   10   11   12   13   14   15   16   17   18
+		[SCALING_MOVE_POWER_LIMIT]    = {  60,  70,  75,  80,  85,  90,  95,  100,  125, 150,  175, 200, 250, 275, 300, 325, 350, 375, 500},
+		[SCALING_WHITEOUT_MONEY]      = {   8,  16,  24,  32,  40,  48,  56,   64,   72,  80,   88,  96, 104, 116, 120, 120, 120, 120, 120},
+	},
+	[DIFFICULTY_HARD] = {               // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+		[SCALING_WILD_MON_LEVEL]      = {  5,  9, 12, 15, 18, 20, 23, 25, 27, 30, 33, 36, 39, 42, 46, 51, 56, 61, 68 },
+		[SCALING_TRAINER_MON_LEVEL]   = {  7, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 52, 57, 62, 68, 73 },
+		[SCALING_BOSS_MON_LEVEL]      = { 13, 18, 22, 25, 28, 31, 34, 37, 40, 44, 47, 50, 53, 56, 59, 66, 72, 77, 85 },
+
 		[SCALING_TRAINER_MAX_MON_NUM] = {  2,  2,  3,  3,  3,  3,  4,  4,  4,  4,  4,  4,  5,  5,  5,  5,  6,  6,  6 },
 		[SCALING_DOUBLE_MAX_MON_NUM]  = {  2,  2,  2,  2,  4,  4,  4,  4,  4,  4,  4,  4,  6,  6,  6,  6,  6,  6,  6 },
 		[SCALING_BOSS_MAX_MON_NUM]    = {  3,  3,  4,  4,  4,  5,  5,  5,  5,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6 },
@@ -313,6 +355,38 @@ u16 GetCurrentLevelCap(void)
         return MAX_LEVEL;
 }
 
+u16 GetPastLevelCap(void)
+{
+	u16 level = 0;
+
+	if(GetNumBadges() != 0)
+		level  = getScalingDataForBadge(SCALING_BOSS_MON_LEVEL, GetNumBadges() - 1) + getScalingDataForBadge(SCALING_BOSS_MAX_MON_NUM, GetNumBadges() - 1);
+
+    return level;
+}
+
+u16 GetNextLevelCap(void)
+{
+	u16 level = MAX_LEVEL;
+
+	if(GetNumBadges() != SCALING_ENDGAME)
+		level  = getScalingDataForBadge(SCALING_BOSS_MON_LEVEL, GetNumBadges() + 1) + getScalingDataForBadge(SCALING_BOSS_MAX_MON_NUM, GetNumBadges() + 1);
+
+    return level;
+}
+
+u8 getLevelCapLevel(void){
+    u8 level         = (NUM_DIFFICULTIES - 1) - VarGet(VAR_LEVEL_CAP_LEVEL);
+	u8 maxDifficulty = GetGameDifficultyLevel();
+
+	//mgba_printf(MGBA_LOG_WARN, "getLevelCapLevel level %d maxDifficulty %d", level, maxDifficulty);
+
+    if(level <= GetGameDifficultyLevel())
+        return level;
+    else
+        return NUM_DIFFICULTIES - 1;
+}
+
 u16 GetWhiteoutMoney(void){
     return getScalingData(SCALING_TRAINER_MON_LEVEL);
 }
@@ -366,8 +440,12 @@ u8 getWildPokemonLevel(void){
 	u8 ngplusCount = VarGet(VAR_NEW_GAME_PLUS_COUNT);
 	u8 level       = getScalingData(SCALING_WILD_MON_LEVEL);
 	u8 levelBoost  = getLevelBoost();
+	u16 newLevel = level + levelBoost + ngplusCount;
 
-	return level + levelBoost + ngplusCount;
+	if(newLevel > MAX_LEVEL)
+		return MAX_LEVEL;
+	else 
+		return newLevel;
 }
 
 //Gets Extra Levels (No idea what it does)
@@ -1204,8 +1282,6 @@ u16 GetHeldItem(u16 baseitem)
 
 #define EVS_PER_BADGE          32
 #define EVS_ON_STATS_PER_BADGE 16
-#define MAX_EVS                510
-#define MAX_EVS_PER_STAT       252
 
 u8 GetScaledEvs(u8 evs)
 {
@@ -1217,10 +1293,10 @@ u8 GetScaledEvs(u8 evs)
 		return evs;
 
     // Cap max EVs per stat
-    if (maxEvs > MAX_EVS_PER_STAT)
-        maxEvs = MAX_EVS_PER_STAT;
+    if (maxEvs > MAX_PER_STAT_EVS)
+        maxEvs = MAX_PER_STAT_EVS;
 
-    // Adjust scaling for hard mode
+    // Adjust scaMAX_TOTAL_EVSr hard mode
     if (IsHardMode() && numBadges != SCALING_16_BADGES)
         numBadges++;
 
@@ -1552,24 +1628,24 @@ u16 GetScaledItem(u16 itemId)
                  ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_ETHER,       ITEM_ELIXIR,        ITEM_MAX_ELIXIR,
                  ITEM_FULL_HEAL,    ITEM_REVIVE,       ITEM_MAX_REVIVE,      ITEM_BIG_MUSHROOM,  ITEM_ULTRA_BALL,
                  ITEM_SUPER_REPEL,  ITEM_MAX_REPEL,    ITEM_MAX_REPEL,       ITEM_SUPER_LURE,    ITEM_ESCAPE_ROPE,
-                 ITEM_RED_SHARD,    ITEM_BLUE_SHARD,   ITEM_GREEN_SHARD,     ITEM_YELLOW_SHARD,  ITEM_RARE_CANDY,
+                 ITEM_RED_SHARD,    ITEM_BLUE_SHARD,   ITEM_GREEN_SHARD,     ITEM_YELLOW_SHARD,  ITEM_STARDUST,
                  NO_SCALED_ITEM,    NO_SCALED_ITEM},
 
 		// Eight Badges
         (u16[]) {ITEM_ULTRA_BALL,   ITEM_ULTRA_BALL,   ITEM_ULTRA_BALL,      ITEM_HYPER_POTION,  ITEM_HYPER_POTION,
                  ITEM_HYPER_POTION, ITEM_MAX_POTION,   ITEM_ELIXIR,          ITEM_ELIXIR,        ITEM_MAX_ELIXIR,
                  ITEM_FULL_HEAL,    ITEM_REVIVE,       ITEM_MAX_REVIVE,      ITEM_STAR_PIECE,    ITEM_ULTRA_BALL,
-                 ITEM_MAX_REPEL,    ITEM_MAX_REPEL,    ITEM_MAX_REPEL,       ITEM_MAX_LURE,      ITEM_PP_MAX,
+                 ITEM_MAX_REPEL,    ITEM_MAX_REPEL,    ITEM_MAX_REPEL,       ITEM_MAX_LURE,      ITEM_ESCAPE_ROPE,
                  ITEM_ESCAPE_ROPE,  ITEM_RED_SHARD,    ITEM_BLUE_SHARD,      ITEM_GREEN_SHARD,   ITEM_YELLOW_SHARD,
-                 ITEM_RARE_CANDY,   ITEM_RARE_CANDY,   NO_SCALED_ITEM},
+                 ITEM_STARDUST,     ITEM_STARDUST,     NO_SCALED_ITEM},
 
 		// Post-Game
         (u16[]) {ITEM_ULTRA_BALL,   ITEM_QUICK_BALL,   ITEM_DUSK_BALL,       ITEM_MAX_POTION,    ITEM_MAX_POTION,
                  ITEM_MAX_POTION,   ITEM_MAX_POTION,   ITEM_FULL_RESTORE,    ITEM_ELIXIR,        ITEM_MAX_ELIXIR,
                  ITEM_MAX_ELIXIR,   ITEM_FULL_HEAL,    ITEM_FULL_HEAL,       ITEM_FULL_HEAL,     ITEM_REVIVE,
                  ITEM_REVIVE,       ITEM_MAX_REVIVE,   ITEM_MAX_REPEL,       ITEM_MAX_REPEL,     ITEM_MAX_REPEL,
-                 ITEM_MAX_LURE,     ITEM_ESCAPE_ROPE,  ITEM_HEART_SCALE,     ITEM_LUCKY_EGG,     ITEM_RARE_CANDY,
-                 ITEM_NUGGET,       ITEM_RED_SHARD,    ITEM_BLUE_SHARD,      ITEM_GREEN_SHARD,   ITEM_RARE_CANDY,
+                 ITEM_MAX_LURE,     ITEM_ESCAPE_ROPE,  ITEM_HEART_SCALE,     ITEM_LUCKY_EGG,     ITEM_STARDUST,
+                 ITEM_NUGGET,       ITEM_RED_SHARD,    ITEM_BLUE_SHARD,      ITEM_GREEN_SHARD,   ITEM_STARDUST,
                  ITEM_YELLOW_SHARD, NO_SCALED_ITEM}  
     };
 
@@ -2056,7 +2132,7 @@ void RandomizeIfSpeciesNone(void)
 			SetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, &gSpeciesNames[randomizedspecie]);
 			GiveMonInitialMoveset(&gPlayerParty[i]);
 		}
-		CalculateMonStats(&gPlayerParty[i]);
+		CalculateMonStatsWithoutRestoringPP(&gPlayerParty[i]);
     }
 }
 

@@ -70,7 +70,7 @@ script FiveIsland_WaterLabyrinth_EventScript_Selphy {
 
 script FiveIsland_WaterLabyrinth_EventScript_Alize {
 	trainerbattle_single(TRAINER_ALIZE, format("This is an excellent environment for raising POKéMON!"), format("Your POKéMON are growing up admirably well!"))
-	msgbox(format("PostBattleText"), MSGBOX_AUTOCLOSE)
+	msgbox(format("You know, I think you have the talent to be a good Pokémon Breeder."), MSGBOX_AUTOCLOSE)
 }
 
 script FiveIsland_ResortGorgeous_EventScript_Daisy {

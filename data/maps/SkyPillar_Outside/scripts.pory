@@ -180,6 +180,6 @@ SkyPillar_Outside_Text_GotToGoBackForSootopolis: @ 823953A
 	.string "Don't fail us!$"
 	
 SkyPillar_Outside_Text_Not_Allowed:
-	.string "Only those allowed by Rayquaza\n"
-	.string "can enter here.$"
+	.string "Only those who have defeated both\n"
+	.string "Groudon and Kyogre can enter here.$"
 `

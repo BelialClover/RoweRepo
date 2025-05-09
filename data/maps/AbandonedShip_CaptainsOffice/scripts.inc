@@ -1,99 +1,84 @@
+# 1 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
+
+# 2 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_MapScripts:: @ 82387E1
+# 3 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.byte 0
+# 4 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 5 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_EventScript_CaptSternAide:: @ 82387E2
+# 6 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	lock
+# 7 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	faceplayer
+# 8 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	goto_if_set FLAG_EXCHANGED_SCANNER, AbandonedShip_CaptainsOffice_EventScript_ThisIsSSCactus
+# 9 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	checkitem ITEM_SCANNER, 1
+# 10 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	compare VAR_RESULT, TRUE
+# 11 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	goto_if_eq AbandonedShip_CaptainsOffice_EventScript_CanYouDeliverScanner
+# 12 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	goto_if_set FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_4_SCANNER, AbandonedShip_CaptainsOffice_EventScript_ThisIsSSCactus
+# 13 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	msgbox AbandonedShip_CaptainsOffice_Text_NoSuccessFindingScanner, MSGBOX_DEFAULT
+# 14 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	release
+# 15 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	end
+# 16 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 17 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_EventScript_CanYouDeliverScanner:: @ 8238810
+# 18 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	msgbox AbandonedShip_CaptainsOffice_Text_OhCanYouDeliverScanner, MSGBOX_DEFAULT
+# 19 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	release
+# 20 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	end
+# 21 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 22 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_EventScript_ThisIsSSCactus:: @ 823881A
+# 23 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	msgbox AbandonedShip_CaptainsOffice_Text_ThisIsSSCactus, MSGBOX_DEFAULT
+# 24 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	release
+# 25 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	end
+# 26 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 27 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_Text_NoSuccessFindingScanner: @ 8238824
+# 28 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "I'm investigating this ship on behalf\n"
+# 29 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "of Capt. Stern.\p"
+# 30 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "He also asked me to find a Scanner,\n"
+# 31 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "but I haven't had any success…$"
+# 32 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 33 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_Text_OhCanYouDeliverScanner: @ 823889D
+# 34 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "Oh! That's a Scanner!\p"
+# 35 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "Listen, can I get you to deliver that\n"
+# 36 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "to Capt. Stern?\p"
+# 37 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "I want to investigate this ship a\n"
+# 38 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "little more.$"
+# 39 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 
+# 40 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 AbandonedShip_CaptainsOffice_Text_ThisIsSSCactus: @ 8238918
+# 41 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "This ship is called S.S. Cactus.\n"
+# 42 "data/maps/AbandonedShip_CaptainsOffice/scripts.pory"
 	.string "It seems to be from an earlier era.$"
-
-Common_EventScript_PkmnCenterJack_Change_Costume::
-	lock
-	faceplayer
-	msgbox Common_EventScript_PkmnCenterJack_Change_Costume_Text_0, MSGBOX_DEFAULT
-	multichoice 16, 0, MULTI_COSTUMES, 0
-	copyvar VAR_TEMP_1, VAR_RESULT
-	switch VAR_RESULT
-	case EMERALD_COSTUME, Common_EventScript_PkmnCenterJack_Change_Costume_3
-	case RS_COSTUME, Common_EventScript_PkmnCenterJack_Change_Costume_3
-	case FRLG_COSTUME, Common_EventScript_PkmnCenterJack_Change_Costume_3
-	case DP_COSTUME, Common_EventScript_PkmnCenterJack_Change_Costume_3
-	case BW_COSTUME, Common_EventScript_PkmnCenterJack_Change_Costume_4
-	case NUM_COSTUMES, Common_EventScript_PkmnCenterJack_Change_Costume_5
-	case MULTI_B_PRESSED, Common_EventScript_PkmnCenterJack_Change_Costume_5
-Common_EventScript_PkmnCenterJack_Change_Costume_1:
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_Change_Costume_3:
-	copyvar VAR_COSTUME_NUMBER, VAR_TEMP_1
-	msgbox Common_EventScript_PkmnCenterJack_Change_Costume_Text_1, MSGBOX_DEFAULT
-	warp MAP_LITTLEROOT_TOWN, 192, 192, 192
-	goto Common_EventScript_PkmnCenterJack_Change_Costume_1
-
-Common_EventScript_PkmnCenterJack_Change_Costume_4:
-	checkplayergender
-	compare VAR_RESULT, GENDER_FEMALE
-	goto_if_eq Common_EventScript_PkmnCenterJack_Change_Costume_7
-	copyvar VAR_COSTUME_NUMBER, VAR_TEMP_1
-	msgbox Common_EventScript_PkmnCenterJack_Change_Costume_Text_1, MSGBOX_DEFAULT
-	warp MAP_LITTLEROOT_TOWN, 192, 192, 192
-Common_EventScript_PkmnCenterJack_Change_Costume_6:
-	goto Common_EventScript_PkmnCenterJack_Change_Costume_1
-
-Common_EventScript_PkmnCenterJack_Change_Costume_5:
-	msgbox Common_EventScript_PkmnCenterJack_Change_Costume_Text_3, MSGBOX_DEFAULT
-	goto Common_EventScript_PkmnCenterJack_Change_Costume_1
-
-Common_EventScript_PkmnCenterJack_Change_Costume_7:
-	msgbox Common_EventScript_PkmnCenterJack_Change_Costume_Text_2, MSGBOX_DEFAULT
-	goto Common_EventScript_PkmnCenterJack_Change_Costume_6
-
-
-Common_EventScript_PkmnCenterJack_Change_Costume_Text_0:
-	.string "What outfit do you want to use today?$"
-
-Common_EventScript_PkmnCenterJack_Change_Costume_Text_1:
-	.string "Come this way so you can change your\n"
-	.string "outfit$"
-
-Common_EventScript_PkmnCenterJack_Change_Costume_Text_2:
-	.string "Sorry but this costume has not been\n"
-	.string "added to the game yet.$"
-
-Common_EventScript_PkmnCenterJack_Change_Costume_Text_3:
-	.string "Come back anytime you want to change\n"
-	.string "outfits!$"

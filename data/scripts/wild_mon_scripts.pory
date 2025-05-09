@@ -19,13 +19,13 @@ script Common_EventScript_Wild_Lapras{
         case B_OUTCOME_RAN:
         case B_OUTCOME_WON:
         case B_OUTCOME_PLAYER_TELEPORTED:
-            setvar(VAR_0x8004, FLAG_DAILY_WILD_LAPRAS)
+            setvar(VAR_0x8004, SPECIES_LAPRAS)
             setweather(WEATHER_NONE)
             fadescreenswapbuffers(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
             fadescreenswapbuffers(FADE_FROM_BLACK)
             bufferspeciesname(0, VAR_0x8004)
-            msgbox(gText_LegendaryFlewAway, MSGBOX_DEFAULT)
+            msgbox(format("Lapras dove away"), MSGBOX_DEFAULT)
         break
     }
 	release

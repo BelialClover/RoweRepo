@@ -1640,7 +1640,6 @@
 #define FLAG_UNUSED_0x95F                           (DAILY_FLAGS_START + 0x3F) // Unused Flag
 #define DAILY_FLAGS_END                             (FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))
 
-
 #define NEW_FLAGS_START                                         DAILY_FLAGS_END
 #define FLAG_WORLD_MAP_FIVE_ISLAND                              NEW_FLAGS_START +  1
 #define FLAG_HIDE_FIVE_ISLAND_MEADOW_MAX_POTION                 NEW_FLAGS_START +  2
@@ -1748,6 +1747,10 @@
 #define FLAG_GOT_BADGE_16                                       NEW_FLAGS_START + 100
 #define FLAG_HIDE_GYM_MONS                                      NEW_FLAGS_START + 101
 #define FLAG_IS_MOVE_TUTOR                                      NEW_FLAGS_START + 102
+#define FLAG_USING_FLYING_TAXIS                                 NEW_FLAGS_START + 103
+#define FLAG_MYSTERY_GIFT_GALARIAN_ARTICUNO                     NEW_FLAGS_START + 104
+#define FLAG_MYSTERY_GIFT_GALARIAN_ZAPDOS                       NEW_FLAGS_START + 105
+#define FLAG_MYSTERY_GIFT_GALARIAN_MOLTRES                      NEW_FLAGS_START + 106
 
 #define FLAGS_COUNT                                         9135 //Added 3000 new flags
 

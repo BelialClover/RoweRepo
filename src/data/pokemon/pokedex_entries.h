@@ -10801,6 +10801,30 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_HYDRAPPLE] =
+    {
+        .categoryName = _("Hydrapple"),
+        .height = 10,
+        .weight = 100,
+        .description = gArchaludonPokedexText,
+        .pokemonScale = 255,
+        .pokemonOffset = 0,
+        .trainerScale = 255,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ARCHALUDON] =
+    {
+        .categoryName = _("Archaludon"),
+        .height = 10,
+        .weight = 100,
+        .description = gArchaludonPokedexText,
+        .pokemonScale = 255,
+        .pokemonOffset = 0,
+        .trainerScale = 255,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_SNEASLER] =
     {
         .categoryName = _("Sneasler"),
@@ -23085,6 +23109,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .height = 30,
         .weight = 1100,
         .description = gBasculegionPokedexText,
+        .pokemonScale = 255,
+        .pokemonOffset = 0,
+        .trainerScale = 255,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_HYDRAPPLE] =
+    {
+        .categoryName = _("Hydrapple"),
+        .height = 10,
+        .weight = 100,
+        .description = gArchaludonPokedexText,
         .pokemonScale = 255,
         .pokemonOffset = 0,
         .trainerScale = 255,

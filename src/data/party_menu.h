@@ -877,6 +877,7 @@ enum
     MENU_TRADE1,
     MENU_TRADE2,
     MENU_TOSS,
+    MENU_SUB_FIELD_MOVES,
     MENU_FIELD_MOVES,
 };
 
@@ -936,6 +937,7 @@ struct
     [MENU_TRADE2]    = {gText_Trade4,             CursorCb_Trade2},
     [MENU_TOSS]      = {gMenuText_Toss,           CursorCb_Toss},
     [MENU_EVOLUTION] = {gText_Evolution,          CursorCb_Evolution},
+    [MENU_SUB_FIELD_MOVES]                       = {gText_FieldMoves, CursorCb_FieldMovesSubMenu},
     [MENU_FIELD_MOVES + FIELD_MOVE_CUT]          = {gMoveNames[MOVE_CUT],          CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_FLASH]        = {gMoveNames[MOVE_FLASH],        CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH]   = {gMoveNames[MOVE_ROCK_SMASH],   CursorCb_FieldMove},
@@ -952,19 +954,19 @@ struct
     [MENU_FIELD_MOVES + FIELD_MOVE_SWEET_SCENT]  = {gMoveNames[MOVE_SWEET_SCENT],  CursorCb_FieldMove},
 };
 
-static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};
-static const u8 sPartyMenuAction_ShiftSummaryCancel[] = {MENU_SHIFT, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_SendOutSummaryCancel[] = {MENU_SEND_OUT, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_SummaryCancel[] = {MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_EnterSummaryCancel[] = {MENU_ENTER, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_NoEntrySummaryCancel[] = {MENU_NO_ENTRY, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_StoreSummaryCancel[] = {MENU_STORE, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_GiveTakeItemCancel[] = {MENU_GIVE, MENU_TAKE_ITEM, MENU_MOVE_ITEM, MENU_CANCEL2};
-static const u8 sPartyMenuAction_ReadTakeMailCancel[] = {MENU_READ, MENU_TAKE_MAIL, MENU_CANCEL2};
-static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {MENU_REGISTER, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel1[] = {MENU_TRADE1, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TOSS, MENU_CANCEL1};
+static const u8 sPartyMenuAction_SummarySwitchCancel[]   = {MENU_SUMMARY,   MENU_SWITCH,    MENU_CANCEL1};
+static const u8 sPartyMenuAction_ShiftSummaryCancel[]    = {MENU_SHIFT,     MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_SendOutSummaryCancel[]  = {MENU_SEND_OUT,  MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_SummaryCancel[]         = {MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_EnterSummaryCancel[]    = {MENU_ENTER,     MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_NoEntrySummaryCancel[]  = {MENU_NO_ENTRY,  MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_StoreSummaryCancel[]    = {MENU_STORE,     MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_GiveTakeItemCancel[]    = {MENU_GIVE,      MENU_TAKE_ITEM, MENU_MOVE_ITEM, MENU_CANCEL2};
+static const u8 sPartyMenuAction_ReadTakeMailCancel[]    = {MENU_READ,      MENU_TAKE_MAIL, MENU_CANCEL2};
+static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {MENU_REGISTER,  MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_TradeSummaryCancel1[]   = {MENU_TRADE1,    MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_TradeSummaryCancel2[]   = {MENU_TRADE2,    MENU_SUMMARY,   MENU_CANCEL1};
+static const u8 sPartyMenuAction_TakeItemTossCancel[]    = {MENU_TAKE_ITEM, MENU_TOSS,      MENU_CANCEL1};
 
 // IDs for the action lists that appear when a party mon is selected
 enum
@@ -982,7 +984,8 @@ enum
     ACTIONS_REGISTER,
     ACTIONS_TRADE,
     ACTIONS_SPIN_TRADE,
-    ACTIONS_TAKEITEM_TOSS
+    ACTIONS_TAKEITEM_TOSS,
+    ACTIONS_FIELDMOVE_SUB,
 };
 
 static const u8 *const sPartyMenuActions[] =

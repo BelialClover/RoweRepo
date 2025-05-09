@@ -260,7 +260,7 @@ const struct Achievements sAchievementsData[MAX_ACHIEVEMENTS_NUM] =
     [ACHIEVEMENT_SEVII_3_COMPLETE] = 
     {
         .name          = _("Sevii Research 3"),
-        .desc          = _("Find Colress at the end of Sevii 2."),
+        .desc          = _("Find Colress at the end of Sevii 3."),
         .hint          = _("Three Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
@@ -699,7 +699,7 @@ const struct Achievements sAchievementsData[MAX_ACHIEVEMENTS_NUM] =
     [ACHIEVEMENT_DO_12500_DAMAGE] = 
     {
         .name       = _("Overkill"),
-        .desc       = _("Do 12500 Damage in a single hit."),
+        .desc       = _("Do 9999 Damage in a single hit."),
         .hint       = _("Damage"),
         .rewardName = _(""),
         .rewardType = REWARD_TYPE_OTHER,
@@ -2810,7 +2810,7 @@ static void HandleAchievementUnlock(u8 questIndex){
                 GetSetQuestFlag(questIndex, ACHIEVEMENTS_FLAG_SET_UNLOCKED);
         break;
         case ACHIEVEMENT_DO_12500_DAMAGE:
-            if (VarGet(VAR_MAX_DAMAGE_DONE) >= 12500)
+            if (VarGet(VAR_MAX_DAMAGE_DONE) >= 9999)
                 GetSetQuestFlag(questIndex, ACHIEVEMENTS_FLAG_SET_COMPLETED);
             else if(GetSetQuestFlag(previousAchievement, ACHIEVEMENTS_FLAG_GET_COMPLETED))
                 GetSetQuestFlag(questIndex, ACHIEVEMENTS_FLAG_SET_UNLOCKED);

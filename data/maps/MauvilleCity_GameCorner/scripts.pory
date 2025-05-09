@@ -670,22 +670,9 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase:: @ 8210456
 	releaseall
 	end
 	
-MauvilleCity_GameCorner_EventScript_DeclineGachamon::
-	hidecoinsbox 0, 5
-	msgbox MauvilleCity_GameCorner_Text_DontBeNegative, MSGBOX_DEFAULT
-	release
-	end
-	
 MauvilleCity_GameCorner_EventScript_Gachamon_PC:
 	msgbox MauvilleCity_GameCorner_Text_Gachamon_PC, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_Gachamon_2
-	end
-	
-MauvilleCity_GameCorner_EventScript_Gachamon_2:
-	removecoins 500
-	updatecoinsbox 1, 1
-	hidecoinsbox 0, 5
-	release
 	end
 
 MauvilleCity_GameCorner_Text_Gachamon_Introduction:
@@ -852,23 +839,40 @@ script MauvilleCity_GameCorner_EventScript_Gachamon{
 	lock
 	faceplayer
 	showcoinsbox(1, 1)
-	msgbox(MauvilleCity_GameCorner_Text_Gachamon_Introduction, MSGBOX_YESNO)
-	compare(VAR_RESULT, NO)
-	goto_if_eq(MauvilleCity_GameCorner_EventScript_DeclineGachamon)
-	checkcoins(VAR_TEMP_2)
-	compare(VAR_TEMP_2, 500)
-	goto_if_lt(MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM)
-	playse(SE_SHOP)
-	msgbox(MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT)
-	givemon(SPECIES_NONE, 1, ITEM_NONE)
-	playfanfare(MUS_OBTAIN_ITEM)
-	msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
-	waitfanfare
-	compare(VAR_RESULT, 0)
-	goto_if_eq(MauvilleCity_GameCorner_EventScript_Gachamon_2)
-	compare(VAR_RESULT, 1)
-	goto_if_eq(MauvilleCity_GameCorner_EventScript_Gachamon_PC)
-	goto(Common_EventScript_NoMoreRoomForPokemon)
+	msgbox(format("Do you want to trade 500 coins for a random Pokémon?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		hidecoinsbox(0, 5)
+		msgbox(format("Please come again"), MSGBOX_DEFAULT)
+	}
+	else{
+		checkcoins(VAR_TEMP_2)
+		if(var(VAR_TEMP_2) < 500){
+			msgbox(MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT)
+		}
+		else{
+			playse(SE_SHOP)
+			msgbox(format("Here you go!"), MSGBOX_DEFAULT)
+			givemon(SPECIES_NONE, 1, ITEM_NONE)
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+			waitfanfare
+			compare(VAR_RESULT, 0)
+			if(var(VAR_RESULT) == 0 ){
+				removecoins(500)
+				updatecoinsbox(1, 1)
+				hidecoinsbox(0, 5)
+			}
+			elif(var(VAR_RESULT) == 1){
+				goto(MauvilleCity_GameCorner_EventScript_Gachamon_PC)
+				removecoins(500)
+				updatecoinsbox(1, 1)
+				hidecoinsbox(0, 5)
+			}
+			else{
+				goto(Common_EventScript_NoMoreRoomForPokemon)
+			}
+		}
+	}
 	release
 	end
 }

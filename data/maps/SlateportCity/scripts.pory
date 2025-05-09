@@ -561,24 +561,6 @@ SlateportCity_PokemartDecor: @ 81DD1B8
 	release
 	end
 
-SlateportCity_EventScript_PowerTMClerk:: @ 81DD1D8
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemart SlateportCity_Pokemart_PowerTMs
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-SlateportCity_Pokemart_PowerTMs: @ 81DD1F0
-	.2byte ITEM_TM10  @ Hidden Power
-	.2byte ITEM_TM43  @ Secret Power
-	.2byte ITEM_NONE
-	release
-	end
-
 SlateportCity_EventScript_IncenseClerk::
 	lock
 	faceplayer
@@ -1421,3 +1403,24 @@ SlateportCity_Text_TakingBattleTentChallenge: @ 81DF28C
 	.string "the perfect fit for the Battle Tent!\p"
 	.string "Give it your best effort!$"
 `
+
+mart SlateportCity_Pokemart_PowerTMs{
+	ITEM_RED_SHARD
+	ITEM_BLUE_SHARD
+	ITEM_GREEN_SHARD
+	ITEM_YELLOW_SHARD
+	ITEM_NONE
+}
+
+script SlateportCity_EventScript_PowerTMClerk{
+	lock
+	faceplayer
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Welcome to my Shop!, How may I serve you?"))
+	waitmessage
+	pokemart(SlateportCity_Pokemart_PowerTMs)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}

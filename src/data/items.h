@@ -41,7 +41,7 @@ const struct Item gItems[] =
         .name = _("Ultra Ball"),
 #endif
         .itemId = ITEM_ULTRA_BALL,
-        .price = 1200,
+        .price = 600,
         .description = sUltraBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = 1,
@@ -59,7 +59,7 @@ const struct Item gItems[] =
         .name = _("Great Ball"),
 #endif
         .itemId = ITEM_GREAT_BALL,
-        .price = 600,
+        .price = 300,
         .description = sGreatBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = 2,
@@ -73,7 +73,7 @@ const struct Item gItems[] =
     {
         .name = _("Poké Ball"),
         .itemId = ITEM_POKE_BALL,
-        .price = 200,
+        .price = 100,
         .description = sPokeBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = 3,
@@ -1194,6 +1194,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_RED_SHARD,
         .price = 200,
+        .bpPrice = MINT_PRICE_BP,
         .description = sRedShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -1210,6 +1211,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_BLUE_SHARD,
         .price = 200,
+        .bpPrice = MINT_PRICE_BP,
         .description = sBlueShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -1226,6 +1228,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_YELLOW_SHARD,
         .price = 200,
+        .bpPrice = 30,
         .description = sYellowShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -1242,6 +1245,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_GREEN_SHARD,
         .price = 200,
+        .bpPrice = MINT_PRICE_BP,
         .description = sGreenShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -1343,7 +1347,7 @@ const struct Item gItems[] =
         .description = sRareCandyDesc,
         .pocket = POCKET_POWER_UP,
         .type = 1,
-        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
     
@@ -4487,7 +4491,8 @@ const struct Item gItems[] =
         .name = _("Shell Bell"),
 #endif
         .itemId = ITEM_SHELL_BELL,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 7,
         .holdEffect = HOLD_EFFECT_SHELL_BELL,
         .holdEffectParam = 8,
         .description = sShellBellDesc,
@@ -7735,7 +7740,8 @@ const struct Item gItems[] =
         .name = _("Wide Lens"),
 #endif
         .itemId = ITEM_WIDE_LENS,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 10,
         .holdEffect = HOLD_EFFECT_WIDE_LENS,
         .holdEffectParam = 10,
         .description = sWideLensDesc,
@@ -7789,7 +7795,8 @@ const struct Item gItems[] =
         .name = _("Expert Belt"),
 #endif
         .itemId = ITEM_EXPERT_BELT,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 5,
         .holdEffect = HOLD_EFFECT_EXPERT_BELT,
         .holdEffectParam = 20,
         .description = sExpertBeltDesc,
@@ -7931,7 +7938,8 @@ const struct Item gItems[] =
         .name = _("Zoom Lens"),
 #endif
         .itemId = ITEM_ZOOM_LENS,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 10,
         .holdEffect = HOLD_EFFECT_ZOOM_LENS,
         .holdEffectParam = 20,
         .description = sZoomLensDesc,
@@ -7949,7 +7957,8 @@ const struct Item gItems[] =
         .name = _("Metronome"),
 #endif
         .itemId = ITEM_METRONOME,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 8,
         .holdEffect = HOLD_EFFECT_METRONOME,
         .holdEffectParam = 20,
         .description = sMetronomeDesc,
@@ -8156,7 +8165,8 @@ const struct Item gItems[] =
         .name = _("Shed Shell"),
 #endif
         .itemId = ITEM_SHED_SHELL,
-        .price = 200,
+        .price = 2000,
+        .bpPrice = 10,
         .holdEffect = HOLD_EFFECT_SHED_SHELL,
         .description = sShedShellDesc,
         .pocket = POCKET_BATTLE_ITEMS,
@@ -8956,6 +8966,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_RED_CARD,
         .price = 2000,
+        .bpPrice = 10,
         .holdEffect = HOLD_EFFECT_RED_CARD,
         .holdEffectParam = 0,
         .description = sRedCardDesc,
@@ -9548,6 +9559,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_SAFETY_GOGGLES,
         .price = 4000,
+        .bpPrice = 15,
         .holdEffect = HOLD_EFFECT_SAFETY_GOOGLES,
         .description = sSafetyGogglesDesc,
         .pocket = POCKET_BATTLE_ITEMS,
@@ -10376,6 +10388,7 @@ const struct Item gItems[] =
 #endif
         .itemId = ITEM_PROTECTIVE_PADS,
         .price = 4000,
+        .bpPrice = 20,
         .holdEffect = HOLD_EFFECT_PROTECTIVE_PADS,
         .description = sProtectPadsDesc,
         .pocket = POCKET_BATTLE_ITEMS,
@@ -10389,10 +10402,11 @@ const struct Item gItems[] =
 #if GAME_LANGUAGE == LANGUAGE_SPANISH
         .name = _("Cubresuelos"),
 #else
-        .name = _("Terrain Extender"),
+        .name = _("T.Extender"),
 #endif
         .itemId = ITEM_TERRAIN_EXTENDER,
         .price = 4000,
+        .bpPrice = 20,
         .holdEffect = HOLD_EFFECT_TERRAIN_EXTENDER,
         .description = sTerrainExtenderDesc,
         .pocket = POCKET_BATTLE_ITEMS,
@@ -10477,7 +10491,8 @@ const struct Item gItems[] =
         .name = _("Adrenaline Orb"),
 #endif
         .itemId = ITEM_ADRENALINE_ORB,
-        .price = 300,
+        .price = 3000,
+        .bpPrice = 12,
         .holdEffect = HOLD_EFFECT_ADRENALINE_ORB,
         .description = sAdrenalineOrbDesc,
         .pocket = POCKET_ITEMS,

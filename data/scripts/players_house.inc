@@ -503,7 +503,6 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV:: @ 8292AF2
 	msgbox PlayersHouse_1F_Text_WhatColorDidTheySay, MSGBOX_DEFAULT
 	multichoice 22, 8, MULTI_TV_LATI, 1
 	copyvar VAR_0x8004, VAR_RESULT
-	special InitRoamer
 	copyvar VAR_ROAMER_POKEMON, VAR_RESULT
 	msgbox PlayersHouse_1F_Text_StillUnknownPokemon, MSGBOX_DEFAULT
 	closemessage

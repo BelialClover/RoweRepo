@@ -69,13 +69,10 @@ script EventScript_RockSmash{
 }
 	
 script EventScript_TryRockSmashItem{
-	special(TryStoreCutItem)
 	//Rock Smash Item
-    if(var(VAR_RESULT) == FALSE){
-        special(TryStoreCutItem)
-        if(var(VAR_RESULT) == TRUE){
-            giveitem(VAR_RESULT)
-        }
+    special(TryStoreCutItem)
+    if(var(VAR_RESULT) != FALSE){
+        giveitem(VAR_RESULT)
     }
 	releaseall
 	end

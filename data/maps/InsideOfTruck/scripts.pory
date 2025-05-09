@@ -34,6 +34,7 @@ Start_EventScript_Game_Level_Easy::
 	goto_if_eq Start_EventScript_Game_Level
 	setflag FLAG_DIFFICULTY_SET
 	setvar VAR_DIFFICULTY, DIFFICULTY_EASY
+	setvar VAR_LEVEL_CAP_LEVEL, 2
 	goto Start_EventScript_Difficulty_Save
 	end
 	
@@ -48,6 +49,7 @@ Start_EventScript_Game_Level_Normal::
 	goto_if_eq Start_EventScript_Game_Level
 	setflag FLAG_DIFFICULTY_SET
 	setvar VAR_DIFFICULTY, DIFFICULTY_NORMAL
+	setvar VAR_LEVEL_CAP_LEVEL, 1
 	goto Start_EventScript_Difficulty_Save
 	end
 	
@@ -62,6 +64,7 @@ Start_EventScript_Game_Level_Hard::
 	goto_if_eq Start_EventScript_Game_Level
 	setflag FLAG_DIFFICULTY_SET
 	setvar VAR_DIFFICULTY, DIFFICULTY_HARD
+	setvar VAR_LEVEL_CAP_LEVEL, 0
 	goto Start_EventScript_Difficulty_Save
 	end
 	
@@ -717,6 +720,7 @@ Game_Start_Text_Game_Start_Question:
 Start_EvenScript_Flagset_Difficulty::
 	goto_if_set FLAG_DIFFICULTY_SET, Start_EventScript_Give_Items
 	setvar VAR_DIFFICULTY, DIFFICULTY_NORMAL
+	setvar VAR_LEVEL_CAP_LEVEL, 1
 	goto Start_EventScript_Give_Items
 	end
 	
@@ -996,7 +1000,7 @@ script Start_EventScript_Give_Items_New_Game_Plus{
 	additem (ITEM_POKE_BALL, 200)
 	additem (ITEM_MAX_REPEL, 10)
 	additem (ITEM_EXIOLITE, 6)
-	additem (ITEM_POWER_CANDY, 6)
+	additem (ITEM_ABILITY_PATCH, 6)
 	additem (ITEM_POWER_WEIGHT, 6)
 	additem (ITEM_POWER_BRACER, 6)
 	additem (ITEM_POWER_BELT, 6)
@@ -1011,6 +1015,7 @@ script Start_EventScript_Give_Items_New_Game_Plus{
 	additem (ITEM_EXP_SHARE)
 	additem(ITEM_SURF_TOOL)
 	additem(ITEM_DIVE_TOOL)
+	additem(ITEM_ITEMFINDER)
 	additem(ITEM_HEADBUTT_TOOL)
 	waitfanfare
 	goto(Start_EventScript_Chose_City)
@@ -1028,6 +1033,7 @@ script Start_EventScript_Give_Items{
 	additem(ITEM_EXP_SHARE)
 	additem(ITEM_SURF_TOOL)
 	additem(ITEM_DIVE_TOOL)
+	additem(ITEM_ITEMFINDER)
 	additem(ITEM_POTION, 5)
 	additem(ITEM_POKE_BALL, 10)
 	additem(ITEM_REPEL, 5)
@@ -1190,7 +1196,7 @@ script Start_EventScript_Chose_City{
 			}
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_PETALBURG_CITY)
-			warp(MAP_PETALBURG_CITY, 255, 20, 17)
+			warp(MAP_PETALBURG_CITY, 255, 21, 27)
 		break
 		break
 		case 3:  
@@ -1309,7 +1315,7 @@ script Start_EventScript_Chose_City{
 		break
 		case 14: 
 			//Sootopolis City
-			msgbox(format("Do you want to start in Sootopolis City?"), MSGBOX_YESNO)
+			msgbox(format("Do you want to start in Pacifidlog Town?"), MSGBOX_YESNO)
 			if (var(VAR_RESULT) == NO){
 				goto(Start_EventScript_Chose_City)
 			}
@@ -1335,7 +1341,7 @@ script Start_EventScript_Chose_City{
 			}
 			additem(ITEM_SEVII_TICKET_1, 1)
 			setrespawn(HEAL_LOCATION_ONE_ISLAND)
-			warp(MAP_ONE_ISLAND, 255, 14, 6)
+			warp(MAP_ONE_ISLAND, 255, 30, 6)
 		break
 		case 17: 
 			//Two Island
@@ -1385,7 +1391,7 @@ script Start_EventScript_Chose_City{
 			}
 			additem(ITEM_SEVII_TICKET_6, 1)
 			setrespawn(HEAL_LOCATION_SIX_ISLAND)
-			warp(MAP_SIX_ISLAND, 255, 11, 12)
+			warp(MAP_SIX_ISLAND, 255, 27, 12)
 		break
 		case 22: 
 			//Seven Island
@@ -1395,7 +1401,7 @@ script Start_EventScript_Chose_City{
 			}
 			additem(ITEM_SEVII_TICKET_7, 1)
 			setrespawn(HEAL_LOCATION_SEVEN_ISLAND)
-			warp(MAP_SEVEN_ISLAND, 255, 12, 4)
+			warp(MAP_SEVEN_ISLAND, 255, 15, 4)
 		break
 		case 23: 
 			//Eight Island
@@ -1414,6 +1420,35 @@ script Start_EventScript_Chose_City{
 	}
 	end	
 }
+
+script Common_Eventscript_CheckForSeviiTicket{
+	checkitem(ITEM_SEVII_TICKET_1, 1)
+	if(var(VAR_RESULT) == FALSE){
+		checkitem(ITEM_SEVII_TICKET_2, 1)
+		if(var(VAR_RESULT) == FALSE){
+			checkitem(ITEM_SEVII_TICKET_3, 1)
+			if(var(VAR_RESULT) == FALSE){
+				checkitem(ITEM_SEVII_TICKET_4, 1)
+				if(var(VAR_RESULT) == FALSE){
+					checkitem(ITEM_SEVII_TICKET_5, 1)
+					if(var(VAR_RESULT) == FALSE){
+						checkitem(ITEM_SEVII_TICKET_6, 1)
+						if(var(VAR_RESULT) == FALSE){
+							checkitem(ITEM_SEVII_TICKET_7, 1)
+							if(var(VAR_RESULT) == FALSE){
+								checkitem(ITEM_SEVII_TICKET_8, 1)
+								if(var(VAR_RESULT) == FALSE){
+									call(Start_EventScript_Give_Random_Sevii_Ticket)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return
+}
 	
 script Start_EventScript_Chose_City_Surprise{
 	random(24)
@@ -1421,6 +1456,7 @@ script Start_EventScript_Chose_City_Surprise{
 		default:
 		case 0:  
 			//Littleroot Town
+			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			checkplayergender
 			if(var(VAR_RESULT) == MALE){
 				warp(MAP_LITTLEROOT_TOWN, 255, 15, 9)
@@ -1431,20 +1467,17 @@ script Start_EventScript_Chose_City_Surprise{
 				setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F)
 			}
 		break
-		break
 		case 1:  
 			//Oldale Town
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_OLDALE_TOWN)
 			warp(MAP_OLDALE_TOWN, 255, 14, 8)
 		break
-		break
 		case 2:  
 			//Petalburg City
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_PETALBURG_CITY)
-			warp(MAP_PETALBURG_CITY, 255, 20, 17)
-		break
+			warp(MAP_PETALBURG_CITY, 255, 21, 27)
 		break
 		case 3:  
 			//Rustboro City
@@ -1452,13 +1485,11 @@ script Start_EventScript_Chose_City_Surprise{
 			setrespawn(HEAL_LOCATION_RUSTBORO_CITY)
 			warp(MAP_RUSTBORO_CITY, 255, 16, 39)
 		break
-		break
 		case 4:  
 			//Dewford Town
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_DEWFORD_TOWN)
 			warp(MAP_DEWFORD_TOWN, 255, 2, 11)  
-		break
 		break
 		case 5:  
 			//Slateport Town
@@ -1470,21 +1501,19 @@ script Start_EventScript_Chose_City_Surprise{
 			//Mauville City
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_MAUVILLE_CITY)
-			warp(MAP_MAUVILLE_CITY, 255, 22, 6)	  
-		break
+			warp(MAP_MAUVILLE_CITY, 255, 34, 6)	  
 		break
 		case 7:  
 			//Verdanturf Town
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_VERDANTURF_TOWN)
-			warp(MAP_VERDANTURF_TOWN, 255, 16, 4)
+			warp(MAP_VERDANTURF_TOWN, 255, 22, 4)
 		break
 		case 8:  
 			//Fallarbor Town
 			call(Start_EventScript_Give_Random_Sevii_Ticket)
 			setrespawn(HEAL_LOCATION_FALLARBOR_TOWN)
 			warp(MAP_FALLARBOR_TOWN, 255, 14, 8)
-		break
 		break
 		case 9:  
 			//Lavaridge Town
@@ -1532,7 +1561,7 @@ script Start_EventScript_Chose_City_Surprise{
 			//One Island
 			additem(ITEM_SEVII_TICKET_1, 1)
 			setrespawn(HEAL_LOCATION_ONE_ISLAND)
-			warp(MAP_ONE_ISLAND, 255, 14, 6)
+			warp(MAP_ONE_ISLAND, 255, 30, 6)
 		break
 		case 17: 
 			//Two Island
@@ -1562,19 +1591,19 @@ script Start_EventScript_Chose_City_Surprise{
 			//Six Island
 			additem(ITEM_SEVII_TICKET_6, 1)
 			setrespawn(HEAL_LOCATION_SIX_ISLAND)
-			warp(MAP_SIX_ISLAND, 255, 11, 12)
+			warp(MAP_SIX_ISLAND, 255, 27, 12)
 		break
 		case 22: 
 			//Seven Island
 			additem(ITEM_SEVII_TICKET_7, 1)
 			setrespawn(HEAL_LOCATION_SEVEN_ISLAND)
-			warp(MAP_SEVEN_ISLAND, 255, 12, 4)
+			warp(MAP_SEVEN_ISLAND, 255, 15, 4)
 		break
 		case 23: 
 			//Eight Island
 			additem(ITEM_SEVII_TICKET_8, 1)
 			setrespawn(HEAL_LOCATION_EIGHT_ISLAND)
-			warp(MAP_SEVEN_ISLAND, 255, 24, 25)
+			warp(MAP_EIGHT_ISLAND, 255, 24, 25)
 		break
 	}
 	end

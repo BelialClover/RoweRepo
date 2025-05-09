@@ -366,15 +366,15 @@
     },
     {
       "type": "secret_base",
-      "x": 40,
+      "x": 39,
       "y": 11,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE2_2"
     },
     {
       "type": "secret_base",
-      "x": 18,
-      "y": 13,
+      "x": 16,
+      "y": 15,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE3_2"
     },

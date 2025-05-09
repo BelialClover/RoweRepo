@@ -10716,7 +10716,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_STRONG_JAW_BOOST,
         .split = SPLIT_PHYSICAL,
     },
 
@@ -10792,15 +10792,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SNAP_TRAP] =
     {
-        .effect = EFFECT_TRAP,
-        .power = 50,
+        .effect = EFFECT_JAW_LOCK,
+        .power = 90,
         .type = TYPE_GRASS,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 10,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_STRONG_JAW_BOOST,
         .split = SPLIT_PHYSICAL,
     },
 
@@ -11551,7 +11551,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .power = 120,
         .effect = EFFECT_OVERHEAT,
-        .type = TYPE_DRAGON,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 100,
@@ -11634,7 +11634,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .power = 80,
         .effect = EFFECT_RAPID_SPIN,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
@@ -11684,5 +11684,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         .split = SPLIT_PHYSICAL,
+    },
+
+    [MOVE_LAST_RESPECTS] =
+    {
+        .power = 50,
+        .effect = EFFECT_MISC_HIT,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+        .argument = MISC_EFFECT_FAINTED_MON_BOOST,
     },
 };

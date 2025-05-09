@@ -91,7 +91,7 @@ Route113_EventScript_ItemHyperPotion:: @ 8290DF6
 	end
 
 Route114_EventScript_ItemRareCandy:: @ 8290E03
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 Route114_EventScript_ItemProtein:: @ 8290E10
@@ -175,7 +175,7 @@ Route119_EventScript_ItemLeafStone:: @ 8290F07
 	end
 
 Route119_EventScript_ItemRareCandy:: @ 8290F14
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 Route119_EventScript_ItemHyperPotion:: @ 8290F21
@@ -271,11 +271,11 @@ Route127_EventScript_ItemCarbos:: @ 829103F
 	end
 
 Route127_EventScript_ItemRareCandy:: @ 829104C
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 Route132_EventScript_ItemRareCandy:: @ 8291059
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 Route132_EventScript_ItemProtein:: @ 8291066
@@ -363,7 +363,7 @@ GraniteCave_B2F_EventScript_ItemRepel:: @ 829116A
 	end
 
 GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 JaggedPass_EventScript_ItemBurnHeal:: @ 8291184
@@ -547,7 +547,7 @@ ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl:: @ 82913C0
 	end
 
 ShoalCave_LowTideInnerRoom_EventScript_ItemRareCandy:: @ 82913CD
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 ShoalCave_LowTideStairsRoom_EventScript_ItemIceHeal:: @ 82913DA
@@ -631,7 +631,7 @@ ArtisanCave_1F_EventScript_ItemCarbos:: @ 82914D1
 	end
 
 MagmaHideout_1F_EventScript_ItemRareCandy:: @ 82914DE
-	addscaleditem ITEM_RARE_CANDY
+	addscaleditem ITEM_STARDUST
 	end
 
 MagmaHideout_2F_2R_EventScript_MaxElixir:: @ 82914EB
@@ -776,6 +776,10 @@ MegaStone_EventScript_Alakazite::
 	
 MegaStone_EventScript_Mewtwonite_Y::
 	addscaleditem ITEM_MEWTWONITE_Y
+	end	
+	
+MegaStone_EventScript_Drednawite::
+	addscaleditem ITEM_DREDNAWITE
 	end	
 	
 PrimevalForest_EventScript_ItemGrassKnot::

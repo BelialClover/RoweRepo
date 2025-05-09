@@ -2729,12 +2729,12 @@ static const u8 sOCTOLOCKDescription[] = _(
     "and Sp. Def fall each turn.");
     
 static const u8 sBOLT_BEAKDescription[] = _(
-    "Double power if the user\n"
-    "moves before the target.");
+    "Boosts the power by 50 percent if\n"
+    "the user moves before the target.");
     
 static const u8 sFISHIOUS_RENDDescription[] = _(
-    "Double power if the user\n"
-    "moves before the target.");
+    "Boosts the power by 50 percent if\n"
+    "the user moves before the target.");
     
 static const u8 sCOURT_CHANGEDescription[] = _(
     "The user swaps effects on\n"

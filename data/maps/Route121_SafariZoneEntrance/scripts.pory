@@ -45,15 +45,6 @@ Route121_SafariZoneEntrance_EventScript_FirstTimeInfo:: @ 822BC0E
 	release
 	end
 
-Route121_SafariZoneEntrance_EventScript_EntranceCounterTrigger:: @ 822BC18
-	lockall
-	checkitem ITEM_SAFARI_PASS, 1
-	compare VAR_RESULT, 0
-	goto_if_eq Route121_SafariZoneEntrance_EventScript_TalkToEntranceAttendant
-	setflag FLAG_HIDE_SAFARI_ZONE_WORKER_WITHOUT_PASS
-	goto Route121_SafariZoneEntrance_EventScript_HasSafariPass
-	end
-
 Route121_SafariZoneEntrance_EventScript_HasSafariPass:: @ 822BC18
 	goto_if_set FLAG_SHOWN_SAFARI_PASS Route121_SafariZoneEntrance_EventScript_End
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
@@ -75,45 +66,6 @@ Route121_SafariZoneEntrance_EventScript_TalkToEntranceAttendant:: @ 822BC18
 	compare VAR_RESULT, YES
 	goto_if_eq Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone
 	msgbox Route121_SafariZoneEntrance_Text_PlayAnotherTime, MSGBOX_DEFAULT
-	goto Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter
-	end
-
-Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone:: @ 822BC48
-	checkitem ITEM_POKEBLOCK_CASE, 1
-	compare VAR_RESULT, 0
-	goto_if_eq Route121_SafariZoneEntrance_EventScript_NoPokeblockCase
-	call Route121_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon
-	checkmoney 500, 0
-	compare VAR_RESULT, 0
-	goto_if_eq Route121_SafariZoneEntrance_EventScript_NotEnoughMoney
-	playse SE_SHOP
-	msgbox Route121_SafariZoneEntrance_Text_ThatWillBe500Please, MSGBOX_DEFAULT
-	removemoney 500, 0
-	updatemoneybox 0, 0
-	msgbox Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message Route121_SafariZoneEntrance_Text_Received30SafariBalls
-	waitfanfare
-	msgbox Route121_SafariZoneEntrance_Text_PleaseEnjoyYourself, MSGBOX_DEFAULT
-	closemessage
-	hidemoneybox
-	applymovement OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_EnterSafariZone
-	waitmovement 0
-	special EnterSafariMode
-	setvar VAR_SAFARI_ZONE_STATE, 2
-	clearflag FLAG_GOOD_LUCK_SAFARI_ZONE
-	warp MAP_SAFARI_ZONE_SOUTH, 255, 32, 33
-	waitstate
-	end
-
-Route121_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon:: @ 822BCBF
-	getpartysize
-	compare VAR_RESULT, PARTY_SIZE
-	goto_if_ne Route121_SafariZoneEntrance_EventScript_HasRoomForPokemon
-	specialvar VAR_RESULT, ScriptCheckFreePokemonStorageSpace
-	compare VAR_RESULT, 1
-	goto_if_eq Route121_SafariZoneEntrance_EventScript_HasRoomForPokemon
-	msgbox Route121_SafariZoneEntrance_Text_PCIsFull, MSGBOX_DEFAULT
 	goto Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter
 	end
 
@@ -166,3 +118,89 @@ Route121_SafariZoneEntrance_EventScript_TrainerTipSign:: @ 822BD21
 	end
 
 `
+script Route121_SafariZoneEntrance_EventScript_EntranceCounterTrigger{
+	lockall
+	checkitem(ITEM_SAFARI_PASS, 1)
+	if(var(VAR_RESULT) == YES){
+		setflag(FLAG_HIDE_SAFARI_ZONE_WORKER_WITHOUT_PASS)
+		goto_if_set(FLAG_SHOWN_SAFARI_PASS Route121_SafariZoneEntrance_EventScript_End)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp)
+		waitmovement(0)
+		msgbox(Route121_SafariZoneEntrance_Text_HasSafariPass, MSGBOX_DEFAULT)
+		closemessage
+		setflag(FLAG_SHOWN_SAFARI_PASS)
+	}
+	else{
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp)
+		waitmovement(0)
+		showmoneybox(0, 0, 0)
+		msgbox(Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES){
+			goto(Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone)
+		}
+		else{
+			msgbox(Route121_SafariZoneEntrance_Text_PlayAnotherTime, MSGBOX_DEFAULT)
+			goto(Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter)
+		}
+	}
+	end
+}
+
+script Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone{
+	checkitem(ITEM_POKEBLOCK_CASE, 1)
+	if(var(VAR_RESULT) == NO){
+		hidemoneybox
+		msgbox(format("Excuse me!\n"
+					  "You seem to be without a {POKEBLOCK} Case.\p"
+	                  "Your Safari Game will be much more\n"
+	                  "fruitful if you use {POKEBLOCK}s.\p"
+	                  "Luckily I have some laying around so let me give you one!"), MSGBOX_DEFAULT)
+		giveitem(ITEM_POKEBLOCK_CASE)
+		setflag(FLAG_RECEIVED_POKEBLOCK_CASE)
+		waitfanfare
+		msgbox(format("Okay, now that we've cleared that up…"), MSGBOX_DEFAULT)
+		showmoneybox(0, 0, 0)
+		goto(Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone)
+	}
+	else{
+		//call(Route121_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon)
+		checkmoney(500, 0)
+		if(var(VAR_RESULT) == YES){
+			playse(SE_SHOP)
+			msgbox(Route121_SafariZoneEntrance_Text_ThatWillBe500Please, MSGBOX_DEFAULT)
+			removemoney(500, 0)
+			updatemoneybox(0, 0)
+			msgbox(Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls, MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			message(Route121_SafariZoneEntrance_Text_Received30SafariBalls)
+			waitfanfare
+			msgbox(Route121_SafariZoneEntrance_Text_PleaseEnjoyYourself, MSGBOX_DEFAULT)
+			special(HideFollower)
+			closemessage
+			hidemoneybox
+			applymovement(OBJ_EVENT_ID_PLAYER, Route121_SafariZoneEntrance_Movement_EnterSafariZone)
+			waitmovement(0)
+			special(EnterSafariMode)
+			setvar(VAR_SAFARI_ZONE_STATE, 2)
+			clearflag(FLAG_GOOD_LUCK_SAFARI_ZONE)
+			warp(MAP_SAFARI_ZONE_SOUTH, 255, 32, 33)
+			waitstate
+		}
+		else{
+			goto(Route121_SafariZoneEntrance_EventScript_NotEnoughMoney)
+		}
+	}
+	end
+}
+
+script Route121_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon{
+	getpartysize
+	compare(VAR_RESULT, PARTY_SIZE)
+	goto_if_ne(Route121_SafariZoneEntrance_EventScript_HasRoomForPokemon)
+	specialvar(VAR_RESULT, ScriptCheckFreePokemonStorageSpace)
+	compare(VAR_RESULT, 1)
+	goto_if_eq(Route121_SafariZoneEntrance_EventScript_HasRoomForPokemon)
+	msgbox(Route121_SafariZoneEntrance_Text_PCIsFull, MSGBOX_DEFAULT)
+	goto(Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter)
+	end
+}

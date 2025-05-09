@@ -21,9 +21,12 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_RATTATA]	            = {{EVO_LEVEL, 20, SPECIES_RATICATE}},
     [SPECIES_SPEAROW]	            = {{EVO_LEVEL, 20, SPECIES_FEAROW}},
     [SPECIES_EKANS]	                = {{EVO_LEVEL, 22, SPECIES_ARBOK}},
-    [SPECIES_PIKACHU]               = {{EVO_LEVEL_EXIOLITE, 30, SPECIES_RAICHU},//Exiolite Boost level
-									   {EVO_ITEM_NOT_SEVII, ITEM_THUNDER_STONE, SPECIES_RAICHU},
-                                       {EVO_ITEM_SEVII, ITEM_THUNDER_STONE, SPECIES_RAICHU_ALOLAN}},
+
+    [SPECIES_PIKACHU]               = {{EVO_LEVEL_NOT_SEVII, 30,                 SPECIES_RAICHU},         //Exiolite Boost level
+									   {EVO_LEVEL_SEVII,     30,                 SPECIES_RAICHU_ALOLAN},  //Exiolite Boost level
+									   {EVO_ITEM_NOT_SEVII,  ITEM_THUNDER_STONE, SPECIES_RAICHU},
+                                       {EVO_ITEM_SEVII,      ITEM_THUNDER_STONE, SPECIES_RAICHU_ALOLAN}},
+
     [SPECIES_SANDSHREW]	            = {{EVO_LEVEL, 22, SPECIES_SANDSLASH}},
     [SPECIES_NIDORAN_F]	            = {{EVO_LEVEL, 16, SPECIES_NIDORINA}},
     [SPECIES_NIDORINA]              = {{EVO_LEVEL_EXIOLITE, 36, SPECIES_NIDOQUEEN},//Exiolite Boost level
@@ -40,9 +43,11 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_ZUBAT]	                = {{EVO_LEVEL, 22, SPECIES_GOLBAT}},
     [SPECIES_GOLBAT]	            = {{EVO_LEVEL, 38, SPECIES_CROBAT}},
     [SPECIES_ODDISH]	            = {{EVO_LEVEL, 21, SPECIES_GLOOM}},
-    [SPECIES_GLOOM]                 = {{EVO_LEVEL_EXIOLITE, 36, SPECIES_VILEPLUME},//Exiolite Boost level
-									   {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_VILEPLUME},
-                                       {EVO_ITEM, ITEM_SUN_STONE, SPECIES_BELLOSSOM}},
+
+    [SPECIES_GLOOM]                 = {{EVO_LEVEL_EXIOLITE, 36,              SPECIES_VILEPLUME},//Exiolite Boost level
+									   {EVO_ITEM,           ITEM_LEAF_STONE, SPECIES_VILEPLUME},
+                                       {EVO_ITEM,           ITEM_SUN_STONE,  SPECIES_BELLOSSOM}},
+
     [SPECIES_PARAS]	                = {{EVO_LEVEL, 24, SPECIES_PARASECT}},
     [SPECIES_VENONAT]	            = {{EVO_LEVEL, 31, SPECIES_VENOMOTH}},
     [SPECIES_DIGLETT]	            = {{EVO_LEVEL, 26, SPECIES_DUGTRIO}},
@@ -76,7 +81,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_SLOWBRO]	            = {{EVO_MEGA_EVOLUTION, ITEM_SLOWBRONITE, SPECIES_SLOWBRO_MEGA}},
     [SPECIES_MAGNEMITE]	            = {{EVO_LEVEL, 30, SPECIES_MAGNETON}},
     [SPECIES_MAGNETON]	            = {{EVO_LEVEL_EXIOLITE, 42, SPECIES_MAGNEZONE},
-									   {EVO_ITEM, ITEM_WATER_STONE, SPECIES_MAGNEZONE}},
+									   {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_MAGNEZONE}},
     [SPECIES_DODUO]	                = {{EVO_LEVEL, 31, SPECIES_DODRIO}},
     [SPECIES_SEEL]	                = {{EVO_LEVEL, 34, SPECIES_DEWGONG}},
     [SPECIES_GRIMER]	            = {{EVO_LEVEL, 38, SPECIES_MUK}},
@@ -91,9 +96,12 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_DROWZEE]	            = {{EVO_LEVEL, 26, SPECIES_HYPNO}},
     [SPECIES_KRABBY]	            = {{EVO_LEVEL, 28, SPECIES_KINGLER}},
     [SPECIES_VOLTORB]	            = {{EVO_LEVEL, 30, SPECIES_ELECTRODE}},
-    [SPECIES_EXEGGCUTE]	            = {{EVO_LEVEL_EXIOLITE, 30, SPECIES_EXEGGUTOR}, //Exiolite Boost level
-									   {EVO_ITEM_SEVII, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
-                                       {EVO_ITEM_NOT_SEVII , ITEM_LEAF_STONE, SPECIES_EXEGGUTOR_ALOLAN}},
+	
+    [SPECIES_EXEGGCUTE]             = {{EVO_LEVEL_NOT_SEVII, 30,                 SPECIES_EXEGGUTOR},         //Exiolite Boost level
+									   {EVO_LEVEL_SEVII,     30,                 SPECIES_EXEGGUTOR_ALOLAN},  //Exiolite Boost level
+									   {EVO_ITEM_NOT_SEVII,  ITEM_LEAF_STONE,    SPECIES_EXEGGUTOR},
+                                       {EVO_ITEM_SEVII,      ITEM_LEAF_STONE,    SPECIES_EXEGGUTOR_ALOLAN}},
+	
     [SPECIES_CUBONE]	            = {{EVO_LEVEL, 28, SPECIES_MAROWAK},
                                        {EVO_LEVEL_NIGHT_ALOLA, 28, SPECIES_MAROWAK_ALOLAN}},
     [SPECIES_LICKITUNG]	            = {{EVO_LEVEL_EXIOLITE, 33, SPECIES_LICKILICKY},//Exiolite Boost level
@@ -397,9 +405,12 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 	[SPECIES_WHIRLIPEDE]            = {{EVO_LEVEL, 30, SPECIES_SCOLIPEDE}},
 	[SPECIES_COTTONEE]	            = {{EVO_LEVEL_EXIOLITE, 22, SPECIES_WHIMSICOTT},
 	                                   {EVO_ITEM, ITEM_SUN_STONE, SPECIES_WHIMSICOTT}},   
-    [SPECIES_PETILIL]	            = {{EVO_LEVEL_EXIOLITE, 22, SPECIES_LILLIGANT},
-									   {EVO_ITEM_NOT_SEVII, ITEM_SUN_STONE, SPECIES_LILLIGANT},
-									   {EVO_ITEM_SEVII, ITEM_SUN_STONE, SPECIES_LILLIGANT_HISUIAN}},
+	
+    [SPECIES_PETILIL]               = {{EVO_LEVEL_NOT_SEVII, 22,             SPECIES_LILLIGANT},         //Exiolite Boost level
+									   {EVO_LEVEL_SEVII,     22,             SPECIES_LILLIGANT_HISUIAN}, //Exiolite Boost level
+									   {EVO_ITEM_NOT_SEVII,  ITEM_SUN_STONE, SPECIES_LILLIGANT},
+                                       {EVO_ITEM_SEVII,      ITEM_SUN_STONE, SPECIES_LILLIGANT_HISUIAN}},
+
 	[SPECIES_SANDILE]	            = {{EVO_LEVEL, 29, SPECIES_KROKOROK}},
 	[SPECIES_KROKOROK]	            = {{EVO_LEVEL, 40, SPECIES_KROOKODILE}},
 	[SPECIES_DARUMAKA]	            = {{EVO_LEVEL, 35, SPECIES_DARMANITAN}},
@@ -420,9 +431,11 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 	[SPECIES_VANILLITE]	            = {{EVO_LEVEL, 25, SPECIES_VANILLISH}},
 	[SPECIES_VANILLISH]	            = {{EVO_LEVEL, 40, SPECIES_VANILLUXE}},
 	[SPECIES_DEERLING]	            = {{EVO_LEVEL, 34, SPECIES_SAWSBUCK}},
+
 	[SPECIES_KARRABLAST]            = {{EVO_LEVEL_EXIOLITE, 28, SPECIES_ESCAVALIER},
 									   {EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHELMET, SPECIES_ESCAVALIER},
 									   {EVO_TRADE_SPECIFIC_MON, SPECIES_SHELMET, SPECIES_ESCAVALIER}},
+
 	[SPECIES_FOONGUS]	            = {{EVO_LEVEL, 39, SPECIES_AMOONGUSS}},
 	[SPECIES_FRILLISH]	            = {{EVO_LEVEL, 40, SPECIES_JELLICENT}},
 	[SPECIES_JOLTIK]	            = {{EVO_LEVEL, 36, SPECIES_GALVANTULA}},
@@ -462,7 +475,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 	[SPECIES_FLETCHLING]            = {{EVO_LEVEL, 17, SPECIES_FLETCHINDER}},
 	[SPECIES_FLETCHINDER]           = {{EVO_LEVEL, 35, SPECIES_TALONFLAME}},
 	[SPECIES_SCATTERBUG]            = {{EVO_LEVEL, 9, SPECIES_SPEWPA}},
-	[SPECIES_SPEWPA]	            = {{EVO_VIVILLON, 12, SPECIES_VIVILLON}},
+	[SPECIES_SPEWPA]	            = {{EVO_LEVEL_RARE_FORMS, 12, SPECIES_VIVILLON}},
     [SPECIES_LITLEO]                = {{EVO_LEVEL, 35, SPECIES_PYROAR}},
 	[SPECIES_FLABEBE]	            = {{EVO_LEVEL, 19, SPECIES_FLOETTE}},
 	[SPECIES_FLOETTE]	            = {{EVO_LEVEL_EXIOLITE, 32, SPECIES_FLORGES},
@@ -555,8 +568,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_ROLYCOLY]              = {{EVO_LEVEL, 18, SPECIES_CARKOL}},
     [SPECIES_CARKOL]                = {{EVO_LEVEL, 34, SPECIES_COALOSSAL}},
 
-    [SPECIES_APPLIN]                = {{EVO_ITEM, ITEM_SWEET_APPLE, SPECIES_FLAPPLE},
-                                       {EVO_ITEM, ITEM_TART_APPLE,  SPECIES_APPLETUN},
+    [SPECIES_APPLIN]                = {{EVO_ITEM, ITEM_TART_APPLE, SPECIES_FLAPPLE},
+                                       {EVO_ITEM, ITEM_SWEET_APPLE,  SPECIES_APPLETUN},
 									   {EVO_ITEM, ITEM_SYRUP_APPLE, SPECIES_DIPPLIN}},
 
     [SPECIES_DIPPLIN]               = {{EVO_LEVEL, 52, SPECIES_HYDRAPPLE}},
@@ -802,6 +815,9 @@ const struct SpeciesList gFirstStageTable[POKEMON_FAMILIES] =
 	SPECIES_SCYTHER,
 	SPECIES_PINSIR,
 	SPECIES_TAUROS,
+	SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+	SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
+	SPECIES_TAUROS_PALDEAN_COMBAT_BREED,
 	SPECIES_MAGIKARP,
 	SPECIES_LAPRAS,
 	SPECIES_DITTO,
@@ -830,6 +846,7 @@ const struct SpeciesList gFirstStageTable[POKEMON_FAMILIES] =
 	SPECIES_SUNKERN,
 	SPECIES_YANMA,
 	SPECIES_WOOPER,
+	SPECIES_WOOPER_PALDEAN,
 	SPECIES_MURKROW,
 	SPECIES_MISDREAVUS,
 	SPECIES_UNOWN,

@@ -4058,6 +4058,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Falkner),
+        .party2 = sParty_Falkner2,
     },
 
     [TRAINER_LEADER_BUGSY] =
@@ -4071,6 +4072,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Bugsy),
+        .party2 = sParty_Bugsy2,
     },
 
     [TRAINER_LEADER_WHITNEY] =
@@ -4084,7 +4086,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party  = TRAINER_PARTY(sParty_Whitney),
-        .party2 = sParty_Whitney_2,
+        .party2 = sParty_Whitney2,
     },
 
     [TRAINER_LEADER_MORTY] =
@@ -4098,6 +4100,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Morty),
+        .party2 = sParty_Morty2,
     },
 
     [TRAINER_LEADER_CHUCK] =
@@ -4111,6 +4114,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Chuck),
+        .party2 = sParty_Chuck2,
     },
 
     [TRAINER_LEADER_JASMINE] =
@@ -4124,6 +4128,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Leader_Jasmine),
+        .party2 = sParty_Leader_Jasmine2,
     },
 
     [TRAINER_LEADER_PRYCE] =
@@ -4137,6 +4142,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Pryce),
+        .party2 = sParty_Pryce2,
     },
 
     [TRAINER_LEADER_CLAIR] =
@@ -4150,6 +4156,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Clair),
+        .party2 = sParty_Clair2,
     },
 
     //Gyms Hoenn

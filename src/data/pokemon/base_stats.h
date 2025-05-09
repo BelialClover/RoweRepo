@@ -1782,7 +1782,7 @@ const struct BaseStats gBaseStats[] =
         .cry_Type = CRY_MONKEY_BIG,
     },
     
-    [SPECIES_ANNIHILAPE] =
+    [SPECIES_ANNIHILAPE] = 
     {
         .baseHP        =  110,
         .baseAttack    =  115,
@@ -9465,7 +9465,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FAIRY,
-        .abilities = {ABILITY_HYPER_CUTTER, ABILITY_INTIMIDATE},
+        .abilities = {ABILITY_STRONG_JAW, ABILITY_INTIMIDATE},
         .abilityHidden = ABILITY_SHEER_FORCE,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
@@ -16704,9 +16704,9 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_HEALER, ABILITY_HYDRATION},
-        .abilityHidden = ABILITY_REGENERATOR,
-        .bodyColor = BODY_COLOR_PINK,
+        .abilities = {ABILITY_COMPOUND_EYES, ABILITY_UNNERVE},
+        .abilityHidden = ABILITY_SWARM,
+        .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_JOLTIK,
     },
@@ -16730,9 +16730,9 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_HEALER, ABILITY_HYDRATION},
-        .abilityHidden = ABILITY_REGENERATOR,
-        .bodyColor = BODY_COLOR_PINK,
+        .abilities = {ABILITY_COMPOUND_EYES, ABILITY_UNNERVE},
+        .abilityHidden = ABILITY_SWARM,
+        .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_JOLTIK,
     },
@@ -17681,7 +17681,7 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_WHITE_SMOKE,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .firstStage = SPECIES_VULLABY,
+        .firstStage = SPECIES_HEATMOR,
     },
 
     [SPECIES_DURANT] =
@@ -22412,7 +22412,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_OVERGROW, ABILITY_NONE},
+        .abilities = {ABILITY_OVERGROW, ABILITY_LEAF_GUARD},
         .abilityHidden = ABILITY_GRASSY_SURGE,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
@@ -22438,7 +22438,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_OVERGROW, ABILITY_NONE},
+        .abilities = {ABILITY_OVERGROW, ABILITY_LEAF_GUARD},
         .abilityHidden = ABILITY_GRASSY_SURGE,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
@@ -22464,7 +22464,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_OVERGROW, ABILITY_NONE},
+        .abilities = {ABILITY_OVERGROW, ABILITY_BIG_PECKS},
         .abilityHidden = ABILITY_GRASSY_SURGE,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
@@ -22490,7 +22490,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_NONE},
+        .abilities = {ABILITY_BLAZE, ABILITY_STRIKER},
         .abilityHidden = ABILITY_LIBERO,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
@@ -22516,7 +22516,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_NONE},
+        .abilities = {ABILITY_BLAZE, ABILITY_STRIKER},
         .abilityHidden = ABILITY_LIBERO,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
@@ -22542,7 +22542,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_NONE},
+        .abilities = {ABILITY_BLAZE, ABILITY_STRIKER},
         .abilityHidden = ABILITY_LIBERO,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
@@ -22569,7 +22569,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_TORRENT, ABILITY_NONE},
+        .abilities = {ABILITY_TORRENT, ABILITY_COLOR_CHANGE},
         .abilityHidden = ABILITY_SNIPER,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
@@ -22595,7 +22595,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_TORRENT, ABILITY_NONE},
+        .abilities = {ABILITY_TORRENT, ABILITY_COLOR_CHANGE},
         .abilityHidden = ABILITY_SNIPER,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
@@ -22621,7 +22621,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_TORRENT, ABILITY_NONE},
+        .abilities = {ABILITY_TORRENT, ABILITY_UNBURDEN},
         .abilityHidden = ABILITY_SNIPER,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
@@ -25108,12 +25108,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DECIDUEYE_HISUIAN] =
     {
-        .baseHP        = 78,
-        .baseAttack    = 107,
-        .baseDefense   = 75,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 100,
+        .baseHP        = 88,
+        .baseAttack    = 112,
+        .baseDefense   = 80,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 95,
         .type1 = TYPE_GRASS,
         .type2 = TYPE_FIGHTING,
         .catchRate = 45,
@@ -25135,11 +25135,11 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_AVALUGG_HISUIAN] =
     {
         .baseHP        = 95,
-        .baseAttack    = 117,
+        .baseAttack    = 127,
         .baseDefense   = 184,
-        .baseSpeed     = 28,
-        .baseSpAttack  = 44,
-        .baseSpDefense = 46,
+        .baseSpeed     = 38,
+        .baseSpAttack  = 34,
+        .baseSpDefense = 36,
         .type1 = TYPE_ICE,
         .type2 = TYPE_ROCK,
         .catchRate = 55,
@@ -25162,10 +25162,10 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_SLIGGOO_HISUIAN] =
     {
-        .baseHP        = 68,
+        .baseHP        = 58,
         .baseAttack    = 75,
-        .baseDefense   = 53,
-        .baseSpeed     = 60,
+        .baseDefense   = 83,
+        .baseSpeed     = 40,
         .baseSpAttack  = 83,
         .baseSpDefense = 113,
         .type1 = TYPE_DRAGON,
@@ -25189,10 +25189,10 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_GOODRA_HISUIAN] =
     {
-        .baseHP        = 90,
+        .baseHP        = 80,
         .baseAttack    = 100,
-        .baseDefense   = 70,
-        .baseSpeed     = 80,
+        .baseDefense   = 100,
+        .baseSpeed     = 60,
         .baseSpAttack  = 110,
         .baseSpDefense = 150,
         .type1 = TYPE_DRAGON,
@@ -25215,12 +25215,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_BRAVIARY_HISUIAN] =
     {
-        .baseHP        = 100,
-        .baseAttack    = 123,
-        .baseDefense   = 75,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 57,
-        .baseSpDefense = 75,
+        .baseHP        = 110,
+        .baseAttack    = 83,
+        .baseDefense   = 70,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 112,
+        .baseSpDefense = 70,
         .type1 = TYPE_PSYCHIC,
         .type2 = TYPE_FLYING,
         .catchRate = 60,
@@ -25241,11 +25241,11 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_ZORUA_HISUIAN] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 65,
+        .baseHP        = 35,
+        .baseAttack    = 60,
         .baseDefense   = 40,
-        .baseSpeed     = 65,
-        .baseSpAttack  = 80,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 85,
         .baseSpDefense = 40,
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GHOST,
@@ -25266,11 +25266,11 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_ZOROARK_HISUIAN] =
     {
-        .baseHP        = 60,
-        .baseAttack    = 105,
+        .baseHP        = 55,
+        .baseAttack    = 100,
         .baseDefense   = 60,
-        .baseSpeed     = 105,
-        .baseSpAttack  = 120,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 125,
         .baseSpDefense = 60,
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GHOST,
@@ -25292,10 +25292,10 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_LILLIGANT_HISUIAN] =
     {
         .baseHP        = 70,
-        .baseAttack    = 60,
+        .baseAttack    = 105,
         .baseDefense   = 75,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 110,
+        .baseSpeed     = 105,
+        .baseSpAttack  = 50,
         .baseSpDefense = 75,
         .type1 = TYPE_GRASS,
         .type2 = TYPE_FIGHTING,
@@ -25318,12 +25318,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_SAMUROTT_HISUIAN] =
     {
-        .baseHP        = 95,
-        .baseAttack    = 100,
-        .baseDefense   = 85,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 108,
-        .baseSpDefense = 70,
+        .baseHP        = 90,
+        .baseAttack    = 108,
+        .baseDefense   = 80,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 65,
         .type1 = TYPE_WATER,
         .type2 = TYPE_DARK,
         .catchRate = 45,
@@ -25372,11 +25372,11 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_TYPHLOSION_HISUIAN] =
     {
-        .baseHP        = 78,
+        .baseHP        = 73,
         .baseAttack    = 84,
         .baseDefense   = 78,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 109,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 119,
         .baseSpDefense = 85,
         .type1 = TYPE_FIRE,
         .type2 = TYPE_GHOST,
@@ -25453,11 +25453,11 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_GROWLITHE_HISUIAN] =
     {
-        .baseHP        = 55,
-        .baseAttack    = 70,
+        .baseHP        = 60,
+        .baseAttack    = 75,
         .baseDefense   = 45,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 70,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 65,
         .baseSpDefense = 50,
         .type1 = TYPE_FIRE,
         .type2 = TYPE_ROCK,
@@ -25480,16 +25480,16 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_ARCANINE_HISUIAN] =
     {
-        .baseHP        = 90,
-        .baseAttack    = 110,
+        .baseHP        = 95,
+        .baseAttack    = 115,
         .baseDefense   = 80,
-        .baseSpeed     = 95,
-        .baseSpAttack  = 100,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 95,
         .baseSpDefense = 80,
         .type1 = TYPE_FIRE,
         .type2 = TYPE_ROCK,
         .catchRate = 190,
-        .expYield = 70,
+        .expYield = 194,
         .evYield_Attack    = 1,
         .genderRatio = PERCENT_FEMALE(25),
         .eggCycles = 20,
@@ -27612,6 +27612,7 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .firstStage = SPECIES_FARFETCHD_GALARIAN,
     },
 
     [SPECIES_WEEZING_GALARIAN] =
@@ -27699,7 +27700,7 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
-        .flags = F_GALARIAN_FORM | F_UNOBTAINABLE_FORM,
+        .flags = F_GALARIAN_FORM,
     },
 
     [SPECIES_ZAPDOS_GALARIAN] =
@@ -27728,7 +27729,7 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
-        .flags = F_GALARIAN_FORM | F_UNOBTAINABLE_FORM,
+        .flags = F_GALARIAN_FORM,
     },
 
     [SPECIES_MOLTRES_GALARIAN] =
@@ -27757,7 +27758,7 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .flags = F_GALARIAN_FORM | F_UNOBTAINABLE_FORM,
+        .flags = F_GALARIAN_FORM,
     },
 
     [SPECIES_SLOWKING_GALARIAN] =
@@ -34244,7 +34245,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_BUG,
         .type2 = TYPE_BUG,
         .catchRate = 255,
-        .expYield = 42,
+        .expYield = 194,
         .evYield_Defense   = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,

@@ -6,13 +6,6 @@ EverGrandeCity_MapScripts:: @ 81E7D1B
 EverGrandeCity_OnTransition: @ 81E7D21
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
-	
-EverGrandeCity_EventScript_CaveGuard::
-	lockall
-	message EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges
-	waitmessage
-	releaseall
-	end
 
 EverGrandeCity_EventScript_VictoryRoadSign:: @ 81E7D2B
 	msgbox EverGrandeCity_Text_EnteringVictoryRoad, MSGBOX_SIGN
@@ -45,7 +38,15 @@ EverGrandeCity_Text_CitySign: @ 81E7D89
 	
 EverGrandeCity_Text_MustHaveAllGymBadges: @ 82296E8
 	.string "Beyond this point, only those Trainers\n"
-	.string "who have collected all the Gym Badges\l"
-	.string "are permitted to enter.\p"
+	.string "who have collected all the 16 Gym\l"
+	.string "Badges are permitted to enter.\p"
 
 `
+
+script EverGrandeCity_EventScript_CaveGuard{
+	lockall
+	msgbox(format("Beyond this point, only those Trainers who have collected all the 16 Gym Badges are permitted to enter, if you defeated all the Hoenn Leaders make sure to visit the Sevii Island using Slateport or Lilycove Harbor to gain the remaining 8 badges."))
+	waitmessage
+	releaseall
+	end
+}

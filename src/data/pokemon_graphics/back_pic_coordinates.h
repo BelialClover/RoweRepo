@@ -2398,7 +2398,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_ROTOM] =
     {
         .size = 0x77,
-        .y_offset = 0,
+        .y_offset = 5,
     },
     [SPECIES_UXIE] =
     {
