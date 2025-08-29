@@ -575,8 +575,7 @@ const struct InformationEntry sInformationEntry[NUM_INFORMATION_ENTRIES][MAX_NUM
             //Page 1
             _(
                 "You can get starters by trading red, green and \n"
-                "blue shards in Lavaridge, Fallarbor and       \n"
-                "Lilycove."
+                "blue shards in Lavaridge, Fortree and Lilycove."
             ),
             .numPages = 1
         },

@@ -380,6 +380,7 @@ static void CreateBattleStartTask(u8 transition, u16 song)
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
+	SendUnusablePokemonToBox(TRUE);
     PlayMapChosenOrBattleBGM(song);
 }
 
@@ -958,7 +959,7 @@ static u16 GetSumOfPlayerPartyLevel(u8 numMons)
     {
         u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
 
-        if (species != SPECIES_EGG && species != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0)
+        if (isMonUsableInBattle(&gPlayerParty[i], FALSE))
         {
             sum += GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
             if (--numMons == 0)

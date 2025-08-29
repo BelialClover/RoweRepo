@@ -1097,10 +1097,24 @@ static const union AnimCmd sSpriteAnim_HeldMail[] =
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_MegaStone[] =
+{
+    ANIMCMD_FRAME(2, 1),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_BannedMon[] =
+{
+    ANIMCMD_FRAME(3, 1),
+    ANIMCMD_END
+};
+
 static const union AnimCmd *const sSpriteAnimTable_HeldItem[] =
 {
     sSpriteAnim_HeldItem,
     sSpriteAnim_HeldMail,
+    sSpriteAnim_MegaStone,
+    sSpriteAnim_BannedMon,
 };
 
 const struct SpriteSheet gSpriteSheet_HeldItem =

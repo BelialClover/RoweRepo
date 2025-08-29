@@ -25700,3 +25700,1414 @@ static const struct TrainerMon sParty_Clair2[] = {
     .style = STYLE_JUGGERNAUT,
     },
 };
+
+//Little Cup Teams
+static const struct TrainerMon sParty_Roxanne_Little_Cup[] = {
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_ONIX,
+    .postgameheldItem = ITEM_SMOOTH_ROCK,
+    .heldItem = ITEM_SMOOTH_ROCK,
+    .postgamemoves = {MOVE_DRAGON_TAIL, MOVE_STEALTH_ROCK, MOVE_EARTHQUAKE, MOVE_SHORE_UP},
+    .moves = {MOVE_COIL, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_TIRTOUGA,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_SCALD, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE},
+    .moves = {MOVE_AQUA_JET, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_TYRUNT,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_HEAD_SMASH, MOVE_CRUNCH, MOVE_FIRE_FANG, MOVE_THUNDER_FANG},
+    .moves = {MOVE_BITE, MOVE_POISON_FANG, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_DWEBBLE,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_FURY_CUTTER, MOVE_ROCK_BLAST, MOVE_FLAIL},
+    .moves = {MOVE_ROCK_TOMB, MOVE_FURY_CUTTER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 252, 0, 6, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_GLIMMET,
+    .postgameheldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_ACID_SPRAY, MOVE_TOXIC, MOVE_PROTECT, MOVE_SUBSTITUTE},
+    .moves = {MOVE_ACID_SPRAY, MOVE_POWER_GEM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 6, 252, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_NOSEPASS,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_MIRROR_COAT, MOVE_DISCHARGE, MOVE_THUNDERBOLT, MOVE_POWER_GEM},
+    .moves = {MOVE_ANCIENT_POWER, MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Brawly_Little_Cup[] = {
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .happiness = 0,
+    .species = SPECIES_MACHOP,
+    .postgameheldItem = ITEM_FLAME_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_KNOCK_OFF, MOVE_FIRE_PUNCH, MOVE_CLOSE_COMBAT, MOVE_BULLET_PUNCH},
+    .moves = {MOVE_BULLET_PUNCH, MOVE_LOW_SWEEP, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .happiness = 0,
+    .species = SPECIES_CROAGUNK,
+    .postgameheldItem = ITEM_KINGS_ROCK,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_FAKE_OUT, MOVE_SUCKER_PUNCH, MOVE_POISON_JAB, MOVE_BRICK_BREAK},
+    .moves = {MOVE_LOW_KICK, MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .happiness = 0,
+    .species = SPECIES_SCRAGGY,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_HEAD_SMASH, MOVE_CURSE, MOVE_DRAIN_PUNCH, MOVE_PAYBACK},
+    .moves = {MOVE_BITE, MOVE_DRAGON_DANCE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .happiness = 0,
+    .species = SPECIES_STUFFUL,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_THRASH, MOVE_STRENGTH, MOVE_ICE_PUNCH, MOVE_PAYBACK},
+    .moves = {MOVE_THRASH, MOVE_BRICK_BREAK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .happiness = 0,
+    .species = SPECIES_CRABRAWLER,
+    .postgameheldItem = ITEM_SHELL_BELL,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_POWER_UP_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_CRABHAMMER},
+    .moves = {MOVE_BRICK_BREAK, MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .happiness = 252,
+    .species = SPECIES_MAKUHITA,
+    .postgameheldItem = ITEM_CHOICE_BAND,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_RAGING_FURY, MOVE_STONE_EDGE, MOVE_CLOSE_COMBAT, MOVE_KNOCK_OFF},
+    .moves = {MOVE_POWER_UP_PUNCH, MOVE_BULK_UP, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Wattson_Little_Cup[] = {
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_MAREEP,
+    .postgameheldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_COTTON_GUARD, MOVE_REST, MOVE_SIGNAL_BEAM, MOVE_CHARGE_BEAM},
+    .moves = {MOVE_SHOCK_WAVE, MOVE_IRON_TAIL, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_JOLTIK,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_ELECTROWEB, MOVE_BUG_BUZZ, MOVE_THUNDER, MOVE_SUCKER_PUNCH},
+    .moves = {MOVE_SHOCK_WAVE, MOVE_FURY_CUTTER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_WATTREL,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_FEATHER_DANCE, MOVE_ROOST, MOVE_AIR_SLASH},
+    .moves = {MOVE_SHOCK_WAVE, MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_CHINCHOU,
+    .postgameheldItem = ITEM_ICE_GEM,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_WATER_PULSE, MOVE_ICE_BEAM, MOVE_ION_DELUGE},
+    .moves = {MOVE_SHOCK_WAVE, MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_ELEKID,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_CROSS_CHOP, MOVE_SUPERCELL_SLAM, MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH},
+    .moves = {MOVE_THUNDER_PUNCH, MOVE_SWIFT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_ELECTRIKE,
+    .postgameheldItem = ITEM_AIR_BALLOON,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_SIGNAL_BEAM, MOVE_FIRE_FANG, MOVE_ICE_FANG},
+    .moves = {MOVE_THUNDER_FANG, MOVE_THUNDER_WAVE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Flannery_Little_Cup[] = {
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_VULPIX,
+    .postgameheldItem = ITEM_HEAT_ROCK,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_HEAT_WAVE, MOVE_SOLAR_BEAM, MOVE_EXTRASENSORY, MOVE_CONFUSE_RAY},
+    .moves = {MOVE_FLAME_BURST, MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_NUMEL,
+    .postgameheldItem = ITEM_EVIOLITE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_CURSE, MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_FLAME_CHARGE},
+    .moves = {MOVE_FLAME_BURST, MOVE_MAGNITUDE, MOVE_NONE, MOVE_NONE,}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_SIZZLIPEDE,
+    .postgameheldItem = ITEM_CHARCOAL,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_COIL, MOVE_LEECH_LIFE, MOVE_FIRE_LASH, MOVE_IRON_TAIL},
+    .moves = {MOVE_FIRE_FANG, MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_LITLEO,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_OVERHEAT, MOVE_NASTY_PLOT, MOVE_HYPER_VOICE, MOVE_YAWN},
+    .moves = {MOVE_YAWN, MOVE_INCINERATE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_MAGBY,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_FLARE_BLITZ, MOVE_MACH_PUNCH, MOVE_FAINT_ATTACK, MOVE_IRON_TAIL},
+    .moves = {MOVE_FIRE_PUNCH, MOVE_CLEAR_SMOG, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 6, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_HOUNDOUR,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_COUNTER, MOVE_NASTY_PLOT, MOVE_FLAMETHROWER, MOVE_DARK_PULSE},
+    .moves = {MOVE_BITE, MOVE_REVERSAL, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Norman_Little_Cup[] = {
+    {
+    .evs = {6, 0, 252, 0, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_LICKITUNG,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_MUDDY_WATER, MOVE_KNOCK_OFF, MOVE_POWER_WHIP, MOVE_THRASH},
+    .moves = {MOVE_LICK, MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 252, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_ZORUA_HISUIAN,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHADOW_BALL, MOVE_BURNING_JEALOUSY, MOVE_EXTRASENSORY, MOVE_ICY_WIND},
+    .moves = {MOVE_SWIFT, MOVE_SHADOW_SNEAK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_TAILLOW,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_AIR_SLASH, MOVE_BOOMBURST, MOVE_HEAT_WAVE, MOVE_OMINOUS_WIND},
+    .moves = {MOVE_ENDEAVOR, MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_AZURILL,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_BELLY_DRUM, MOVE_PLAY_ROUGH, MOVE_AQUA_JET, MOVE_BODY_SLAM},
+    .moves = {MOVE_AQUA_JET, MOVE_CHARM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_DEERLING,
+    .postgameheldItem = ITEM_KINGS_ROCK,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_TRAILBLAZE, MOVE_HEADBUTT, MOVE_JUMP_KICK, MOVE_THUNDER_WAVE},
+    .moves = {MOVE_HEADBUTT, MOVE_CHARM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 6, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_SHROODLE,
+    .postgameheldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_SUPER_FANG, MOVE_SUBSTITUTE, MOVE_TOXIC, MOVE_BITE},
+    .moves = {MOVE_POISON_FANG, MOVE_BITE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Winona_Little_Cup[] = {
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_WOOBAT,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_CALM_MIND, MOVE_AIR_SLASH, MOVE_STORED_POWER, MOVE_ROOST},
+    .moves = {MOVE_CALM_MIND, MOVE_ATTRACT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_DRIFLOON,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHADOW_BALL, MOVE_DISABLE, MOVE_ICY_WIND, MOVE_THUNDER_WAVE},
+    .moves = {MOVE_GUST, MOVE_OMINOUS_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 252, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_MANTYKE,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_AIR_SLASH, MOVE_HYDRO_PUMP, MOVE_MIRROR_COAT, MOVE_SIGNAL_BEAM},
+    .moves = {MOVE_BUBBLE, MOVE_GUST, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_ARCHEN,
+    .postgameheldItem = ITEM_FLYING_GEM,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_ACROBATICS, MOVE_ROCK_SLIDE, MOVE_BITE, MOVE_ROOST},
+    .moves = {MOVE_WING_ATTACK, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_ROWLET,
+    .postgameheldItem = ITEM_SHARP_BEAK,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_LEAF_BLADE, MOVE_SUCKER_PUNCH, MOVE_SWORDS_DANCE, MOVE_PLUCK},
+    .moves = {MOVE_LEAFAGE, MOVE_ROOST, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 252, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SWABLU,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_ROOST, MOVE_AIR_SLASH, MOVE_DRAGON_PULSE, MOVE_DAZZLING_GLEAM},
+    .moves = {MOVE_DISARMING_VOICE, MOVE_PECK, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_TateAndLiza_Little_Cup[] = {
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_ELGYEM,
+    .postgameheldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_ENERGY_BALL, MOVE_PSYCHIC, MOVE_RECOVER, MOVE_POWER_GEM},
+    .moves = {MOVE_CALM_MIND, MOVE_CONFUSION, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 252, 0, 252, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_BRONZOR,
+    .postgameheldItem = ITEM_EVIOLITE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_GYRO_BALL, MOVE_PAYBACK, MOVE_HYPNOSIS, MOVE_CONFUSE_RAY},
+    .moves = {MOVE_CONFUSION, MOVE_GYRO_BALL, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 0, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_BALTOY,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SCORCHING_SANDS, MOVE_PSYCHIC, MOVE_COSMIC_POWER, MOVE_SIGNAL_BEAM},
+    .moves = {MOVE_CONFUSION, MOVE_ANCIENT_POWER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_INKAY,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SUPERPOWER, MOVE_DARKEST_LARIAT, MOVE_PSYCHO_CUT, MOVE_LIQUIDATION},
+    .moves = {MOVE_PAYBACK, MOVE_TOPSY_TURVY, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_SOLOSIS,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_CALM_MIND, MOVE_SHADOW_BALL, MOVE_STORED_POWER, MOVE_ENERGY_BALL},
+    .moves = {MOVE_GUST, MOVE_CONFUSION, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_EXEGGCUTE,
+    .postgameheldItem = ITEM_ZOOM_LENS,
+    .heldItem = ITEM_WIDE_LENS,
+    .postgamemoves = {MOVE_SLEEP_POWDER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_PSYCHIC},
+    .moves = {MOVE_SLEEP_POWDER, MOVE_DREAM_EATER, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Juan_Little_Cup[] = {
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_SHELLDER,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_ICICLE_SPEAR, MOVE_ROCK_BLAST, MOVE_RAZOR_SHELL},
+    .moves = {MOVE_AURORA_BEAM, MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .happiness = 0,
+    .species = SPECIES_TOTODILE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_WATERFALL, MOVE_ICE_PUNCH, MOVE_CRUNCH},
+    .moves = {MOVE_AQUA_JET, MOVE_BITE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_LOTAD,
+    .postgameheldItem = ITEM_DAMP_ROCK,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_RAIN_DANCE, MOVE_SURF, MOVE_GIGA_DRAIN, MOVE_ICE_BEAM},
+    .moves = {MOVE_MEGA_DRAIN, MOVE_CHILLING_WATER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_BARBOACH,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_WATERFALL, MOVE_SPARK, MOVE_EARTHQUAKE},
+    .moves = {MOVE_DRAGON_DANCE, MOVE_ICY_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 252, 0, 6, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_DUCKLETT,
+    .postgameheldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_SURF, MOVE_FEATHER_DANCE, MOVE_AIR_SLASH, MOVE_ROOST},
+    .moves = {MOVE_WATER_PULSE, MOVE_GUST, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 6, 252, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_SKRELP,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_HYDRO_PUMP, MOVE_SLUDGE_BOMB, MOVE_ICY_WIND, MOVE_DRAGON_PULSE},
+    .moves = {MOVE_ACID, MOVE_ICY_WIND, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Falkner_Little_Cup[] = {
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_ROOKIDEE,
+    .postgameheldItem = ITEM_POWER_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SKY_ATTACK, MOVE_TAILWIND, MOVE_REVERSAL, MOVE_U_TURN},
+    .moves = {MOVE_U_TURN, MOVE_ROCK_SMASH, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_WINGULL,
+    .postgameheldItem = ITEM_WIDE_LENS,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_HURRICANE, MOVE_WATER_PULSE, MOVE_QUICK_ATTACK, MOVE_ICE_BEAM},
+    .moves = {MOVE_AIR_CUTTER, MOVE_RAIN_DANCE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_HOPPIP,
+    .postgameheldItem = ITEM_FLYING_GEM,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SUNNY_DAY, MOVE_ACROBATICS, MOVE_SLEEP_POWDER, MOVE_SOLAR_BEAM},
+    .moves = {MOVE_LEECH_SEED, MOVE_POISON_POWDER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 5,
+    .evs = {170, 0, 170, 0, 170, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_DRIFLOON,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_TAILWIND, MOVE_EXPLOSION, MOVE_MEMENTO, MOVE_SHADOW_BALL},
+    .moves = {MOVE_ASTONISH, MOVE_GUST, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_NATU,
+    .postgameheldItem = ITEM_WEAKNESS_POLICY,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_CALM_MIND, MOVE_AIR_SLASH, MOVE_PSYCHIC, MOVE_STORED_POWER},
+    .moves = {MOVE_CALM_MIND, MOVE_CONFUSION, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_PIDGEY,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_HEAT_WAVE, MOVE_HYPER_VOICE, MOVE_AIR_SLASH, MOVE_U_TURN},
+    .moves = {MOVE_GUST, MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Bugsy_Little_Cup[] = {
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_PARAS,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SWORDS_DANCE, MOVE_SPORE, MOVE_METAL_CLAW, MOVE_FELL_STINGER},
+    .moves = {MOVE_FURY_CUTTER, MOVE_BULLET_SEED, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_VENONAT,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_ELECTROWEB, MOVE_GASTRO_ACID, MOVE_STRUGGLE_BUG, MOVE_SUCKER_PUNCH},
+    .moves = {MOVE_CONFUSION, MOVE_FURY_CUTTER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_SURSKIT,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_STICKY_WEB, MOVE_CHILLING_WATER, MOVE_SIGNAL_BEAM, MOVE_HAZE},
+    .moves = {MOVE_BUBBLE, MOVE_FELL_STINGER, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_DWEBBLE,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_FURY_CUTTER, MOVE_ROCK_BLAST, MOVE_STEALTH_ROCK},
+    .moves = {MOVE_CURSE, MOVE_ROCK_THROW, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_VENIPEDE,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_COIL, MOVE_ROLLOUT, MOVE_LEECH_LIFE, MOVE_PROTECT},
+    .moves = {MOVE_BUG_BITE, MOVE_POISON_FANG, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_SNOM,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_FAIRY_WIND, MOVE_ICY_WIND, MOVE_MIRROR_COAT, MOVE_STRUGGLE_BUG},
+    .moves = {MOVE_ICY_WIND, MOVE_FAIRY_WIND, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Whitney_Little_Cup[] = {
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SNUBBULL,
+    .postgameheldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_BITE, MOVE_CRUNCH, MOVE_THUNDER_FANG, MOVE_EARTHQUAKE},
+    .moves = {MOVE_BITE, MOVE_ICE_FANG, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_SHROODLE,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_KNOCK_OFF, MOVE_GUNK_SHOT, MOVE_SLASH, MOVE_U_TURN},
+    .moves = {MOVE_BITE, MOVE_CROSS_POISON, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_RALTS,
+    .postgameheldItem = ITEM_FAIRY_GEM,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_MOONBLAST, MOVE_PSYCHIC, MOVE_MAGICAL_LEAF, MOVE_SHADOW_BALL},
+    .moves = {MOVE_CONFUSION, MOVE_DRAINING_KISS, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_HELIOPTILE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_PARABOLIC_CHARGE, MOVE_NEUTRAL_PULSE, MOVE_SIGNAL_BEAM, MOVE_MUD_SLAP},
+    .moves = {MOVE_SHOCK_WAVE, MOVE_RAZOR_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 6, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_COTTONEE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_MOONBLAST, MOVE_ENERGY_BALL, MOVE_SUBSTITUTE, MOVE_SWIFT},
+    .moves = {MOVE_LEECH_SEED, MOVE_FAIRY_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 252, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_MUNCHLAX,
+    .postgameheldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_LEFTOVERS,
+    .postgamemoves = {MOVE_CRUNCH, MOVE_RETURN, MOVE_STOCKPILE, MOVE_SLACK_OFF},
+    .moves = {MOVE_HEADBUTT, MOVE_BITE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Morty_Little_Cup[] = {
+    {
+    .evs = {6, 0, 0, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_SINISTEA,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_STRENGTH_SAP, MOVE_GIGA_DRAIN, MOVE_SHADOW_BALL},
+    .moves = {MOVE_MEGA_DRAIN, MOVE_HEX, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_GASTLY,
+    .postgameheldItem = ITEM_EXPERT_BELT,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_GIGA_DRAIN, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_THUNDERBOLT},
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_HYPNOSIS, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_DRIFLOON,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_AIR_SLASH, MOVE_TAILWIND, MOVE_HEAT_WAVE, MOVE_OMINOUS_WIND},
+    .moves = {MOVE_GUST, MOVE_OMINOUS_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 0, 252, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_HONEDGE,
+    .postgameheldItem = ITEM_GHOST_GEM,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SWORDS_DANCE, MOVE_CUT, MOVE_CUT, MOVE_NIGHT_SLASH},
+    .moves = {MOVE_SWORDS_DANCE, MOVE_CUT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_LITWICK,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_OVERHEAT, MOVE_SHADOW_BALL, MOVE_MINIMIZE, MOVE_CLEAR_SMOG},
+    .moves = {MOVE_FLAME_BURST, MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 6, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_FRILLISH,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_LEFTOVERS,
+    .postgamemoves = {MOVE_STRENGTH_SAP, MOVE_WATER_SPOUT, MOVE_OMINOUS_WIND, MOVE_ACID_ARMOR},
+    .moves = {MOVE_STRENGTH_SAP, MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Chuck_Little_Cup[] = {
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_MEDITITE,
+    .postgameheldItem = ITEM_MUSCLE_BAND,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_BULLET_PUNCH, MOVE_PSYCHO_CUT, MOVE_BULK_UP, MOVE_HI_JUMP_KICK},
+    .moves = {MOVE_CONFUSION, MOVE_THUNDER_PUNCH, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_PANCHAM,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_BULK_UP, MOVE_CRUNCH, MOVE_ARM_THRUST, MOVE_ROCK_SLIDE},
+    .moves = {MOVE_LOW_KICK, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_TIMBURR,
+    .postgameheldItem = ITEM_FIGHTING_GEM,
+    .heldItem = ITEM_NORMAL_GEM,
+    .postgamemoves = {MOVE_PAYBACK, MOVE_THRASH, MOVE_HAMMER_ARM, MOVE_SWORDS_DANCE},
+    .moves = {MOVE_BRICK_BREAK, MOVE_THUNDER_PUNCH, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_SNEASEL_HISUIAN,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_KNOCK_OFF, MOVE_POISON_JAB, MOVE_CLOSE_COMBAT, MOVE_X_SCISSOR},
+    .moves = {MOVE_METAL_CLAW, MOVE_ROCK_SMASH, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_FARFETCHD_GALARIAN,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_LEAF_BLADE, MOVE_CLOSE_COMBAT, MOVE_THROAT_CHOP, MOVE_BRAVE_BIRD},
+    .moves = {MOVE_BRICK_BREAK, MOVE_BRUTAL_SWING, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_MIENFOO,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_U_TURN, MOVE_HI_JUMP_KICK, MOVE_ROCK_SLIDE, MOVE_KNOCK_OFF},
+    .moves = {MOVE_ACROBATICS, MOVE_FAKE_OUT, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Jasmine_Little_Cup[] = {
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_VAROOM,
+    .postgameheldItem = ITEM_AIR_BALLOON,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_GUNK_SHOT, MOVE_IRON_HEAD, MOVE_TEMPER_FLARE, MOVE_TORMENT},
+    .moves = {MOVE_TOXIC, MOVE_PROTECT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_MAGNEMITE,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_STEEL_BEAM, MOVE_ZAP_CANNON, MOVE_SIGNAL_BEAM, MOVE_THUNDER_WAVE},
+    .moves = {MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_ARON,
+    .postgameheldItem = ITEM_SHELL_BELL,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_HEAD_SMASH, MOVE_METAL_BURST, MOVE_SUPERPOWER, MOVE_IRON_HEAD},
+    .moves = {MOVE_ENDEAVOR, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {170, 170, 0, 0, 170, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_SANDSHREW_ALOLAN,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_IRON_HEAD, MOVE_ICE_PUNCH, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE},
+    .moves = {MOVE_POWDER_SNOW, MOVE_METAL_CLAW, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_FERROSEED,
+    .postgameheldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_LEECH_SEED, MOVE_CURSE, MOVE_GYRO_BALL, MOVE_BULLET_SEED},
+    .moves = {MOVE_METAL_CLAW, MOVE_PIN_MISSILE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 0, 0, 0, 252, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_TINKATINK,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_LUM_BERRY,
+    .postgamemoves = {MOVE_PLAY_ROUGH, MOVE_METAL_CLAW, MOVE_ICE_HAMMER, MOVE_SKITTER_SMACK},
+    .moves = {MOVE_BRUTAL_SWING, MOVE_POUNCE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Pryce_Little_Cup[] = {
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_SNOVER,
+    .postgameheldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_EARTHQUAKE, MOVE_ICICLE_CRASH, MOVE_ROCK_SLIDE, MOVE_WOOD_HAMMER},
+    .moves = {MOVE_ICE_SHARD, MOVE_TRAILBLAZE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_BERGMITE,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_CURSE, MOVE_ICICLE_CRASH, MOVE_MIRROR_COAT, MOVE_RECOVER},
+    .moves = {MOVE_ICY_WIND, MOVE_BITE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .species = SPECIES_FRIGIBAX,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_SWORDS_DANCE, MOVE_OUTRAGE, MOVE_ICICLE_SPEAR, MOVE_DRACO_METEOR},
+    .moves = {MOVE_BITE, MOVE_ICY_WIND, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_SPHEAL,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_SIGNAL_BEAM, MOVE_EARTHQUAKE},
+    .moves = {MOVE_ICE_BALL, MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SMOOCHUM,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_NASTY_PLOT, MOVE_PSYCHIC, MOVE_BLIZZARD, MOVE_COUNTER},
+    .moves = {MOVE_BLIZZARD, MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_SWINUB,
+    .postgameheldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_EARTHQUAKE, MOVE_ICICLE_CRASH, MOVE_ROCK_SLIDE, MOVE_FREEZE_DRY},
+    .moves = {MOVE_ICE_SHARD, MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Clair_Little_Cup[] = {
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_AXEW,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_FIRST_IMPRESSION, MOVE_SWORDS_DANCE, MOVE_OUTRAGE, MOVE_POISON_JAB},
+    .moves = {MOVE_BRICK_BREAK, MOVE_DRAGON_DANCE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_JANGMO_O,
+    .postgameheldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_SCALE_SHOT, MOVE_BITE, MOVE_NOBLE_ROAR},
+    .moves = {MOVE_ROCK_TOMB, MOVE_DRAGON_BREATH, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_DRATINI,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_DRAGON_PULSE, MOVE_FLAMETHROWER, MOVE_SURF},
+    .moves = {MOVE_DRAGON_TAIL, MOVE_THUNDER_WAVE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_GIBLE,
+    .postgameheldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_OUTRAGE, MOVE_EARTHQUAKE, MOVE_IRON_HEAD},
+    .moves = {MOVE_BITE, MOVE_ROCK_TOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 0, 0, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_GOOMY,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_ORAN_BERRY,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_DRAGON_PULSE, MOVE_MUDDY_WATER, MOVE_SLUDGE_WAVE},
+    .moves = {MOVE_MEGA_DRAIN, MOVE_ACID_SPRAY, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_DEINO,
+    .postgameheldItem = ITEM_ZOOM_LENS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .postgamemoves = {MOVE_CRUNCH, MOVE_ICE_FANG, MOVE_OUTRAGE, MOVE_FIRE_FANG},
+    .moves = {MOVE_BITE, MOVE_DRAGON_TAIL, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMon sParty_Sidney_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_CARVANHA,
+    .postgameheldItem = ITEM_MUSCLE_BAND,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .postgamemoves = {MOVE_PROTECT, MOVE_LIQUIDATION, MOVE_BITE, MOVE_ICE_FANG},
+    .moves = {MOVE_PROTECT, MOVE_LIQUIDATION, MOVE_BITE, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_STUNKY,
+    .postgameheldItem = ITEM_BLACK_GLASSES,
+    .heldItem = ITEM_BLACK_GLASSES,
+    .postgamemoves = {MOVE_SUCKER_PUNCH, MOVE_HAZE, MOVE_CRUNCH, MOVE_GUNK_SHOT},
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_HAZE, MOVE_CRUNCH, MOVE_GUNK_SHOT}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SANDILE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE},
+    .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_ZORUA,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_NIGHT_DAZE, MOVE_FOUL_PLAY, MOVE_EXTRASENSORY, MOVE_TORMENT},
+    .moves = {MOVE_NIGHT_DAZE, MOVE_FOUL_PLAY, MOVE_EXTRASENSORY, MOVE_TORMENT}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 0, 0, 6, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_INKAY,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_SUPERPOWER, MOVE_NIGHT_SLASH, MOVE_PSYCHO_CUT, MOVE_LIQUIDATION},
+    .moves = {MOVE_SUPERPOWER, MOVE_NIGHT_SLASH, MOVE_PSYCHO_CUT, MOVE_LIQUIDATION}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 6, 0, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_IMPIDIMP,
+    .postgameheldItem = ITEM_WIDE_LENS,
+    .heldItem = ITEM_WIDE_LENS,
+    .postgamemoves = {MOVE_THUNDER_WAVE, MOVE_SWAGGER, MOVE_FOUL_PLAY, MOVE_REFLECT},
+    .moves = {MOVE_THUNDER_WAVE, MOVE_SWAGGER, MOVE_FOUL_PLAY, MOVE_REFLECT}
+    },
+};
+
+static const struct TrainerMon sParty_Phoebe_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_GASTLY,
+    .postgameheldItem = ITEM_CHOICE_SPECS,
+    .heldItem = ITEM_CHOICE_SPECS,
+    .postgamemoves = {MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_THUNDERBOLT},
+    .moves = {MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_THUNDERBOLT}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 0, 252, 0, 252, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_DUSKULL,
+    .postgameheldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_LEFTOVERS,
+    .postgamemoves = {MOVE_PAIN_SPLIT, MOVE_WILL_O_WISP, MOVE_DISABLE, MOVE_PAYBACK},
+    .moves = {MOVE_PAIN_SPLIT, MOVE_WILL_O_WISP, MOVE_DISABLE, MOVE_PAYBACK}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_GREAVARD,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_FOCUS_SASH,
+    .postgamemoves = {MOVE_LAST_RESPECTS, MOVE_ICE_FANG, MOVE_FIRE_FANG, MOVE_THUNDER_FANG},
+    .moves = {MOVE_LAST_RESPECTS, MOVE_ICE_FANG, MOVE_FIRE_FANG, MOVE_THUNDER_FANG}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_SANDYGAST,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_EARTH_POWER, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_GIGA_DRAIN},
+    .moves = {MOVE_EARTH_POWER, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_GIGA_DRAIN}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_LITWICK,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_WHITE_HERB,
+    .postgamemoves = {MOVE_OVERHEAT, MOVE_HAZE, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP},
+    .moves = {MOVE_OVERHEAT, MOVE_HAZE, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 1,
+    .species = SPECIES_HONEDGE,
+    .postgameheldItem = ITEM_METAL_COAT,
+    .heldItem = ITEM_METAL_COAT,
+    .postgamemoves = {MOVE_SWORDS_DANCE, MOVE_CUT, MOVE_SHADOW_SNEAK, MOVE_SACRED_SWORD},
+    .moves = {MOVE_SWORDS_DANCE, MOVE_CUT, MOVE_SHADOW_SNEAK, MOVE_SACRED_SWORD}
+    },
+};
+
+static const struct TrainerMon sParty_Glacia_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_SNOM,
+    .postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_FOCUS_SASH,
+    .postgamemoves = {MOVE_MIRROR_COAT, MOVE_ICY_WIND, MOVE_STRUGGLE_BUG, MOVE_FAIRY_WIND},
+    .moves = {MOVE_MIRROR_COAT, MOVE_STRUGGLE_BUG, MOVE_ICY_WIND, MOVE_FAIRY_WIND}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_SPHEAL,
+    .postgameheldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_LEFTOVERS,
+    .postgamemoves = {MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_PROTECT, MOVE_WATER_PULSE},
+    .moves = {MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_PROTECT, MOVE_WATER_PULSE}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_AMAURA,
+    .postgameheldItem = ITEM_ICY_ROCK,
+    .heldItem = ITEM_ICY_ROCK,
+    .postgamemoves = {MOVE_THUNDERBOLT, MOVE_ICY_WIND, MOVE_AURORA_VEIL, MOVE_POWER_GEM},
+    .moves = {MOVE_THUNDERBOLT, MOVE_ICY_WIND, MOVE_AURORA_VEIL, MOVE_POWER_GEM}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_BERGMITE,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_MIRROR_COAT, MOVE_ICICLE_CRASH, MOVE_CURSE, MOVE_STRENGTH},
+    .moves = {MOVE_MIRROR_COAT, MOVE_ICICLE_CRASH, MOVE_CURSE, MOVE_STRENGTH}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_FRIGIBAX,
+    .postgameheldItem = ITEM_QUICK_CLAW,
+    .heldItem = ITEM_QUICK_CLAW,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_DRAGON_RUSH, MOVE_ICICLE_CRASH, MOVE_BITE},
+    .moves = {MOVE_DRAGON_DANCE, MOVE_DRAGON_RUSH, MOVE_ICICLE_CRASH, MOVE_BITE}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 0, 0, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SMOOCHUM,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_MUD_SLAP, MOVE_SIGNAL_BEAM, MOVE_PSYCHIC, MOVE_ICY_WIND},
+    .moves = {MOVE_MUD_SLAP, MOVE_SIGNAL_BEAM, MOVE_PSYCHIC, MOVE_ICY_WIND}
+    },
+};
+
+static const struct TrainerMon sParty_Drake_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_GIBLE,
+    .postgameheldItem = ITEM_SALAC_BERRY,
+    .heldItem = ITEM_SALAC_BERRY,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_OUTRAGE, MOVE_IRON_HEAD},
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_OUTRAGE, MOVE_IRON_HEAD}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_AXEW,
+    .postgameheldItem = ITEM_BUG_GEM,
+    .heldItem = ITEM_BUG_GEM,
+    .postgamemoves = {MOVE_FIRST_IMPRESSION, MOVE_EARTHQUAKE, MOVE_OUTRAGE, MOVE_IRON_HEAD},
+    .moves = {MOVE_FIRST_IMPRESSION, MOVE_EARTHQUAKE, MOVE_OUTRAGE, MOVE_IRON_HEAD}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_APPLIN,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_WHITE_HERB,
+    .postgamemoves = {MOVE_DRACO_METEOR, MOVE_SUCKER_PUNCH, MOVE_TRAILBLAZE, MOVE_DRAGON_RUSH},
+    .moves = {MOVE_DRACO_METEOR, MOVE_SUCKER_PUNCH, MOVE_TRAILBLAZE, MOVE_DRAGON_RUSH}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 252, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_GOOMY,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_SLUDGE_WAVE, MOVE_DRAGON_PULSE, MOVE_THUNDERBOLT, MOVE_MUDDY_WATER},
+    .moves = {MOVE_SLUDGE_WAVE, MOVE_DRAGON_PULSE, MOVE_THUNDERBOLT, MOVE_MUDDY_WATER}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_DEINO,
+    .postgameheldItem = ITEM_CHOICE_SCARF,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .postgamemoves = {MOVE_CRUNCH, MOVE_DRAGON_RUSH, MOVE_HEAD_SMASH, MOVE_FIRE_FANG},
+    .moves = {MOVE_CRUNCH, MOVE_DRAGON_RUSH, MOVE_HEAD_SMASH, MOVE_FIRE_FANG}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 6, 0, 0, 252}, 
+    .abilityNum = 2,
+    .species = SPECIES_TYRUNT,
+    .postgameheldItem = ITEM_WEAKNESS_POLICY,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_ROCK_SLIDE, MOVE_OUTRAGE, MOVE_CRUNCH},
+    .moves = {MOVE_DRAGON_DANCE, MOVE_ROCK_SLIDE, MOVE_OUTRAGE, MOVE_CRUNCH}
+    },
+};
+
+static const struct TrainerMon sParty_Wallace_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 252, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_OMANYTE,
+    .postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_WHITE_HERB,
+    .postgamemoves = {MOVE_ANCIENT_POWER, MOVE_SHELL_SMASH, MOVE_SCALD, MOVE_ICE_BEAM},
+    .moves = {MOVE_ANCIENT_POWER, MOVE_SHELL_SMASH, MOVE_SCALD, MOVE_ICE_BEAM}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 252, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_TOTODILE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_DRAGON_DANCE, MOVE_WATERFALL, MOVE_CRUNCH, MOVE_ICE_PUNCH},
+    .moves = {MOVE_DRAGON_DANCE, MOVE_WATERFALL, MOVE_CRUNCH, MOVE_ICE_PUNCH}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 252, 0, 0, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_MAREANIE,
+    .postgameheldItem = ITEM_BLACK_SLUDGE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .postgamemoves = {MOVE_PROTECT, MOVE_SCALD, MOVE_TOXIC, MOVE_STOCKPILE},
+    .moves = {MOVE_PROTECT, MOVE_SCALD, MOVE_TOXIC, MOVE_STOCKPILE}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 252, 0, 0, 0, 0}, 
+    .abilityNum = 2,
+    .species = SPECIES_CORPHISH,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE, MOVE_WATERFALL},
+    .moves = {MOVE_SHELL_SMASH, MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE, MOVE_WATERFALL}
+    },
+    {
+    .lvl = 5,
+    .evs = {252, 0, 0, 0, 252, 0}, 
+    .abilityNum = 0,
+    .species = SPECIES_MANTYKE,
+    .postgameheldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .postgamemoves = {MOVE_MIRROR_COAT, MOVE_HYDRO_PUMP, MOVE_AIR_SLASH, MOVE_ICY_WIND},
+    .moves = {MOVE_MIRROR_COAT, MOVE_HYDRO_PUMP, MOVE_AIR_SLASH, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 0, 6, 252, 0, 252}, 
+    .abilityNum = 0,
+    .species = SPECIES_SURSKIT,
+    .postgameheldItem = ITEM_WIDE_LENS,
+    .heldItem = ITEM_WIDE_LENS,
+    .postgamemoves = {MOVE_STICKY_WEB, MOVE_HYDRO_PUMP, MOVE_SIGNAL_BEAM, MOVE_MUD_SHOT},
+    .moves = {MOVE_STICKY_WEB, MOVE_HYDRO_PUMP, MOVE_SIGNAL_BEAM, MOVE_MUD_SHOT}
+    },
+};
+
+static const struct TrainerMon sParty_Red_Little_Cup[] = {
+	{
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 1,
+    .happiness = 255,
+    .species = SPECIES_MACHOP,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_JOLLY,
+	.postgameheldItem = ITEM_FOCUS_SASH,
+    .heldItem = ITEM_FOCUS_SASH,
+    .postgamemoves = {MOVE_DYNAMIC_PUNCH, MOVE_FISSURE, MOVE_EARTHQUAKE, MOVE_STONE_EDGE},
+    .moves = {MOVE_DYNAMIC_PUNCH, MOVE_FISSURE, MOVE_EARTHQUAKE, MOVE_STONE_EDGE}
+    },
+	{
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_MUNCHLAX,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_JOLLY,
+	.postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_RETURN, MOVE_EARTHQUAKE, MOVE_ZEN_HEADBUTT, MOVE_SLACK_OFF},
+    .moves = {MOVE_RETURN, MOVE_EARTHQUAKE, MOVE_ZEN_HEADBUTT, MOVE_SLACK_OFF}
+    },
+	{
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_CHARMANDER,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_TIMID,
+	.postgameheldItem = ITEM_POWER_HERB,
+    .heldItem = ITEM_POWER_HERB,
+    .postgamemoves = {MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_SOLAR_BEAM, MOVE_DRAGON_PULSE},
+    .moves = {MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_SOLAR_BEAM, MOVE_DRAGON_PULSE}
+    },
+	{
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_SQUIRTLE,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_TIMID,
+	.postgameheldItem = ITEM_WHITE_HERB,
+    .heldItem = ITEM_WHITE_HERB,
+    .postgamemoves = {MOVE_SHELL_SMASH, MOVE_HYDRO_PUMP, MOVE_AURA_SPHERE, MOVE_ICE_BEAM},
+    .moves = {MOVE_SHELL_SMASH, MOVE_HYDRO_PUMP, MOVE_AURA_SPHERE, MOVE_ICE_BEAM}
+    },
+	{
+    .lvl = 5,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_BULBASAUR,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_TIMID,
+	.postgameheldItem = ITEM_BLACK_SLUDGE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .postgamemoves = {MOVE_SYNTHESIS, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_EARTH_POWER},
+    .moves = {MOVE_SYNTHESIS, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_EARTH_POWER}
+    },
+	{
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_PICHU,
+	.isShiny = FALSE,
+	.pokeball = ITEM_CHERISH_BALL,
+	.nature = NATURE_MODEST,
+	.postgameheldItem = ITEM_ELECTRIC_GEM,
+    .heldItem = ITEM_ELECTRIC_GEM,
+    .postgamemoves = {MOVE_VOLT_TACKLE, MOVE_SURF, MOVE_GRASS_KNOT, MOVE_PLAY_ROUGH},
+    .moves = {MOVE_VOLT_TACKLE, MOVE_SURF, MOVE_GRASS_KNOT, MOVE_PLAY_ROUGH},
+    },
+};
+
+static const struct TrainerMon sParty_Steven_Little_Cup[] = {
+    {
+    .lvl = 5,
+    .evs = {0, 0, 6, 252, 0, 252}, 
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_MAGNEMITE,
+	.nature = NATURE_TIMID,
+	.pokeball = ITEM_HEAVY_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_ELECTRIC_GEM,
+    .heldItem = ITEM_ELECTRIC_GEM,
+    .postgamemoves = {MOVE_DISCHARGE, MOVE_FLASH_CANNON, MOVE_BODY_PRESS, MOVE_HIDDEN_POWER},
+    .moves = {MOVE_DISCHARGE, MOVE_FLASH_CANNON, MOVE_BODY_PRESS, MOVE_HIDDEN_POWER},
+    .hpType = TYPE_ICE,
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .happiness = 255,
+    .species = SPECIES_DRILBUR,
+	.nature = NATURE_ADAMANT,
+	.pokeball = ITEM_HEAVY_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_ZEN_HEADBUTT, MOVE_IRON_HEAD},
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_ZEN_HEADBUTT, MOVE_IRON_HEAD}
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 0, 6, 252, 0, 252}, 
+    .abilityNum = 2,
+    .happiness = 255,
+    .species = SPECIES_BALTOY,
+	.nature = NATURE_JOLLY,
+	.pokeball = ITEM_DIVE_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_LIFE_ORB,
+    .postgamemoves = {MOVE_EARTH_POWER, MOVE_PSYSHOCK, MOVE_EXPLOSION, MOVE_ICE_BEAM},
+    .moves = {MOVE_EARTH_POWER, MOVE_PSYSHOCK, MOVE_EXPLOSION, MOVE_ICE_BEAM},
+    },
+	{
+    .lvl = 5,
+    .evs = {252, 0, 6, 252, 0, 0}, 
+    .abilityNum = 0,
+    .happiness = 255,
+    .species = SPECIES_HONEDGE,
+	.nature = NATURE_MODEST,
+	.pokeball = ITEM_HEAVY_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_WEAKNESS_POLICY,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .postgamemoves = {MOVE_SHADOW_BALL, MOVE_FLASH_CANNON, MOVE_KINGS_SHIELD, MOVE_POWER_GEM},
+    .moves = {MOVE_SHADOW_BALL, MOVE_FLASH_CANNON, MOVE_KINGS_SHIELD, MOVE_POWER_GEM},
+    },
+    {
+    .lvl = 5,
+    .evs = {0, 252, 0, 0, 6, 252}, 
+    .abilityNum = 1,
+    .happiness = 255,
+    .species = SPECIES_ARCHEN,
+	.nature = NATURE_TIMID,
+	.pokeball = ITEM_CHERISH_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .postgamemoves = {MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_DUAL_WINGBEAT, MOVE_IRON_TAIL},
+    .moves = {MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_DUAL_WINGBEAT, MOVE_IRON_TAIL}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .happiness = 0,
+    .species = SPECIES_BELDUM,
+    .postgameheldItem = ITEM_BERRY_JUICE,
+    .heldItem = ITEM_BERRY_JUICE,
+	.nature = NATURE_JOLLY,
+	.pokeball = ITEM_CHERISH_BALL,
+	.isShiny = TRUE,
+    .postgamemoves = {MOVE_ZEN_HEADBUTT, MOVE_IRON_HEAD, MOVE_IRON_DEFENSE, MOVE_TAKE_DOWN},
+    .moves = {MOVE_ZEN_HEADBUTT, MOVE_IRON_HEAD, MOVE_IRON_DEFENSE, MOVE_TAKE_DOWN}
+    }
+};

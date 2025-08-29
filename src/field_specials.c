@@ -1334,7 +1334,7 @@ void ShouldStaticEncounterBeFirstStage(void)
 {
     u16 heldItem = GetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM);
 	
-    if (heldItem == ITEM_EVERSTONE || heldItem == ITEM_EVIOLITE || FlagGet(FLAG_NO_EVOLUTION_MODE))
+    if (heldItem == ITEM_EVERSTONE || heldItem == ITEM_EVIOLITE || FlagGet(FLAG_NO_EVOLUTION_MODE) || FlagGet(FLAG_LITTLE_CUP_MODE))
     {
         gSpecialVar_Result = TRUE;
 		FlagSet(FLAG_TEMP_5);
@@ -1614,10 +1614,8 @@ u8 GetLeadMonIndex(void)
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != 0)
-        {
+        if (!isMonBannedFromUse(&gPlayerParty[i], FALSE))
             return i;
-        }
     }
     return 0;
 }
