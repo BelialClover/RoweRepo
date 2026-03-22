@@ -169,13 +169,7 @@
       "flag": "FLAG_GOT_ABOMASNOW_MEGA_STONE"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }

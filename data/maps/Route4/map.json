@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "right",
+      "map": "MAP_CERULEAN_CITY",
       "offset": -10,
-      "map": "MAP_CERULEAN_CITY"
+      "direction": "right"
     },
     {
-      "direction": "down",
+      "map": "MAP_ROUTE3",
       "offset": -60,
-      "map": "MAP_ROUTE3"
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -94,10 +94,6 @@
       "dest_warp_id": "7"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

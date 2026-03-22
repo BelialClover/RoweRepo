@@ -14,31 +14,23 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "right",
+      "map": "MAP_ROUTE10",
       "offset": 0,
-      "map": "MAP_ROUTE10"
+      "direction": "right"
     },
     {
-      "direction": "left",
+      "map": "MAP_CERULEAN_CITY",
       "offset": -10,
-      "map": "MAP_CERULEAN_CITY"
+      "direction": "left"
     },
     {
-      "direction": "left",
+      "map": "MAP_CERULEAN_CITY",
       "offset": -10,
-      "map": "MAP_CERULEAN_CITY"
+      "direction": "left"
     }
   ],
-  "object_events": [
-
-  ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }

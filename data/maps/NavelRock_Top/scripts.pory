@@ -66,6 +66,7 @@ NavelRock_Top_EventScript_HoOh:: @ 826916F
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	setflag FLAG_TOTEM_BATTLE
 	setvar VAR_NUM_WILD_POKEMON_STAT_BOOST, 3
+	setvar VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

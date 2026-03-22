@@ -127,19 +127,22 @@ VictoryRoad_1F_EventScript_Katelynn:: @ 8235ECF
 	end
 
 VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore: @ 8235EE6
-    .string "My name is Wally. I'm here to train\n"
-    .string "with my Pokémon. You seem strong,\p"
-    .string "so please let me test the courage\n"
-    .string "and strength I've gained from them!\p"
-    .string "Okay… Here I come!$"
+    .string "My name's Wally. I've been training\n"
+    .string "here with my Pokémon.\p"
+    .string "You look really strong…\n"
+    .string "Would you battle me?\p"
+    .string "I want to see how far I've come!\p"
+    .string "Okay… Here I go!$"
 
 VictoryRoad_1F_Text_WallyEntranceDefeat: @ 8235FFC
-	.string "Wow!\n"
-	.string "You are strong, after all!$"
+	.string "Wow…\n"
+	.string "You really are something else!$"
 
 VictoryRoad_1F_Text_WallyPostEntranceBattle: @ 8236020
-	.string "Wally: I couldn't beat you, but\n"
-	.string "I'll keep training and catch up to you!$"
+	.string "Wally: I still have a ways to go,\n"
+	.string "but I won't stop training!\p"
+	.string "One day, I'll be strong enough\n"
+	.string "to keep up with you!$"
 
 VictoryRoad_1F_Text_WallyIntro: @ 8236073
 	.string "Wally: Hi! {PLAYER}!\p"

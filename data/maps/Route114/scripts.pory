@@ -19,6 +19,7 @@ Route114_OnLoad: @ 81F2561
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114North
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114South
+	call Common_Eventscript_Enable_Alphas_Clefable
 	end
 
 Route114_OnFrame: @ 81F2578

@@ -1,4 +1,5 @@
 raw `
 FieryPath2_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Common_Eventscript_Enable_Alphas_Scovillain
 	.byte 0
 `

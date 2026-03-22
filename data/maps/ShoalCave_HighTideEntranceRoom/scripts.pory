@@ -23,6 +23,7 @@ ShoalCave_HighTideEntranceRoom_EventScript_Articuno::
 	waitmoncry
 	setflag FLAG_TOTEM_BATTLE
 	setvar VAR_NUM_WILD_POKEMON_STAT_BOOST, 2
+	setvar VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER
 	setwildbattlewithcustommoves SPECIES_ARTICUNO, 70, ITEM_NONE, MOVE_BLIZZARD, MOVE_HURRICANE, MOVE_WATER_PULSE, MOVE_AURA_SPHERE, 1, NATURE_TIMID
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
@@ -39,8 +40,6 @@ ShoalCave_HighTideEntranceRoom_EventScript_Articuno::
 	setflag FLAG_DEFEATED_ARTICUNO
 	release
 	end
-	
-//🐛🐞🐛🐞🐛🐞🐛🐞🐛🐞 found some bugs in the code
 
 ShoalCave_HighTideEntranceRoom_EventScript_CaughtArticuno::
 	setflag FLAG_DEFEATED_ARTICUNO

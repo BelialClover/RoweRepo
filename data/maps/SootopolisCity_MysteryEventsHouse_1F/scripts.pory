@@ -6,55 +6,11 @@ SootopolisCity_MysteryEventsHouse_1F_MapScripts:: @ 8227953
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_MysteryEventsHouse_1F_OnFrame
 	.byte 0
 
-SootopolisCity_MysteryEventsHouse_1F_OnTransition: @ 822795E
-	frontier_checkvisittrainer
-	compare VAR_RESULT, 0
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_SetTrainerVisitingLayout
-	compare VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0
-	call_if_ne SootopolisCity_MysteryEventsHouse_1F_EventScript_MoveOldManToDoor
-	end
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_SetTrainerVisitingLayout:: @ 822797D
-	setvar VAR_TEMP_1, 1
-	setobjectxyperm LOCALID_OLD_MAN, 3, 2
-	setobjectmovementtype LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_DOWN
-	setmaplayoutindex LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F_STAIRS_UNBLOCKED
-	return
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_MoveOldManToDoor:: @ 8227991
-	setobjectxyperm LOCALID_OLD_MAN, 2, 2
-	setobjectmovementtype LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
 SootopolisCity_MysteryEventsHouse_1F_OnFrame: @ 822799D
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
-	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle
+	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless
+	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless
+	map_script_2 VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3, SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless
 	.2byte 0
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle:: @ 82279B7
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerExitStairs
-	waitmovement 0
-	applymovement LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer
-	waitmovement 0
-	copyobjectxytoperm LOCALID_OLD_MAN
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
-	waitmovement 0
-	compare VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment
-	compare VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleLostComment
-	compare VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleTiedComment
-	special LoadPlayerParty
-	setvar VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0
-	releaseall
-	end
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment:: @ 8227A04
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_ThatWasSuperlative, MSGBOX_DEFAULT
-	return
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleLostComment:: @ 8227A0D
 	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_TooBadForYou, MSGBOX_DEFAULT
@@ -73,51 +29,8 @@ SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer: @ 8227A21
 	walk_in_place_fastest_down
 	step_end
 
-SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan:: @ 8227A24
-	lock
-	faceplayer
-	frontier_checkvisittrainer
-	compare VAR_RESULT, 1
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_InvalidVisitingTrainer
-	compare VAR_TEMP_1, 1
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles, MSGBOX_DEFAULT
-	release
-	end
-
 SootopolisCity_MysteryEventsHouse_1F_EventScript_InvalidVisitingTrainer:: @ 8227A4E
 	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles, MSGBOX_DEFAULT
-	release
-	end
-
-SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting:: @ 8227A58
-	special SavePlayerParty
-	special BufferEReaderTrainerName
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_ChallengeVisitingTrainer, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	call SootopolisCity_MysteryEventsHouse_1F_EventScript_ChooseParty
-	compare VAR_RESULT, 0
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_SaveProgressBeforeBattle, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	special LoadPlayerParty
-	call Common_EventScript_SaveGame
-	compare VAR_RESULT, FALSE
-	goto_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle
-	special SavePlayerParty
-	special ReducePlayerPartyToSelectedMons
-	msgbox SootopolisCity_MysteryEventsHouse_1F_Text_HopeToSeeGoodMatch, MSGBOX_DEFAULT
-	closemessage
-	compare VAR_FACING, DIR_NORTH
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth
-	compare VAR_FACING, DIR_EAST
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast
-	compare VAR_FACING, DIR_WEST
-	call_if_eq SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest
-	warp MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F, 255, 3, 1
-	waitstate
 	release
 	end
 
@@ -135,19 +48,19 @@ SootopolisCity_MysteryEventsHouse_1F_EventScript_ChooseParty:: @ 8227AEF
 	return
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth:: @ 8227AFE
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
+	applymovement LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementNorth
 	waitmovement 0
 	return
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast:: @ 8227B10
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight
+	applymovement LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementEast
 	waitmovement 0
 	return
 
 SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest:: @ 8227B22
-	applymovement VAR_LAST_TALKED, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
+	applymovement LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideLeft
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerEnterBasementWest
 	waitmovement 0
 	return
@@ -244,3 +157,250 @@ SootopolisCity_MysteryEventsHouse_1F_Text_TooBadForYou: @ 8227E03
 	.string "I hope you can win next time.$"
 
 `
+const ENDLESS_BATTLE_NUM_BADGES = 8
+const FLAG_ENDLESS_BATTLE_ENABLED = FLAG_TEMP_1
+script SootopolisCity_MysteryEventsHouse_1F_OnTransition{
+	if(var(VAR_NUM_BADGES) >= ENDLESS_BATTLE_NUM_BADGES){
+		setflag(FLAG_ENDLESS_BATTLE_ENABLED)
+		setobjectxyperm(LOCALID_OLD_MAN, 3, 2)
+		setobjectmovementtype(LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_DOWN)
+		setmaplayoutindex(LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F_STAIRS_UNBLOCKED)
+
+		if(var(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE) != 0){
+			setobjectxyperm(LOCALID_OLD_MAN, 2, 2)
+			setobjectmovementtype(LOCALID_OLD_MAN, MOVEMENT_TYPE_FACE_RIGHT)
+		}
+	}
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan_Endless{
+	lock
+	faceplayer
+	if(flag(FLAG_ENDLESS_BATTLE_ENABLED)){
+		if(!flag(FLAG_ENDLESS_BATTLES_EXPLAINED)){
+			msgbox(format("Now that I've become an old buzzard I created a little battle facility, it lets you battle against an endless number of trainers with limited healing between battles depending on your chosen difficulty to see who can get the highest streak without losing once.\pThe highest your streak the better your reward, do you want to try?"), MSGBOX_YESNO)
+			setflag(FLAG_ENDLESS_BATTLES_EXPLAINED)
+		}
+		else{
+			msgbox(format("Do you want to try my facility of endless battles?"), MSGBOX_YESNO)
+		}
+		if(var(VAR_RESULT) == YES){
+			setvar(VAR_ENDLESS_BATTLE_NUM, 1)
+			msgbox(format("What difficulty do you want to try?"), MSGBOX_DEFAULT)
+			scrollingmultichoice(SCROLLING_ENDLESS_BATTLE_DIFFICULTY, 0, 0, 4, TRUE)
+			switch(var(VAR_RESULT)){
+				case 0:
+				case 1:
+				case 2:
+					copyvar(VAR_ENDLESS_BATTLE_DIFFICULTY, VAR_RESULT)
+					goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan_Endless_Start)
+				break
+				default:
+					msgbox(format("You won't battle? I'm disappointed that I can't see you battle…"), MSGBOX_DEFAULT)
+				break
+			}
+		}
+		else{
+			msgbox(format("You won't battle? I'm disappointed that I can't see you battle…"), MSGBOX_DEFAULT)
+		}
+	}
+	else{
+		msgbox(format("When I was young, I traveled the world as a Pokémon Trainer.\p"
+					"Now that I've become an old buzzard, my only amusement is watching young Trainers battle."), MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan_Endless_Start{
+	random(FRONTIER_TRAINERS_COUNT)
+	copyvar(VAR_ENDLESS_BATTLE_ID, VAR_RESULT)
+	msgbox(format("I hope to see a good match!"), MSGBOX_DEFAULT)
+	closemessage
+	compare(VAR_FACING, DIR_NORTH)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth)
+	compare(VAR_FACING, DIR_EAST)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast)
+	compare(VAR_FACING, DIR_WEST)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest)
+	warp(MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F, 255, 3, 1)
+	waitstate
+	release
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerExitStairs)
+	waitmovement(0)
+	applymovement(LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer)
+	waitmovement(0)
+	copyobjectxytoperm(LOCALID_OLD_MAN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp)
+	waitmovement(0)
+	switch(var(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE)){
+		case 1:
+			msgbox(format("That was superlative!\p"
+						"Why, it was like seeing myself in\n"
+						"my youth again!$"), MSGBOX_DEFAULT)
+			setvar(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0)
+			goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless_Question)
+		break
+		case 2:
+			setvar(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0)
+			msgbox(format("I really liked your battle but it seems like you lost, I need to give you a proper reward for your effort"), MSGBOX_DEFAULT)
+			goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Reward)
+			release
+		break
+	}
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Reward{
+	//3 Random Items
+	if(var(VAR_ENDLESS_BATTLE_NUM) < 5){
+		addscaleditem(ITEM_POKE_BALL, 3) //Random Normal Item
+	}
+
+	//3 Fossils
+	if(var(VAR_ENDLESS_BATTLE_NUM) < 10){
+		addscaleditem(ITEM_HELIX_FOSSIL)
+		addscaleditem(ITEM_HELIX_FOSSIL)
+		addscaleditem(ITEM_HELIX_FOSSIL)
+	}
+
+	if(var(VAR_ENDLESS_BATTLE_NUM) < 15){
+		giveitem(ITEM_EXIOLITE)
+	}
+
+	if(var(VAR_ENDLESS_BATTLE_NUM) < 20){
+		giveitem(ITEM_BOOSTER_STONE)
+	}
+
+	if(var(VAR_ENDLESS_BATTLE_NUM) < 25){
+		giveitem(ITEM_BOOSTER_STONE)
+	}
+
+	if(flag(FLAG_GOT_BADGE_11)){
+		if(var(VAR_ENDLESS_BATTLE_NUM) < 15 && !flag(FLAG_GOT_RAICHU_X_MEGA_STONE)){
+			giveitem(ITEM_RAICHUNITE_X)
+			setflag(FLAG_GOT_RAICHU_X_MEGA_STONE)
+		}
+
+		if(var(VAR_ENDLESS_BATTLE_NUM) < 20 && !flag(FLAG_GOT_RAICHU_Y_MEGA_STONE)){
+			giveitem(ITEM_RAICHUNITE_X)
+			setflag(FLAG_GOT_RAICHU_Y_MEGA_STONE)
+		}
+
+		if(var(VAR_ENDLESS_BATTLE_NUM) < 25 && !flag(FLAG_GOT_FALINKS_MEGA_STONE)){
+			giveitem(ITEM_FALINKSITE)
+			setflag(FLAG_GOT_FALINKS_MEGA_STONE)
+		}
+
+		if(var(VAR_ENDLESS_BATTLE_NUM) < 30 && !flag(FLAG_GOT_SHEDINJA_MEGA_STONE)){
+			giveitem(ITEM_SHEDINJITE)
+			setflag(FLAG_GOT_SHEDINJA_MEGA_STONE)
+		}
+	}
+
+	setvar(VAR_ENDLESS_BATTLE_NUM, 0)
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless_Question{
+	msgbox(format("What do you want to do now?"))
+	scrollingmultichoice(SCROLLING_ENDLESS_BATTLE_QUESTION, 0, 0, 2, TRUE)
+	switch(var(VAR_RESULT)){
+		case 0:
+			//Continue
+			goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan_Endless_Start)
+		break
+		default:
+			//Give Up
+			goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless_Are_You_Sure)
+		break
+	}
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless_Are_You_Sure{
+	msgbox(format("You will lose your streak, is that okay?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		goto(SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle_Endless_Question)
+	}
+	special(HealPlayerParty)
+	setvar(VAR_ENDLESS_BATTLE_NUM, 0)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldMan{
+	lock
+	faceplayer
+	frontier_checkvisittrainer
+	compare(VAR_RESULT, 1)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_InvalidVisitingTrainer)
+	compare(VAR_TEMP_1, 1)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting)
+	msgbox(SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_TrainerVisiting{
+	special(SavePlayerParty)
+	special(BufferEReaderTrainerName)
+	msgbox(SootopolisCity_MysteryEventsHouse_1F_Text_ChallengeVisitingTrainer, MSGBOX_YESNO)
+	compare(VAR_RESULT, NO)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle)
+	call(SootopolisCity_MysteryEventsHouse_1F_EventScript_ChooseParty)
+	compare(VAR_RESULT, 0)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle)
+	msgbox(SootopolisCity_MysteryEventsHouse_1F_Text_SaveProgressBeforeBattle, MSGBOX_YESNO)
+	compare(VAR_RESULT, NO)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle)
+	special(LoadPlayerParty)
+	call(Common_EventScript_SaveGame)
+	compare(VAR_RESULT, FALSE)
+	goto_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_DeclineBattle)
+	special(SavePlayerParty)
+	special(ReducePlayerPartyToSelectedMons)
+	msgbox(SootopolisCity_MysteryEventsHouse_1F_Text_HopeToSeeGoodMatch, MSGBOX_DEFAULT)
+	closemessage
+	compare(VAR_FACING, DIR_NORTH)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementNorth)
+	compare(VAR_FACING, DIR_EAST)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementEast)
+	compare(VAR_FACING, DIR_WEST)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_EnterBasementWest)
+	warp(MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F, 255, 3, 1)
+	waitstate
+	release
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_OldManCommentOnBattle{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, SootopolisCity_MysteryEventsHouse_1F_Movement_PlayerExitStairs)
+	waitmovement(0)
+	applymovement(LOCALID_OLD_MAN, SootopolisCity_MysteryEventsHouse_1F_Movement_OldManWalkBehindPlayer)
+	waitmovement(0)
+	copyobjectxytoperm(LOCALID_OLD_MAN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp)
+	waitmovement(0)
+	compare(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 1)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment)
+	compare(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 2)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleLostComment)
+	compare(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 3)
+	call_if_eq(SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleTiedComment)
+	special(LoadPlayerParty)
+	setvar(VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE, 0)
+	releaseall
+	end
+}
+
+script SootopolisCity_MysteryEventsHouse_1F_EventScript_BattleWonComment{
+	msgbox(SootopolisCity_MysteryEventsHouse_1F_Text_ThatWasSuperlative, MSGBOX_DEFAULT)
+	return
+}

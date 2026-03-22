@@ -10,6 +10,7 @@ script Route119_UxieCave_Inside_EventScript_Uxie{
     //waitmoncry
     setflag(FLAG_TOTEM_BATTLE)
     setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setvar(VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER)
     setwildbattlewithcustommoves(SPECIES_UXIE, 75, ITEM_LEFTOVERS, MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_GRASS_KNOT, MOVE_POWER_GEM, 0, NATURE_TIMID)
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle

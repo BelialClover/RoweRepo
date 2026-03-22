@@ -51,20 +51,6 @@
   ],
   "warp_events": [
     {
-      "x": 0,
-      "y": 13,
-      "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "10"
-    },
-    {
-      "x": 0,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "11"
-    },
-    {
       "x": 39,
       "y": 13,
       "elevation": 0,
@@ -83,7 +69,7 @@
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "15"
+      "dest_warp_id": "14"
     },
     {
       "x": 16,
@@ -97,21 +83,21 @@
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "15"
+      "dest_warp_id": "16"
     },
     {
       "x": 15,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "9"
+      "dest_warp_id": "7"
     },
     {
       "x": 16,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
-      "dest_warp_id": "9"
+      "dest_warp_id": "8"
     },
     {
       "x": 17,
@@ -121,9 +107,7 @@
       "dest_warp_id": "9"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

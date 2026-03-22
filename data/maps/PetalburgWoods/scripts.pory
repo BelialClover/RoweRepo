@@ -3,6 +3,7 @@ raw `
 .set LOCALID_DEVON_EMPLOYEE, 4
 
 PetalburgWoods_MapScripts:: @ 822DFD6
+	map_script MAP_SCRIPT_ON_LOAD, Common_Eventscript_Enable_Alphas_Breloom
 	.byte 0
 
 PetalburgWoods_EventScript_DevonResearcherLeft:: @ 822DFD7

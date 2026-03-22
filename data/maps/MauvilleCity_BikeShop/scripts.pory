@@ -2,10 +2,6 @@ raw `
 MauvilleCity_BikeShop_MapScripts:: @ 820EBBB
 	.byte 0
 
-MauvilleCity_BikeShop_EventScript_Rydel:: @ 820EBBC
-	msgbox MauvilleCity_BikeShop_Text_OhYourBikeIsInPC, MSGBOX_NPC
-	end
-
 MauvilleCity_BikeShop_EventScript_SkipGreeting:: @ 820EBF7
 	msgbox MauvilleCity_BikeShop_Text_DidYouComeFromFarAway, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -243,16 +239,6 @@ MauvilleCity_BikeShop_Text_ExchangedAcroForMach: @ 820F294
 MauvilleCity_BikeShop_Text_HappyYouLikeIt: @ 820F2C4
 	.string "Rydel: Good, good!\n"
 	.string "I'm happy that you like it!$"
-	
-MauvilleCity_BikeShop_Text_OhYourBikeIsInPC: @ 820F2F3
-	.string "Rydel: I'm happy that bikes\n"
-	.string "are more widespread now!\p"
-	.string "Back in the day i used to give\n"
-	.string "trainers some of my bikes\p"
-	.string "but now the Gym Leaders have enough\n"
-	.string "money to be kind enough to give\p"
-	.string "trainers that beat them bikes and\n"
-	.string "other useful items, isn't that great?!$"
 
 MauvilleCity_BikeShop_Text_HandbooksAreInBack: @ 820F3C3
 	.string "I'm learning about Bikes while\n"
@@ -319,4 +305,49 @@ MauvilleCity_BikeShop_Text_Jumps: @ 820F898
 	.string "change directions while jumping.\p"
 	.string "Want to read a different page?$"
 
+MauvilleCity_BikeShop_Text_OhYourBikeIsInPC: @ 820F2F3
+	.string "Rydel: I'm happy that Bikes\n"
+	.string "are more widespread now!\p"
+	.string "Back in the day, I used to give\n"
+	.string "trainers some of my Bikes.\p"
+	.string "But now the Gym Leaders have enough\n"
+	.string "money to be kind enough to give\l"
+	.string "trainers who beat them a Bike and\n"
+	.string "other useful items. Isn't that great?!$"
 `
+
+script MauvilleCity_BikeShop_EventScript_Rydel{
+	lock
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_ROTOM_CATALOG, MauvilleCity_BikeShop_EventScript_RydelNormal)
+	specialvar(VAR_RESULT, CountRotomInParty)
+	if (var(VAR_RESULT) != 0) {
+		msgbox(MauvilleCity_BikeShop_Text_ExplainRotomCatalog, MSGBOX_DEFAULT)
+		giveitem(ITEM_ROTOM_CATALOG)
+		setflag(FLAG_RECEIVED_ROTOM_CATALOG)
+	}
+	else{
+		goto(MauvilleCity_BikeShop_EventScript_RydelNormal)
+	}
+	release
+	end
+}
+
+script MauvilleCity_BikeShop_EventScript_RydelNormal{
+	msgbox(MauvilleCity_BikeShop_Text_OhYourBikeIsInPC, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text MauvilleCity_BikeShop_Text_ExplainRotomCatalog {
+	"Rydel: Hm, hm… … … … …\p"
+	"Is that a Rotom you've got there?\n"
+	"Well, would you look at that!\p"
+	"I happen to have something special\n"
+	"for Rotom trainers!\p"
+	"It's called a Rotom Catalog!\n"
+	"With it, your Rotom can change into\l"
+	"different forms using appliances!\p"
+	"Here, take it! Consider it a gift\n"
+	"from your pal Rydel!$"
+}

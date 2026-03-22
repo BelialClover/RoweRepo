@@ -14,6 +14,7 @@ MtChimney_MapScripts:: @ 822EDC1
 MtChimney_OnTransition: @ 822EDCC
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 1
 	setflag FLAG_VISITED_MT_CHIMNEY
+	call Common_Eventscript_Enable_Alphas_Pyroar
 	end
 
 MtChimney_OnResume: @ 822EDD2
@@ -450,26 +451,8 @@ MtChimney_EventScript_AquaPoochyena:: @ 822F0DB
 	msgbox MtChimney_Text_Bushaa, MSGBOX_SIGN
 	end
 
-MtChimney_EventScript_MeteoriteMachine:: @ 822F0E4
-	lockall
-	goto_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_MachineOn
-	goto_if_set FLAG_RECEIVED_METEORITE, MtChimney_EventScript_MachineOff
-	msgbox MtChimney_Text_RemoveTheMeteorite, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq MtChimney_EventScript_LeaveMeteoriteAlone
-	msgbox MtChimney_Text_PlayerRemovedMeteorite, MSGBOX_DEFAULT
-	giveitem ITEM_METEORITE
-	setflag FLAG_RECEIVED_METEORITE
-	releaseall
-	end
-
 MtChimney_EventScript_LeaveMeteoriteAlone:: @ 822F123
 	msgbox MtChimney_Text_PlayerLeftMeteorite, MSGBOX_DEFAULT
-	releaseall
-	end
-
-MtChimney_EventScript_MachineOff:: @ 822F12D
-	msgbox MtChimney_Text_MachineMakesNoResponse, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -858,3 +841,21 @@ MtChimney_Text_SawyerPostRematch: @ 8230614
 	.string "I'm overdressed for these parts.$"
 
 `
+
+script MtChimney_EventScript_MeteoriteMachine{
+	lockall
+	checkitem(ITEM_METEORITE, 1)
+	if(var(VAR_RESULT) == TRUE){
+		msgbox(MtChimney_Text_MachineMakesNoResponse, MSGBOX_DEFAULT)
+	}
+	else{
+		msgbox(MtChimney_Text_RemoveTheMeteorite, MSGBOX_YESNO)
+		compare(VAR_RESULT, NO)
+		goto_if_eq(MtChimney_EventScript_LeaveMeteoriteAlone)
+		msgbox(MtChimney_Text_PlayerRemovedMeteorite, MSGBOX_DEFAULT)
+		giveitem(ITEM_METEORITE)
+		setflag(FLAG_RECEIVED_METEORITE)
+	}
+	releaseall
+	end
+}

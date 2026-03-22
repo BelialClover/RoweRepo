@@ -5,6 +5,7 @@ Route123_MapScripts:: @ 81F6147
 
 Route123_OnTransition: @ 81F614D
 	special SetRoute123Weather
+	call Common_Eventscript_Enable_Alphas_Absol_Z
 	end
 
 Route123_EventScript_GigaDrainGirl:: @ 81F6151

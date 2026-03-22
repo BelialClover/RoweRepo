@@ -5,6 +5,7 @@ ScorchedSlab_B2F_MapScripts::
 	
 ScorchedSlab_B2F_OnLoad::
 	goto_if_set FLAG_ENABLE_POST_RAYQUAZA_CONTENT, ScorchedSlab_B2F_EventScript_OpenHeatran
+	call Common_Eventscript_Enable_Alphas_Falinks
 	end
 	
 ScorchedSlab_B2F_EventScript_OpenHeatran::

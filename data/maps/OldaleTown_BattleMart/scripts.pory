@@ -29,6 +29,8 @@ mart OldaleTown_House1_EventScript_Pokemart {
 	ITEM_ABILITY_PATCH
 	ITEM_EXIOLITE
 	ITEM_EVIOLITE
+	ITEM_INVERSE_SHIELD
+	ITEM_INVERSE_GEM
 }
 
 mart OldaleTown_House1_EventScript_Pokemart_Stones {
@@ -83,7 +85,7 @@ mart OldaleTown_House1_EventScript_Pokemart_Stones {
 mart MartEnergyGuruMons {
 	SPECIES_ABRA
 	SPECIES_CLEFFA
-	SPECIES_MIMEJR
+	SPECIES_MIME_JR
 	SPECIES_DRATINI
 	SPECIES_EEVEE
 	SPECIES_PORYGON
@@ -179,6 +181,7 @@ mart OldaleTown_House1_EventScript_Pokemart_HeldItems{
 	ITEM_SAFETY_GOGGLES
 	ITEM_ADRENALINE_ORB
 	ITEM_PROTECTIVE_PADS
+	ITEM_LOADED_DICE
 	ITEM_NONE
 }
 
@@ -223,4 +226,56 @@ script EightIsland_House1_EventScript_BattleMart_HeldItems{
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
 	end
+}
+
+script EightIsland_House1_EventScript_BattleMart_Endless{
+	lock
+	faceplayer
+	msgbox(format("Do you want to try our facility of endless battles?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		setvar(VAR_ENDLESS_BATTLE_NUM, 0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_Delay48)
+		waitmovement(0)
+		goto(EightIsland_House1_EventScript_BattleMart_Endless_Battle)
+	}
+	release
+	end
+}
+
+script EightIsland_House1_EventScript_BattleMart_Endless_Question{
+	msgbox(format("What do you want to do?"))
+	scrollingmultichoice(SCROLLING_ENDLESS_BATTLE_QUESTION, 0, 0, 3, TRUE)
+	switch(var(VAR_RESULT)){
+		case 0:
+			//Continue
+			goto(EightIsland_House1_EventScript_BattleMart_Endless_Battle)
+		break
+		case 2:
+			//Give Up
+			goto(EightIsland_House1_EventScript_BattleMart_Endless_Are_You_Sure)
+		break
+	}
+}
+
+script EightIsland_House1_EventScript_BattleMart_Endless_Are_You_Sure{
+	msgbox(format("You will lose your streak, is that okay?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		goto(EightIsland_House1_EventScript_BattleMart_Endless_Question)
+	}
+	special(HealPlayerParty)
+	setvar(VAR_ENDLESS_BATTLE_NUM, 0)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script EightIsland_House1_EventScript_BattleMart_Endless_Battle{
+	message(format("Battle Start!"))
+	random(10)
+	copyvar(VAR_ENDLESS_BATTLE_ID, VAR_RESULT)
+	waitmessage
+	special(HealPlayerParty)
+	trainerbattle_no_intro(TRAINER_ENDLESS_TRAINER, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+	addvar(VAR_ENDLESS_BATTLE_NUM, 1)
+	goto(EightIsland_House1_EventScript_BattleMart_Endless_Question)
 }

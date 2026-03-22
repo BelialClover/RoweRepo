@@ -17,6 +17,7 @@ Route111_OnLoad: @ 81F0CBC
 	call_if_unset FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins
 	compare VAR_MIRAGE_TOWER_STATE, 1
 	call_if_eq Route111_EventScript_ShowTemporaryMirageTower
+	call Common_Eventscript_Enable_Alphas_Flygon
 	end
 
 Route111_EventScript_CloseDesertRuins:: @ 81F0CD1

@@ -1,1 +1,3 @@
-mapscripts SevenIsland_TanobyRuins_MapScripts {}
+mapscripts SevenIsland_TanobyRuins_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Common_Eventscript_Enable_Alphas_Garchomp_Z
+}

@@ -71,6 +71,7 @@ LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs: @ 821FE20
 	.2byte ITEM_TM97  @ Dark Pulse
 	.2byte ITEM_TM109 @ Gunk Shot
 	.2byte ITEM_TM115 @ Bug Buzz
+	.2byte ITEM_TM119 @ Drain Punch
 	.2byte ITEM_NONE
 	release
 	end

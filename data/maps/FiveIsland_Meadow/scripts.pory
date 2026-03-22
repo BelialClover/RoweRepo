@@ -5,6 +5,7 @@ FiveIsland_Meadow_MapScripts:: @ 8168932
 
 FiveIsland_Meadow_OnLoad:: @ 8168938
 	call_if_set FLAG_UNLOCKED_ROCKET_WAREHOUSE, FiveIsland_Meadow_EventScript_SetWarehouseDoorUnlocked
+    call Common_Eventscript_Enable_Alphas_Scrafty
 	end
 
 FiveIsland_Meadow_EventScript_WarehouseDoor:: @ 8168942

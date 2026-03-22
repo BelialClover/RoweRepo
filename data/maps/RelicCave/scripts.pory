@@ -1,4 +1,5 @@
 raw `
 RelicCave_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Common_Eventscript_Enable_Alphas_Golurk
 	.byte 0
 `

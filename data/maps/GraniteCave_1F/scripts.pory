@@ -35,5 +35,4 @@ GraniteCave_1F_Text_ExplainFlash: @ 822DBB7
 	.string "Steel Wing to a Pokémon and .\p"
 	.string "use it against those Rock-type\n"
 	.string "Pokémon of this cave.$"
-
 `

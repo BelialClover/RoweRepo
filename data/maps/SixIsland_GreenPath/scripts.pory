@@ -1,1 +1,3 @@
-mapscripts SixIsland_GreenPath_MapScripts {}
+mapscripts SixIsland_GreenPath_MapScripts {
+    MAP_SCRIPT_ON_LOAD: Common_Eventscript_Enable_Alphas_Scolipede
+}

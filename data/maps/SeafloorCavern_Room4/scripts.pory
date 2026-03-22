@@ -1,5 +1,6 @@
 raw `
 SeafloorCavern_Room4_MapScripts:: @ 8234C9B
+	map_script MAP_SCRIPT_ON_LOAD, Common_Eventscript_Enable_Alphas_Starmie
 	.byte 0
 
 SeafloorCavern_Room4_EventScript_Grunt3:: @ 8234C9C

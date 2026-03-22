@@ -68,6 +68,7 @@ Route120_EventScript_SetBridgeKecleonMovement:: @ 81F54C8
 Route120_OnTransition: @ 81F54CD
 	call GabbyAndTy_EventScript_UpdateLocation
 	call Route120_EventScript_SetWeather
+	call Common_Eventscript_Enable_Alphas_Victreebel
 	end
 
 Route120_EventScript_SetWeather:: @ 81F54D8

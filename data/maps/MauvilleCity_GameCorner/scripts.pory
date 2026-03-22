@@ -863,10 +863,10 @@ script MauvilleCity_GameCorner_EventScript_Gachamon{
 				hidecoinsbox(0, 5)
 			}
 			elif(var(VAR_RESULT) == 1){
-				goto(MauvilleCity_GameCorner_EventScript_Gachamon_PC)
 				removecoins(500)
 				updatecoinsbox(1, 1)
 				hidecoinsbox(0, 5)
+				goto(MauvilleCity_GameCorner_EventScript_Gachamon_PC)
 			}
 			else{
 				goto(Common_EventScript_NoMoreRoomForPokemon)

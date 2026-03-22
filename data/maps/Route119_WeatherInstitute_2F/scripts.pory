@@ -355,7 +355,7 @@ script Route119_WeatherInstitute_2F_EventScript_WeatherScientist_GiveCastform {
 	else{
 		msgbox(format("I found this Pokémon while I was researching rain, It looks like it has something to do with the sudden changes on the weather.\p" 
 		"I'm no trainer so I can't use it in battle to see if it can change it.\p"
-		"Can you please take it with you to see if my hipotesis was right?"), MSGBOX_YESNO)
+		"Can you please take it with you to see if my hypothesis was right?"), MSGBOX_YESNO)
 		if(var(VAR_RESULT) == TRUE){
 			givemon(SPECIES_CASTFORM, 1, ITEM_MYSTIC_WATER)
 			setflag(FLAG_RECEIVED_CASTFORM)

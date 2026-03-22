@@ -77,24 +77,6 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist:: @ 82118F1
 	goto RustboroCity_DevonCorp_2F_EventScript_WhatFossil
 	end
 	
-RustboroCity_DevonCorp_2F_EventScript_WhatFossil::
-	msgbox LilycoveCity_MoveDeletersHouse_Text_Chose_Well, MSGBOX_SIGN
-	scrollingmultichoice SCROLLING_SET_FOSSILS, 2, 3, 5, TRUE
-	switch VAR_RESULT
-	case 0, RustboroCity_DevonCorp_2F_EventScript_Revive_Dome_Fossil
-	case 1, RustboroCity_DevonCorp_2F_EventScript_Revive_Helix_Fossil
-	case 2, RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber_Mega
-	case 3, RustboroCity_DevonCorp_2F_EventScript_Revive_Root_Fossil
-	case 4, RustboroCity_DevonCorp_2F_EventScript_Revive_Claw_Fossil
-	case 5, RustboroCity_DevonCorp_2F_EventScript_Revive_Skull_Fossil
-	case 6, RustboroCity_DevonCorp_2F_EventScript_Revive_Armor_Fossil
-	case 7, RustboroCity_DevonCorp_2F_EventScript_Revive_Cover_Fossil
-	case 8, RustboroCity_DevonCorp_2F_EventScript_Revive_Plume_Fossil
-	case 9, RustboroCity_DevonCorp_2F_EventScript_Revive_Jaw_Fossil
-	case 10, RustboroCity_DevonCorp_2F_EventScript_Revive_Sail_Fossil
-	case 0x7F, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	end
-	
 RustboroCity_DevonCorp_2F_EventScript_No_Fossil::
 	msgbox RustboroCity_DevonCorp_2F_Text_No_Fossil, MSGBOX_DEFAULT
 	release
@@ -783,7 +765,6 @@ RustboroCity_DevonCorp_2F_Text_More_Fossils:
 	.string "If you get more fossils, please\n"
 	.string "come see me again!$"
 
-
 RustboroCity_DevonCorp_2F_Text_TooManyPokemon: @ 82122F5
 	.string "Uh-oh, you've got too many Pokémon.\n"
 	.string "You have no room for another one.$"
@@ -818,3 +799,165 @@ RustboroCity_DevonCorp_2F_Text_PorygonTypeNull_Accepted:
 	.string "stronger.$"
 
 `
+
+script RustboroCity_DevonCorp_2F_EventScript_WhatFossil{
+	msgbox(format("Please chose one of your fossils for me to revive."), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_SET_FOSSILS, 0, 0, 6, TRUE)
+	switch(var(VAR_RESULT)){
+		case 0:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Dome_Fossil)    break
+		case 1:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Helix_Fossil)   break
+		case 2:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Old_Amber_Mega) break
+		case 3:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Root_Fossil)    break
+		case 4:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Claw_Fossil)    break
+		case 5:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Skull_Fossil)   break
+		case 6:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Armor_Fossil)   break
+		case 7:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Cover_Fossil)   break
+		case 8:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Plume_Fossil)   break
+		case 9:  goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Jaw_Fossil)     break
+		case 10: goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Sail_Fossil)    break
+		case 11: goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Dracozolt)      break
+		case 12: goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Dracovish)      break
+		case 13: goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Arctozolt)      break
+		case 14: goto(RustboroCity_DevonCorp_2F_EventScript_Revive_Arctovish)      break
+		default: goto(RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil)     break
+	}
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Revive_Dracozolt{
+	checkitem(ITEM_FOSSILIZED_DRAKE, 1)
+	if (var(VAR_RESULT) == TRUE) {
+		checkitem(ITEM_FOSSILIZED_BIRD, 1)
+		if (var(VAR_RESULT) == TRUE) {
+			bufferitemname(0, ITEM_FOSSILIZED_DRAKE)
+			bufferitemname(1, ITEM_FOSSILIZED_BIRD)
+			msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher, MSGBOX_DEFAULT)
+			fadescreen(1)
+			playfanfare(MUS_HEAL)
+			closemessage
+			removeitem(ITEM_FOSSILIZED_DRAKE, 1)
+			removeitem(ITEM_FOSSILIZED_BIRD, 1)
+			waitfanfare
+			fadescreen(0)
+			delay(30)
+			msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			bufferspeciesname(2, SPECIES_DRACOZOLT)
+			givemon(SPECIES_DRACOZOLT, 10, ITEM_NONE)
+			message(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher2)
+			waitfanfare
+			msgbox(RustboroCity_DevonCorp_2F_Text_More_Fossils, MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
+	goto(RustboroCity_DevonCorp_2F_EventScript_No_Fossil)
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Revive_Dracovish{
+	checkitem(ITEM_FOSSILIZED_DRAKE, 1)
+	if (var(VAR_RESULT) == TRUE) {
+		checkitem(ITEM_FOSSILIZED_FISH, 1)
+		if (var(VAR_RESULT) == TRUE) {
+			bufferitemname(0, ITEM_FOSSILIZED_DRAKE)
+			bufferitemname(1, ITEM_FOSSILIZED_FISH)
+			msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher, MSGBOX_DEFAULT)
+			fadescreen(1)
+			playfanfare(MUS_HEAL)
+			closemessage
+			removeitem(ITEM_FOSSILIZED_DRAKE, 1)
+			removeitem(ITEM_FOSSILIZED_FISH, 1)
+			waitfanfare
+			fadescreen(0)
+			delay(30)
+			msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			bufferspeciesname(2, SPECIES_DRACOVISH)
+			givemon(SPECIES_DRACOVISH, 10, ITEM_NONE)
+			message(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher2)
+			waitfanfare
+			msgbox(RustboroCity_DevonCorp_2F_Text_More_Fossils, MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
+	goto(RustboroCity_DevonCorp_2F_EventScript_No_Fossil)
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Revive_Arctozolt{
+	checkitem(ITEM_FOSSILIZED_DINO, 1)
+	if (var(VAR_RESULT) == TRUE) {
+		checkitem(ITEM_FOSSILIZED_BIRD, 1)
+		if (var(VAR_RESULT) == TRUE) {
+			bufferitemname(0, ITEM_FOSSILIZED_DINO)
+			bufferitemname(1, ITEM_FOSSILIZED_BIRD)
+			msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher, MSGBOX_DEFAULT)
+			fadescreen(1)
+			playfanfare(MUS_HEAL)
+			closemessage
+			removeitem(ITEM_FOSSILIZED_DINO, 1)
+			removeitem(ITEM_FOSSILIZED_BIRD, 1)
+			waitfanfare
+			fadescreen(0)
+			delay(30)
+			msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			bufferspeciesname(2, SPECIES_ARCTOZOLT)
+			givemon(SPECIES_ARCTOZOLT, 10, ITEM_NONE)
+			message(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher2)
+			waitfanfare
+			msgbox(RustboroCity_DevonCorp_2F_Text_More_Fossils, MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
+	goto(RustboroCity_DevonCorp_2F_EventScript_No_Fossil)
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Revive_Arctovish{
+	checkitem(ITEM_FOSSILIZED_DINO, 1)
+	if (var(VAR_RESULT) == TRUE) {
+		checkitem(ITEM_FOSSILIZED_FISH, 1)
+		if (var(VAR_RESULT) == TRUE) {
+			bufferitemname(0, ITEM_FOSSILIZED_DINO)
+			bufferitemname(1, ITEM_FOSSILIZED_FISH)
+			msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher, MSGBOX_DEFAULT)
+			fadescreen(1)
+			playfanfare(MUS_HEAL)
+			closemessage
+			removeitem(ITEM_FOSSILIZED_DINO)
+			removeitem(ITEM_FOSSILIZED_FISH)
+			waitfanfare
+			fadescreen(0)
+			delay(30)
+			msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			bufferspeciesname(2, SPECIES_ARCTOVISH)
+			givemon(SPECIES_ARCTOVISH, 10, ITEM_NONE)
+			message(RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher2)
+			waitfanfare
+			msgbox(RustboroCity_DevonCorp_2F_Text_More_Fossils, MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
+	goto(RustboroCity_DevonCorp_2F_EventScript_No_Fossil)
+	end
+}
+
+text RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher{
+	"Excellent!\n"
+	"Let's do this right away.\p"
+	"{PLAYER} handed the {STR_VAR_1} and\n"
+	"{STR_VAR_2} to the Devon Researcher.$"
+}
+
+text RustboroCity_DevonCorp_2F_Text_HandedFossilsToResearcher2{
+	"{PLAYER} received {STR_VAR_3} from\n"
+	"the Devon Researcher.$"
+}
+

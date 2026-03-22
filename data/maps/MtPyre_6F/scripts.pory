@@ -1,5 +1,6 @@
 raw `
 MtPyre_6F_MapScripts:: @ 8231D3A
+	map_script MAP_SCRIPT_ON_LOAD, Common_Eventscript_Enable_Alphas_Chandelure
 	.byte 0
 
 MtPyre_6F_EventScript_Valerie:: @ 8231D3B

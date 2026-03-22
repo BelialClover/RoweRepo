@@ -274,7 +274,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
+      "script": "EventScript_Common_Invert_Time_Bed_Player_House"
     },
     {
       "type": "sign",
@@ -282,7 +282,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route119_WeatherInstitute_1F_EventScript_Bed"
+      "script": "EventScript_Common_Invert_Time_Bed_Player_House"
     }
   ]
 }

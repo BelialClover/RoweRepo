@@ -6,6 +6,7 @@ DesertUnderpass_MapScripts:: @ 823AF37
 	.byte 0
 
 DesertUnderpass_OnTransition: @ 823AF3D
+	call EventScript_SetLarvestaFamilyGfx
 	setflag FLAG_LANDMARK_DESERT_UNDERPASS
 	end
 

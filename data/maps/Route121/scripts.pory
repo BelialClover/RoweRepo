@@ -8,6 +8,7 @@ Route121_MapScripts:: @ 81F5DFC
 	.byte 0
 
 Route121_OnTransition:
+	call Common_Eventscript_Enable_Alphas_Arbok
 	call EventScript_SetMunchlaxFamilyGfx
 	end
 

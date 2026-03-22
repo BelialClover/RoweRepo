@@ -14,6 +14,7 @@ MtPyre_Summit_MapScripts:: @ 8231FF7
 MtPyre_Summit_OnTransition: @ 8231FFD
 	compare VAR_MT_PYRE_STATE, 2
 	call_if_eq MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call Common_Eventscript_Enable_Alphas_Chimecho
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions:: @ 8232009
