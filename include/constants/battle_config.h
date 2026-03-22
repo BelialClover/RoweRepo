@@ -18,6 +18,7 @@
 #define B_SPLIT_EXP                 GEN_8 // In Gen6+, all participating mon get full experience.
 #define B_SCALED_EXP                GEN_8 // In Gen5 and Gen7+, experience is weighted by level difference.
 #define B_BURN_DAMAGE               GEN_8 // In Gen7+, burn damage is 1/16th of max HP instead of 1/8th.
+#define B_USE_FROSTBITE             TRUE // If TRUE, Freeze is replaced by Frostbite for Freeze-Dry, Secret Power, Tri Attack.
 #define B_PARALYSIS_SPEED           GEN_8 // In Gen7+, speed is decreased by 50% instead of 75%.
 #define B_TERRAIN_TYPE_BOOST        GEN_8 // In Gen8+, damage is boosted by 30% instead of 50%.
 #define B_BINDING_DAMAGE            GEN_8 // In Gen6+, binding damage is 1/8 of max HP instead of 1/16. (With Binding Band, 1/6 and 1/8 respectively.)

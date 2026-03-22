@@ -1,0 +1,12 @@
+{{ doNotModifyHeader }}
+
+static const struct HealLocation sHealLocations[NUM_HEAL_LOCATIONS - 1] = {
+## for heal_location in heal_locations
+    [{{ heal_location.id }} - 1] = {
+        .mapGroup = MAP_GROUP({{ heal_location.map }}),
+        .mapNum = MAP_NUM({{ heal_location.map }}),
+        .x = {{ heal_location.x }},
+        .y = {{ heal_location.y }},
+    },
+## endfor
+};

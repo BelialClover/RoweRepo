@@ -789,14 +789,14 @@
 #define MOVE_WAVE_CRASH       756 //Working
 #define MOVE_GIGATON_HAMMER   757 //Working
 #define MOVE_AQUA_CUTTER      758 //Working
-#define MOVE_AQUA_STEP        759
-#define MOVE_ARMOR_CANNON     760
+#define MOVE_AQUA_STEP        759 //Working
+#define MOVE_ARMOR_CANNON     760 //Working
 #define MOVE_AXE_KICK         761 //Working
-#define MOVE_BITTER_BLADE     762
+#define MOVE_BITTER_BLADE     762 //Working
 #define MOVE_BLAZING_TORQUE   763
 #define MOVE_BLOOD_MOON       764
 #define MOVE_BURNING_BULWARK  765
-#define MOVE_CHILLING_WATER   766
+#define MOVE_CHILLING_WATER   766 //Working
 #define MOVE_CHILLY_RECEPTION 767
 #define MOVE_COLLISION_COURSE 768
 #define MOVE_COMBAT_TORQUE    769
@@ -808,7 +808,7 @@
 #define MOVE_ELECTRO_SHOT     775
 #define MOVE_FICKLE_BEAM      776
 #define MOVE_FILLET_AWAY      777
-#define MOVE_FLOWER_TRICK     778
+#define MOVE_FLOWER_TRICK     778 //Working
 #define MOVE_GLAIVE_RUSH      779
 #define MOVE_HARD_PRESS       780
 #define MOVE_HYDRO_STEAM      781
@@ -828,7 +828,7 @@
 #define MOVE_NOXIOUS_TORQUE   795
 #define MOVE_ORDER_UP         796
 #define MOVE_POPULATION_BOMB  797
-#define MOVE_POUNCE           798
+#define MOVE_POUNCE           798 //Working
 #define MOVE_PSYBLADE         799 //Working
 #define MOVE_PSYCHIC_NOISE    800
 #define MOVE_RAGE_FIST        801 //Working
@@ -861,8 +861,133 @@
 #define MOVE_NEUTRAL_PULSE    824 //Working
 #define MOVE_SEASONAL_BEAM    825 //Working
 #define MOVE_RAGING_FURY      826 //Working
+#define MOVE_HITONOME         827 //Working
+#define MOVE_TRICKONOME       828 //Working
+#define MOVE_AMPONOME         829 //Working
+#define MOVE_WEAKONOME        830 //Working
+#define MOVE_TORCH_SONG       831 //Working
+#define MOVE_INVERSE_ROOM     832
 
-#define MOVES_COUNT_NEW MOVE_RAGING_FURY + 1
+//PLA Moves
+#define MOVE_BARB_BARRAGE                        833
+#define MOVE_BITTER_MALICE                       834
+#define MOVE_BLEAKWIND_STORM                     835
+#define MOVE_CEASELESS_EDGE                      836
+#define MOVE_CHLOROBLAST                         837
+#define MOVE_DIRE_CLAW                           838
+#define MOVE_ESPER_WING                          839
+#define MOVE_HEADLONG_RUSH                       840
+#define MOVE_INFERNAL_PARADE                     841
+#define MOVE_LUNAR_BLESSING                      842
+#define MOVE_MOUNTAIN_GALE                       843
+#define MOVE_MYSTICAL_POWER                      844
+#define MOVE_POWER_SHIFT                         845
+#define MOVE_PSYSHIELD_BASH                      846
+#define MOVE_SANDSEAR_STORM                      847
+#define MOVE_SHELTER                             848
+#define MOVE_SPRINGTIDE_STORM                    849
+#define MOVE_STONE_AXE                           850
+#define MOVE_TAKE_HEART                          851
+#define MOVE_TRIPLE_ARROWS                       852
+#define MOVE_VICTORY_DANCE                       853
+#define MOVE_WILDBOLT_STORM                      854
+
+//Z-Moves
+#define MOVE_10000000_VOLT_THUNDERBOLT           855
+#define MOVE_ACID_DOWNPOUR                       856
+#define MOVE_ALL_OUT_PUMMELING                   857
+#define MOVE_BLACK_HOLE_ECLIPSE                  858
+#define MOVE_BLOOM_DOOM                          859
+#define MOVE_BREAKNECK_BLITZ                     860
+#define MOVE_CATASTROPIKA                        861
+#define MOVE_CLANGOROUS_SOULBLAZE                862
+#define MOVE_CONTINENTAL_CRUSH                   863
+#define MOVE_CORKSCREW_CRASH                     864
+#define MOVE_DEVASTATING_DRAKE                   865
+#define MOVE_EXTREME_EVOBOOST                    866
+#define MOVE_GENESIS_SUPERNOVA                   867
+#define MOVE_GIGAVOLT_HAVOC                      868
+#define MOVE_GUARDIAN_OF_ALOLA                   869
+#define MOVE_HYDRO_VORTEX                        870
+#define MOVE_INFERNO_OVERDRIVE                   871
+#define MOVE_LETS_SNUGGLE_FOREVER                872
+#define MOVE_LIGHT_THAT_BURNS_THE_SKY            873
+#define MOVE_MALICIOUS_MOONSAULT                 874
+#define MOVE_MENACING_MOONRAZE_MAELSTROM         875
+#define MOVE_NEVER_ENDING_NIGHTMARE              876
+#define MOVE_OCEANIC_OPERETTA                    877
+#define MOVE_PULVERIZING_PANCAKE                 878
+#define MOVE_SAVAGE_SPIN_OUT                     879
+#define MOVE_SEARING_SUNRAZE_SMASH               880
+#define MOVE_SHATTERED_PSYCHE                    881
+#define MOVE_SINISTER_ARROW_RAID                 882
+#define MOVE_SOUL_STEALING_7_STAR_STRIKE         883
+#define MOVE_SPLINTERED_STORMSHARDS              884
+#define MOVE_STOKED_SPARKSURFER                  885
+#define MOVE_SUBZERO_SLAMMER                     886
+#define MOVE_SUPERSONIC_SKYSTRIKE                887
+#define MOVE_TECTONIC_RAGE                       888
+#define MOVE_TWINKLE_TACKLE                      889
+
+//Max Moves
+#define MOVE_MAX_AIRSTREAM                       890
+#define MOVE_MAX_DARKNESS                        891
+#define MOVE_MAX_FLARE                           892
+#define MOVE_MAX_FLUTTERBY                       893
+#define MOVE_MAX_GEYSER                          894
+#define MOVE_MAX_GUARD                           895
+#define MOVE_MAX_HAILSTORM                       896
+#define MOVE_MAX_KNUCKLE                         897
+#define MOVE_MAX_LIGHTNING                        898
+#define MOVE_MAX_MINDSTORM                       899
+#define MOVE_MAX_OOZE                            900
+#define MOVE_MAX_OVERGROWTH                      901
+#define MOVE_MAX_PHANTASM                        902
+#define MOVE_MAX_QUAKE                           903
+#define MOVE_MAX_ROCKFALL                        904
+#define MOVE_MAX_STARFALL                        905
+#define MOVE_MAX_STEELSPIKE                      906
+#define MOVE_MAX_STRIKE                          907
+#define MOVE_MAX_WYRMWIND                        908
+
+//G-Max Moves
+#define MOVE_G_MAX_BEFUDDLE                      909
+#define MOVE_G_MAX_CANNONADE                     910
+#define MOVE_G_MAX_CENTIFERNO                    911
+#define MOVE_G_MAX_CHI_STRIKE                    912
+#define MOVE_G_MAX_CUDDLE                        913
+#define MOVE_G_MAX_DEPLETION                     914
+#define MOVE_G_MAX_DRUM_SOLO                     915
+#define MOVE_G_MAX_FINALE                        916
+#define MOVE_G_MAX_FIREBALL                      917
+#define MOVE_G_MAX_FOAM_BURST                    918
+#define MOVE_G_MAX_GOLD_RUSH                     919
+#define MOVE_G_MAX_GRAVITAS                      920
+#define MOVE_G_MAX_HYDROSNIPE                    921
+#define MOVE_G_MAX_MALODOR                       922
+#define MOVE_G_MAX_MELTDOWN                      923
+#define MOVE_G_MAX_ONE_BLOW                      924
+#define MOVE_G_MAX_RAPID_FLOW                    925
+#define MOVE_G_MAX_REPLENISH                     926
+#define MOVE_G_MAX_RESONANCE                     927
+#define MOVE_G_MAX_SANDBLAST                     928
+#define MOVE_G_MAX_SMITE                         929
+#define MOVE_G_MAX_SNOOZE                        930
+#define MOVE_G_MAX_STEELSURGE                    931
+#define MOVE_G_MAX_STONESURGE                    932
+#define MOVE_G_MAX_STUN_SHOCK                    933
+#define MOVE_G_MAX_SWEETNESS                     934
+#define MOVE_G_MAX_TARTNESS                      935
+#define MOVE_G_MAX_TERROR                        936
+#define MOVE_G_MAX_VINE_LASH                     937
+#define MOVE_G_MAX_VOLCALITH                     938
+#define MOVE_G_MAX_VOLT_CRASH                    939
+#define MOVE_G_MAX_WILDFIRE                      940
+#define MOVE_G_MAX_WIND_RAGE                     941
+
+#define MOVE_PLACEHOLDER      942
+
+#define MOVES_COUNT_NEW MOVE_PLACEHOLDER + 1
 
 #define MOVES_COUNT MOVES_COUNT_NEW
 

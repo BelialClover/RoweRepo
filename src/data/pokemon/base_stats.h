@@ -2,7 +2,7 @@
 // 255 (MON_GENDERLESS) is reserved for genderless Pokémon.
 #define PERCENT_FEMALE(percent) min(254, ((percent * 255) / 100))
 
-const struct BaseStats gBaseStats[] =
+const struct BaseStats gBaseStats[NUM_SPECIES] =
 {
     [SPECIES_NONE] = {0},
 
@@ -31,6 +31,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BULBASAUR,
         .cry_Type = CRY_MONSTER_SMALL,
+        .frontAnimFrames = sAnims_BULBASAUR,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_IVYSAUR] =
@@ -59,6 +61,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BULBASAUR,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_IVYSAUR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_VENUSAUR] =
@@ -87,6 +91,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BULBASAUR,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_VENUSAUR,
+        .frontAnimId = ANIM_ROTATE_UP_SLAM_DOWN,
     },
 
     [SPECIES_CHARMANDER] =
@@ -114,6 +120,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARMANDER,
         .cry_Type = CRY_LIZARD_SMALL,
+        .frontAnimFrames = sAnims_CHARMANDER,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_CHARMELEON] =
@@ -142,6 +150,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARMANDER,
         .cry_Type = CRY_LIZARD_MEDIUM,
+        .frontAnimFrames = sAnims_CHARMELEON,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_CHARIZARD] =
@@ -169,6 +179,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARMANDER,
         .cry_Type = CRY_RHYHORN,
+        .frontAnimFrames = sAnims_CHARIZARD,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_SQUIRTLE] =
@@ -196,6 +208,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SQUIRTLE,
         .cry_Type = CRY_TURTLE_SMALL,
+        .frontAnimFrames = sAnims_SQUIRTLE,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_WARTORTLE] =
@@ -224,6 +238,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SQUIRTLE,
         .cry_Type = CRY_TURTLE_MEDIUM,
+        .frontAnimFrames = sAnims_WARTORTLE,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_BLASTOISE] =
@@ -251,6 +267,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SQUIRTLE,
         .cry_Type = CRY_TURTLE_BIG,
+        .frontAnimFrames = sAnims_BLASTOISE,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_CATERPIE] =
@@ -278,6 +297,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CATERPIE,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_CATERPIE,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_METAPOD] =
@@ -305,6 +326,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CATERPIE,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_METAPOD,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_BUTTERFREE] =
@@ -312,9 +335,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 60,
         .baseAttack    = 45,
         .baseDefense   = 50,
-        .baseSpeed     = 80, // 70-> 80
         .baseSpDefense = 80,
         .baseSpAttack  = 95, // 90 -> 95
+        .baseSpeed     = 80, // 70-> 80
         .type1 = TYPE_BUG,
         .type2 = TYPE_FLYING,
         .catchRate = 45,
@@ -334,16 +357,18 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CATERPIE,
         .cry_Type = CRY_BUTTERFLY,
+        .frontAnimFrames = sAnims_BUTTERFREE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
     
     [SPECIES_BUTTERFREE_MEGA] =
     {
         .baseHP        = 60,
-        .baseAttack    = 45,
+        .baseAttack    = 50,
         .baseDefense   = 70,
-        .baseSpeed     = 120,
-        .baseSpDefense = 90,
         .baseSpAttack  = 130,
+        .baseSpDefense = 90,
+        .baseSpeed     = 120,
         .type1 = TYPE_BUG,
         .type2 = TYPE_FLYING,
         .catchRate = 45,
@@ -363,6 +388,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CATERPIE,
         .cry_Type = CRY_BUTTERFLY,
+        .frontAnimFrames = sAnims_BUTTERFREE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WEEDLE] =
@@ -390,6 +417,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WEEDLE,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_WEEDLE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_KAKUNA] =
@@ -417,6 +447,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WEEDLE,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_KAKUNA,
+        .frontAnimId = ANIM_GLOW_ORANGE,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_BEEDRILL] =
@@ -450,6 +483,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WEEDLE,
         .cry_Type = CRY_BUG_BIG,
+        .frontAnimFrames = sAnims_BEEDRILL,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
+        .frontAnimDelay = 35,
     },
 
     [SPECIES_PIDGEY] =
@@ -477,6 +513,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDGEY,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_PIDGEY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_PIDGEOTTO] =
@@ -504,6 +542,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDGEY,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_PIDGEOTTO,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 25,
     },
 
     [SPECIES_PIDGEOT] =
@@ -531,6 +572,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDGEY,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_PIDGEOT,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_RATTATA] =
@@ -559,6 +602,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RATTATA,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_RATTATA,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_RATICATE] =
@@ -587,6 +632,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RATTATA,
         .cry_Type = CRY_RODDENT_MEDIUM,
+        .frontAnimFrames = sAnims_RATICATE,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_SPEAROW] =
@@ -615,6 +662,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SPEAROW,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_SPEAROW,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_FEAROW] =
@@ -643,6 +692,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SPEAROW,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_FEAROW,
+        .frontAnimId = ANIM_FIGURE_8,
+        .frontAnimDelay = 2,
     },
 
     [SPECIES_EKANS] =
@@ -670,6 +722,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EKANS,
         .cry_Type = CRY_SNAKE_SMALL,
+        .frontAnimFrames = sAnims_EKANS,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_ARBOK] =
@@ -698,6 +753,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EKANS,
         .cry_Type = CRY_SNAKE_MEDIUM,
+        .frontAnimFrames = sAnims_ARBOK,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_PICHU] =
@@ -726,6 +783,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PICHU,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_PICHU,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_PIKACHU] =
@@ -755,6 +814,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PICHU,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_PIKACHU,
+        .frontAnimId = ANIM_FLASH_YELLOW,
+        .frontAnimDelay = 25,
     },
 
     [SPECIES_RAICHU] =
@@ -784,6 +846,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PICHU,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_RAICHU,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SANDSHREW] =
@@ -816,6 +880,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDSHREW,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_SANDSHREW,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
     [SPECIES_SANDSLASH] =
@@ -848,6 +914,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDSHREW,
         .cry_Type = CRY_RODDENT_BIG,
+        .frontAnimFrames = sAnims_SANDSLASH,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_NIDORAN_F] =
@@ -875,6 +943,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_F,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_NIDORAN_F,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 28,
     },
 
     [SPECIES_NIDORINA] =
@@ -902,6 +973,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_F,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_NIDORINA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_NIDOQUEEN] =
@@ -929,6 +1002,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_F,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_NIDOQUEEN,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_NIDORAN_M] =
@@ -956,6 +1031,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_M,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_NIDORAN_M,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_NIDORINO] =
@@ -983,6 +1060,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_M,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_NIDORINO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_NIDOKING] =
@@ -1014,6 +1093,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NIDORAN_M,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_NIDOKING,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 25,
     },
 
     [SPECIES_CLEFFA] =
@@ -1044,6 +1126,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_CLEFFA,
         .shopPrice = 7,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_CLEFFA,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_CLEFAIRY] =
@@ -1074,6 +1158,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_CLEFFA,
         .shopPrice = 7,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_CLEFAIRY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CLEFABLE] =
@@ -1103,6 +1189,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CLEFFA,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_CLEFABLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_VULPIX] =
@@ -1132,6 +1220,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VULPIX,
         .cry_Type = CRY_FOX_SMALL,
+        .frontAnimFrames = sAnims_VULPIX,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_NINETALES] =
@@ -1162,6 +1252,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VULPIX,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_NINETALES,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_IGGLYBUFF] =
@@ -1190,6 +1282,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_IGGLYBUFF,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_IGGLYBUFF,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST,
     },
 
     [SPECIES_JIGGLYPUFF] =
@@ -1219,6 +1313,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_IGGLYBUFF,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_JIGGLYPUFF,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_WIGGLYTUFF] =
@@ -1248,6 +1344,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_IGGLYBUFF,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_WIGGLYTUFF,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_ZUBAT] =
@@ -1275,6 +1373,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZUBAT,
         .cry_Type = CRY_BAT_SMALL,
+        .frontAnimFrames = sAnims_ZUBAT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GOLBAT] =
@@ -1302,6 +1402,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZUBAT,
         .cry_Type = CRY_BAT_MEDIUM,
+        .frontAnimFrames = sAnims_GOLBAT,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_CROBAT] =
@@ -1329,6 +1431,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZUBAT,
         .cry_Type = CRY_BAT_BIG,
+        .frontAnimFrames = sAnims_CROBAT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ODDISH] =
@@ -1357,6 +1461,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ODDISH,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_ODDISH,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_GLOOM] =
@@ -1385,6 +1491,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ODDISH,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_GLOOM,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_VILEPLUME] =
@@ -1413,6 +1521,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ODDISH,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_VILEPLUME,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_BELLOSSOM] =
@@ -1441,6 +1551,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ODDISH,
         .cry_Type = CRY_FLOWER_MEDIUM,
+        .frontAnimFrames = sAnims_BELLOSSOM,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_PARAS] =
@@ -1470,6 +1582,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PARAS,
         .cry_Type = CRY_CRAB_SMALL,
+        .frontAnimFrames = sAnims_PARAS,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_PARASECT] =
@@ -1500,6 +1615,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PARAS,
         .cry_Type = CRY_CRAB_MEDIUM,
+        .frontAnimFrames = sAnims_PARASECT,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 45,
     },
 
     [SPECIES_VENONAT] =
@@ -1527,6 +1645,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VENONAT,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_VENONAT,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_VENOMOTH] =
@@ -1556,6 +1677,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VENONAT,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_VENOMOTH,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_DIGLETT] =
@@ -1584,6 +1707,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DIGLETT,
         .cry_Type = CRY_MOLE,
+        .frontAnimFrames = sAnims_DIGLETT,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 25,
     },
 
     [SPECIES_DUGTRIO] =
@@ -1612,6 +1738,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DIGLETT,
         .cry_Type = CRY_MOLE,
+        .frontAnimFrames = sAnims_DUGTRIO,
+        .frontAnimId = ANIM_H_SHAKE_SLOW,
+        .frontAnimDelay = 35,
     },
 
     [SPECIES_MEOWTH] =
@@ -1640,6 +1769,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MEOWTH,
         .cry_Type = CRY_CAT_SMALL,
+        .frontAnimFrames = sAnims_MEOWTH,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
+        .frontAnimDelay = 40,
     },
 
     [SPECIES_PERSIAN] =
@@ -1669,6 +1801,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MEOWTH,
         .cry_Type = CRY_CAT_MEDIUM,
+        .frontAnimFrames = sAnims_PERSIAN,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_PSYDUCK] =
@@ -1696,6 +1831,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PSYDUCK,
         .cry_Type = CRY_DUCK_SMALL,
+        .frontAnimFrames = sAnims_PSYDUCK,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_GOLDUCK] =
@@ -1723,6 +1860,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PSYDUCK,
         .cry_Type = CRY_DUCK_MEDIUM,
+        .frontAnimFrames = sAnims_GOLDUCK,
+        .frontAnimId = ANIM_H_SHAKE_SLOW,
     },
 
     [SPECIES_MANKEY] =
@@ -1751,6 +1890,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MANKEY,
         .cry_Type = CRY_MONKEY_MEDIUM,
+        .frontAnimFrames = sAnims_MANKEY,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_PRIMEAPE] =
@@ -1780,6 +1922,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MANKEY,
         .cry_Type = CRY_MONKEY_BIG,
+        .frontAnimFrames = sAnims_PRIMEAPE,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
     
     [SPECIES_ANNIHILAPE] = 
@@ -1807,6 +1951,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MANKEY,
         .cry_Type = CRY_MONKEY_BIG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GROWLITHE] =
@@ -1834,6 +1980,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GROWLITHE,
         .cry_Type = CRY_DOG_MEDIUM,
+        .frontAnimFrames = sAnims_GROWLITHE,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_ARCANINE] =
@@ -1861,6 +2010,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GROWLITHE,
         .cry_Type = CRY_DOG_BIG,
+        .frontAnimFrames = sAnims_ARCANINE,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 8,
     },
 
     [SPECIES_POLIWAG] =
@@ -1888,6 +2040,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_POLIWAG,
         .cry_Type = CRY_FROG_SMALL,
+        .frontAnimFrames = sAnims_POLIWAG,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_POLIWHIRL] =
@@ -1916,6 +2070,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_POLIWAG,
         .cry_Type = CRY_FROG_MEDIUM,
+        .frontAnimFrames = sAnims_POLIWHIRL,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .frontAnimDelay = 5,
     },
 
     [SPECIES_POLIWRATH] =
@@ -1944,6 +2101,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_POLIWAG,
         .cry_Type = CRY_FROG_BIG,
+        .frontAnimFrames = sAnims_POLIWRATH,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_POLITOED] =
@@ -1972,6 +2131,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_POLIWAG,
         .cry_Type = CRY_FROG_BIG,
+        .frontAnimFrames = sAnims_POLITOED,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .frontAnimDelay = 40,
     },
 
     [SPECIES_ABRA] =
@@ -2001,6 +2163,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_ABRA,
         .shopPrice = 3,
         .cry_Type = CRY_PSY_SMALL,
+        .frontAnimFrames = sAnims_ABRA,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_KADABRA] =
@@ -2029,6 +2193,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ABRA,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_KADABRA,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ALAKAZAM] =
@@ -2057,6 +2223,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ABRA,
         .cry_Type = CRY_PSY_BIG,
+        .frontAnimFrames = sAnims_ALAKAZAM,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_MACHOP] =
@@ -2085,6 +2253,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MACHOP,
         .cry_Type = CRY_FIGHTING_SMALL,
+        .frontAnimFrames = sAnims_MACHOP,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_MACHOKE] =
@@ -2113,6 +2283,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MACHOP,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_MACHOKE,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_MACHAMP] =
@@ -2141,6 +2313,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MACHOP,
         .cry_Type = CRY_FIGHTING_BIG,
+        .frontAnimFrames = sAnims_MACHAMP,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_MACHAMP_MEGA] =
@@ -2169,6 +2343,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MACHOP,
         .cry_Type = CRY_FIGHTING_BIG,
+        .frontAnimFrames = sAnims_MACHAMP_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BELLSPROUT] =
@@ -2196,6 +2372,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BELLSPROUT,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_BELLSPROUT,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_WEEPINBELL] =
@@ -2223,6 +2401,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BELLSPROUT,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_WEEPINBELL,
+        .frontAnimId = ANIM_SWING_CONVEX,
+        .frontAnimDelay = 3,
     },
 
     [SPECIES_VICTREEBEL] =
@@ -2250,6 +2431,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BELLSPROUT,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_VICTREEBEL,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_TENTACOOL] =
@@ -2278,6 +2461,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TENTACOOL,
         .cry_Type = CRY_SQUID_SMALL,
+        .frontAnimFrames = sAnims_TENTACOOL,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TENTACRUEL] =
@@ -2306,6 +2491,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TENTACOOL,
         .cry_Type = CRY_SQUID_MEDIUM,
+        .frontAnimFrames = sAnims_TENTACRUEL,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_GEODUDE] =
@@ -2334,6 +2521,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GEODUDE,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_GEODUDE,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_GRAVELER] =
@@ -2362,6 +2551,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GEODUDE,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_GRAVELER,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_GOLEM] =
@@ -2390,6 +2581,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GEODUDE,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_GOLEM,
+        .frontAnimId = ANIM_ROTATE_UP_SLAM_DOWN,
     },
 
     [SPECIES_PONYTA] =
@@ -2418,6 +2611,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PONYTA,
         .cry_Type = CRY_HORSE_SMALL,
+        .frontAnimFrames = sAnims_PONYTA,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_RAPIDASH] =
@@ -2447,6 +2643,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PONYTA,
         .cry_Type = CRY_HORSE_MEDIUM,
+        .frontAnimFrames = sAnims_RAPIDASH,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_SLOWPOKE] =
@@ -2475,6 +2673,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SLOWPOKE,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_SLOWPOKE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_SLOWBRO] =
@@ -2503,6 +2703,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SLOWPOKE,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_SLOWBRO,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_SLOWKING] =
@@ -2531,6 +2733,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SLOWPOKE,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_SLOWKING,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_MAGNEMITE] =
@@ -2559,6 +2763,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGNEMITE,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_MAGNEMITE,
+        .frontAnimId = ANIM_TUMBLING_FRONT_FLIP_TWICE,
     },
 
     [SPECIES_MAGNETON] =
@@ -2587,6 +2793,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGNEMITE,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_MAGNETON,
+        .frontAnimId = ANIM_FLASH_YELLOW,
     },
 
     [SPECIES_MAGNEZONE] =
@@ -2615,6 +2823,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGNEMITE,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_MAGNEZONE,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_FARFETCHD] =
@@ -2643,6 +2853,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_FARFETCHD,
         .cry_Type = CRY_DUCK_SMALL,
+        .frontAnimFrames = sAnims_FARFETCHD,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_DODUO] =
@@ -2671,6 +2883,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DODUO,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_DODUO,
+        .frontAnimId = ANIM_H_SHAKE_SLOW,
     },
 
     [SPECIES_DODRIO] =
@@ -2699,6 +2913,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DODUO,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_DODRIO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SEEL] =
@@ -2727,6 +2943,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SEEL,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_SEEL,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_DEWGONG] =
@@ -2756,6 +2974,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SEEL,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_DEWGONG,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_GRIMER] =
@@ -2784,6 +3004,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GRIMER,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_GRIMER,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_MUK] =
@@ -2814,6 +3036,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GRIMER,
         .cry_Type = CRY_THING_MEDIUM,
+        .frontAnimFrames = sAnims_MUK,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 45,
     },
 
     [SPECIES_SHELLDER] =
@@ -2843,6 +3068,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELLDER,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_SHELLDER,
+        .frontAnimId = ANIM_TWIST,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_CLOYSTER] =
@@ -2872,6 +3100,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELLDER,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_CLOYSTER,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_GASTLY] =
@@ -2899,6 +3129,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_GASTLY,
         .cry_Type = CRY_PSY_SMALL,
+        .frontAnimFrames = sAnims_GASTLY,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_HAUNTER] =
@@ -2927,6 +3159,9 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_GASTLY,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_HAUNTER,
+        .frontAnimId = ANIM_FLICKER_INCREASING,
+        .frontAnimDelay = 23,
     },
 
     [SPECIES_GENGAR] =
@@ -2955,6 +3190,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_GASTLY,
         .cry_Type = CRY_PSY_BIG,
+        .frontAnimFrames = sAnims_GENGAR,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
     },
 
     [SPECIES_ONIX] =
@@ -2983,6 +3220,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ONIX,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_ONIX,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_STEELIX] =
@@ -3011,6 +3250,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ONIX,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_STEELIX,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 45,
     },
 
     [SPECIES_DROWZEE] =
@@ -3038,6 +3280,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DROWZEE,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_DROWZEE,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 48,
     },
 
     [SPECIES_HYPNO] =
@@ -3065,6 +3310,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DROWZEE,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_HYPNO,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .frontAnimDelay = 40,
     },
 
     [SPECIES_KRABBY] =
@@ -3092,6 +3340,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KRABBY,
         .cry_Type = CRY_CRAB_SMALL,
+        .frontAnimFrames = sAnims_KRABBY,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_KINGLER] =
@@ -3119,6 +3369,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KRABBY,
         .cry_Type = CRY_CRAB_MEDIUM,
+        .frontAnimFrames = sAnims_KINGLER,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        .frontAnimDelay = 4,
     },
 
     [SPECIES_KINGLER_MEGA] =
@@ -3146,6 +3399,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KRABBY,
         .cry_Type = CRY_CRAB_MEDIUM,
+        .frontAnimFrames = sAnims_KINGLER_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_VOLTORB] =
@@ -3174,6 +3429,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VOLTORB,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_VOLTORB,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_ELECTRODE] =
@@ -3203,6 +3460,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VOLTORB,
         .cry_Type = CRY_THING_MEDIUM,
+        .frontAnimFrames = sAnims_ELECTRODE,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_SLOW,
     },
 
     [SPECIES_EXEGGCUTE] =
@@ -3231,6 +3490,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EXEGGCUTE,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_EXEGGCUTE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_EXEGGUTOR] =
@@ -3258,6 +3519,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EXEGGCUTE,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_EXEGGUTOR,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_CUBONE] =
@@ -3286,6 +3549,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CUBONE,
         .cry_Type = CRY_DINOSAUR_SMALL,
+        .frontAnimFrames = sAnims_CUBONE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_MAROWAK] =
@@ -3314,6 +3580,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CUBONE,
         .cry_Type = CRY_DINOSAUR_MEDIUM,
+        .frontAnimFrames = sAnims_MAROWAK,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
     
     [SPECIES_TYROGUE] =
@@ -3341,6 +3609,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYROGUE,
         .cry_Type = CRY_FIGHTING_SMALL,
+        .frontAnimFrames = sAnims_TYROGUE,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_HITMONLEE] =
@@ -3368,6 +3638,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYROGUE,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_HITMONLEE,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_HITMONCHAN] =
@@ -3395,6 +3667,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYROGUE,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_HITMONCHAN,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .frontAnimDelay = 25,
     },
 
     [SPECIES_HITMONTOP] =
@@ -3422,6 +3697,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYROGUE,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_HITMONTOP,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_LICKITUNG] =
@@ -3450,6 +3727,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LICKITUNG,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_LICKITUNG,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LICKILICKY] =
@@ -3478,6 +3757,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LICKITUNG,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_LICKILICKY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
 
@@ -3507,6 +3788,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_KOFFING,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_KOFFING,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_WEEZING] =
@@ -3535,6 +3818,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_KOFFING,
         .cry_Type = CRY_THING_MEDIUM,
+        .frontAnimFrames = sAnims_WEEZING,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_RHYHORN] =
@@ -3562,6 +3847,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RHYHORN,
         .cry_Type = CRY_RHYHORN,
+        .frontAnimFrames = sAnims_RHYHORN,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_RHYDON] =
@@ -3589,6 +3876,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RHYHORN,
         .cry_Type = CRY_RHYHORN,
+        .frontAnimFrames = sAnims_RHYDON,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_RHYPERIOR] =
@@ -3616,6 +3905,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RHYHORN,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_RHYPERIOR,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_HAPPINY] =
@@ -3639,12 +3930,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_NATURAL_CURE, ABILITY_LUCKY_BOOST},
+        .abilities = {ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE},
         .abilityHidden = ABILITY_FRIEND_GUARD,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HAPPINY,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_HAPPINY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_CHANSEY] =
@@ -3668,12 +3961,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_FAIRY,
         .eggGroup2 = EGG_GROUP_FAIRY,
-        .abilities = {ABILITY_NATURAL_CURE, ABILITY_LUCKY_BOOST},
+        .abilities = {ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE},
         .abilityHidden = ABILITY_HEALER,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HAPPINY,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_CHANSEY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BLISSEY] =
@@ -3697,12 +3992,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_FAIRY,
         .eggGroup2 = EGG_GROUP_FAIRY,
-        .abilities = {ABILITY_NATURAL_CURE, ABILITY_LUCKY_BOOST},
+        .abilities = {ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE},
         .abilityHidden = ABILITY_HEALER,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HAPPINY,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_BLISSEY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TANGELA] =
@@ -3731,6 +4028,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TANGELA,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_TANGELA,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_TANGROWTH] =
@@ -3760,6 +4059,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TANGELA,
         .cry_Type = CRY_GRASS_BIG,
+        .frontAnimFrames = sAnims_TANGROWTH,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_KANGASKHAN] =
@@ -3787,6 +4088,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KANGASKHAN,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_KANGASKHAN,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_HORSEA] =
@@ -3815,6 +4118,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HORSEA,
         .cry_Type = CRY_SQUID_SMALL,
+        .frontAnimFrames = sAnims_HORSEA,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_SEADRA] =
@@ -3844,6 +4149,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HORSEA,
         .cry_Type = CRY_SQUID_MEDIUM,
+        .frontAnimFrames = sAnims_SEADRA,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_KINGDRA] =
@@ -3874,6 +4181,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HORSEA,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_KINGDRA,
+        .frontAnimId = ANIM_CIRCLE_INTO_BG,
     },
 
     [SPECIES_GOLDEEN] =
@@ -3902,6 +4211,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GOLDEEN,
         .cry_Type = CRY_FISH_SMALL,
+        .frontAnimFrames = sAnims_GOLDEEN,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_SEAKING] =
@@ -3930,6 +4241,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GOLDEEN,
         .cry_Type = CRY_FISH_MEDIUM,
+        .frontAnimFrames = sAnims_SEAKING,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_STARYU] =
@@ -3959,6 +4272,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_STARYU,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_STARYU,
+        .frontAnimId = ANIM_TWIST_TWICE,
     },
 
     [SPECIES_STARMIE] =
@@ -3988,9 +4303,11 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_STARYU,
         .cry_Type = CRY_THING_MEDIUM,
+        .frontAnimFrames = sAnims_STARMIE,
+        .frontAnimId = ANIM_TWIST,
     },
 
-    [SPECIES_MIMEJR] =
+    [SPECIES_MIME_JR] =
     {
         .baseHP        = 20,
         .baseAttack    = 25,
@@ -4016,6 +4333,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .shopPrice = 12,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_MIME_JR,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_MR_MIME] =
@@ -4042,8 +4361,10 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SCREEN_SETTER,				//Technician -> Screen Setter
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
-        .firstStage = SPECIES_MIMEJR,
+        .firstStage = SPECIES_MIME_JR,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_MR_MIME,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_SCYTHER] =
@@ -4071,6 +4392,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SCYTHER,
         .cry_Type = CRY_BUG_BIG,
+        .frontAnimFrames = sAnims_SCYTHER,
+        .frontAnimId = ANIM_H_VIBRATE,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_SCIZOR] =
@@ -4098,6 +4422,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SCYTHER,
         .cry_Type = CRY_BUG_BIG,
+        .frontAnimFrames = sAnims_SCIZOR,
+        .frontAnimId = ANIM_H_VIBRATE,
+        .frontAnimDelay = 19,
     },
 
     [SPECIES_SMOOCHUM] =
@@ -4127,6 +4454,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SMOOCHUM,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_SMOOCHUM,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .frontAnimDelay = 40,
     },
 
     [SPECIES_JYNX] =
@@ -4156,6 +4486,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SMOOCHUM,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_JYNX,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_ELEKID] =
@@ -4184,6 +4516,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ELEKID,
         .cry_Type = CRY_FIGHTING_SMALL,
+        .frontAnimFrames = sAnims_ELEKID,
+        .frontAnimId = ANIM_FLASH_YELLOW,
     },
 
     [SPECIES_ELECTABUZZ] =
@@ -4212,6 +4546,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ELEKID,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_ELECTABUZZ,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL_SLOW,
     },
     
     [SPECIES_ELECTIVIRE] =
@@ -4240,6 +4576,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ELEKID,
         .cry_Type = CRY_FIGHTING_BIG,
+        .frontAnimFrames = sAnims_ELECTIVIRE,
+        .frontAnimId = ANIM_GLOW_YELLOW,
     },
 
     [SPECIES_MAGBY] =
@@ -4268,6 +4606,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGBY,
         .cry_Type = CRY_FIGHTING_SMALL,
+        .frontAnimFrames = sAnims_MAGBY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MAGMAR] =
@@ -4296,6 +4636,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGBY,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_MAGMAR,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_MAGMORTAR] =
@@ -4324,6 +4666,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGBY,
         .cry_Type = CRY_FIGHTING_BIG,
+        .frontAnimFrames = sAnims_MAGMORTAR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_PINSIR] =
@@ -4351,6 +4695,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PINSIR,
         .cry_Type = CRY_BUG_BIG,
+        .frontAnimFrames = sAnims_PINSIR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TAUROS] =
@@ -4379,6 +4725,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TAUROS,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_TAUROS,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_MAGIKARP] =
@@ -4406,6 +4755,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGIKARP,
         .cry_Type = CRY_FISH_SMALL,
+        .frontAnimFrames = sAnims_MAGIKARP,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
 
     [SPECIES_GYARADOS] =
@@ -4433,6 +4784,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGIKARP,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_GYARADOS,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_LAPRAS] =
@@ -4462,6 +4815,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LAPRAS,
         .cry_Type = CRY_TURTLE_BIG,
+        .frontAnimFrames = sAnims_LAPRAS,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LAPRAS_MEGA] =
@@ -4485,12 +4840,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_WATER_1,
-        .abilities = {ABILITY_WATER_ABSORB, ABILITY_SHELL_ARMOR},
-        .abilityHidden = ABILITY_HYDRATION,
+        .abilities = {ABILITY_ICY_VOICE, ABILITY_ICY_VOICE},
+        .abilityHidden = ABILITY_ICY_VOICE,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LAPRAS,
         .cry_Type = CRY_TURTLE_BIG,
+        .frontAnimFrames = sAnims_LAPRAS_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DITTO] =
@@ -4520,6 +4877,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DITTO,
         .cry_Type = CRY_EGG_GROUP_DITTO,
+        .frontAnimFrames = sAnims_DITTO,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_EEVEE] =
@@ -4548,6 +4907,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_EEVEE,
         .shopPrice = 15,
         .cry_Type = CRY_FOX_SMALL,
+        .frontAnimFrames = sAnims_EEVEE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_VAPOREON] =
@@ -4575,6 +4936,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_VAPOREON,
+        .frontAnimId = ANIM_GLOW_BLUE,
     },
 
     [SPECIES_JOLTEON] =
@@ -4602,6 +4965,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_JOLTEON,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_FLAREON] =
@@ -4629,6 +4994,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_FLAREON,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_ESPEON] =
@@ -4656,6 +5023,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_ESPEON,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_UMBREON] =
@@ -4683,6 +5052,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_UMBREON,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_LEAFEON] =
@@ -4710,6 +5081,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_LEAFEON,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_GLACEON] =
@@ -4737,6 +5110,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_GLACEON,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SYLVEON] =
@@ -4764,6 +5139,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EEVEE,
         .cry_Type = CRY_FOX_MEDIUM,
+        .frontAnimFrames = sAnims_SYLVEON,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_PORYGON] =
@@ -4792,6 +5169,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_PORYGON,
         .shopPrice = 20,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_PORYGON,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_PORYGON2] =
@@ -4821,6 +5200,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PORYGON,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_PORYGON2,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PORYGON_Z] =
@@ -4850,6 +5231,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PORYGON,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_PORYGON_Z,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_OMANYTE] =
@@ -4877,6 +5260,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_OMANYTE,
         .cry_Type = CRY_SQUID_SMALL,
+        .frontAnimFrames = sAnims_OMANYTE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_OMASTAR] =
@@ -4904,6 +5289,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_OMANYTE,
         .cry_Type = CRY_SQUID_MEDIUM,
+        .frontAnimFrames = sAnims_OMASTAR,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_KABUTO] =
@@ -4931,6 +5318,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KABUTO,
         .cry_Type = CRY_SQUID_SMALL,
+        .frontAnimFrames = sAnims_KABUTO,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_KABUTOPS] =
@@ -4958,6 +5347,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KABUTO,
         .cry_Type = CRY_SQUID_MEDIUM,
+        .frontAnimFrames = sAnims_KABUTOPS,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_AERODACTYL] =
@@ -4985,6 +5376,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AERODACTYL,
         .cry_Type = CRY_DINOSAUR_BIG,
+        .frontAnimFrames = sAnims_AERODACTYL,
+        .frontAnimId = ANIM_V_SLIDE_SLOW,
     },
 
     [SPECIES_MUNCHLAX] =
@@ -5014,6 +5407,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNCHLAX,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_MUNCHLAX,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_SNORLAX] =
@@ -5043,6 +5438,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNCHLAX,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_SNORLAX,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SNORLAX_MEGA] =
@@ -5072,6 +5469,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNCHLAX,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_SNORLAX_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARTICUNO] =
@@ -5100,6 +5499,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_ARTICUNO,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_ARTICUNO,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ZAPDOS] =
@@ -5128,6 +5529,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_ZAPDOS,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_ZAPDOS,
+        .frontAnimId = ANIM_FLASH_YELLOW,
     },
 
     [SPECIES_MOLTRES] =
@@ -5156,6 +5559,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_MOLTRES,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_MOLTRES,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_DRATINI] =
@@ -5185,6 +5590,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_DRATINI,
         .shopPrice = 18,
         .cry_Type = CRY_DRAGON_SMALL,
+        .frontAnimFrames = sAnims_DRATINI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRAGONAIR] =
@@ -5213,6 +5620,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DRATINI,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_DRAGONAIR,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DRAGONITE] =
@@ -5241,6 +5650,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DRATINI,
         .cry_Type = CRY_DRAGON_BIG,
+        .frontAnimFrames = sAnims_DRAGONITE,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_MEWTWO] =
@@ -5271,6 +5682,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_MEWTWO,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_PSY_BIG,
+        .frontAnimFrames = sAnims_MEWTWO,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_MEW] =
@@ -5300,6 +5713,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_MEW,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_MEW,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_CHIKORITA] =
@@ -5327,6 +5742,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIKORITA,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_CHIKORITA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BAYLEEF] =
@@ -5355,6 +5772,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIKORITA,
         .cry_Type = CRY_DINOSAUR_MEDIUM,
+        .frontAnimFrames = sAnims_BAYLEEF,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MEGANIUM] =
@@ -5383,6 +5802,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIKORITA,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_MEGANIUM,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_CYNDAQUIL] =
@@ -5410,6 +5831,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CYNDAQUIL,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_CYNDAQUIL,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_QUILAVA] =
@@ -5438,6 +5861,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CYNDAQUIL,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_QUILAVA,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_TYPHLOSION] =
@@ -5465,6 +5890,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CYNDAQUIL,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_TYPHLOSION,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_TOTODILE] =
@@ -5492,6 +5920,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOTODILE,
         .cry_Type = CRY_LIZARD_SMALL,
+        .frontAnimFrames = sAnims_TOTODILE,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_CROCONAW] =
@@ -5520,6 +5950,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOTODILE,
         .cry_Type = CRY_LIZARD_MEDIUM,
+        .frontAnimFrames = sAnims_CROCONAW,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_FERALIGATR] =
@@ -5548,6 +5980,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOTODILE,
         .cry_Type = CRY_LIZARD_BIG,
+        .frontAnimFrames = sAnims_FERALIGATR,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 5,
     },
 
     [SPECIES_SENTRET] =
@@ -5576,6 +6011,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SENTRET,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_SENTRET,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FURRET] =
@@ -5605,6 +6042,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SENTRET,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_FURRET,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_HOOTHOOT] =
@@ -5632,6 +6071,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOOTHOOT,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_HOOTHOOT,
+        .frontAnimId = ANIM_V_SLIDE_SLOW,
     },
 
 	[SPECIES_NOCTOWL] =
@@ -5659,6 +6100,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOOTHOOT,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_NOCTOWL,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LEDYBA] =
@@ -5686,16 +6129,18 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LEDYBA,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_LEDYBA,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_LEDIAN] =
-    {//435
-        .baseHP        = 60, //55 ->60
-        .baseAttack    = 95, //35 ->95
+    {   //435
+        .baseHP        = 60,  //55 ->60
+        .baseAttack    = 95,  //35 ->95
         .baseDefense   = 50,
+        .baseSpAttack  = 35,  //55 -> 35
+        .baseSpDefense = 110, //110 -> 100
         .baseSpeed     = 85,
-        .baseSpAttack  = 35, //55 -> 35
-        .baseSpDefense = 110,//110 -> 100
         .type1 = TYPE_BUG,
         .type2 = TYPE_FLYING,
         .catchRate = 90,
@@ -5708,11 +6153,13 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
         .abilities = {ABILITY_SWARM, ABILITY_SKILL_LINK},
-        .abilityHidden = ABILITY_JUSTICE_FISTS,
+        .abilityHidden = ABILITY_IRON_FIST,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_LEDYBA,
         .cry_Type = CRY_BUTTERFLY,
+        .frontAnimFrames = sAnims_LEDIAN,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_SPINARAK] =
@@ -5741,6 +6188,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SPINARAK,
         .cry_Type = CRY_BUG_SMALL,
+        .frontAnimFrames = sAnims_SPINARAK,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_ARIADOS] =
@@ -5769,6 +6218,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SPINARAK,
         .cry_Type = CRY_BUG_MEDIUM,
+        .frontAnimFrames = sAnims_ARIADOS,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_CHINCHOU] =
@@ -5797,6 +6248,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHINCHOU,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_CHINCHOU,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_LANTURN] =
@@ -5825,6 +6278,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHINCHOU,
         .cry_Type = CRY_FISH_MEDIUM,
+        .frontAnimFrames = sAnims_LANTURN,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_TOGEPI] =
@@ -5852,6 +6307,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOGEPI,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_TOGEPI,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_TOGETIC] =
@@ -5879,6 +6336,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOGEPI,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_TOGETIC,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOGEKISS] =
@@ -5907,6 +6366,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOGEPI,
         .cry_Type = CRY_FAIRY_BIG,
+        .frontAnimFrames = sAnims_TOGEKISS,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_NATU] =
@@ -5934,6 +6395,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NATU,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_NATU,
+        .frontAnimId = ANIM_H_JUMPS,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_XATU] =
@@ -5962,6 +6426,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NATU,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_XATU,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_MAREEP] =
@@ -5989,6 +6455,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAREEP,
         .cry_Type = CRY_HORSE_SMALL,
+        .frontAnimFrames = sAnims_MAREEP,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 50,
     },
 
     [SPECIES_FLAAFFY] =
@@ -6016,6 +6485,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAREEP,
         .cry_Type = CRY_HORSE_MEDIUM,
+        .frontAnimFrames = sAnims_FLAAFFY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_AMPHAROS] =
@@ -6043,6 +6514,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAREEP,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_AMPHAROS,
+        .frontAnimId = ANIM_FLASH_YELLOW,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_AZURILL] =
@@ -6070,6 +6544,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AZURILL,
         .cry_Type = CRY_BABY,
+        .frontAnimFrames = sAnims_AZURILL,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MARILL] =
@@ -6097,6 +6573,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AZURILL,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_MARILL,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AZUMARILL] =
@@ -6124,6 +6602,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AZURILL,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_AZUMARILL,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_BONSLY] =
@@ -6152,6 +6632,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BONSLY,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_BONSLY,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
 
     [SPECIES_SUDOWOODO] =
@@ -6181,6 +6663,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_BONSLY,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_SUDOWOODO,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_HOPPIP] =
@@ -6208,6 +6692,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOPPIP,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_HOPPIP,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_SKIPLOOM] =
@@ -6235,6 +6721,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOPPIP,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_SKIPLOOM,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_JUMPLUFF] =
@@ -6262,6 +6750,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOPPIP,
         .cry_Type = CRY_GRASS_MEDIUM,
+        .frontAnimFrames = sAnims_JUMPLUFF,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_AIPOM] =
@@ -6289,6 +6779,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AIPOM,
         .cry_Type = CRY_MONKEY_SMALL,
+        .frontAnimFrames = sAnims_AIPOM,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_AMBIPOM] =
@@ -6316,6 +6808,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_AIPOM,
         .cry_Type = CRY_MONKEY_SMALL,
+        .frontAnimFrames = sAnims_AMBIPOM,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_SUNKERN] =
@@ -6344,6 +6838,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SUNKERN,
         .cry_Type = CRY_GRASS_SMALL,
+        .frontAnimFrames = sAnims_SUNKERN,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_SUNFLORA] =
@@ -6368,11 +6864,13 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_GRASS,
         .eggGroup2 = EGG_GROUP_GRASS,
         .abilities = {ABILITY_CHLOROPHYLL, ABILITY_ROOTED},
-        .abilityHidden = ABILITY_FLOWER_GIFT,
+        .abilityHidden = ABILITY_SOLAR_POWER,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_SUNKERN,
         .cry_Type = CRY_FLOWER_MEDIUM,
+        .frontAnimFrames = sAnims_SUNFLORA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_YANMA] =
@@ -6401,6 +6899,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_YANMA,
         .cry_Type = CRY_BUG_MEDIUM,
+        .frontAnimFrames = sAnims_YANMA,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_YANMEGA] =
@@ -6429,6 +6929,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_YANMA,
         .cry_Type = CRY_BUG_MEDIUM,
+        .frontAnimFrames = sAnims_YANMEGA,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_WOOPER] =
@@ -6456,6 +6958,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOPER,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_WOOPER,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_QUAGSIRE] =
@@ -6483,6 +6987,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOPER,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_QUAGSIRE,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_MURKROW] =
@@ -6510,6 +7016,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MURKROW,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_MURKROW,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HONCHKROW] =
@@ -6537,6 +7045,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MURKROW,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_HONCHKROW,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_MISDREAVUS] =
@@ -6566,6 +7076,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_MISDREAVUS,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_MISDREAVUS,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_MISMAGIUS] =
@@ -6594,6 +7106,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MISDREAVUS,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_MISMAGIUS,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_UNOWN] =
@@ -6622,6 +7136,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_UNOWN,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_UNOWN,
+        .frontAnimId = ANIM_ZIGZAG_FAST,
     },
 
     [SPECIES_WYNAUT] =
@@ -6649,6 +7165,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WYNAUT,
         .cry_Type = CRY_THING_SMALL,
+        .frontAnimFrames = sAnims_WYNAUT,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .frontAnimDelay = 15,
     },
 
     [SPECIES_WOBBUFFET] =
@@ -6676,6 +7195,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WYNAUT,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_WOBBUFFET,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_GIRAFARIG] =
@@ -6704,6 +7225,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GIRAFARIG,
         .cry_Type = CRY_HORSE_SMALL,
+        .frontAnimFrames = sAnims_GIRAFARIG,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_FARIGIRAF] =
@@ -6731,6 +7254,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GIRAFARIG,
         .cry_Type = CRY_HORSE_SMALL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PINECO] =
@@ -6759,6 +7284,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PINECO,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_PINECO,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_FORRETRESS] =
@@ -6788,6 +7315,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PINECO,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_FORRETRESS,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_DUNSPARCE] =
@@ -6815,6 +7344,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DUNSPARCE,
         .cry_Type = CRY_SNAKE_SMALL,
+        .frontAnimFrames = sAnims_DUNSPARCE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimDelay = 10,
     },
     
     [SPECIES_DUDUNSPARCE] =
@@ -6842,6 +7374,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DUNSPARCE,
         .cry_Type = CRY_SNAKE_SMALL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_DUDUNSPARCE_THREE_SEGMENT] =
@@ -6869,6 +7403,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DUNSPARCE,
         .cry_Type = CRY_SNAKE_SMALL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GLIGAR] =
@@ -6896,6 +7432,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GLIGAR,
         .cry_Type = CRY_BUG_MEDIUM,
+        .frontAnimFrames = sAnims_GLIGAR,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_GLISCOR] =
@@ -6923,6 +7461,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GLIGAR,
         .cry_Type = CRY_BUG_MEDIUM,
+        .frontAnimFrames = sAnims_GLISCOR,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_SNUBBULL] =
@@ -6950,6 +7490,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SNUBBULL,
         .cry_Type = CRY_DOG_SMALL,
+        .frontAnimFrames = sAnims_SNUBBULL,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_GRANBULL] =
@@ -6977,6 +7519,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SNUBBULL,
         .cry_Type = CRY_DOG_BIG,
+        .frontAnimFrames = sAnims_GRANBULL,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_QWILFISH] =
@@ -7005,15 +7549,18 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_QWILFISH,
         .cry_Type = CRY_MOLLUSK_SMALL,
+        .frontAnimFrames = sAnims_QWILFISH,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
+        .frontAnimDelay = 39,
     },
 
     [SPECIES_SHUCKLE] =
     {
-        .baseHP        = 20,
+        .baseHP        = 30,
         .baseAttack    = 10,
-        .baseDefense   = 230,
+        .baseDefense   = 225,
         .baseSpAttack  = 10,
-        .baseSpDefense = 230,
+        .baseSpDefense = 225,
         .baseSpeed     = 5,
         .type1 = TYPE_BUG,
         .type2 = TYPE_ROCK,
@@ -7035,6 +7582,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SHUCKLE,
         .cry_Type = CRY_MOLLUSK_SMALL,
+        .frontAnimFrames = sAnims_SHUCKLE,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_HERACROSS] =
@@ -7062,6 +7611,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HERACROSS,
         .cry_Type = CRY_BUG_BIG,
+        .frontAnimFrames = sAnims_HERACROSS,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SNEASEL] =
@@ -7091,6 +7642,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SNEASEL,
         .cry_Type = CRY_FIGHTING_SMALL,
+        .frontAnimFrames = sAnims_SNEASEL,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_WEAVILE] =
@@ -7121,6 +7674,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SNEASEL,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_WEAVILE,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_TEDDIURSA] =
@@ -7150,6 +7705,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TEDDIURSA,
         .cry_Type = CRY_RODDENT_SMALL,
+        .frontAnimFrames = sAnims_TEDDIURSA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_URSARING] =
@@ -7179,6 +7736,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TEDDIURSA,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_URSARING,
+        .frontAnimId = ANIM_H_SHAKE,
     },
     
     [SPECIES_URSALUNA] =
@@ -7191,8 +7750,8 @@ const struct BaseStats gBaseStats[] =
 		.baseSpeed     = 50,
         .type1 = TYPE_GROUND,
         .type2 = TYPE_NORMAL,
-        .catchRate = 120,
-        .expYield = 66,
+        .catchRate = 20,
+        .expYield = 275,
         .evYield_Attack    = 1,
         .item1 = ITEM_ORAN_BERRY,
         .item2 = ITEM_SITRUS_BERRY,
@@ -7208,33 +7767,37 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TEDDIURSA,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_URSALUNA_BLOODMOON] =
     {
-        .baseHP        = 45,
-        .baseAttack    = 49,
-        .baseDefense   = 49,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 65,
+        .baseHP        = 113,
+        .baseAttack    = 70,
+        .baseDefense   = 120,
+        .baseSpAttack  = 135,
         .baseSpDefense = 65,
+        .baseSpeed     = 52,
         .type1 = TYPE_GROUND,
         .type2 = TYPE_NORMAL,
-        .catchRate = 5,
-        .expYield = 275,
+        .catchRate = 20,
+        .expYield = 66,
         .evYield_SpAttack = 3,
         .genderRatio = MON_MALE,
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroup1 = EGG_GROUP_MONSTER,
-        .eggGroup2 = EGG_GROUP_GRASS,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
         .abilities = {ABILITY_MINDS_EYE, ABILITY_MINDS_EYE},
         .abilityHidden = ABILITY_MINDS_EYE,
-        .bodyColor = BODY_COLOR_GREEN,
+        .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TEDDIURSA,
         .cry_Type = CRY_MONSTER_BIG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SLUGMA] =
@@ -7262,16 +7825,18 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SLUGMA,
         .cry_Type = CRY_MOLLUSK_SMALL,
+        .frontAnimFrames = sAnims_SLUGMA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_MAGCARGO] =
     {
-        .baseHP        = 80,//60 -> 80
-		.baseAttack    = 40,//50 -> 40
-        .baseDefense   = 110,//110 -> 120
+        .baseHP        = 80,  //60 -> 80
+		.baseAttack    = 40,  //50 -> 40
+        .baseDefense   = 110, //120 -> 110
         .baseSpAttack  = 90,
-		.baseSpDefense = 100,//90 -> 100
-        .baseSpeed     = 60,//30 -> 60
+		.baseSpDefense = 95,  //80 -> 95
+        .baseSpeed     = 45,  //30 -> 45
         .type1 = TYPE_FIRE,
         .type2 = TYPE_ROCK,
         .catchRate = 75,
@@ -7289,6 +7854,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SLUGMA,
         .cry_Type = CRY_MOLLUSK_BIG,
+        .frontAnimFrames = sAnims_MAGCARGO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SWINUB] =
@@ -7317,6 +7884,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SWINUB,
         .cry_Type = CRY_ELEPHANT_SMALL,
+        .frontAnimFrames = sAnims_SWINUB,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PILOSWINE] =
@@ -7347,6 +7916,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SWINUB,
         .cry_Type = CRY_ELEPHANT_MEDIUM,
+        .frontAnimFrames = sAnims_PILOSWINE,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_MAMOSWINE] =
@@ -7374,6 +7945,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SWINUB,
         .cry_Type = CRY_ELEPHANT_BIG,
+        .frontAnimFrames = sAnims_MAMOSWINE,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_CORSOLA] =
@@ -7403,6 +7976,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CORSOLA,
         .cry_Type = CRY_MOLLUSK_SMALL,
+        .frontAnimFrames = sAnims_CORSOLA,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_REMORAID] =
@@ -7430,6 +8005,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REMORAID,
         .cry_Type = CRY_FISH_SMALL,
+        .frontAnimFrames = sAnims_REMORAID,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_OCTILLERY] =
@@ -7458,6 +8035,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REMORAID,
         .cry_Type = CRY_SQUID_BIG,
+        .frontAnimFrames = sAnims_OCTILLERY,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_DELIBIRD] =
@@ -7485,6 +8065,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DELIBIRD,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_DELIBIRD,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MANTYKE] =
@@ -7512,6 +8094,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MANTYKE,
         .cry_Type = CRY_MOLLUSK_SMALL,
+        .frontAnimFrames = sAnims_MANTYKE,
+        .frontAnimId = ANIM_TWIST_TWICE,
     },
 
     [SPECIES_MANTINE] =
@@ -7539,6 +8123,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MANTYKE,
         .cry_Type = CRY_MOLLUSK_MEDIUM,
+        .frontAnimFrames = sAnims_MANTINE,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_SKARMORY] =
@@ -7567,6 +8153,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SKARMORY,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_SKARMORY,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_HOUNDOUR] =
@@ -7594,6 +8182,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOUNDOUR,
         .cry_Type = CRY_DOG_MEDIUM,
+        .frontAnimFrames = sAnims_HOUNDOUR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_HOUNDOOM] =
@@ -7621,6 +8211,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HOUNDOUR,
         .cry_Type = CRY_DOG_BIG,
+        .frontAnimFrames = sAnims_HOUNDOOM,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_PHANPY] =
@@ -7649,6 +8241,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PHANPY,
         .cry_Type = CRY_ELEPHANT_SMALL,
+        .frontAnimFrames = sAnims_PHANPY,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_DONPHAN] =
@@ -7678,6 +8272,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PHANPY,
         .cry_Type = CRY_ELEPHANT_MEDIUM,
+        .frontAnimFrames = sAnims_DONPHAN,
+        .frontAnimId = ANIM_ROTATE_UP_SLAM_DOWN,
     },
 
     [SPECIES_STANTLER] =
@@ -7705,6 +8301,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_STANTLER,
         .cry_Type = CRY_HORSE_SMALL,
+        .frontAnimFrames = sAnims_STANTLER,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 	
 	[SPECIES_WYRDEER] =
@@ -7732,6 +8330,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_STANTLER,
         .cry_Type = CRY_HORSE_MEDIUM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SMEARGLE] =
@@ -7759,6 +8359,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SMEARGLE,
         .cry_Type = CRY_PIG_SMALL,
+        .frontAnimFrames = sAnims_SMEARGLE,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_MILTANK] =
@@ -7788,6 +8390,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MILTANK,
         .cry_Type = CRY_PIG_MEDIUM,
+        .frontAnimFrames = sAnims_MILTANK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_RAIKOU] =
@@ -7817,6 +8421,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_RAIKOU,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_CAT_MEDIUM,
+        .frontAnimFrames = sAnims_RAIKOU,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_ENTEI] =
@@ -7846,6 +8452,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_ENTEI,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_MONSTER_MEDIUM,
+        .frontAnimFrames = sAnims_ENTEI,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SUICUNE] =
@@ -7872,9 +8480,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INNER_FOCUS,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-        .firstStage = SPECIES_ENTEI,
+        .firstStage = SPECIES_SUICUNE,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_SUICUNE,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_LARVITAR] =
@@ -7902,6 +8512,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LARVITAR,
         .cry_Type = CRY_DINOSAUR_SMALL,
+        .frontAnimFrames = sAnims_LARVITAR,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_PUPITAR] =
@@ -7928,6 +8540,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LARVITAR,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_PUPITAR,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_TYRANITAR] =
@@ -7956,6 +8570,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LARVITAR,
         .cry_Type = CRY_DINOSAUR_BIG,
+        .frontAnimFrames = sAnims_TYRANITAR,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_LUGIA] =
@@ -7984,6 +8601,9 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_LUGIA,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_PSY_MEDIUM,
+        .frontAnimFrames = sAnims_LUGIA,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_HO_OH] =
@@ -8014,6 +8634,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_HO_OH,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_HO_OH,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_CELEBI] =
@@ -8043,6 +8665,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_CELEBI,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_CELEBI,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_TREECKO] =
@@ -8069,6 +8693,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TREECKO,
+        .frontAnimFrames = sAnims_TREECKO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GROVYLE] =
@@ -8095,6 +8721,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TREECKO,
+        .frontAnimFrames = sAnims_GROVYLE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SCEPTILE] =
@@ -8102,7 +8730,7 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 70,
         .baseAttack    = 110,
         .baseDefense   = 65,
-        .baseSpAttack  = 85,
+        .baseSpAttack  = 80,
         .baseSpDefense = 85,
         .baseSpeed     = 120,
         .type1 = TYPE_GRASS,
@@ -8121,6 +8749,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TREECKO,
+        .frontAnimFrames = sAnims_SCEPTILE,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_TORCHIC] =
@@ -8148,6 +8778,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TORCHIC,
         .cry_Type = CRY_CHICKEN,
+        .frontAnimFrames = sAnims_TORCHIC,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_COMBUSKEN] =
@@ -8175,6 +8807,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TORCHIC,
+        .frontAnimFrames = sAnims_COMBUSKEN,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_BLAZIKEN] =
@@ -8201,6 +8835,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TORCHIC,
+        .frontAnimFrames = sAnims_BLAZIKEN,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_MUDKIP] =
@@ -8227,6 +8863,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUDKIP,
+        .frontAnimFrames = sAnims_MUDKIP,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_MARSHTOMP] =
@@ -8253,6 +8891,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUDKIP,
+        .frontAnimFrames = sAnims_MARSHTOMP,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SWAMPERT] =
@@ -8279,6 +8919,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUDKIP,
+        .frontAnimFrames = sAnims_SWAMPERT,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_POOCHYENA] =
@@ -8306,6 +8948,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_POOCHYENA,
+        .frontAnimFrames = sAnims_POOCHYENA,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_MIGHTYENA] =
@@ -8333,6 +8977,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_POOCHYENA,
+        .frontAnimFrames = sAnims_MIGHTYENA,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_ZIGZAGOON] =
@@ -8361,6 +9007,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZIGZAGOON,
+        .frontAnimFrames = sAnims_ZIGZAGOON,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_LINOONE] =
@@ -8389,6 +9037,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZIGZAGOON,
+        .frontAnimFrames = sAnims_LINOONE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_WURMPLE] =
@@ -8417,6 +9067,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_WURMPLE,
+        .frontAnimFrames = sAnims_WURMPLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILCOON] =
@@ -8443,6 +9095,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WURMPLE,
+        .frontAnimFrames = sAnims_SILCOON,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BEAUTIFLY] =
@@ -8470,6 +9124,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_WURMPLE,
+        .frontAnimFrames = sAnims_BEAUTIFLY,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_CASCOON] =
@@ -8496,6 +9152,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WURMPLE,
+        .frontAnimFrames = sAnims_CASCOON,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_DUSTOX] =
@@ -8523,6 +9181,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_WURMPLE,
+        .frontAnimFrames = sAnims_DUSTOX,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_LOTAD] =
@@ -8550,6 +9210,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LOTAD,
+        .frontAnimFrames = sAnims_LOTAD,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LOMBRE] =
@@ -8577,6 +9239,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LOTAD,
+        .frontAnimFrames = sAnims_LOMBRE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LUDICOLO] =
@@ -8604,6 +9268,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LOTAD,
+        .frontAnimFrames = sAnims_LUDICOLO,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_SEEDOT] =
@@ -8631,6 +9297,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEEDOT,
+        .frontAnimFrames = sAnims_SEEDOT,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_NUZLEAF] =
@@ -8658,6 +9326,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEEDOT,
+        .frontAnimFrames = sAnims_NUZLEAF,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SHIFTRY] =
@@ -8685,6 +9355,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEEDOT,
+        .frontAnimFrames = sAnims_SHIFTRY,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_TAILLOW] =
@@ -8712,6 +9384,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TAILLOW,
+        .frontAnimFrames = sAnims_TAILLOW,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_SWELLOW] =
@@ -8739,6 +9413,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TAILLOW,
+        .frontAnimFrames = sAnims_SWELLOW,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_WINGULL] =
@@ -8766,6 +9442,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WINGULL,
+        .frontAnimFrames = sAnims_WINGULL,
+        .frontAnimId = ANIM_H_PIVOT,
     },
 
     [SPECIES_PELIPPER] =
@@ -8794,6 +9472,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_WINGULL,
+        .frontAnimFrames = sAnims_PELIPPER,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_RALTS] =
@@ -8821,6 +9501,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RALTS,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_RALTS,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_KIRLIA] =
@@ -8848,6 +9530,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RALTS,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_KIRLIA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GARDEVOIR] =
@@ -8875,6 +9559,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RALTS,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_GARDEVOIR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_GALLADE] =
@@ -8902,6 +9588,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RALTS,
         .cry_Type = CRY_FIGHTING_MEDIUM,
+        .frontAnimFrames = sAnims_GALLADE,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_SURSKIT] =
@@ -8929,6 +9617,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SURSKIT,
+        .frontAnimFrames = sAnims_SURSKIT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MASQUERAIN] =
@@ -8957,6 +9647,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SURSKIT,
+        .frontAnimFrames = sAnims_MASQUERAIN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SHROOMISH] =
@@ -8985,6 +9677,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHROOMISH,
+        .frontAnimFrames = sAnims_SHROOMISH,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BRELOOM] =
@@ -9013,6 +9707,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHROOMISH,
+        .frontAnimFrames = sAnims_BRELOOM,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SLAKOTH] =
@@ -9038,6 +9734,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SLAKOTH,
+        .frontAnimFrames = sAnims_SLAKOTH,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_VIGOROTH] =
@@ -9063,6 +9761,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SLAKOTH,
+        .frontAnimFrames = sAnims_VIGOROTH,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_SLAKING] =
@@ -9088,6 +9788,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SLAKOTH,
+        .frontAnimFrames = sAnims_SLAKING,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_NINCADA] =
@@ -9115,6 +9817,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_NINCADA,
+        .frontAnimFrames = sAnims_NINCADA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NINJASK] =
@@ -9141,6 +9845,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_NINCADA,
+        .frontAnimFrames = sAnims_NINJASK,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_SHEDINJA] =
@@ -9148,9 +9854,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 1,
         .baseAttack    = 100,
         .baseDefense   = 45,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 30,
+        .baseSpAttack  = 60,
         .baseSpDefense = 30,
+        .baseSpeed     = 70,
         .type1 = TYPE_BUG,
         .type2 = TYPE_GHOST,
         .catchRate = 45,
@@ -9166,6 +9872,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NINCADA,
+        .frontAnimFrames = sAnims_SHEDINJA,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_WHISMUR] =
@@ -9193,6 +9901,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_WHISMUR,
+        .frontAnimFrames = sAnims_WHISMUR,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_LOUDRED] =
@@ -9220,6 +9930,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WHISMUR,
+        .frontAnimFrames = sAnims_LOUDRED,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_EXPLOUD] =
@@ -9247,6 +9959,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WHISMUR,
+        .frontAnimFrames = sAnims_EXPLOUD,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_MAKUHITA] =
@@ -9274,6 +9988,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_MAKUHITA,
+        .frontAnimFrames = sAnims_MAKUHITA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HARIYAMA] =
@@ -9302,6 +10018,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MAKUHITA,
+        .frontAnimFrames = sAnims_HARIYAMA,
+        .frontAnimId = ANIM_ROTATE_UP_TO_SIDES,
     },
 
     [SPECIES_NOSEPASS] =
@@ -9329,6 +10047,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_NOSEPASS,
+        .frontAnimFrames = sAnims_NOSEPASS,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_PROBOPASS] =
@@ -9357,6 +10077,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_NOSEPASS,
+        .frontAnimFrames = sAnims_PROBOPASS,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_SKITTY] =
@@ -9385,6 +10107,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKITTY,
+        .frontAnimFrames = sAnims_SKITTY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DELCATTY] =
@@ -9414,6 +10138,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKITTY,
+        .frontAnimFrames = sAnims_DELCATTY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SABLEYE] =
@@ -9442,6 +10168,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SABLEYE,
+        .frontAnimFrames = sAnims_SABLEYE,
+        .frontAnimId = ANIM_GLOW_BLACK,
     },
 
     [SPECIES_MAWILE] =
@@ -9472,6 +10200,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAWILE,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_MAWILE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARON] =
@@ -9500,6 +10230,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ARON,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_ARON,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_LAIRON] =
@@ -9528,6 +10260,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ARON,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_LAIRON,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AGGRON] =
@@ -9556,6 +10290,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ARON,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_AGGRON,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_MEDITITE] =
@@ -9582,6 +10318,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MEDITITE,
+        .frontAnimFrames = sAnims_MEDITITE,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
 
     [SPECIES_MEDICHAM] =
@@ -9608,6 +10346,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_MEDITITE,
+        .frontAnimFrames = sAnims_MEDICHAM,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_ELECTRIKE] =
@@ -9634,6 +10374,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ELECTRIKE,
+        .frontAnimFrames = sAnims_ELECTRIKE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MANECTRIC] =
@@ -9660,6 +10402,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_ELECTRIKE,
+        .frontAnimFrames = sAnims_MANECTRIC,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PLUSLE] =
@@ -9688,6 +10432,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PLUSLE,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_PLUSLE,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_MINUN] =
@@ -9716,6 +10462,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MINUN,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_MINUN,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_VOLBEAT] =
@@ -9743,6 +10491,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_VOLBEAT,
+        .frontAnimFrames = sAnims_VOLBEAT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ILLUMISE] =
@@ -9770,6 +10520,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ILLUMISE,
+        .frontAnimFrames = sAnims_ILLUMISE,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_BUDEW] =
@@ -9797,6 +10549,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUDEW,
+        .frontAnimFrames = sAnims_BUDEW,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_ROSELIA] =
@@ -9824,6 +10578,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUDEW,
+        .frontAnimFrames = sAnims_ROSELIA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_ROSERADE] =
@@ -9851,6 +10607,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUDEW,
+        .frontAnimFrames = sAnims_ROSERADE,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_GULPIN] =
@@ -9879,6 +10637,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GULPIN,
+        .frontAnimFrames = sAnims_GULPIN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SWALOT] =
@@ -9907,6 +10667,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GULPIN,
+        .frontAnimFrames = sAnims_SWALOT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_CARVANHA] =
@@ -9934,6 +10696,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CARVANHA,
+        .frontAnimFrames = sAnims_CARVANHA,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_SHARPEDO] =
@@ -9962,6 +10726,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CARVANHA,
+        .frontAnimFrames = sAnims_SHARPEDO,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH_TWICE,
     },
 
     [SPECIES_WAILMER] =
@@ -9988,6 +10754,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WAILMER,
+        .frontAnimFrames = sAnims_WAILMER,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_WAILORD] =
@@ -10014,6 +10782,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WAILMER,
+        .frontAnimFrames = sAnims_WAILORD,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
+        .frontAnimDelay = 10,
     },
 
     [SPECIES_NUMEL] =
@@ -10042,6 +10813,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_NUMEL,
+        .frontAnimFrames = sAnims_NUMEL,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_CAMERUPT] =
@@ -10071,6 +10844,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_NUMEL,
+        .frontAnimFrames = sAnims_CAMERUPT,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_TORKOAL] =
@@ -10099,6 +10874,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TORKOAL,
+        .frontAnimFrames = sAnims_TORKOAL,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SPOINK] =
@@ -10127,6 +10904,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPOINK,
+        .frontAnimFrames = sAnims_SPOINK,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH_TWICE,
     },
 
     [SPECIES_GRUMPIG] =
@@ -10155,6 +10934,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPOINK,
+        .frontAnimFrames = sAnims_GRUMPIG,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .frontAnimDelay = 15,
     },
 
     [SPECIES_SPINDA] =
@@ -10182,6 +10964,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPINDA,
+        .frontAnimFrames = sAnims_SPINDA,
+        .frontAnimId = ANIM_CIRCLE_INTO_BG,
     },
 
     [SPECIES_TRAPINCH] =
@@ -10209,6 +10993,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TRAPINCH,
+        .frontAnimFrames = sAnims_TRAPINCH,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_VIBRAVA] =
@@ -10237,6 +11023,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_TRAPINCH,
+        .frontAnimFrames = sAnims_VIBRAVA,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_FLYGON] =
@@ -10265,6 +11053,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_TRAPINCH,
+        .frontAnimFrames = sAnims_FLYGON,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_CACNEA] =
@@ -10292,6 +11082,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CACNEA,
+        .frontAnimFrames = sAnims_CACNEA,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_CACTURNE] =
@@ -10320,6 +11112,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CACNEA,
+        .frontAnimFrames = sAnims_CACTURNE,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_SWABLU] =
@@ -10348,6 +11142,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SWABLU,
         .cry_Type = CRY_EGG_GROUP_FLYING,
+        .frontAnimFrames = sAnims_SWABLU,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ALTARIA] =
@@ -10376,6 +11172,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SWABLU,
+        .frontAnimFrames = sAnims_ALTARIA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_ZANGOOSE] =
@@ -10403,6 +11201,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZANGOOSE,
+        .frontAnimFrames = sAnims_ZANGOOSE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SEVIPER] =
@@ -10432,6 +11232,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEVIPER,
+        .frontAnimFrames = sAnims_SEVIPER,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LUNATONE] =
@@ -10461,6 +11263,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_LUNATONE,
+        .frontAnimFrames = sAnims_LUNATONE,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST,
     },
 
     [SPECIES_SOLROCK] =
@@ -10490,6 +11294,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_SOLROCK,
+        .frontAnimFrames = sAnims_SOLROCK,
+        .frontAnimId = ANIM_ROTATE_TO_SIDES_TWICE,
     },
 
     [SPECIES_BARBOACH] =
@@ -10516,6 +11322,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_BARBOACH,
+        .frontAnimFrames = sAnims_BARBOACH,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_WHISCASH] =
@@ -10542,6 +11350,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BARBOACH,
+        .frontAnimFrames = sAnims_WHISCASH,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_CORPHISH] =
@@ -10569,6 +11379,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CORPHISH,
+        .frontAnimFrames = sAnims_CORPHISH,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_CRAWDAUNT] =
@@ -10597,6 +11409,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CORPHISH,
+        .frontAnimFrames = sAnims_CRAWDAUNT,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_BALTOY] =
@@ -10625,6 +11439,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_BALTOY,
+        .frontAnimFrames = sAnims_BALTOY,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_CLAYDOL] =
@@ -10653,6 +11469,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_BALTOY,
+        .frontAnimFrames = sAnims_CLAYDOL,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_LILEEP] =
@@ -10680,6 +11498,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LILEEP,
+        .frontAnimFrames = sAnims_LILEEP,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_CRADILY] =
@@ -10707,6 +11527,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LILEEP,
+        .frontAnimFrames = sAnims_CRADILY,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_ANORITH] =
@@ -10733,6 +11555,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ANORITH,
+        .frontAnimFrames = sAnims_ANORITH,
+        .frontAnimId = ANIM_TWIST,
     },
 
     [SPECIES_ARMALDO] =
@@ -10759,6 +11583,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ANORITH,
+        .frontAnimFrames = sAnims_ARMALDO,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_FEEBAS] =
@@ -10785,6 +11611,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_FEEBAS,
+        .frontAnimFrames = sAnims_FEEBAS,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
     },
 
     [SPECIES_MILOTIC] =
@@ -10811,6 +11639,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_FEEBAS,
+        .frontAnimFrames = sAnims_MILOTIC,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+        .frontAnimDelay = 45,
     },
 
     [SPECIES_CASTFORM] =
@@ -10838,6 +11669,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_CASTFORM,
+        .frontAnimFrames = sAnims_CASTFORM,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_KECLEON] =
@@ -10845,9 +11678,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 60,
         .baseAttack    = 90,
         .baseDefense   = 70,
-        .baseSpeed     = 40,
         .baseSpAttack  = 60,
         .baseSpDefense = 120,
+        .baseSpeed     = 40,
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_NORMAL,
         .catchRate = 200,
@@ -10865,6 +11698,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_KECLEON,
+        .frontAnimFrames = sAnims_KECLEON,
+        .frontAnimId = ANIM_FLICKER_INCREASING,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_SHUPPET] =
@@ -10892,6 +11728,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHUPPET,
+        .frontAnimFrames = sAnims_SHUPPET,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_BANETTE] =
@@ -10919,6 +11757,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHUPPET,
+        .frontAnimFrames = sAnims_BANETTE,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_DUSKULL] =
@@ -10947,6 +11787,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_DUSKULL,
+        .frontAnimFrames = sAnims_DUSKULL,
+        .frontAnimId = ANIM_ZIGZAG_FAST,
     },
 
     [SPECIES_DUSCLOPS] =
@@ -10975,6 +11817,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_DUSKULL,
+        .frontAnimFrames = sAnims_DUSCLOPS,
+        .frontAnimId = ANIM_H_VIBRATE,
+        .frontAnimDelay = 30,
     },
 
     [SPECIES_DUSKNOIR] =
@@ -11004,6 +11849,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_DUSKULL,
+        .frontAnimFrames = sAnims_DUSKNOIR,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_TROPIUS] =
@@ -11030,6 +11877,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TROPIUS,
+        .frontAnimFrames = sAnims_TROPIUS,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_CHINGLING] =
@@ -11059,6 +11908,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_CHINGLING,
+        .frontAnimFrames = sAnims_CHINGLING,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_CHIMECHO] =
@@ -11089,6 +11940,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_CHINGLING,
+        .frontAnimFrames = sAnims_CHIMECHO,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_ABSOL] =
@@ -11116,6 +11969,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ABSOL,
+        .frontAnimFrames = sAnims_ABSOL,
+        .frontAnimId = ANIM_CIRCULAR_VIBRATE,
+        .frontAnimDelay = 45,
     },
 
     [SPECIES_SNORUNT] =
@@ -11144,6 +12000,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNORUNT,
+        .frontAnimFrames = sAnims_SNORUNT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
+        .frontAnimDelay = 20,
     },
 
     [SPECIES_GLALIE] =
@@ -11172,6 +12031,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNORUNT,
+        .frontAnimFrames = sAnims_GLALIE,
+        .frontAnimId = ANIM_ZIGZAG_FAST,
     },
 
     [SPECIES_FROSLASS] =
@@ -11198,6 +12059,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNORUNT,
+        .frontAnimFrames = sAnims_FROSLASS,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_SPHEAL] =
@@ -11224,6 +12087,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPHEAL,
+        .frontAnimFrames = sAnims_SPHEAL,
+        .frontAnimId = ANIM_SPIN_LONG,
+        .frontAnimDelay = 15,
     },
 
     [SPECIES_SEALEO] =
@@ -11250,6 +12116,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPHEAL,
+        .frontAnimFrames = sAnims_SEALEO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_WALREIN] =
@@ -11276,6 +12144,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPHEAL,
+        .frontAnimFrames = sAnims_WALREIN,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_CLAMPERL] =
@@ -11304,6 +12174,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLAMPERL,
+        .frontAnimFrames = sAnims_CLAMPERL,
+        .frontAnimId = ANIM_TWIST,
     },
 
     [SPECIES_HUNTAIL] =
@@ -11332,6 +12204,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLAMPERL,
+        .frontAnimFrames = sAnims_HUNTAIL,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_GOREBYSS] =
@@ -11359,6 +12233,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLAMPERL,
+        .frontAnimFrames = sAnims_GOREBYSS,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_RELICANTH] =
@@ -11387,6 +12263,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_RELICANTH,
+        .frontAnimFrames = sAnims_RELICANTH,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_LUVDISC] =
@@ -11415,6 +12293,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_LUVDISC,
+        .frontAnimFrames = sAnims_LUVDISC,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_BAGON] =
@@ -11442,6 +12322,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BAGON,
+        .frontAnimFrames = sAnims_BAGON,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_SHELGON] =
@@ -11469,6 +12351,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BAGON,
+        .frontAnimFrames = sAnims_SHELGON,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_SALAMENCE] =
@@ -11496,6 +12380,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BAGON,
+        .frontAnimFrames = sAnims_SALAMENCE,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 70,
     },
 
     [SPECIES_BELDUM] =
@@ -11523,6 +12410,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BELDUM,
+        .frontAnimFrames = sAnims_BELDUM,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_METANG] =
@@ -11550,6 +12439,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BELDUM,
+        .frontAnimFrames = sAnims_METANG,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_METAGROSS] =
@@ -11577,6 +12468,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BELDUM,
+        .frontAnimFrames = sAnims_METAGROSS,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_REGIROCK] =
@@ -11604,6 +12497,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGIROCK,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_REGIROCK,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_REGICE] =
@@ -11631,6 +12526,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGICE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_REGICE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_REGISTEEL] =
@@ -11659,6 +12556,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGISTEEL,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_REGISTEEL,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_LATIAS] =
@@ -11687,6 +12586,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_LATIAS,
+        .frontAnimFrames = sAnims_LATIAS,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_LATIOS] =
@@ -11715,6 +12616,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_LATIOS,
+        .frontAnimFrames = sAnims_LATIOS,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_KYOGRE] =
@@ -11742,6 +12645,9 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_KYOGRE,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_KYOGRE,
+        .frontAnimFrames = sAnims_KYOGRE,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
+        .frontAnimDelay = 60,
     },
 
     [SPECIES_GROUDON] =
@@ -11769,6 +12675,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_GROUDON,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_GROUDON,
+        .frontAnimFrames = sAnims_GROUDON,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_RAYQUAZA] =
@@ -11797,6 +12705,9 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_RAYQUAZA,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_RAYQUAZA,
+        .frontAnimFrames = sAnims_RAYQUAZA,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 60,
     },
 
     [SPECIES_JIRACHI] =
@@ -11827,6 +12738,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_JIRACHI,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_JIRACHI,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_DEOXYS] =
@@ -11853,8 +12766,10 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .firstStage = SPECIES_JIRACHI,
+        .firstStage = SPECIES_DEOXYS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DEOXYS,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_TURTWIG] =
@@ -11881,6 +12796,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TURTWIG,
+        .frontAnimFrames = sAnims_TURTWIG,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GROTLE] =
@@ -11908,6 +12825,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TURTWIG,
+        .frontAnimFrames = sAnims_GROTLE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_TORTERRA] =
@@ -11935,6 +12854,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TURTWIG,
+        .frontAnimFrames = sAnims_TORTERRA,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_CHIMCHAR] =
@@ -11961,6 +12882,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIMCHAR,
+        .frontAnimFrames = sAnims_CHIMCHAR,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_MONFERNO] =
@@ -11988,6 +12911,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIMCHAR,
+        .frontAnimFrames = sAnims_MONFERNO,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_INFERNAPE] =
@@ -12016,6 +12941,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIMCHAR,
+        .frontAnimFrames = sAnims_INFERNAPE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_PIPLUP] =
@@ -12042,6 +12969,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIPLUP,
+        .frontAnimFrames = sAnims_PIPLUP,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PRINPLUP] =
@@ -12068,6 +12997,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIPLUP,
+        .frontAnimFrames = sAnims_PRINPLUP,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_EMPOLEON] =
@@ -12094,6 +13025,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIPLUP,
+        .frontAnimFrames = sAnims_EMPOLEON,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_STARLY] =
@@ -12121,6 +13054,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_STARLY,
+        .frontAnimFrames = sAnims_STARLY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_STARAVIA] =
@@ -12148,6 +13083,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_STARLY,
+        .frontAnimFrames = sAnims_STARAVIA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_STARAPTOR] =
@@ -12175,6 +13112,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_STARLY,
+        .frontAnimFrames = sAnims_STARAPTOR,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_BIDOOF] =
@@ -12201,6 +13140,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BIDOOF,
+        .frontAnimFrames = sAnims_BIDOOF,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_BIBAREL] =
@@ -12229,6 +13170,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BIDOOF,
+        .frontAnimFrames = sAnims_BIBAREL,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_KRICKETOT] =
@@ -12256,6 +13199,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_KRICKETOT,
+        .frontAnimFrames = sAnims_KRICKETOT,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_KRICKETUNE] =
@@ -12283,6 +13228,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_KRICKETOT,
+        .frontAnimFrames = sAnims_KRICKETUNE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_SHINX] =
@@ -12309,6 +13256,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHINX,
+        .frontAnimFrames = sAnims_SHINX,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LUXIO] =
@@ -12335,6 +13284,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHINX,
+        .frontAnimFrames = sAnims_LUXIO,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_LUXRAY] =
@@ -12342,9 +13293,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 80,
         .baseAttack    = 120,
         .baseDefense   = 79,
-        .baseSpeed     = 70,
         .baseSpAttack  = 95,
         .baseSpDefense = 79,
+        .baseSpeed     = 70,
         .type1 = TYPE_ELECTRIC,
         .type2 = TYPE_ELECTRIC,
         .catchRate = 45,
@@ -12361,6 +13312,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHINX,
+        .frontAnimFrames = sAnims_LUXRAY,
+        .frontAnimId = ANIM_GLOW_YELLOW,
     },
 
     [SPECIES_CRANIDOS] =
@@ -12387,6 +13340,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CRANIDOS,
+        .frontAnimFrames = sAnims_CRANIDOS,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_RAMPARDOS] =
@@ -12413,6 +13368,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CRANIDOS,
+        .frontAnimFrames = sAnims_RAMPARDOS,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_SHIELDON] =
@@ -12439,6 +13396,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHIELDON,
+        .frontAnimFrames = sAnims_SHIELDON,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_BASTIODON] =
@@ -12465,6 +13424,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHIELDON,
+        .frontAnimFrames = sAnims_BASTIODON,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_BURMY] =
@@ -12491,6 +13452,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BURMY,
+        .frontAnimFrames = sAnims_BURMY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_WORMADAM] =
@@ -12518,6 +13481,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BURMY,
+        .frontAnimFrames = sAnims_WORMADAM,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST_SHORT,
     },
 
     [SPECIES_MOTHIM] =
@@ -12546,6 +13511,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_BURMY,
+        .frontAnimFrames = sAnims_MOTHIM,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_COMBEE] =
@@ -12574,6 +13541,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_COMBEE,
+        .frontAnimFrames = sAnims_COMBEE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_VESPIQUEN] =
@@ -12602,16 +13571,18 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_COMBEE,
+        .frontAnimFrames = sAnims_VESPIQUEN,
+        .frontAnimId = ANIM_LUNGE_GROW,
     },
 
     [SPECIES_PACHIRISU] =
     {
-        .baseHP        = 60,
-        .baseAttack    = 45,
-        .baseDefense   = 70,
-        .baseSpeed     = 95,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 90,
+        .baseHP        = 70,  //+10
+        .baseAttack    = 75,  //+30
+        .baseDefense   = 60,  //-10
+        .baseSpAttack  = 40,  //-5
+        .baseSpDefense = 80,  //-10
+        .baseSpeed     = 105, //+10
         .type1 = TYPE_ELECTRIC,
         .type2 = TYPE_ELECTRIC,
         .catchRate = 200,
@@ -12623,12 +13594,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FAIRY,
-        .abilities = {ABILITY_RUN_AWAY, ABILITY_PICKUP},
-        .abilityHidden = ABILITY_VOLT_ABSORB,
+        .abilities = {ABILITY_RUN_AWAY, ABILITY_VOLT_ABSORB},
+        .abilityHidden = ABILITY_OVERCHARGE,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PACHIRISU,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_PACHIRISU,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BUIZEL] =
@@ -12656,6 +13629,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUIZEL,
+        .frontAnimFrames = sAnims_BUIZEL,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_FLOATZEL] =
@@ -12683,6 +13658,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUIZEL,
+        .frontAnimFrames = sAnims_FLOATZEL,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_CHERUBI] =
@@ -12709,6 +13686,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHERUBI,
+        .frontAnimFrames = sAnims_CHERUBI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CHERRIM] =
@@ -12735,6 +13714,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = TRUE,
         .firstStage = SPECIES_CHERUBI,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SHELLOS] =
@@ -12761,6 +13742,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELLOS,
+        .frontAnimFrames = sAnims_SHELLOS,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_GASTRODON] =
@@ -12787,6 +13770,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELLOS,
+        .frontAnimFrames = sAnims_GASTRODON,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_DRIFLOON] =
@@ -12814,6 +13799,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRIFLOON,
+        .frontAnimFrames = sAnims_DRIFLOON,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_DRIFBLIM] =
@@ -12841,6 +13828,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRIFLOON,
+        .frontAnimFrames = sAnims_DRIFBLIM,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_BUNEARY] =
@@ -12869,6 +13858,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUNEARY,
+        .frontAnimFrames = sAnims_BUNEARY,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_LOPUNNY] =
@@ -12897,6 +13888,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUNEARY,
+        .frontAnimFrames = sAnims_LOPUNNY,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_GLAMEOW] =
@@ -12924,6 +13917,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_GLAMEOW,
+        .frontAnimFrames = sAnims_GLAMEOW,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_PURUGLY] =
@@ -12951,6 +13946,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_GLAMEOW,
+        .frontAnimFrames = sAnims_PURUGLY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_STUNKY] =
@@ -12978,6 +13975,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_STUNKY,
+        .frontAnimFrames = sAnims_STUNKY,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_SKUNTANK] =
@@ -13005,6 +14004,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_STUNKY,
+        .frontAnimFrames = sAnims_SKUNTANK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_BRONZOR] =
@@ -13033,6 +14034,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_BRONZOR,
+        .frontAnimFrames = sAnims_BRONZOR,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_BRONZONG] =
@@ -13063,6 +14066,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_BRONZOR,
+        .frontAnimFrames = sAnims_BRONZONG,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_CHATOT] =
@@ -13090,6 +14095,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHATOT,
+        .frontAnimFrames = sAnims_CHATOT,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_SPIRITOMB] =
@@ -13119,6 +14126,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPIRITOMB,
+        .frontAnimFrames = sAnims_SPIRITOMB,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
     },
 
     [SPECIES_GIBLE] =
@@ -13146,6 +14155,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GIBLE,
+        .frontAnimFrames = sAnims_GIBLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GABITE] =
@@ -13173,6 +14184,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GIBLE,
+        .frontAnimFrames = sAnims_GABITE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_GARCHOMP] =
@@ -13200,6 +14213,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GIBLE,
+        .frontAnimFrames = sAnims_GARCHOMP,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_RIOLU] =
@@ -13226,6 +14241,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_RIOLU,
+        .frontAnimFrames = sAnims_RIOLU,
+        .frontAnimId = ANIM_RAPID_H_HOPS,
     },
 
     [SPECIES_LUCARIO] =
@@ -13253,6 +14270,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_RIOLU,
+        .frontAnimFrames = sAnims_LUCARIO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_HIPPOPOTAS] =
@@ -13279,6 +14298,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HIPPOPOTAS,
+        .frontAnimFrames = sAnims_HIPPOPOTAS,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_HIPPOWDON] =
@@ -13305,6 +14326,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HIPPOPOTAS,
+        .frontAnimFrames = sAnims_HIPPOWDON,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_SKORUPI] =
@@ -13332,6 +14355,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKORUPI,
+        .frontAnimFrames = sAnims_SKORUPI,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_DRAPION] =
@@ -13359,6 +14384,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKORUPI,
+        .frontAnimFrames = sAnims_DRAPION,
+        .frontAnimId = ANIM_V_JUMPS_BIG,
     },
 
     [SPECIES_CROAGUNK] =
@@ -13386,6 +14413,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CROAGUNK,
+        .frontAnimFrames = sAnims_CROAGUNK,
+        .frontAnimId = ANIM_RAPID_H_HOPS,
     },
 
     [SPECIES_TOXICROAK] =
@@ -13413,6 +14442,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CROAGUNK,
+        .frontAnimFrames = sAnims_TOXICROAK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CARNIVINE] =
@@ -13440,6 +14471,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_CARNIVINE,
+        .frontAnimFrames = sAnims_CARNIVINE,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_FINNEON] =
@@ -13467,6 +14500,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FINNEON,
+        .frontAnimFrames = sAnims_FINNEON,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_LUMINEON] =
@@ -13494,6 +14529,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FINNEON,
+        .frontAnimFrames = sAnims_LUMINEON,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_SNOVER] =
@@ -13521,6 +14558,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNOVER,
+        .frontAnimFrames = sAnims_SNOVER,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ABOMASNOW] =
@@ -13549,6 +14588,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNOVER,
+        .frontAnimFrames = sAnims_ABOMASNOW,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_ROTOM] =
@@ -13579,6 +14620,8 @@ const struct BaseStats gBaseStats[] =
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_ROTOM,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM,
+        .frontAnimId = ANIM_GLOW_YELLOW,
     },
 
     [SPECIES_UXIE] =
@@ -13606,6 +14649,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_UXIE,
+        .frontAnimFrames = sAnims_UXIE,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_MESPRIT] =
@@ -13634,6 +14679,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_MESPRIT,
+        .frontAnimFrames = sAnims_MESPRIT,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_AZELF] =
@@ -13661,6 +14708,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_AZELF,
+        .frontAnimFrames = sAnims_AZELF,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_DIALGA] =
@@ -13688,6 +14737,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DIALGA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DIALGA,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_PALKIA] =
@@ -13715,6 +14766,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PALKIA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_PALKIA,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_HEATRAN] =
@@ -13742,6 +14795,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_HEATRAN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_HEATRAN,
+        .frontAnimId = ANIM_GLOW_ORANGE,
     },
 
     [SPECIES_REGIGIGAS] =
@@ -13768,6 +14823,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGIGIGAS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_REGIGIGAS,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_GIRATINA] =
@@ -13795,6 +14852,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GIRATINA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_GIRATINA,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_CRESSELIA] =
@@ -13821,6 +14880,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
         .firstStage = SPECIES_CRESSELIA,
+        .frontAnimFrames = sAnims_CRESSELIA,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_PHIONE] =
@@ -13848,6 +14909,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_PHIONE,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_MANAPHY,
+        .frontAnimFrames = sAnims_PHIONE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MANAPHY] =
@@ -13875,6 +14938,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_MANAPHY,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_MANAPHY,
+        .frontAnimFrames = sAnims_MANAPHY,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_DARKRAI] =
@@ -13897,11 +14962,15 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_BAD_DREAMS, ABILITY_NONE},
+        .abilities = {ABILITY_BAD_DREAMS, ABILITY_BAD_DREAMS},
+        .abilityHidden = ABILITY_OMINOUS_VIBE,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_DARKRAI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DARKRAI,
+        .frontAnimId = ANIM_GLOW_BLACK,
+        .cry_Type = CRY_DARKRAI,
     },
 
     [SPECIES_SHAYMIN] =
@@ -13930,6 +14999,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SHAYMIN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SHAYMIN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARCEUS] =
@@ -13956,6 +15027,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ARCEUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ARCEUS,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_VICTINI] =
@@ -13982,6 +15055,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = TRUE,
         .firstStage = SPECIES_VICTINI,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_VICTINI,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_SNIVY] =
@@ -14008,6 +15083,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNIVY,
+        .frontAnimFrames = sAnims_SNIVY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SERVINE] =
@@ -14034,6 +15111,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNIVY,
+        .frontAnimFrames = sAnims_SERVINE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SERPERIOR] =
@@ -14060,6 +15139,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNIVY,
+        .frontAnimFrames = sAnims_SERPERIOR,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_TEPIG] =
@@ -14086,6 +15167,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TEPIG,
+        .frontAnimFrames = sAnims_TEPIG,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_PIGNITE] =
@@ -14112,6 +15195,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TEPIG,
+        .frontAnimFrames = sAnims_PIGNITE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_EMBOAR] =
@@ -14138,6 +15223,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TEPIG,
+        .frontAnimFrames = sAnims_EMBOAR,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_OSHAWOTT] =
@@ -14164,6 +15251,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_OSHAWOTT,
+        .frontAnimFrames = sAnims_OSHAWOTT,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_DEWOTT] =
@@ -14190,6 +15279,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_OSHAWOTT,
+        .frontAnimFrames = sAnims_DEWOTT,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_SAMUROTT] =
@@ -14216,6 +15307,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_OSHAWOTT,
+        .frontAnimFrames = sAnims_SAMUROTT,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_PATRAT] =
@@ -14242,6 +15335,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PATRAT,
+        .frontAnimFrames = sAnims_PATRAT,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_WATCHOG] =
@@ -14268,6 +15363,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PATRAT,
+        .frontAnimFrames = sAnims_WATCHOG,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LILLIPUP] =
@@ -14295,6 +15392,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LILLIPUP,
         .cry_Type = CRY_DOG_SMALL,
+        .frontAnimFrames = sAnims_LILLIPUP,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_HERDIER] =
@@ -14322,6 +15421,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LILLIPUP,
         .cry_Type = CRY_DOG_MEDIUM,
+        .frontAnimFrames = sAnims_HERDIER,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_STOUTLAND] =
@@ -14349,6 +15450,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LILLIPUP,
         .cry_Type = CRY_DOG_BIG,
+        .frontAnimFrames = sAnims_STOUTLAND,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_PURRLOIN] =
@@ -14375,6 +15478,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PURRLOIN,
+        .frontAnimFrames = sAnims_PURRLOIN,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_LIEPARD] =
@@ -14401,6 +15506,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PURRLOIN,
+        .frontAnimFrames = sAnims_LIEPARD,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_PANSAGE] =
@@ -14429,6 +15536,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANSAGE,
+        .frontAnimFrames = sAnims_PANSAGE,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_SIMISAGE] =
@@ -14457,6 +15566,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANSAGE,
+        .frontAnimFrames = sAnims_SIMISAGE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_PANSEAR] =
@@ -14485,6 +15596,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANSEAR,
+        .frontAnimFrames = sAnims_PANSEAR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SIMISEAR] =
@@ -14513,6 +15626,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANSEAR,
+        .frontAnimFrames = sAnims_SIMISEAR,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST,
     },
 
     [SPECIES_PANPOUR] =
@@ -14541,6 +15656,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANPOUR,
+        .frontAnimFrames = sAnims_PANPOUR,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SIMIPOUR] =
@@ -14569,6 +15686,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANPOUR,
+        .frontAnimFrames = sAnims_SIMIPOUR,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_MUNNA] =
@@ -14595,6 +15714,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNNA,
+        .frontAnimFrames = sAnims_MUNNA,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_MUSHARNA] =
@@ -14621,6 +15742,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNNA,
+        .frontAnimFrames = sAnims_MUSHARNA,
+        .frontAnimId = ANIM_ROTATE_TO_SIDES_TWICE,
     },
 
     [SPECIES_PIDOVE] =
@@ -14647,6 +15770,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDOVE,
+        .frontAnimFrames = sAnims_PIDOVE,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_TRANQUILL] =
@@ -14673,6 +15798,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDOVE,
+        .frontAnimFrames = sAnims_TRANQUILL,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_UNFEZANT] =
@@ -14699,6 +15826,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIDOVE,
+        .frontAnimFrames = sAnims_UNFEZANT,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_BLITZLE] =
@@ -14726,6 +15855,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLITZLE,
+        .frontAnimFrames = sAnims_BLITZLE,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_ZEBSTRIKA] =
@@ -14753,6 +15884,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLITZLE,
+        .frontAnimFrames = sAnims_ZEBSTRIKA,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_ROGGENROLA] =
@@ -14781,6 +15914,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROGGENROLA,
+        .frontAnimFrames = sAnims_ROGGENROLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BOLDORE] =
@@ -14810,6 +15945,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROGGENROLA,
+        .frontAnimFrames = sAnims_BOLDORE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_GIGALITH] =
@@ -14838,6 +15975,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROGGENROLA,
+        .frontAnimFrames = sAnims_GIGALITH,
+        .frontAnimId = ANIM_ROTATE_UP_SLAM_DOWN,
     },
 
     [SPECIES_WOOBAT] =
@@ -14864,6 +16003,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOBAT,
+        .frontAnimFrames = sAnims_WOOBAT,
+        .frontAnimId = ANIM_FOUR_PETAL,
     },
 
     [SPECIES_SWOOBAT] =
@@ -14890,6 +16031,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOBAT,
+        .frontAnimFrames = sAnims_SWOOBAT,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
     },
 
     [SPECIES_DRILBUR] =
@@ -14916,6 +16059,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRILBUR,
+        .frontAnimFrames = sAnims_DRILBUR,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
     [SPECIES_EXCADRILL] =
@@ -14942,6 +16087,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRILBUR,
+        .frontAnimFrames = sAnims_EXCADRILL,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_AUDINO] =
@@ -14966,10 +16113,12 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FAIRY,
         .eggGroup2 = EGG_GROUP_FAIRY,
         .abilities = {ABILITY_HEALER, ABILITY_REGENERATOR},
-        .abilityHidden = ABILITY_LUCKY_BOOST,
+        .abilityHidden = ABILITY_KLUTZ,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_AUDINO,
+        .frontAnimFrames = sAnims_AUDINO,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_TIMBURR] =
@@ -14996,6 +16145,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_TIMBURR,
+        .frontAnimFrames = sAnims_TIMBURR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GURDURR] =
@@ -15022,6 +16173,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_TIMBURR,
+        .frontAnimFrames = sAnims_GURDURR,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_CONKELDURR] =
@@ -15048,6 +16201,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TIMBURR,
+        .frontAnimFrames = sAnims_CONKELDURR,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_TYMPOLE] =
@@ -15075,6 +16230,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TYMPOLE,
+        .frontAnimFrames = sAnims_TYMPOLE,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_PALPITOAD] =
@@ -15102,6 +16259,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TYMPOLE,
+        .frontAnimFrames = sAnims_PALPITOAD,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_SEISMITOAD] =
@@ -15129,6 +16288,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TYMPOLE,
+        .frontAnimFrames = sAnims_SEISMITOAD,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_THROH] =
@@ -15156,6 +16317,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_THROH,
+        .frontAnimFrames = sAnims_THROH,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_SAWK] =
@@ -15183,6 +16346,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SAWK,
+        .frontAnimFrames = sAnims_SAWK,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SEWADDLE] =
@@ -15210,6 +16375,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEWADDLE,
+        .frontAnimFrames = sAnims_SEWADDLE,
+        .frontAnimId = ANIM_CIRCLE_INTO_BG,
     },
 
     [SPECIES_SWADLOON] =
@@ -15237,6 +16404,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEWADDLE,
+        .frontAnimFrames = sAnims_SWADLOON,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_LEAVANNY] =
@@ -15265,6 +16434,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_SEWADDLE,
+        .frontAnimFrames = sAnims_LEAVANNY,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_VENIPEDE] =
@@ -15293,6 +16464,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_VENIPEDE,
+        .frontAnimFrames = sAnims_VENIPEDE,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_WHIRLIPEDE] =
@@ -15321,6 +16494,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_VENIPEDE,
+        .frontAnimFrames = sAnims_WHIRLIPEDE,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_SCOLIPEDE] =
@@ -15349,6 +16524,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_VENIPEDE,
+        .frontAnimFrames = sAnims_SCOLIPEDE,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_COTTONEE] =
@@ -15376,6 +16553,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_COTTONEE,
+        .frontAnimFrames = sAnims_COTTONEE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WHIMSICOTT] =
@@ -15403,6 +16582,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_COTTONEE,
+        .frontAnimFrames = sAnims_WHIMSICOTT,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_PETILIL] =
@@ -15430,6 +16611,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PETILIL,
+        .frontAnimFrames = sAnims_PETILIL,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_LILLIGANT] =
@@ -15457,6 +16640,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PETILIL,
+        .frontAnimFrames = sAnims_LILLIGANT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BASCULIN] =
@@ -15484,6 +16669,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BASCULIN,
+        .frontAnimFrames = sAnims_BASCULIN,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_SANDILE] =
@@ -15511,6 +16698,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDILE,
+        .frontAnimFrames = sAnims_SANDILE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KROKOROK] =
@@ -15538,6 +16727,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDILE,
+        .frontAnimFrames = sAnims_KROKOROK,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_KROOKODILE] =
@@ -15565,6 +16756,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDILE,
+        .frontAnimFrames = sAnims_KROOKODILE,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
     [SPECIES_DARUMAKA] =
@@ -15592,6 +16785,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_DARUMAKA,
+        .frontAnimFrames = sAnims_DARUMAKA,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_DARMANITAN] =
@@ -15619,6 +16814,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_DARUMAKA,
+        .frontAnimFrames = sAnims_DARMANITAN,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_MARACTUS] =
@@ -15646,6 +16843,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MARACTUS,
+        .frontAnimFrames = sAnims_MARACTUS,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_DWEBBLE] =
@@ -15673,6 +16872,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_DWEBBLE,
+        .frontAnimFrames = sAnims_DWEBBLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CRUSTLE] =
@@ -15700,6 +16901,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_DWEBBLE,
+        .frontAnimFrames = sAnims_CRUSTLE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_SCRAGGY] =
@@ -15727,6 +16930,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCRAGGY,
+        .frontAnimFrames = sAnims_SCRAGGY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SCRAFTY] =
@@ -15755,6 +16960,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCRAGGY,
+        .frontAnimFrames = sAnims_SCRAFTY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SIGILYPH] =
@@ -15781,6 +16988,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SIGILYPH,
+        .frontAnimFrames = sAnims_SIGILYPH,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_YAMASK] =
@@ -15807,6 +17016,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_YAMASK,
+        .frontAnimFrames = sAnims_YAMASK,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_COFAGRIGUS] =
@@ -15833,6 +17044,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_YAMASK,
+        .frontAnimFrames = sAnims_COFAGRIGUS,
+        .frontAnimId = ANIM_GLOW_BLACK,
     },
 
     [SPECIES_TIRTOUGA] =
@@ -15859,6 +17072,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TIRTOUGA,
+        .frontAnimFrames = sAnims_TIRTOUGA,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_CARRACOSTA] =
@@ -15885,6 +17100,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TIRTOUGA,
+        .frontAnimFrames = sAnims_CARRACOSTA,
+        .frontAnimId = ANIM_H_SHAKE_SLOW,
     },
 
     [SPECIES_ARCHEN] =
@@ -15910,6 +17127,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARCHEN,
+        .frontAnimFrames = sAnims_ARCHEN,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_ARCHEOPS] =
@@ -15935,6 +17154,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARCHEN,
+        .frontAnimFrames = sAnims_ARCHEOPS,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_TRUBBISH] =
@@ -15962,6 +17183,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TRUBBISH,
+        .frontAnimFrames = sAnims_TRUBBISH,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GARBODOR] =
@@ -15990,6 +17213,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TRUBBISH,
+        .frontAnimFrames = sAnims_GARBODOR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_GARBODOR_MEGA] =
@@ -16018,6 +17243,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TRUBBISH,
+        .frontAnimFrames = sAnims_GARBODOR_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZORUA] =
@@ -16043,6 +17270,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZORUA,
+        .frontAnimFrames = sAnims_ZORUA,
+        .frontAnimId = ANIM_CIRCULAR_VIBRATE,
     },
 
     [SPECIES_ZOROARK] =
@@ -16068,6 +17297,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZORUA,
+        .frontAnimFrames = sAnims_ZOROARK,
+        .frontAnimId = ANIM_FLICKER_INCREASING,
     },
 
     [SPECIES_MINCCINO] =
@@ -16095,6 +17326,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_MINCCINO,
+        .frontAnimFrames = sAnims_MINCCINO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CINCCINO] =
@@ -16122,6 +17355,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_MINCCINO,
+        .frontAnimFrames = sAnims_CINCCINO,
+        .frontAnimId = ANIM_V_SLIDE,
     },
 
     [SPECIES_GOTHITA] =
@@ -16149,6 +17384,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOTHITA,
+        .frontAnimFrames = sAnims_GOTHITA,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_GOTHORITA] =
@@ -16176,6 +17413,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOTHITA,
+        .frontAnimFrames = sAnims_GOTHORITA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_GOTHITELLE] =
@@ -16203,6 +17442,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOTHITA,
+        .frontAnimFrames = sAnims_GOTHITELLE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SOLOSIS] =
@@ -16230,6 +17471,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOLOSIS,
+        .frontAnimFrames = sAnims_SOLOSIS,
+        .frontAnimId = ANIM_TWIST,
     },
 
     [SPECIES_DUOSION] =
@@ -16257,6 +17500,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOLOSIS,
+        .frontAnimFrames = sAnims_DUOSION,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_REUNICLUS] =
@@ -16284,6 +17529,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOLOSIS,
+        .frontAnimFrames = sAnims_REUNICLUS,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_DUCKLETT] =
@@ -16310,6 +17557,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DUCKLETT,
+        .frontAnimFrames = sAnims_DUCKLETT,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SWANNA] =
@@ -16336,6 +17585,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DUCKLETT,
+        .frontAnimFrames = sAnims_SWANNA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_VANILLITE] =
@@ -16363,6 +17614,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_VANILLITE,
+        .frontAnimFrames = sAnims_VANILLITE,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_VANILLISH] =
@@ -16390,15 +17643,17 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_VANILLITE,
+        .frontAnimFrames = sAnims_VANILLISH,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_VANILLUXE] =
     {
-        .baseHP        = 71,
-        .baseAttack    = 95,
+        .baseHP        = 91,
+        .baseAttack    = 75,
         .baseDefense   = 85,
-        .baseSpeed     = 79,
         .baseSpAttack  = 110,
+        .baseSpeed     = 79,
         .baseSpDefense = 95,
         .type1 = TYPE_ICE,
         .type2 = TYPE_ICE,
@@ -16417,6 +17672,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_VANILLITE,
+        .frontAnimFrames = sAnims_VANILLUXE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DEERLING] =
@@ -16443,6 +17700,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEERLING,
+        .frontAnimFrames = sAnims_DEERLING,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SAWSBUCK] =
@@ -16469,6 +17728,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEERLING,
+        .frontAnimFrames = sAnims_SAWSBUCK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_EMOLGA] =
@@ -16498,6 +17759,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_EMOLGA,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_EMOLGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_KARRABLAST] =
@@ -16524,6 +17787,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_KARRABLAST,
+        .frontAnimFrames = sAnims_KARRABLAST,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ESCAVALIER] =
@@ -16550,6 +17815,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_KARRABLAST,
+        .frontAnimFrames = sAnims_ESCAVALIER,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_FOONGUS] =
@@ -16578,6 +17845,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FOONGUS,
+        .frontAnimFrames = sAnims_FOONGUS,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST,
     },
 
     [SPECIES_AMOONGUSS] =
@@ -16606,6 +17875,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FOONGUS,
+        .frontAnimFrames = sAnims_AMOONGUSS,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_FRILLISH] =
@@ -16632,6 +17903,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FRILLISH,
+        .frontAnimFrames = sAnims_FRILLISH,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_JELLICENT] =
@@ -16658,6 +17931,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FRILLISH,
+        .frontAnimFrames = sAnims_JELLICENT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALOMOMOLA] =
@@ -16684,6 +17959,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_ALOMOMOLA,
+        .frontAnimFrames = sAnims_ALOMOMOLA,
+        .frontAnimId = ANIM_SWING_CONCAVE,
     },
 
     [SPECIES_JOLTIK] =
@@ -16710,6 +17987,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_JOLTIK,
+        .frontAnimFrames = sAnims_JOLTIK,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_GALVANTULA] =
@@ -16736,6 +18015,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_JOLTIK,
+        .frontAnimFrames = sAnims_GALVANTULA,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_FERROSEED] =
@@ -16763,6 +18044,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FERROSEED,
+        .frontAnimFrames = sAnims_FERROSEED,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_FERROTHORN] =
@@ -16790,6 +18073,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FERROSEED,
+        .frontAnimFrames = sAnims_FERROTHORN,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_KLINK] =
@@ -16816,6 +18101,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_KLINK,
+        .frontAnimFrames = sAnims_KLINK,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_KLANG] =
@@ -16842,6 +18129,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_KLINK,
+        .frontAnimFrames = sAnims_KLANG,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_KLINKLANG] =
@@ -16868,6 +18157,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_KLINK,
+        .frontAnimFrames = sAnims_KLINKLANG,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_TYNAMO] =
@@ -16894,6 +18185,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_TYNAMO,
+        .frontAnimFrames = sAnims_TYNAMO,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_EELEKTRIK] =
@@ -16920,6 +18213,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_TYNAMO,
+        .frontAnimFrames = sAnims_EELEKTRIK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_EELEKTROSS] =
@@ -16946,6 +18241,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_TYNAMO,
+        .frontAnimFrames = sAnims_EELEKTROSS,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL_SLOW,
     },
 
     [SPECIES_ELGYEM] =
@@ -16972,6 +18269,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ELGYEM,
+        .frontAnimFrames = sAnims_ELGYEM,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_BEHEEYEM] =
@@ -16998,6 +18297,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ELGYEM,
+        .frontAnimFrames = sAnims_BEHEEYEM,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_LITWICK] =
@@ -17024,6 +18325,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITWICK,
+        .frontAnimFrames = sAnims_LITWICK,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LAMPENT] =
@@ -17050,6 +18353,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITWICK,
+        .frontAnimFrames = sAnims_LAMPENT,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_CHANDELURE] =
@@ -17076,6 +18381,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITWICK,
+        .frontAnimFrames = sAnims_CHANDELURE,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_AXEW] =
@@ -17102,6 +18409,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_AXEW,
+        .frontAnimFrames = sAnims_AXEW,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_FRAXURE] =
@@ -17128,6 +18437,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_AXEW,
+        .frontAnimFrames = sAnims_FRAXURE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HAXORUS] =
@@ -17154,6 +18465,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_AXEW,
+        .frontAnimFrames = sAnims_HAXORUS,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_CUBCHOO] =
@@ -17181,6 +18494,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUBCHOO,
+        .frontAnimFrames = sAnims_CUBCHOO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BEARTIC] =
@@ -17208,6 +18523,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUBCHOO,
+        .frontAnimFrames = sAnims_BEARTIC,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_CRYOGONAL] =
@@ -17236,6 +18553,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_CRYOGONAL,
+        .frontAnimFrames = sAnims_CRYOGONAL,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_SHELMET] =
@@ -17262,6 +18581,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELMET,
+        .frontAnimFrames = sAnims_SHELMET,
+        .frontAnimId = ANIM_TWIST,
     },
 
     [SPECIES_ACCELGOR] =
@@ -17288,6 +18609,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHELMET,
+        .frontAnimFrames = sAnims_ACCELGOR,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_STUNFISK] =
@@ -17315,6 +18638,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_STUNFISK,
+        .frontAnimFrames = sAnims_STUNFISK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MIENFOO] =
@@ -17341,6 +18666,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_MIENFOO,
+        .frontAnimFrames = sAnims_MIENFOO,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_MIENSHAO] =
@@ -17367,6 +18694,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_MIENFOO,
+        .frontAnimFrames = sAnims_MIENSHAO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRUDDIGON] =
@@ -17394,6 +18723,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRUDDIGON,
+        .frontAnimFrames = sAnims_DRUDDIGON,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL_SLOW,
     },
 
     [SPECIES_GOLETT] =
@@ -17421,6 +18752,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOLETT,
+        .frontAnimFrames = sAnims_GOLETT,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_GOLURK] =
@@ -17448,6 +18781,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOLETT,
+        .frontAnimFrames = sAnims_GOLURK,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_PAWNIARD] =
@@ -17474,6 +18809,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWNIARD,
+        .frontAnimFrames = sAnims_PAWNIARD,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_BISHARP] =
@@ -17500,6 +18837,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWNIARD,
+        .frontAnimFrames = sAnims_BISHARP,
+        .frontAnimId = ANIM_H_STRETCH,
     },
     
     [SPECIES_KINGAMBIT] =
@@ -17526,6 +18865,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWNIARD,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BOUFFALANT] =
@@ -17552,6 +18893,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BOUFFALANT,
+        .frontAnimFrames = sAnims_BOUFFALANT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_RUFFLET] =
@@ -17578,6 +18921,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_RUFFLET,
+        .frontAnimFrames = sAnims_RUFFLET,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_BRAVIARY] =
@@ -17604,6 +18949,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_RUFFLET,
+        .frontAnimFrames = sAnims_BRAVIARY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_VULLABY] =
@@ -17630,6 +18977,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_VULLABY,
+        .frontAnimFrames = sAnims_VULLABY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MANDIBUZZ] =
@@ -17656,6 +19005,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_VULLABY,
+        .frontAnimFrames = sAnims_MANDIBUZZ,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_HEATMOR] =
@@ -17683,6 +19034,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_HEATMOR,
+        .frontAnimFrames = sAnims_HEATMOR,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_DURANT] =
@@ -17709,6 +19062,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_DURANT,
+        .frontAnimFrames = sAnims_DURANT,
+        .frontAnimId = ANIM_RAPID_H_HOPS,
     },
 
     [SPECIES_DEINO] =
@@ -17735,6 +19090,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEINO,
+        .frontAnimFrames = sAnims_DEINO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZWEILOUS] =
@@ -17761,6 +19118,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEINO,
+        .frontAnimFrames = sAnims_ZWEILOUS,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_HYDREIGON] =
@@ -17788,6 +19147,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_DEINO,
+        .frontAnimFrames = sAnims_HYDREIGON,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_LARVESTA] =
@@ -17814,6 +19175,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LARVESTA,
+        .frontAnimFrames = sAnims_LARVESTA,
+        .frontAnimId = ANIM_GLOW_ORANGE,
     },
 
     [SPECIES_VOLCARONA] =
@@ -17842,6 +19205,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_LARVESTA,
+        .frontAnimFrames = sAnims_VOLCARONA,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_COBALION] =
@@ -17868,6 +19233,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_COBALION,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_COBALION,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_TERRAKION] =
@@ -17894,6 +19261,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TERRAKION,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TERRAKION,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_VIRIZION] =
@@ -17920,6 +19289,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VIRIZION,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_VIRIZION,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_TORNADUS] =
@@ -17947,6 +19318,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TORNADUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TORNADUS,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_THUNDURUS] =
@@ -17974,6 +19347,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_THUNDURUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_THUNDURUS,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_RESHIRAM] =
@@ -18000,6 +19375,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RESHIRAM,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_RESHIRAM,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_ZEKROM] =
@@ -18026,6 +19403,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZEKROM,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ZEKROM,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_LANDORUS] =
@@ -18053,6 +19432,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_LANDORUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_LANDORUS,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_KYUREM] =
@@ -18081,6 +19462,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KYUREM,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_KYUREM,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KELDEO] =
@@ -18107,6 +19490,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KELDEO,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_KELDEO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MELOETTA] =
@@ -18137,6 +19522,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MELOETTA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_MELOETTA,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_GENESECT] =
@@ -18165,6 +19552,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GENESECT,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_GENESECT,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_CHESPIN] =
@@ -18191,6 +19580,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHESPIN,
+        .frontAnimFrames = sAnims_CHESPIN,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_QUILLADIN] =
@@ -18217,6 +19608,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHESPIN,
+        .frontAnimFrames = sAnims_QUILLADIN,
+        .frontAnimId = ANIM_LUNGE_GROW,
     },
 
     [SPECIES_CHESNAUGHT] =
@@ -18243,6 +19636,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHESPIN,
+        .frontAnimFrames = sAnims_CHESNAUGHT,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
     },
 
     [SPECIES_FENNEKIN] =
@@ -18269,6 +19664,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FENNEKIN,
+        .frontAnimFrames = sAnims_FENNEKIN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BRAIXEN] =
@@ -18295,6 +19692,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FENNEKIN,
+        .frontAnimFrames = sAnims_BRAIXEN,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DELPHOX] =
@@ -18321,6 +19720,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FENNEKIN,
+        .frontAnimFrames = sAnims_DELPHOX,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_FROAKIE] =
@@ -18347,6 +19748,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FROAKIE,
+        .frontAnimFrames = sAnims_FROAKIE,
+        .frontAnimId = ANIM_H_JUMPS,
     },
 
     [SPECIES_FROGADIER] =
@@ -18373,6 +19776,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FROAKIE,
+        .frontAnimFrames = sAnims_FROGADIER,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_GRENINJA] =
@@ -18399,6 +19804,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FROAKIE,
+        .frontAnimFrames = sAnims_Greninja,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_BUNNELBY] =
@@ -18425,6 +19832,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUNNELBY,
+        .frontAnimFrames = sAnims_BUNNELBY,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_DIGGERSBY] =
@@ -18451,6 +19860,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BUNNELBY,
+        .frontAnimFrames = sAnims_DIGGERSBY,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_FLETCHLING] =
@@ -18477,6 +19888,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLETCHLING,
+        .frontAnimFrames = sAnims_FLETCHLING,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_FLETCHINDER] =
@@ -18503,6 +19916,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLETCHLING,
+        .frontAnimFrames = sAnims_FLETCHINDER,
+        .frontAnimId = ANIM_V_SLIDE_SLOW,
     },
 
     [SPECIES_TALONFLAME] =
@@ -18529,6 +19944,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLETCHLING,
+        .frontAnimFrames = sAnims_TALONFLAME,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_SCATTERBUG] =
@@ -18555,6 +19972,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_SCATTERBUG,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_SPEWPA] =
@@ -18581,6 +20000,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_SPEWPA,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_VIVILLON] =
@@ -18609,6 +20030,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_VIVILLON,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_LITLEO] =
@@ -18635,6 +20058,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITLEO,
+        .frontAnimFrames = sAnims_LITLEO,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_PYROAR] =
@@ -18661,6 +20086,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITLEO,
+        .frontAnimFrames = sAnims_PYROAR,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_FLABEBE] =
@@ -18688,6 +20115,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_FLABEBE,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_FLABEBE,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
     [SPECIES_FLOETTE] =
@@ -18715,6 +20144,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_FLABEBE,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_FLOETTE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_FLORGES] =
@@ -18742,6 +20173,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_FLABEBE,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_FLORGES,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_SKIDDO] =
@@ -18768,6 +20201,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKIDDO,
+        .frontAnimFrames = sAnims_SKIDDO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GOGOAT] =
@@ -18794,6 +20229,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKIDDO,
+        .frontAnimFrames = sAnims_GOGOAT,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_PANCHAM] =
@@ -18821,6 +20258,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANCHAM,
+        .frontAnimFrames = sAnims_PANCHAM,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_PANGORO] =
@@ -18848,6 +20287,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PANCHAM,
+        .frontAnimFrames = sAnims_PANGORO,
+        .frontAnimId = ANIM_BACK_AND_LUNGE,
     },
 
     [SPECIES_FURFROU] =
@@ -18873,6 +20314,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FURFROU,
+        .frontAnimFrames = sAnims_FURFROU,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_ESPURR] =
@@ -18899,6 +20342,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ESPURR,
+        .frontAnimFrames = sAnims_ESPURR,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_MEOWSTIC] =
@@ -18925,6 +20370,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_ESPURR,
+        .frontAnimFrames = sAnims_MEOWSTIC,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_HONEDGE] =
@@ -18951,6 +20398,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HONEDGE,
+        .frontAnimFrames = sAnims_HONEDGE,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_DOUBLADE] =
@@ -18977,6 +20426,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HONEDGE,
+        .frontAnimFrames = sAnims_DOUBLADE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_AEGISLASH] =
@@ -19004,6 +20455,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HONEDGE,
+        .frontAnimFrames = sAnims_AEGISLASH,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_SPRITZEE] =
@@ -19030,6 +20483,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPRITZEE,
+        .frontAnimFrames = sAnims_SPRITZEE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_AROMATISSE] =
@@ -19056,6 +20511,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPRITZEE,
+        .frontAnimFrames = sAnims_AROMATISSE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_SWIRLIX] =
@@ -19082,6 +20539,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SWIRLIX,
+        .frontAnimFrames = sAnims_SWIRLIX,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_SLURPUFF] =
@@ -19108,6 +20567,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SWIRLIX,
+        .frontAnimFrames = sAnims_SLURPUFF,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_INKAY] =
@@ -19134,6 +20595,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_INKAY,
+        .frontAnimFrames = sAnims_INKAY,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_MALAMAR] =
@@ -19160,6 +20623,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_INKAY,
+        .frontAnimFrames = sAnims_MALAMAR,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_BINACLE] =
@@ -19186,6 +20651,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BINACLE,
+        .frontAnimFrames = sAnims_BINACLE,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_BARBARACLE] =
@@ -19212,6 +20679,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BINACLE,
+        .frontAnimFrames = sAnims_BARBARACLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SKRELP] =
@@ -19238,6 +20707,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKRELP,
+        .frontAnimFrames = sAnims_SKRELP,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_DRAGALGE] =
@@ -19265,6 +20736,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKRELP,
+        .frontAnimFrames = sAnims_DRAGALGE,
+        .frontAnimId = ANIM_FRONT_FLIP,
     },
 
     [SPECIES_CLAUNCHER] =
@@ -19290,6 +20763,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLAUNCHER,
+        .frontAnimFrames = sAnims_CLAUNCHER,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_CLAWITZER] =
@@ -19315,6 +20790,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLAUNCHER,
+        .frontAnimFrames = sAnims_CLAWITZER,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_HELIOPTILE] =
@@ -19342,6 +20819,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_HELIOPTILE,
+        .frontAnimFrames = sAnims_HELIOPTILE,
+        .frontAnimId = ANIM_GLOW_YELLOW,
     },
 
     [SPECIES_HELIOLISK] =
@@ -19371,6 +20850,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_HELIOPTILE,
+        .frontAnimFrames = sAnims_HELIOLISK,
+        .frontAnimId = ANIM_RAPID_H_HOPS,
     },
 
     [SPECIES_TYRUNT] =
@@ -19396,7 +20877,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STURDY,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_HELIOPTILE,
+        .firstStage = SPECIES_TYRUNT,
+        .frontAnimFrames = sAnims_TYRUNT,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_TYRANTRUM] =
@@ -19422,7 +20905,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STURDY,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_HELIOPTILE,
+        .firstStage = SPECIES_TYRUNT,
+        .frontAnimFrames = sAnims_TYRANTRUM,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_AMAURA] =
@@ -19449,6 +20934,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_AMAURA,
+        .frontAnimFrames = sAnims_AMAURA,
+        .frontAnimId = ANIM_CONCAVE_ARC_SMALL_TWICE,
     },
 
     [SPECIES_AURORUS] =
@@ -19475,12 +20962,13 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_AMAURA,
+        .frontAnimFrames = sAnims_AURORUS,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_HAWLUCHA] =
     {
         .baseHP        = 78,
-        .cry_Type = CRY_PIKACHU,
         .baseAttack    = 92,
         .baseDefense   = 75,
         .baseSpeed     = 118,
@@ -19504,6 +20992,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_HAWLUCHA,
+        .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_HAWLUCHA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_DEDENNE] =
@@ -19531,6 +21022,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_DEDENNE,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_DEDENNE,
+        .frontAnimId = ANIM_GLOW_YELLOW,
     },
 
     [SPECIES_CARBINK] =
@@ -19558,6 +21051,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_CARBINK,
+        .frontAnimFrames = sAnims_CARBINK,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_GOOMY] =
@@ -19585,6 +21080,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOOMY,
+        .frontAnimFrames = sAnims_GOOMY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_SLIGGOO] =
@@ -19612,6 +21109,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOOMY,
+        .frontAnimFrames = sAnims_SLIGGOO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GOODRA] =
@@ -19638,6 +21137,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOOMY,
+        .frontAnimFrames = sAnims_GOODRA,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_KLEFKI] =
@@ -19664,6 +21165,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_KLEFKI,
+        .frontAnimFrames = sAnims_KLEFKI,
+        .frontAnimId = ANIM_FOUR_PETAL,
     },
 
     [SPECIES_PHANTUMP] =
@@ -19690,6 +21193,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PHANTUMP,
+        .frontAnimFrames = sAnims_PHANTUMP,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TREVENANT] =
@@ -19716,6 +21221,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PHANTUMP,
+        .frontAnimFrames = sAnims_TREVENANT,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_PUMPKABOO] =
@@ -19741,7 +21248,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_PHANTUMP,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_PUMPKABOO,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_GOURGEIST] =
@@ -19767,7 +21276,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_PHANTUMP,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_GOURGEIST,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_BERGMITE] =
@@ -19795,6 +21306,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BERGMITE,
+        .frontAnimFrames = sAnims_BERGMITE,
+        .frontAnimId = ANIM_LUNGE_GROW,
     },
 
     [SPECIES_AVALUGG] =
@@ -19823,6 +21336,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BERGMITE,
+        .frontAnimFrames = sAnims_AVALUGG,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_NOIBAT] =
@@ -19849,6 +21364,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_NOIBAT,
+        .frontAnimFrames = sAnims_NOIBAT,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_NOIVERN] =
@@ -19869,11 +21386,13 @@ const struct BaseStats gBaseStats[] =
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FLYING,
-        .abilities = {ABILITY_FRISK, ABILITY_INFILTRATOR},
+        .abilities = {ABILITY_CACOPHONY, ABILITY_INFILTRATOR},
         .abilityHidden = ABILITY_TELEPATHY,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_NOIBAT,
+        .frontAnimFrames = sAnims_NOIVERN,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_XERNEAS] =
@@ -19900,6 +21419,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_XERNEAS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_XERNEAS,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_YVELTAL] =
@@ -19924,8 +21445,10 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_DARK_AURA, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .firstStage = SPECIES_XERNEAS,
+        .firstStage = SPECIES_YVELTAL,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_YVELTAL,
+        .frontAnimId = ANIM_FRONT_FLIP,
     },
 
     [SPECIES_ZYGARDE] =
@@ -19952,6 +21475,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZYGARDE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ZYGARDE,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_DIANCIE] =
@@ -19982,6 +21507,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_DIANCIE,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_DIANCIE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HOOPA] =
@@ -20009,6 +21536,8 @@ const struct BaseStats gBaseStats[] =
         .firstStage = SPECIES_HOOPA,
         .flags = F_LEGENDARY_POKEMON,
         .cry_Type = CRY_HOOPA,
+        .frontAnimFrames = sAnims_HOOPA,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VOLCANION] =
@@ -20035,6 +21564,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_VOLCANION,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_VOLCANION,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_ROWLET] =
@@ -20061,6 +21592,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROWLET,
+        .frontAnimFrames = sAnims_ROWLET,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_DARTRIX] =
@@ -20087,6 +21620,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROWLET,
+        .frontAnimFrames = sAnims_DARTRIX,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_DECIDUEYE] =
@@ -20113,6 +21648,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROWLET,
+        .frontAnimFrames = sAnims_DECIDUEYE,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_LITTEN] =
@@ -20139,6 +21676,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITTEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_TORRACAT] =
@@ -20165,6 +21704,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITTEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_INCINEROAR] =
@@ -20191,6 +21732,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_LITTEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_POPPLIO] =
@@ -20217,6 +21760,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_POPPLIO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_BRIONNE] =
@@ -20243,6 +21788,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_POPPLIO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_PRIMARINA] =
@@ -20269,6 +21816,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_POPPLIO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_GLOW_BLUE_SLOW,
     },
 
     [SPECIES_PIKIPEK] =
@@ -20296,6 +21845,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIKIPEK,
+        .frontAnimFrames = sAnims_PIKIPEK,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TRUMBEAK] =
@@ -20323,6 +21874,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIKIPEK,
+        .frontAnimFrames = sAnims_TRUMBEAK,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_TOUCANNON] =
@@ -20350,6 +21903,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_PIKIPEK,
+        .frontAnimFrames = sAnims_TOUCANNON,
+        .frontAnimId = ANIM_SHAKE_GLOW_RED_SLOW,
     },
 
     [SPECIES_YUNGOOS] =
@@ -20377,6 +21932,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_YUNGOOS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_GUMSHOOS] =
@@ -20404,6 +21961,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_YUNGOOS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_GRUBBIN] =
@@ -20429,6 +21988,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_GRUBBIN,
+        .frontAnimFrames = sAnims_Vikavolt,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
     [SPECIES_CHARJABUG] =
@@ -20455,6 +22016,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_GRUBBIN,
+        .frontAnimFrames = sAnims_CHARJABUG,
+        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW_SLOW,
     },
 
     [SPECIES_VIKAVOLT] =
@@ -20481,6 +22044,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .firstStage = SPECIES_GRUBBIN,
+        .frontAnimFrames = sAnims_Vikavolt,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,
     },
 
     [SPECIES_CRABRAWLER] =
@@ -20508,6 +22073,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CRABRAWLER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_CRABOMINABLE] =
@@ -20535,6 +22102,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CRABRAWLER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_ORICORIO] =
@@ -20561,6 +22130,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_ORICORIO,
+        .frontAnimFrames = sAnims_ORICORIO,
+        .frontAnimId = ANIM_CONCAVE_ARC_SMALL,
     },
 
     [SPECIES_CUTIEFLY] =
@@ -20588,6 +22159,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUTIEFLY,
+        .frontAnimFrames = sAnims_CUTIEFLY,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_RIBOMBEE] =
@@ -20615,6 +22188,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUTIEFLY,
+        .frontAnimFrames = sAnims_Ribombee,
+        .frontAnimId = ANIM_CONVEX_DOUBLE_ARC_TWICE,
     },
 
     [SPECIES_ROCKRUFF] =
@@ -20641,6 +22216,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROCKRUFF,
+        .frontAnimFrames = sAnims_Rockruff,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LYCANROC] =
@@ -20667,6 +22244,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROCKRUFF,
+        .frontAnimFrames = sAnims_LYCANROC,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_WISHIWASHI] =
@@ -20692,6 +22271,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WISHIWASHI,
+        .frontAnimFrames = sAnims_WISHIWASHI,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_MAREANIE] =
@@ -20719,6 +22300,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MAREANIE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GLOW_PURPLE,
     },
 
     [SPECIES_TOXAPEX] =
@@ -20746,6 +22329,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MAREANIE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_GLOW_PURPLE_SLOW,
     },
 
     [SPECIES_MUDBRAY] =
@@ -20773,6 +22358,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUDBRAY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_MUDSDALE] =
@@ -20800,6 +22387,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MUDBRAY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_DEWPIDER] =
@@ -20827,6 +22416,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEWPIDER,
+        .frontAnimFrames = sAnims_DEWPIDER,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_ARAQUANID] =
@@ -20854,6 +22445,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DEWPIDER,
+        .frontAnimFrames = sAnims_Araquanid,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_FOMANTIS] =
@@ -20881,6 +22474,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_FOMANTIS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
     },
 
     [SPECIES_LURANTIS] =
@@ -20909,6 +22504,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_FOMANTIS,
+        .frontAnimFrames = sAnims_LURANTIS,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_MORELULL] =
@@ -20937,6 +22534,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MORELULL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW,
     },
 
     [SPECIES_SHIINOTIC] =
@@ -20965,6 +22564,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MORELULL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_GLOW_WHITE_SLOW,
     },
 
     [SPECIES_SALANDIT] =
@@ -20992,6 +22593,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SALANDIT,
+        .frontAnimFrames = sAnims_SALANDIT,
+        .frontAnimId = ANIM_GLOW_RED,
     },
 
     [SPECIES_SALAZZLE] =
@@ -21019,6 +22622,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SALANDIT,
+        .frontAnimFrames = sAnims_Salazzle,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_STUFFUL] =
@@ -21045,6 +22650,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_STUFFUL,
+        .frontAnimFrames = sAnims_STUFFUL,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_BEWEAR] =
@@ -21071,6 +22678,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_STUFFUL,
+        .frontAnimFrames = sAnims_BEWEAR,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_BOUNSWEET] =
@@ -21098,6 +22707,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BOUNSWEET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_STEENEE] =
@@ -21125,6 +22736,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BOUNSWEET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TSAREENA] =
@@ -21152,6 +22765,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BOUNSWEET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_COMFEY] =
@@ -21179,6 +22794,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_COMFEY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
     },
 
     [SPECIES_ORANGURU] =
@@ -21205,6 +22822,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ORANGURU,
+        .frontAnimFrames = sAnims_ORANGURU,
+        .frontAnimId = ANIM_SHRINK_GROW_SLOW,
     },
 
     [SPECIES_PASSIMIAN] =
@@ -21231,6 +22850,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PASSIMIAN,
+        .frontAnimFrames = sAnims_PASSIMIAN,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_WIMPOD] =
@@ -21256,6 +22877,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_WIMPOD,
+        .frontAnimFrames = sAnims_WIMPOD,
+        .frontAnimId = ANIM_V_SHAKE_H_SLIDE_FAST,
     },
 
     [SPECIES_GOLISOPOD] =
@@ -21282,6 +22905,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_WIMPOD,
+        .frontAnimFrames = sAnims_GOLISOPOD,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_SANDYGAST] =
@@ -21309,6 +22934,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDYGAST,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_PALOSSAND] =
@@ -21336,6 +22963,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDYGAST,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_PYUKUMUKU] =
@@ -21362,6 +22991,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_PYUKUMUKU,
+        .frontAnimFrames = sAnims_PYUKUMUKU,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TYPE_NULL] =
@@ -21388,6 +23019,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYPE_NULL,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_SILVALLY] =
@@ -21414,6 +23047,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TYPE_NULL,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SILVALLY,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_MINIOR] =
@@ -21441,6 +23076,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MINIOR,
+        .frontAnimFrames = sAnims_MINIOR,
+        .frontAnimId = ANIM_TUMBLING_FRONT_FLIP_TWICE,
     },
 
     [SPECIES_MINIOR_CORE] =
@@ -21468,6 +23105,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_MINIOR,
+        .frontAnimFrames = sAnims_MINIOR_CORE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KOMALA] =
@@ -21493,6 +23132,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_KOMALA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_DIP,
     },
 
     [SPECIES_TURTONATOR] =
@@ -21519,6 +23160,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_TURTONATOR,
+        .frontAnimFrames = sAnims_TURTONATOR,
+        .frontAnimId = ANIM_SHAKE_GLOW_RED,
     },
 
     [SPECIES_TOGEDEMARU] =
@@ -21547,6 +23190,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TOGEDEMARU,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_Togedemaru,
+        .frontAnimId = ANIM_FLASH_YELLOW,
     },
 
     [SPECIES_MIMIKYU] =
@@ -21573,6 +23218,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_MIMIKYU,
+        .frontAnimFrames = sAnims_MIMIKYU,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BRUXISH] =
@@ -21600,6 +23247,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_BRUXISH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_DRAMPA] =
@@ -21627,6 +23276,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRAMPA,
+        .frontAnimFrames = sAnims_DRAMPA,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_DHELMISE] =
@@ -21652,6 +23303,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DHELMISE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONVEX,
     },
 
     [SPECIES_JANGMO_O] =
@@ -21679,6 +23332,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_JANGMO_O,
+        .frontAnimFrames = sAnims_JANGMO_O,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_HAKAMO_O] =
@@ -21706,6 +23361,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_JANGMO_O,
+        .frontAnimFrames = sAnims_HAKAMO_O,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_KOMMO_O] =
@@ -21733,6 +23390,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_JANGMO_O,
+        .frontAnimFrames = sAnims_Kommo_O,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_TAPU_KOKO] =
@@ -21760,6 +23419,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TAPU_KOKO,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TAPU_KOKO,
+        .frontAnimId = ANIM_TRIANGLE_DOWN_TWICE,
     },
 
     [SPECIES_TAPU_LELE] =
@@ -21787,6 +23448,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TAPU_LELE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TAPU_LELE,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
     },
 
     [SPECIES_TAPU_BULU] =
@@ -21814,6 +23477,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TAPU_BULU,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TAPU_BULU,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
     },
 
     [SPECIES_TAPU_FINI] =
@@ -21841,6 +23506,9 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TAPU_FINI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TAPU_FINI,
+        .frontAnimId = ANIM_SHAKE_GLOW_BLUE_SLOW,
+        .frontAnimDelay = 5,
     },
 
     [SPECIES_COSMOG] =
@@ -21867,6 +23535,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_COSMOG,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
     [SPECIES_COSMOEM] =
@@ -21894,6 +23564,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_COSMOG,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_SOLGALEO] =
@@ -21920,6 +23592,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_COSMOG,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_LUNALA] =
@@ -21946,6 +23620,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_COSMOG,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_CIRCULAR_VIBRATE,
     },
 
     [SPECIES_NIHILEGO] =
@@ -21972,6 +23648,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_NIHILEGO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_BUZZWOLE] =
@@ -21999,6 +23677,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_BUZZWOLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_PHEROMOSA] =
@@ -22025,6 +23705,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_PHEROMOSA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_XURKITREE] =
@@ -22051,6 +23733,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_XURKITREE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW_FAST,
     },
 
     [SPECIES_CELESTEELA] =
@@ -22079,6 +23763,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_CELESTEELA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_STUTTER_SLOW,
     },
 
     [SPECIES_KARTANA] =
@@ -22105,6 +23791,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_KARTANA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_GUZZLORD] =
@@ -22131,6 +23819,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_GUZZLORD,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
     },
 
     [SPECIES_NECROZMA] =
@@ -22158,6 +23848,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_NECROZMA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_MAGEARNA] =
@@ -22184,6 +23876,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MAGEARNA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_MARSHADOW] =
@@ -22211,6 +23905,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MARSHADOW,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_MARSHADOW,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_POIPOLE] =
@@ -22237,6 +23933,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_POIPOLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_GLOW_PURPLE_SLOW,
     },
 
     [SPECIES_NAGANADEL] =
@@ -22263,6 +23961,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_NAGANADEL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_TRIANGLE_DOWN_TWICE,
     },
 
     [SPECIES_STAKATAKA] =
@@ -22289,6 +23989,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_STAKATAKA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_BLACEPHALON] =
@@ -22315,6 +24017,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_ULTRA_BEAST,
         .firstStage = SPECIES_BLACEPHALON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_SHAKE_GLOW_RED,
     },
 
     [SPECIES_ZERAORA] =
@@ -22340,6 +24044,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_ZERAORA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_MELTAN] =
@@ -22366,6 +24072,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MELTAN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_STUTTER_SLOW,
     },
 
     [SPECIES_MELMETAL] =
@@ -22390,8 +24098,10 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_IRON_FIST, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .firstStage = SPECIES_MELMETAL,
+        .firstStage = SPECIES_MELTAN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_GROOKEY] =
@@ -22418,6 +24128,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GROOKEY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_THWACKEY] =
@@ -22444,6 +24156,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GROOKEY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RILLABOOM] =
@@ -22470,6 +24184,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GROOKEY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SCORBUNNY] =
@@ -22496,6 +24212,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCORBUNNY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RABOOT] =
@@ -22522,6 +24240,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCORBUNNY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CINDERACE] =
@@ -22548,6 +24268,36 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCORBUNNY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CINDERACE_MEGA] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 146, //+30
+        .baseDefense   = 95,  //+20
+        .baseSpAttack  = 75,  //+10
+        .baseSpDefense = 95,  //+20
+        .baseSpeed     = 139, //+20
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_FIRE,
+        .catchRate = 45,
+        .expYield = 265,
+        .evYield_Speed     = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_LIBERO, ABILITY_LIBERO},
+        .abilityHidden = ABILITY_LIBERO,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SCORBUNNY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SOBBLE] =
@@ -22575,6 +24325,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOBBLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRIZZILE] =
@@ -22601,6 +24353,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOBBLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_INTELEON] =
@@ -22627,6 +24381,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SOBBLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SKWOVET] =
@@ -22654,6 +24410,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKWOVET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GREEDENT] =
@@ -22681,6 +24439,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SKWOVET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ROOKIDEE] =
@@ -22708,6 +24468,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROOKIDEE,
         .cry_Type = CRY_BIRD_SMALL,
+        .frontAnimFrames = sAnims_ROOKIDEE,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_CORVISQUIRE] =
@@ -22735,6 +24497,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROOKIDEE,
         .cry_Type = CRY_BIRD_MEDIUM,
+        .frontAnimFrames = sAnims_CORVISQUIRE,
+        .frontAnimId = ANIM_CIRCLE_INTO_BG,
     },
 
     [SPECIES_CORVIKNIGHT] =
@@ -22762,6 +24526,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROOKIDEE,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_CORVIKNIGHT,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_CORVIKNIGHT_MEGA] =
@@ -22789,6 +24555,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROOKIDEE,
         .cry_Type = CRY_BIRD_BIG,
+        .frontAnimFrames = sAnims_CORVIKNIGHT_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BLIPBUG] =
@@ -22815,6 +24583,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLIPBUG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DOTTLER] =
@@ -22842,6 +24612,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLIPBUG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ORBEETLE] =
@@ -22869,6 +24641,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLIPBUG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ORBEETLE_MEGA] =
@@ -22896,6 +24670,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_BLIPBUG,
+        .frontAnimFrames = sAnims_ORBEETLE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NICKIT] =
@@ -22923,6 +24699,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NICKIT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_THIEVUL] =
@@ -22951,6 +24729,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NICKIT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GOSSIFLEUR] =
@@ -22977,6 +24757,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOSSIFLEUR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ELDEGOSS] =
@@ -23003,6 +24785,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOSSIFLEUR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WOOLOO] =
@@ -23029,6 +24813,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOLOO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DUBWOOL] =
@@ -23055,6 +24841,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WOOLOO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CHEWTLE] =
@@ -23081,6 +24869,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHEWTLE,
+        .frontAnimFrames = sAnims_CHEWTLE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DREDNAW] =
@@ -23107,6 +24897,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHEWTLE,
+        .frontAnimFrames = sAnims_DREDNAW,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DREDNAW_MEGA] =
@@ -23133,6 +24925,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHEWTLE,
+        .frontAnimFrames = sAnims_DREDNAW_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_YAMPER] =
@@ -23159,6 +24953,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_YAMPER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BOLTUND] =
@@ -23185,6 +24981,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_YAMPER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ROLYCOLY] =
@@ -23212,6 +25010,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROLYCOLY,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_CARKOL] =
@@ -23239,6 +25039,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROLYCOLY,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_COALOSSAL] =
@@ -23266,6 +25068,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROLYCOLY,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GLOW_RED,
     },
 
     [SPECIES_COALOSSAL_MEGA] =
@@ -23293,6 +25097,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ROLYCOLY,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_COALOSSAL_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_APPLIN] =
@@ -23320,6 +25126,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_EGG_GROUP_GRASS,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FLAPPLE] =
@@ -23347,6 +25155,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FLAPPLE_MEGA] =
@@ -23374,6 +25184,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_FLAPPLE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_APPLETUN] =
@@ -23401,6 +25213,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_APPLETUN_MEGA] =
@@ -23428,6 +25242,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_APPLETUN_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_DIPPLIN] =
@@ -23455,6 +25271,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_MEDIUM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_HYDRAPPLE] =
@@ -23482,6 +25300,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_APPLIN,
         .cry_Type = CRY_DRAGON_BIG,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILICOBRA] =
@@ -23509,6 +25329,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SILICOBRA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SANDACONDA] =
@@ -23537,6 +25359,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SILICOBRA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SANDACONDA_MEGA] =
@@ -23565,6 +25389,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SILICOBRA,
+        .frontAnimFrames = sAnims_SANDACONDA_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CRAMORANT] =
@@ -23590,6 +25416,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CRAMORANT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARROKUDA] =
@@ -23616,6 +25444,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARROKUDA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BARRASKEWDA] =
@@ -23642,6 +25472,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARROKUDA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOXEL] =
@@ -23668,6 +25500,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TOXEL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOXTRICITY] =
@@ -23694,6 +25528,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TOXEL,
+        .frontAnimFrames = sAnims_TOXTRICITY,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SIZZLIPEDE] =
@@ -23720,6 +25556,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SIZZLIPEDE,
+        .frontAnimFrames = sAnims_SIZZLIPEDE,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_CENTISKORCH] =
@@ -23746,6 +25584,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SIZZLIPEDE,
+        .frontAnimFrames = sAnims_CENTISKORCH,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CENTISKORCH_MEGA] =
@@ -23772,6 +25612,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SIZZLIPEDE,
+        .frontAnimFrames = sAnims_CENTISKORCH_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CLOBBOPUS] =
@@ -23798,6 +25640,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLOBBOPUS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GRAPPLOCT] =
@@ -23824,6 +25668,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CLOBBOPUS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SINISTEA] =
@@ -23850,6 +25696,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SINISTEA,
+        .frontAnimFrames = sAnims_SINISTEA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_POLTEAGEIST] =
@@ -23876,6 +25724,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SINISTEA,
+        .frontAnimFrames = sAnims_POLTEAGEIST,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HATENNA] =
@@ -23902,6 +25752,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HATENNA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HATTREM] =
@@ -23928,6 +25780,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HATENNA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HATTERENE] =
@@ -23954,6 +25808,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HATENNA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HATTERENE_MEGA] =
@@ -23980,6 +25836,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_HATENNA,
+        .frontAnimFrames = sAnims_HATTERENE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_IMPIDIMP] =
@@ -24006,6 +25864,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_IMPIDIMP,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MORGREM] =
@@ -24032,6 +25892,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_IMPIDIMP,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GRIMMSNARL] =
@@ -24058,6 +25920,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_IMPIDIMP,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_OBSTAGOON] =
@@ -24083,7 +25947,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_DEFIANT,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .firstStage = SPECIES_ZIGZAGOON_GALARIAN,
+        .firstStage = SPECIES_ZIGZAGOON_GALAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PERRSERKER] =
@@ -24109,7 +25975,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STEELY_SPIRIT,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_MEOWTH_GALARIAN,
+        .firstStage = SPECIES_MEOWTH_GALAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CURSOLA] =
@@ -24137,7 +26005,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_PERISH_BODY,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
-        .firstStage = SPECIES_CORSOLA_GALARIAN,
+        .firstStage = SPECIES_CORSOLA_GALAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SIRFETCHD] =
@@ -24164,7 +26034,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SCRAPPY,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
-        .firstStage = SPECIES_FARFETCHD_GALARIAN,
+        .firstStage = SPECIES_FARFETCHD_GALAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MR_RIME] =
@@ -24190,7 +26062,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_ICE_BODY,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
-        .firstStage = SPECIES_MIMEJR,
+        .firstStage = SPECIES_MIME_JR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RUNERIGUS] =
@@ -24215,7 +26089,9 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_WANDERING_SPIRIT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .firstStage = SPECIES_YAMASK_GALARIAN,
+        .firstStage = SPECIES_YAMASK_GALAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MILCERY] =
@@ -24243,6 +26119,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MILCERY,
         .cry_Type = CRY_FAIRY_SMALL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE] =
@@ -24270,6 +26148,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MILCERY,
         .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_ALCREMIE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_MEGA] =
@@ -24296,6 +26176,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_ALCREMIE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FALINKS] =
@@ -24323,6 +26205,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_FALINKS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PINCURCHIN] =
@@ -24349,6 +26233,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_PINCURCHIN,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SNOM] =
@@ -24376,6 +26262,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_SNOM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FROSMOTH] =
@@ -24402,6 +26290,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FROSMOTH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_STONJOURNER] =
@@ -24427,6 +26317,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_STONJOURNER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_EISCUE] =
@@ -24452,6 +26344,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_EISCUE,
+        .frontAnimFrames = sAnims_EISCUE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_INDEEDEE] =
@@ -24478,6 +26372,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_INDEEDEE,
+        .frontAnimFrames = sAnims_INDEEDEE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MORPEKO] =
@@ -24504,6 +26400,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MORPEKO,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_MORPEKO,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CUFANT] =
@@ -24531,6 +26429,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUFANT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_COPPERAJAH] =
@@ -24558,6 +26458,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_CUFANT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRACOZOLT] =
@@ -24584,6 +26486,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRACOZOLT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARCTOZOLT] =
@@ -24610,6 +26514,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARCTOZOLT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRACOVISH] =
@@ -24636,6 +26542,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DRACOVISH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARCTOVISH] =
@@ -24662,6 +26570,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ARCTOVISH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DURALUDON] =
@@ -24688,6 +26598,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DURALUDON,
+        .frontAnimFrames = sAnims_DURALUDON,
+        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW_FAST,
     },
     
     [SPECIES_ARCHALUDON] =
@@ -24714,6 +26626,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DURALUDON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DREEPY] =
@@ -24740,6 +26654,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DREEPY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRAKLOAK] =
@@ -24766,6 +26682,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DREEPY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DRAGAPULT] =
@@ -24792,6 +26710,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_DREEPY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZACIAN] =
@@ -24818,6 +26738,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZACIAN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ZACIAN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZAMAZENTA] =
@@ -24844,6 +26766,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZAMAZENTA,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ZAMAZENTA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ETERNATUS] =
@@ -24870,6 +26794,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ETERNATUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KUBFU] =
@@ -24896,6 +26822,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KUBFU,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_URSHIFU] =
@@ -24922,6 +26850,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KUBFU,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_URSHIFU,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZARUDE] =
@@ -24948,6 +26878,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ZARUDE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_REGIELEKI] =
@@ -24974,6 +26906,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGIELEKI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_REGIDRAGO] =
@@ -25000,6 +26934,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_REGIDRAGO,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GLASTRIER] =
@@ -25026,6 +26962,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GLASTRIER,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SPECTRIER] =
@@ -25052,6 +26990,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_SPECTRIER,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CALYREX] =
@@ -25078,6 +27018,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CALYREX,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BASCULIN_WHITE_STRIPED] =
@@ -25105,9 +27047,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BASCULIN_WHITE_STRIPED,
+        .frontAnimFrames = sAnims_BASCULIN_WHITE_STRIPED,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
-    [SPECIES_DECIDUEYE_HISUIAN] =
+    [SPECIES_DECIDUEYE_HISUI] =
     {
         .baseHP        = 88,
         .baseAttack    = 112,
@@ -25131,9 +27075,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROWLET,
+        .frontAnimFrames = sAnims_DECIDUEYE_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_AVALUGG_HISUIAN] =
+    [SPECIES_AVALUGG_HISUI] =
     {
         .baseHP        = 95,
         .baseAttack    = 127,
@@ -25159,9 +27105,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BERGMITE,
+        .frontAnimFrames = sAnims_AVALUGG_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SLIGGOO_HISUIAN] =
+    [SPECIES_SLIGGOO_HISUI] =
     {
         .baseHP        = 58,
         .baseAttack    = 75,
@@ -25186,9 +27134,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOOMY,
+        .frontAnimFrames = sAnims_SLIGGOO_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GOODRA_HISUIAN] =
+    [SPECIES_GOODRA_HISUI] =
     {
         .baseHP        = 80,
         .baseAttack    = 100,
@@ -25212,9 +27162,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GOOMY,
+        .frontAnimFrames = sAnims_GOODRA_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_BRAVIARY_HISUIAN] =
+    [SPECIES_BRAVIARY_HISUI] =
     {
         .baseHP        = 110,
         .baseAttack    = 83,
@@ -25238,9 +27190,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_RUFFLET,
+        .frontAnimFrames = sAnims_BRAVIARY_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZORUA_HISUIAN] =
+    [SPECIES_ZORUA_HISUI] =
     {
         .baseHP        = 35,
         .baseAttack    = 60,
@@ -25262,10 +27216,12 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_ILLUSION, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .firstStage = SPECIES_ZORUA_HISUIAN,
+        .firstStage = SPECIES_ZORUA_HISUI,
+        .frontAnimFrames = sAnims_ZORUA_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZOROARK_HISUIAN] =
+    [SPECIES_ZOROARK_HISUI] =
     {
         .baseHP        = 55,
         .baseAttack    = 100,
@@ -25287,10 +27243,12 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_ILLUSION, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .firstStage = SPECIES_ZORUA_HISUIAN,
+        .firstStage = SPECIES_ZORUA_HISUI,
+        .frontAnimFrames = sAnims_ZOROARK_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_LILLIGANT_HISUIAN] =
+    [SPECIES_LILLIGANT_HISUI] =
     {
         .baseHP        = 70,
         .baseAttack    = 105,
@@ -25315,9 +27273,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_PETILIL,
+        .frontAnimFrames = sAnims_LILLIGANT_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SAMUROTT_HISUIAN] =
+    [SPECIES_SAMUROTT_HISUI] =
     {
         .baseHP        = 90,
         .baseAttack    = 108,
@@ -25336,14 +27296,16 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_TORRENT, ABILITY_NONE},
+        .abilities = {ABILITY_TORRENT, ABILITY_TORRENT},
         .abilityHidden = ABILITY_SHARPNESS,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_OSHAWOTT,
+        .frontAnimFrames = sAnims_SAMUROTT_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SNEASEL_HISUIAN] =
+    [SPECIES_SNEASEL_HISUI] =
     {
         .baseHP        = 55,
         .baseAttack    = 95,
@@ -25368,10 +27330,12 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_POISON_TOUCH,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
-        .firstStage = SPECIES_SNEASEL_HISUIAN,
+        .firstStage = SPECIES_SNEASEL_HISUI,
+        .frontAnimFrames = sAnims_SNEASEL_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_TYPHLOSION_HISUIAN] =
+    [SPECIES_TYPHLOSION_HISUI] =
     {
         .baseHP        = 73,
         .baseAttack    = 84,
@@ -25395,9 +27359,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_CYNDAQUIL,
+        .frontAnimFrames = sAnims_TYPHLOSION_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_VOLTORB_HISUIAN] =
+    [SPECIES_VOLTORB_HISUI] =
     {
         .baseHP        = 40,
         .baseAttack    = 30,
@@ -25421,10 +27387,12 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_AFTERMATH,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .firstStage = SPECIES_VOLTORB_HISUIAN,
+        .firstStage = SPECIES_VOLTORB_HISUI,
+        .frontAnimFrames = sAnims_VOLTORB_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ELECTRODE_HISUIAN] =
+    [SPECIES_ELECTRODE_HISUI] =
     {
         .baseHP        = 60,
         .baseAttack    = 50,
@@ -25449,10 +27417,12 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_AFTERMATH,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .firstStage = SPECIES_VOLTORB_HISUIAN,
+        .firstStage = SPECIES_VOLTORB_HISUI,
+        .frontAnimFrames = sAnims_ELECTRODE_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GROWLITHE_HISUIAN] =
+    [SPECIES_GROWLITHE_HISUI] =
     {
         .baseHP        = 60,
         .baseAttack    = 75,
@@ -25475,11 +27445,13 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_ROCK_HEAD,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_GROWLITHE_HISUIAN,
+        .firstStage = SPECIES_GROWLITHE_HISUI,
         .cry_Type = CRY_DOG_MEDIUM,
+        .frontAnimFrames = sAnims_GROWLITHE_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ARCANINE_HISUIAN] =
+    [SPECIES_ARCANINE_HISUI] =
     {
         .baseHP        = 95,
         .baseAttack    = 115,
@@ -25502,8 +27474,10 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_ROCK_HEAD,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_GROWLITHE_HISUIAN,
+        .firstStage = SPECIES_GROWLITHE_HISUI,
         .cry_Type = CRY_DOG_BIG,
+        .frontAnimFrames = sAnims_ARCANINE_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SNEASLER] =
@@ -25531,7 +27505,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_POISON_TOUCH,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
-        .firstStage = SPECIES_SNEASEL_HISUIAN,
+        .firstStage = SPECIES_SNEASEL_HISUI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ENAMORUS] =
@@ -25559,6 +27535,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_ENAMORUS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ENAMORUS,
+        .frontAnimId = ANIM_FIGURE_8,
     },
 
     [SPECIES_VENUSAUR_MEGA] =
@@ -25566,9 +27544,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 80,
         .baseAttack    = 100,
         .baseDefense   = 123,
-        .baseSpeed     = 80,
         .baseSpAttack  = 122,
         .baseSpDefense = 120,
+        .baseSpeed     = 80,
         .type1 = TYPE_GRASS,
         .type2 = TYPE_POISON,
         .catchRate = 45,
@@ -25585,7 +27563,10 @@ const struct BaseStats gBaseStats[] =
 		.abilityHidden = ABILITY_THICK_FAT,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_BULBASAUR,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CHARIZARD_MEGA_X] =
@@ -25612,6 +27593,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CHARIZARD_MEGA_Y] =
@@ -25638,6 +27621,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BLASTOISE_MEGA] =
@@ -25664,6 +27649,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BEEDRILL_MEGA] =
@@ -25692,6 +27679,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIDGEOT_MEGA] =
@@ -25718,6 +27707,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALAKAZAM_MEGA] =
@@ -25749,6 +27740,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SLOWBRO_MEGA] =
@@ -25776,6 +27769,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GENGAR_MEGA] =
@@ -25802,6 +27797,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KANGASKHAN_MEGA] =
@@ -25828,6 +27825,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PINSIR_MEGA] =
@@ -25854,6 +27853,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GYARADOS_MEGA] =
@@ -25880,6 +27881,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AERODACTYL_MEGA] =
@@ -25906,6 +27909,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MEWTWO_MEGA_X] =
@@ -25932,6 +27937,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MEWTWO_MEGA_Y] =
@@ -25958,6 +27965,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AMPHAROS_MEGA] =
@@ -25984,6 +27993,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_STEELIX_MEGA] =
@@ -26011,6 +28022,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SCIZOR_MEGA] =
@@ -26037,6 +28050,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HERACROSS_MEGA] =
@@ -26063,6 +28078,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HOUNDOOM_MEGA] =
@@ -26089,6 +28106,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TYRANITAR_MEGA] =
@@ -26115,6 +28134,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SCEPTILE_MEGA] =
@@ -26141,6 +28162,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BLAZIKEN_MEGA] =
@@ -26167,6 +28190,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SWAMPERT_MEGA] =
@@ -26193,6 +28218,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GARDEVOIR_MEGA] =
@@ -26219,16 +28246,18 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SABLEYE_MEGA] =
     {
         .baseHP        = 70,
-        .baseAttack    = 85,
+        .baseAttack    = 90,
         .baseDefense   = 125,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 85,
+        .baseSpAttack  = 90,
         .baseSpDefense = 115,
+        .baseSpeed     = 30,
         .type1 = TYPE_DARK,
         .type2 = TYPE_GHOST,
         .catchRate = 45,
@@ -26246,6 +28275,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MAWILE_MEGA] =
@@ -26253,9 +28284,9 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 50,
         .baseAttack    = 105,
         .baseDefense   = 125,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 55,
+        .baseSpAttack  = 75,
         .baseSpDefense = 95,
+        .baseSpeed     = 50,
         .type1 = TYPE_STEEL,
         .type2 = TYPE_FAIRY,
         .catchRate = 45,
@@ -26273,11 +28304,13 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AGGRON_MEGA] =
     {
-        .baseHP        = 70,
+        .baseHP        = 85,
         .baseAttack    = 140,
         .baseDefense   = 230,
         .baseSpeed     = 50,
@@ -26300,6 +28333,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MEDICHAM_MEGA] =
@@ -26326,16 +28361,18 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MANECTRIC_MEGA] =
     {
         .baseHP        = 70,
         .baseAttack    = 75,
-        .baseDefense   = 80,
-        .baseSpeed     = 135,
+        .baseDefense   = 90,
         .baseSpAttack  = 135,
-        .baseSpDefense = 80,
+        .baseSpDefense = 90,
+        .baseSpeed     = 135,
         .type1 = TYPE_ELECTRIC,
         .type2 = TYPE_ELECTRIC,
         .catchRate = 45,
@@ -26352,6 +28389,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SHARPEDO_MEGA] =
@@ -26379,6 +28418,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CAMERUPT_MEGA] =
@@ -26406,6 +28447,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALTARIA_MEGA] =
@@ -26432,6 +28475,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BANETTE_MEGA] =
@@ -26459,41 +28504,17 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
-    },
-
-    [SPECIES_ABSOL_MEGA] =
-    {
-        .baseHP        = 65,
-        .baseAttack    = 150,
-        .baseDefense   = 60,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 60,
-        .baseSpeed     = 130,
-        .type1 = TYPE_DARK,
-        .type2 = TYPE_DARK,
-        .catchRate = 30,
-        .expYield = 198,
-        .evYield_Attack    = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 25,
-        .friendship = 35,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroup1 = EGG_GROUP_FIELD,
-        .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE},
-        .abilityHidden = ABILITY_MAGIC_BOUNCE,
-        .bodyColor = BODY_COLOR_WHITE,
-        .noFlip = FALSE,
-        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GLALIE_MEGA] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
-        .baseDefense   = 80,
+        .baseDefense   = 90,
         .baseSpAttack  = 100,
-        .baseSpDefense = 80,
+        .baseSpDefense = 90,
         .baseSpeed     = 120,
         .type1 = TYPE_ICE,
         .type2 = TYPE_ICE,
@@ -26511,6 +28532,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SALAMENCE_MEGA] =
@@ -26538,6 +28561,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_METAGROSS_MEGA] =
@@ -26565,6 +28590,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LATIAS_MEGA] =
@@ -26591,6 +28618,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LATIOS_MEGA] =
@@ -26617,6 +28646,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LOPUNNY_MEGA] =
@@ -26643,16 +28674,18 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GARCHOMP_MEGA] =
     {
         .baseHP        = 108,
-        .baseAttack    = 170,
-        .baseDefense   = 115,
-        .baseSpeed     = 92,
-        .baseSpAttack  = 120,
-        .baseSpDefense = 95,
+        .baseAttack    = 160,
+        .baseDefense   = 100,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 100,
+        .baseSpeed     = 132,
         .type1 = TYPE_DRAGON,
         .type2 = TYPE_GROUND,
         .catchRate = 45,
@@ -26669,16 +28702,48 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GARCHOMP_MEGA_Z] =
+    {
+        .baseHP        = 108,
+        .baseAttack    = 110,
+        .baseDefense   = 100,
+        .baseSpAttack  = 160,
+        .baseSpDefense = 100,
+        .baseSpeed     = 132,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 45,
+        .expYield = 270,
+        .evYield_Attack    = 3,
+        .item2 = ITEM_HABAN_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 40,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_AERILATE, ABILITY_AERILATE},
+        .abilityHidden = ABILITY_AERILATE,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_GIBLE,
+		.flags = F_GROUND_INMUNITY | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LUCARIO_MEGA] =
     {
         .baseHP        = 70,
-        .baseAttack    = 145,
+        .baseAttack    = 155,
         .baseDefense   = 88,
-        .baseSpeed     = 112,
-        .baseSpAttack  = 140,
+        .baseSpAttack  = 115,
         .baseSpDefense = 70,
+        .baseSpeed     = 127,
         .type1 = TYPE_FIGHTING,
         .type2 = TYPE_STEEL,
         .catchRate = 45,
@@ -26696,6 +28761,38 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_LUCARIO_MEGA_Z] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 115,
+        .baseDefense   = 70,
+        .baseSpAttack  = 155,
+        .baseSpDefense = 88,
+        .baseSpeed     = 127,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_STEEL,
+        .catchRate = 45,
+        .expYield = 184,
+        .evYield_Attack    = 1,
+        .evYield_SpAttack  = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_MEGA_LAUNCHER, ABILITY_MEGA_LAUNCHER},
+        .abilityHidden = ABILITY_MEGA_LAUNCHER,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_RIOLU,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ABOMASNOW_MEGA] =
@@ -26723,7 +28820,10 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SNOW_WARNING,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SNOVER,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GALLADE_MEGA] =
@@ -26750,6 +28850,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_AUDINO_MEGA] =
@@ -26778,6 +28880,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
 		.flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DIANCIE_MEGA] =
@@ -26805,6 +28909,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RAYQUAZA_MEGA] =
@@ -26833,6 +28939,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
         .cry_Type = CRY_RAYQUAZA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KYOGRE_PRIMAL] =
@@ -26860,6 +28968,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
         .cry_Type = CRY_KYOGRE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GROUDON_PRIMAL] =
@@ -26887,9 +28997,11 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
         .cry_Type = CRY_GROUDON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_RATTATA_ALOLAN] =
+    [SPECIES_RATTATA_ALOLA] =
     {
         .baseHP        = 30,
         .baseAttack    = 56,
@@ -26913,10 +29025,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_THICK_FAT,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_RATTATA_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_RATICATE_ALOLAN] =
+    [SPECIES_RATICATE_ALOLA] =
     {
         .baseHP        = 75,
         .baseAttack    = 71,
@@ -26940,10 +29053,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_THICK_FAT,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_RATICATE_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_RAICHU_ALOLAN] =
+    [SPECIES_RAICHU_ALOLA] =
     {
         .baseHP        = 60,
         .baseAttack    = 85,
@@ -26969,11 +29083,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_RAICHU_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SANDSHREW_ALOLAN] =
+    [SPECIES_SANDSHREW_ALOLA] =
     {
         .baseHP        = 50,
         .baseAttack    = 75,
@@ -27003,10 +29118,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_SANDSHREW_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SANDSLASH_ALOLAN] =
+    [SPECIES_SANDSLASH_ALOLA] =
     {
         .baseHP        = 75,
         .baseAttack    = 110, //100 -> 110
@@ -27034,10 +29150,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_SANDSLASH_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_VULPIX_ALOLAN] =
+    [SPECIES_VULPIX_ALOLA] =
     {
         .baseHP        = 38,
         .baseAttack    = 41,
@@ -27067,10 +29184,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_VULPIX_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_NINETALES_ALOLAN] =
+    [SPECIES_NINETALES_ALOLA] =
     {
         .baseHP        = 73,
         .baseAttack    = 67,
@@ -27099,10 +29217,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_NINETALES_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_DIGLETT_ALOLAN] =
+    [SPECIES_DIGLETT_ALOLA] =
     {
         .baseHP        = 10,
         .baseAttack    = 55,
@@ -27130,10 +29249,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_DIGLETT_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_DUGTRIO_ALOLAN] =
+    [SPECIES_DUGTRIO_ALOLA] =
     {
         .baseHP        = 35,
         .baseAttack    = 100,
@@ -27161,10 +29281,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_DUGTRIO_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MEOWTH_ALOLAN] =
+    [SPECIES_MEOWTH_ALOLA] =
     {
         .baseHP        = 40,
         .baseAttack    = 35,
@@ -27192,10 +29313,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_MEOWTH_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PERSIAN_ALOLAN] =
+    [SPECIES_PERSIAN_ALOLA] =
     {
         .baseHP        = 65,
         .baseAttack    = 60,
@@ -27223,10 +29345,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_PERSIAN_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GEODUDE_ALOLAN] =
+    [SPECIES_GEODUDE_ALOLA] =
     {
         .baseHP        = 40,
         .baseAttack    = 80,
@@ -27254,11 +29377,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
         .cry_Type = CRY_MINERAL_SMALL,
+        .frontAnimFrames = sAnims_GEODUDE_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GRAVELER_ALOLAN] =
+    [SPECIES_GRAVELER_ALOLA] =
     {
         .baseHP        = 55,
         .baseAttack    = 95,
@@ -27286,11 +29410,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
         .cry_Type = CRY_MINERAL_MEDIUM,
+        .frontAnimFrames = sAnims_GRAVELER_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GOLEM_ALOLAN] =
+    [SPECIES_GOLEM_ALOLA] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
@@ -27315,11 +29440,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
         .cry_Type = CRY_MINERAL_BIG,
+        .frontAnimFrames = sAnims_GOLEM_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_GRIMER_ALOLAN] =
+    [SPECIES_GRIMER_ALOLA] =
     {
         .baseHP        = 80,
         .baseAttack    = 80,
@@ -27342,10 +29468,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_POWER_OF_ALCHEMY,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_GRIMER_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MUK_ALOLAN] =
+    [SPECIES_MUK_ALOLA] =
     {
         .baseHP        = 105,
         .baseAttack    = 105,
@@ -27369,10 +29496,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_POWER_OF_ALCHEMY,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_MUK_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_EXEGGUTOR_ALOLAN] =
+    [SPECIES_EXEGGUTOR_ALOLA] =
     {
         .baseHP        = 95,
         .baseAttack    = 105,
@@ -27399,10 +29527,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_EXEGGUTOR_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MAROWAK_ALOLAN] =
+    [SPECIES_MAROWAK_ALOLA] =
     {
         .baseHP        = 60,
         .baseAttack    = 80,
@@ -27430,10 +29559,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_ROCK_HEAD,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
-        .flags = F_ALOLAN_FORM,
+        .frontAnimFrames = sAnims_MAROWAK_ALOLA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MEOWTH_GALARIAN] =
+    [SPECIES_MEOWTH_GALAR] =
     {
         .baseHP        = 50,
         .baseAttack    = 65,
@@ -27461,9 +29591,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_MEOWTH_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PONYTA_GALARIAN] =
+    [SPECIES_PONYTA_GALAR] =
     {
         .baseHP        = 50,
         .baseAttack    = 85,
@@ -27491,9 +29623,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_PONYTA_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_RAPIDASH_GALARIAN] =
+    [SPECIES_RAPIDASH_GALAR] =
     {
         .baseHP        = 65,
         .baseAttack    = 100,
@@ -27521,9 +29655,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_RAPIDASH_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SLOWPOKE_GALARIAN] =
+    [SPECIES_SLOWPOKE_GALAR] =
     {
         .baseHP        = 90,
         .baseAttack    = 65,
@@ -27551,10 +29687,12 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_SLOWPOKE_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
 
-    [SPECIES_SLOWBRO_GALARIAN] =
+    [SPECIES_SLOWBRO_GALAR] =
     {
         .baseHP        = 95,
         .baseAttack    = 100,
@@ -27582,9 +29720,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_SLOWBRO_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_FARFETCHD_GALARIAN] =
+    [SPECIES_FARFETCHD_GALAR] =
     {
         .baseHP        = 52,
         .baseAttack    = 95,
@@ -27613,10 +29753,12 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
-        .firstStage = SPECIES_FARFETCHD_GALARIAN,
+        .firstStage = SPECIES_FARFETCHD_GALAR,
+        .frontAnimFrames = sAnims_FARFETCHD_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_WEEZING_GALARIAN] =
+    [SPECIES_WEEZING_GALAR] =
     {
         .baseHP        = 65,
         .baseAttack    = 90,
@@ -27642,10 +29784,13 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_MISTY_SURGE,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .firstStage = SPECIES_KOFFING,
         .flags = F_GALARIAN_FORM | F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_WEEZING_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MR_MIME_GALARIAN] =
+    [SPECIES_MR_MIME_GALAR] =
     {
         .baseHP        = 50,
         .baseAttack    = 65,
@@ -27673,9 +29818,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_MR_MIME_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ARTICUNO_GALARIAN] =
+    [SPECIES_ARTICUNO_GALAR] =
     {
         .baseHP        = 90,
         .baseAttack    = 85,
@@ -27702,9 +29849,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_ARTICUNO_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZAPDOS_GALARIAN] =
+    [SPECIES_ZAPDOS_GALAR] =
     {
         .baseHP        = 90,
         .baseAttack    = 125,
@@ -27731,9 +29880,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_ZAPDOS_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MOLTRES_GALARIAN] =
+    [SPECIES_MOLTRES_GALAR] =
     {
         .baseHP        = 90,
         .baseAttack    = 85,
@@ -27760,9 +29911,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_MOLTRES_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_SLOWKING_GALARIAN] =
+    [SPECIES_SLOWKING_GALAR] =
     {
         .baseHP        = 95,
         .baseAttack    = 65,
@@ -27790,9 +29943,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_SLOWKING_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_CORSOLA_GALARIAN] =
+    [SPECIES_CORSOLA_GALAR] =
     {
         .baseHP        = 60,
         .baseAttack    = 55,
@@ -27821,9 +29976,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_CORSOLA_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZIGZAGOON_GALARIAN] =
+    [SPECIES_ZIGZAGOON_GALAR] =
     {
         .baseHP        = 38,
         .baseAttack    = 30,
@@ -27851,9 +30008,12 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .firstStage = SPECIES_ZIGZAGOON_GALAR,
+        .frontAnimFrames = sAnims_ZIGZAGOON_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_LINOONE_GALARIAN] =
+    [SPECIES_LINOONE_GALAR] =
     {
         .baseHP        = 78,
         .baseAttack    = 70,
@@ -27881,9 +30041,12 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .firstStage = SPECIES_ZIGZAGOON_GALAR,
+        .frontAnimFrames = sAnims_LINOONE_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_DARUMAKA_GALARIAN] =
+    [SPECIES_DARUMAKA_GALAR] =
     {
         .baseHP        = 70,
         .baseAttack    = 90,
@@ -27906,10 +30069,13 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INNER_FOCUS,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_DARUMAKA_GALAR,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_DARUMAKA_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_DARMANITAN_GALARIAN] =
+    [SPECIES_DARMANITAN_GALAR] =
     {
         .baseHP        = 105,
         .baseAttack    = 140,
@@ -27938,9 +30104,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_DARMANITAN_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_YAMASK_GALARIAN] =
+    [SPECIES_YAMASK_GALAR] =
     {
         .baseHP        = 38,
         .baseAttack    = 55,
@@ -27967,9 +30135,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_YAMASK_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_STUNFISK_GALARIAN] =
+    [SPECIES_STUNFISK_GALAR] =
     {
         .baseHP        = 109,
         .baseAttack    = 81,
@@ -27996,6 +30166,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_STUNFISK_GALAR,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIKACHU_COSPLAY] =
@@ -28022,6 +30194,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIKACHU_ROCK_STAR] =
@@ -28048,6 +30222,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIKACHU_BELLE] =
@@ -28074,6 +30250,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIKACHU_POP_STAR] =
@@ -28100,9 +30278,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_PH_D] =
+    [SPECIES_PIKACHU_PHD] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28126,6 +30306,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PIKACHU_LIBRE] =
@@ -28152,9 +30334,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_LIGHTNING_ROD,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_ORIGINAL_CAP] =
+    [SPECIES_PIKACHU_ORIGINAL] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28179,9 +30363,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_HOENN_CAP] =
+    [SPECIES_PIKACHU_HOENN] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28206,9 +30392,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_SINNOH_CAP] =
+    [SPECIES_PIKACHU_SINNOH] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28233,9 +30421,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_UNOVA_CAP] =
+    [SPECIES_PIKACHU_UNOVA] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28260,9 +30450,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_KALOS_CAP] =
+    [SPECIES_PIKACHU_KALOS] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28287,9 +30479,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_ALOLA_CAP] =
+    [SPECIES_PIKACHU_ALOLA] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28314,9 +30508,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_PARTNER_CAP] =
+    [SPECIES_PIKACHU_PARTNER] =
     {
         .baseHP        = 75,
         .baseAttack    = 85,
@@ -28341,9 +30537,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_PIKACHU_WORLD_CAP] =
+    [SPECIES_PIKACHU_WORLD] =
     {
         .baseHP        = 35,
         .baseAttack    = 55,
@@ -28368,6 +30566,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_UNOBTAINABLE_FORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PICHU_SPIKY_EARED] =
@@ -28394,6 +30594,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .cry_Type = CRY_PIKACHU,
+        .frontAnimFrames = sAnims_PICHU,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_UNOWN_B] =
@@ -28420,6 +30622,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_B,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_C] =
@@ -28446,6 +30650,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_C,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_D] =
@@ -28472,6 +30678,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_D,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_E] =
@@ -28498,6 +30706,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_E,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_F] =
@@ -28524,6 +30734,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_F,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_G] =
@@ -28550,6 +30762,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_G,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_H] =
@@ -28576,6 +30790,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_H,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_I] =
@@ -28602,6 +30818,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_I,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_J] =
@@ -28628,6 +30846,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_J,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_K] =
@@ -28654,6 +30874,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_K,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_L] =
@@ -28680,6 +30902,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_L,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_M] =
@@ -28706,6 +30930,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_M,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_N] =
@@ -28732,6 +30958,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_N,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_O] =
@@ -28758,6 +30986,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_O,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_P] =
@@ -28784,6 +31014,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_P,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_Q] =
@@ -28810,6 +31042,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_Q,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_R] =
@@ -28836,6 +31070,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_R,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_S] =
@@ -28862,6 +31098,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_S,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_T] =
@@ -28888,6 +31126,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_T,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_U] =
@@ -28914,6 +31154,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_U,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_V] =
@@ -28940,6 +31182,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_V,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_W] =
@@ -28966,6 +31210,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_W,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_X] =
@@ -28992,6 +31238,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_X,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_Y] =
@@ -29018,6 +31266,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_Y,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_UNOWN_Z] =
@@ -29044,9 +31294,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_Z,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_UNOWN_EMARK] =
+    [SPECIES_UNOWN_EXCLAMATION] =
     {
         .baseHP        = 48,
         .baseAttack    = 72,
@@ -29070,9 +31322,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_EXCLAMATION,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_UNOWN_QMARK] =
+    [SPECIES_UNOWN_QUESTION] =
     {
         .baseHP        = 48,
         .baseAttack    = 72,
@@ -29096,6 +31350,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_UNOWN_QUESTION,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CASTFORM_SUNNY] =
@@ -29122,6 +31378,8 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_FORECAST, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_CASTFORM_SUNNY,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_CASTFORM_RAINY] =
@@ -29148,6 +31406,8 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_FORECAST, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_CASTFORM_RAINY,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST,
     },
 
     [SPECIES_CASTFORM_SNOWY] =
@@ -29174,6 +31434,8 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_FORECAST, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_CASTFORM_SNOWY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_DEOXYS_ATTACK] =
@@ -29199,7 +31461,9 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .flags = F_UNOBTAINABLE_FORM,
+        .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DEOXYS_ATTACK,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DEOXYS_DEFENSE] =
@@ -29225,7 +31489,9 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .flags = F_UNOBTAINABLE_FORM,
+        .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DEOXYS_DEFENSE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_DEOXYS_SPEED] =
@@ -29250,10 +31516,12 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
-        .flags = F_UNOBTAINABLE_FORM,
+        .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_DEOXYS_SPEED,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_BURMY_SANDY_CLOAK] =
+    [SPECIES_BURMY_SANDY] =
     {
         .baseHP        = 40,
         .baseAttack    = 29,
@@ -29275,9 +31543,11 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_SHED_SKIN, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
-    [SPECIES_BURMY_TRASH_CLOAK] =
+    [SPECIES_BURMY_TRASH] =
     {
         .baseHP        = 40,
         .baseAttack    = 29,
@@ -29299,9 +31569,11 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_SHED_SKIN, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
-    [SPECIES_WORMADAM_SANDY_CLOAK] =
+    [SPECIES_WORMADAM_SANDY] =
     {
         .baseHP        = 60,
         .baseAttack    = 79,
@@ -29329,9 +31601,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST_SHORT,
     },
 
-    [SPECIES_WORMADAM_TRASH_CLOAK] =
+    [SPECIES_WORMADAM_TRASH] =
     {
         .baseHP        = 60,
         .baseAttack    = 69,
@@ -29360,6 +31634,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST_SHORT,
     },
 
     [SPECIES_CHERRIM_SUNSHINE] =
@@ -29389,9 +31665,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = TRUE,
+        .frontAnimFrames = sAnims_CHERRIM,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     },
 
-    [SPECIES_SHELLOS_EAST_SEA] =
+    [SPECIES_SHELLOS_EAST] =
     {
         .baseHP        = 76,
         .baseAttack    = 48,
@@ -29418,9 +31696,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SHELLOS_EAST,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
-    [SPECIES_GASTRODON_EAST_SEA] =
+    [SPECIES_GASTRODON_EAST] =
     {
         .baseHP        = 111,
         .baseAttack    = 83,
@@ -29447,6 +31728,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SHELLOS_EAST,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
     },
 
     [SPECIES_ROTOM_HEAT] =
@@ -29472,8 +31756,11 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_OMINOUS_VIBE, ABILITY_MOTOR_DRIVE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .firstStage = SPECIES_ROTOM,
 		.flags = F_GROUND_INMUNITY,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM_HEAT,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ROTOM_WASH] =
@@ -29501,6 +31788,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM_WASH,
+        .frontAnimId = ANIM_V_JUMPS_SMALL,
     },
 
     [SPECIES_ROTOM_FROST] =
@@ -29528,6 +31817,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM_FROST,
+        .frontAnimId = ANIM_H_STRETCH,
     },
 
     [SPECIES_ROTOM_FAN] =
@@ -29554,6 +31845,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM_FAN,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
+        .frontAnimDelay = 7,
     },
 
     [SPECIES_ROTOM_MOW] =
@@ -29581,6 +31875,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY,
         .cry_Type = CRY_ROTOM,
+        .frontAnimFrames = sAnims_ROTOM_MOW,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_GIRATINA_ORIGIN] =
@@ -29607,6 +31903,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
 		.flags = F_GROUND_INMUNITY | F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_GIRATINA_ORIGIN,
+        .frontAnimId = ANIM_LUNGE_GROW,
     },
 
     [SPECIES_SHAYMIN_SKY] =
@@ -29634,6 +31932,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SHAYMIN_SKY,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_ARCEUS_FIGHTING] =
@@ -29663,6 +31963,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_FLYING] =
@@ -29692,6 +31994,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_POISON] =
@@ -29721,6 +32025,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_GROUND] =
@@ -29750,6 +32056,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_ROCK] =
@@ -29779,6 +32087,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_BUG] =
@@ -29808,6 +32118,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_GHOST] =
@@ -29837,6 +32149,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_STEEL] =
@@ -29866,6 +32180,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_FIRE] =
@@ -29895,6 +32211,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_WATER] =
@@ -29924,6 +32242,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_GRASS] =
@@ -29953,6 +32273,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_ELECTRIC] =
@@ -29982,6 +32304,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_PSYCHIC] =
@@ -30011,6 +32335,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_ICE] =
@@ -30040,6 +32366,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_DRAGON] =
@@ -30069,6 +32397,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_DARK] =
@@ -30098,6 +32428,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ARCEUS_FAIRY] =
@@ -30127,6 +32459,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_BASCULIN_BLUE_STRIPED] =
@@ -30156,10 +32490,13 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_ROCK_HEAD, ABILITY_NONE},
         #endif
         .bodyColor = BODY_COLOR_GREEN,
+        .firstStage = SPECIES_BASCULIN_BLUE_STRIPED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Basculin,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
-    [SPECIES_DARMANITAN_ZEN_MODE] =
+    [SPECIES_DARMANITAN_ZEN] =
     {
         .baseHP        = 105,
         .baseAttack    = 30,
@@ -30186,9 +32523,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_DARUMAKA,
+        .frontAnimFrames = sAnims_DARMANITAN_ZEN,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_DARMANITAN_ZEN_MODE_GALARIAN] =
+    [SPECIES_DARMANITAN_GALAR_ZEN] =
     {
         .baseHP        = 105,
         .baseAttack    = 160,
@@ -30216,6 +32556,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_GALARIAN_FORM,
+        .frontAnimFrames = sAnims_DARMANITAN_GALAR_ZEN,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DEERLING_SUMMER] =
@@ -30245,6 +32587,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Deerling,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DEERLING_AUTUMN] =
@@ -30274,6 +32618,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Deerling,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DEERLING_WINTER] =
@@ -30303,6 +32649,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Deerling,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SAWSBUCK_SUMMER] =
@@ -30332,6 +32680,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Sawsbuck,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SAWSBUCK_AUTUMN] =
@@ -30361,6 +32711,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Sawsbuck,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SAWSBUCK_WINTER] =
@@ -30390,6 +32742,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_SERENE_GRACE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Sawsbuck,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TORNADUS_THERIAN] =
@@ -30419,6 +32773,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TORNADUS_THERIAN,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_THUNDURUS_THERIAN] =
@@ -30444,6 +32800,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_THUNDURUS_THERIAN,
+        .frontAnimId = ANIM_RISING_WOBBLE,
     },
 
     [SPECIES_LANDORUS_THERIAN] =
@@ -30469,6 +32827,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_LANDORUS_THERIAN,
+        .frontAnimId = ANIM_CIRCULAR_VIBRATE,
     },
 
     [SPECIES_KYUREM_WHITE] =
@@ -30498,6 +32858,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_KYUREM_WHITE,
+        .frontAnimId = ANIM_H_SHAKE,
     },
 
     [SPECIES_KYUREM_BLACK] =
@@ -30527,6 +32889,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_KYUREM_BLACK,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_KELDEO_RESOLUTE] =
@@ -30556,6 +32920,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_KELDEO_RESOLUTE,
+        .frontAnimId = ANIM_V_JUMPS_H_JUMPS,
     },
 
     [SPECIES_MELOETTA_PIROUETTE] =
@@ -30585,9 +32951,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_MELOETTA_PIROUETTE,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
-    [SPECIES_GENESECT_DOUSE_DRIVE] =
+    [SPECIES_GENESECT_DOUSE] =
     {
         .baseHP        = 71,
         .baseAttack    = 120,
@@ -30616,9 +32984,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
-    [SPECIES_GENESECT_SHOCK_DRIVE] =
+    [SPECIES_GENESECT_SHOCK] =
     {
         .baseHP        = 71,
         .baseAttack    = 120,
@@ -30647,9 +33017,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
-    [SPECIES_GENESECT_BURN_DRIVE] =
+    [SPECIES_GENESECT_BURN] =
     {
         .baseHP        = 71,
         .baseAttack    = 120,
@@ -30678,9 +33050,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
-    [SPECIES_GENESECT_CHILL_DRIVE] =
+    [SPECIES_GENESECT_CHILL] =
     {
         .baseHP        = 71,
         .baseAttack    = 120,
@@ -30709,6 +33083,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
     },
 
     [SPECIES_GRENINJA_ASH] =
@@ -30734,6 +33110,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_BATTLE_BOND,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FROAKIE,
+        .frontAnimFrames = sAnims_GRENINJA,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_VIVILLON_POLAR] =
@@ -30763,6 +33142,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_TUNDRA] =
@@ -30792,6 +33174,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_CONTINENTAL] =
@@ -30821,6 +33206,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_GARDEN] =
@@ -30850,6 +33238,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_ELEGANT] =
@@ -30879,6 +33270,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_MEADOW] =
@@ -30908,6 +33302,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_MODERN] =
@@ -30937,6 +33334,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_MARINE] =
@@ -30966,6 +33366,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_ARCHIPELAGO] =
@@ -30995,6 +33398,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_HIGH_PLAINS] =
@@ -31024,6 +33430,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_SANDSTORM] =
@@ -31053,6 +33462,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_RIVER] =
@@ -31082,6 +33494,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_MONSOON] =
@@ -31111,6 +33526,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_SAVANNA] =
@@ -31140,6 +33558,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_SUN] =
@@ -31169,6 +33590,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_OCEAN] =
@@ -31198,6 +33622,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_JUNGLE] =
@@ -31227,6 +33654,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
     [SPECIES_VIVILLON_FANCY] =
@@ -31256,9 +33686,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
-    [SPECIES_VIVILLON_POKE_BALL] =
+    [SPECIES_VIVILLON_POKEBALL] =
     {
         .baseHP        = 80,
         .baseAttack    = 52,
@@ -31285,9 +33718,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCATTERBUG,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_ZIGZAG_SLOW,
     },
 
-    [SPECIES_FLABEBE_YELLOW_FLOWER] =
+    [SPECIES_FLABEBE_YELLOW] =
     {
         .baseHP        = 44,
         .baseAttack    = 38,
@@ -31314,9 +33750,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE_YELLOW,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
-    [SPECIES_FLABEBE_ORANGE_FLOWER] =
+    [SPECIES_FLABEBE_ORANGE] =
     {
         .baseHP        = 44,
         .baseAttack    = 38,
@@ -31343,9 +33782,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE_ORANGE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
-    [SPECIES_FLABEBE_BLUE_FLOWER] =
+    [SPECIES_FLABEBE_BLUE] =
     {
         .baseHP        = 44,
         .baseAttack    = 38,
@@ -31372,9 +33814,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE_BLUE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
-    [SPECIES_FLABEBE_WHITE_FLOWER] =
+    [SPECIES_FLABEBE_WHITE] =
     {
         .baseHP        = 44,
         .baseAttack    = 38,
@@ -31401,9 +33846,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_SWING_CONCAVE_FAST_SHORT,
     },
 
-    [SPECIES_FLOETTE_YELLOW_FLOWER] =
+    [SPECIES_FLOETTE_YELLOW] =
     {
         .baseHP        = 54,
         .baseAttack    = 45,
@@ -31430,9 +33878,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
-    [SPECIES_FLOETTE_ORANGE_FLOWER] =
+    [SPECIES_FLOETTE_ORANGE] =
     {
         .baseHP        = 54,
         .baseAttack    = 45,
@@ -31459,9 +33910,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FLABEBE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
-    [SPECIES_FLOETTE_BLUE_FLOWER] =
+    [SPECIES_FLOETTE_BLUE] =
     {
         .baseHP        = 54,
         .baseAttack    = 45,
@@ -31488,9 +33942,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
-    [SPECIES_FLOETTE_WHITE_FLOWER] =
+    [SPECIES_FLOETTE_WHITE] =
     {
         .baseHP        = 54,
         .baseAttack    = 45,
@@ -31517,9 +33973,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
-    [SPECIES_FLOETTE_ETERNAL_FLOWER] =
+    [SPECIES_FLOETTE_ETERNAL] =
     {
         .baseHP        = 74,
         .baseAttack    = 65,
@@ -31546,9 +34004,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
-    [SPECIES_FLORGES_YELLOW_FLOWER] =
+    [SPECIES_FLORGES_YELLOW] =
     {
         .baseHP        = 78,
         .baseAttack    = 65,
@@ -31575,9 +34035,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_FLORGES_ORANGE_FLOWER] =
+    [SPECIES_FLORGES_ORANGE] =
     {
         .baseHP        = 78,
         .baseAttack    = 65,
@@ -31604,9 +34066,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_FLORGES_BLUE_FLOWER] =
+    [SPECIES_FLORGES_BLUE] =
     {
         .baseHP        = 78,
         .baseAttack    = 65,
@@ -31633,9 +34097,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_FLORGES_WHITE_FLOWER] =
+    [SPECIES_FLORGES_WHITE] =
     {
         .baseHP        = 78,
         .baseAttack    = 65,
@@ -31662,9 +34128,65 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
-    [SPECIES_FURFROU_HEART_TRIM] =
+    [SPECIES_FURFROU_HEART] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 80,
+        .baseDefense   = 60,
+        .baseSpeed     = 102,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 90,
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_NORMAL,
+        .catchRate = 160,
+        .expYield = 165,
+        .evYield_Speed     = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_FUR_COAT, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_HEART,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
+    },
+
+    [SPECIES_FURFROU_STAR] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 80,
+        .baseDefense   = 60,
+        .baseSpeed     = 102,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 90,
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_NORMAL,
+        .catchRate = 160,
+        .expYield = 165,
+        .evYield_Speed     = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_FUR_COAT, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_STAR,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
+    },
+
+    [SPECIES_FURFROU_DIAMOND] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31690,9 +34212,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_DIAMOND,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_STAR_TRIM] =
+    [SPECIES_FURFROU_DEBUTANTE] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31718,9 +34243,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_DEBUTANTE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_DIAMOND_TRIM] =
+    [SPECIES_FURFROU_MATRON] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31746,9 +34274,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_MATRON,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_DEBUTANTE_TRIM] =
+    [SPECIES_FURFROU_DANDY] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31774,9 +34305,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_DANDY,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_MATRON_TRIM] =
+    [SPECIES_FURFROU_LA_REINE] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31802,9 +34336,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_LA_REINE,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_DANDY_TRIM] =
+    [SPECIES_FURFROU_KABUKI] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31830,9 +34367,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_KABUKI,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_LA_REINE_TRIM] =
+    [SPECIES_FURFROU_PHARAOH] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -31858,65 +34398,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FURFROU_PHARAOH,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE,
     },
 
-    [SPECIES_FURFROU_KABUKI_TRIM] =
-    {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 60,
-        .baseSpeed     = 102,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 90,
-        .type1 = TYPE_NORMAL,
-        .type2 = TYPE_NORMAL,
-        .catchRate = 160,
-        .expYield = 165,
-        .evYield_Speed     = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroup1 = EGG_GROUP_FIELD,
-        .eggGroup2 = EGG_GROUP_FIELD,
-        #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_FUR_COAT, ABILITY_NONE},
-        #else
-            .abilities = {ABILITY_NONE, ABILITY_NONE},
-        #endif
-        .bodyColor = BODY_COLOR_WHITE,
-        .noFlip = FALSE,
-    },
-
-    [SPECIES_FURFROU_PHARAOH_TRIM] =
-    {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 60,
-        .baseSpeed     = 102,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 90,
-        .type1 = TYPE_NORMAL,
-        .type2 = TYPE_NORMAL,
-        .catchRate = 160,
-        .expYield = 165,
-        .evYield_Speed     = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroup1 = EGG_GROUP_FIELD,
-        .eggGroup2 = EGG_GROUP_FIELD,
-        #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_FUR_COAT, ABILITY_NONE},
-        #else
-            .abilities = {ABILITY_NONE, ABILITY_NONE},
-        #endif
-        .bodyColor = BODY_COLOR_WHITE,
-        .noFlip = FALSE,
-    },
-
-    [SPECIES_MEOWSTIC_FEMALE] =
+    [SPECIES_MEOWSTIC_F] =
     {
         .baseHP        = 74,
         .baseAttack    = 48,
@@ -31943,6 +34430,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_ESPURR,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_AEGISLASH_BLADE] =
@@ -31974,6 +34464,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STANCE_CHANGE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_HONEDGE,
+        .frontAnimFrames = sAnims_AEGISLASH_BLADE,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
     },
 
     [SPECIES_PUMPKABOO_SMALL] =
@@ -32003,6 +34496,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Pumpkaboo,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_PUMPKABOO_LARGE] =
@@ -32032,6 +34528,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Pumpkaboo,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_PUMPKABOO_SUPER] =
@@ -32061,6 +34560,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Pumpkaboo,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
     },
 
     [SPECIES_GOURGEIST_SMALL] =
@@ -32090,6 +34592,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Gourgeist,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_GOURGEIST_LARGE] =
@@ -32119,6 +34624,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Gourgeist,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_GOURGEIST_SUPER] =
@@ -32148,6 +34656,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INSOMNIA,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_PUMPKABOO,
+        .frontAnimFrames = sAnims_Gourgeist,
+        .frontAnimId = ANIM_SHRINK_GROW,
     },
 
     [SPECIES_XERNEAS_ACTIVE] =
@@ -32176,7 +34687,10 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_XERNEAS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_Xerneas,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_ZYGARDE_10] =
@@ -32206,6 +34720,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_ZYGARDE_10,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] =
@@ -32235,6 +34751,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_Zygarde10,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] =
@@ -32264,6 +34782,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_Zygarde50,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_ZYGARDE_COMPLETE] =
@@ -32293,6 +34813,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_ZYGARDE_COMPLETE,
+        .frontAnimId = ANIM_GROW_VIBRATE,
     },
 
     [SPECIES_HOOPA_UNBOUND] =
@@ -32322,6 +34844,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .cry_Type = CRY_HOOPA,
+        .frontAnimFrames = sAnims_HOOPA_UNBOUND,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
     },
 
     [SPECIES_ORICORIO_POM_POM] =
@@ -32353,9 +34877,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ORICORIO_PA_U] =
+    [SPECIES_ORICORIO_PAU] =
     {
         .baseHP        = 75,
         .baseAttack    = 70,
@@ -32384,6 +34910,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ORICORIO_SENSU] =
@@ -32415,6 +34943,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ROCKRUFF_OWN_TEMPO] =
@@ -32439,6 +34969,8 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_OWN_TEMPO, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_Rockruff,
+        .frontAnimId = ANIM_V_STRETCH,
     },
 
     [SPECIES_LYCANROC_MIDNIGHT] =
@@ -32466,6 +34998,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .firstStage = SPECIES_ROCKRUFF,
+        .frontAnimFrames = sAnims_LYCANROC_MIDNIGHT,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_SLOW,
     },
 
     [SPECIES_LYCANROC_DUSK] =
@@ -32495,6 +35030,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_ROCKRUFF,
+        .frontAnimFrames = sAnims_LYCANROC_DUSK,
+        .frontAnimId = ANIM_V_SHAKE,
     },
 
     [SPECIES_WISHIWASHI_SCHOOL] =
@@ -32523,6 +35061,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_WISHIWASHI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_FIGHTING] =
@@ -32551,6 +35092,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .firstStage = SPECIES_TYPE_NULL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_FLYING] =
@@ -32579,6 +35123,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_POISON] =
@@ -32607,6 +35153,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_GROUND] =
@@ -32635,6 +35183,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_ROCK] =
@@ -32663,6 +35213,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_BUG] =
@@ -32691,6 +35243,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_GHOST] =
@@ -32719,6 +35273,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_STEEL] =
@@ -32747,6 +35303,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_FIRE] =
@@ -32775,6 +35333,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_WATER] =
@@ -32803,6 +35363,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_GRASS] =
@@ -32831,6 +35393,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_ELECTRIC] =
@@ -32859,6 +35423,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_PSYCHIC] =
@@ -32887,6 +35453,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_ICE] =
@@ -32915,6 +35483,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_DRAGON] =
@@ -32943,6 +35513,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_DARK] =
@@ -32971,6 +35543,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SILVALLY_FAIRY] =
@@ -32999,6 +35573,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MIMIKYU_BUSTED] =
@@ -33027,6 +35603,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NECROZMA_DUSK_MANE] =
@@ -33055,6 +35633,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NECROZMA_DAWN_WINGS] =
@@ -33083,6 +35663,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NECROZMA_ULTRA] =
@@ -33113,9 +35695,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_MAGEARNA_ORIGINAL_COLOR] =
+    [SPECIES_MAGEARNA_ORIGINAL] =
     {
         .baseHP        = 80,
         .baseAttack    = 95,
@@ -33141,6 +35725,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE_SLOW,
     },
 
     [SPECIES_CRAMORANT_GULPING] =
@@ -33169,6 +35755,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CRAMORANT_GORGING] =
@@ -33196,7 +35784,10 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
         .bodyColor = BODY_COLOR_BLUE,
+        .firstStage = SPECIES_CRAMORANT,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOXTRICITY_LOW_KEY] =
@@ -33218,14 +35809,13 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_PUNK_ROCK, ABILITY_MINUS},
-            .abilityHidden = ABILITY_TECHNICIAN,
-        #else
-            .abilities = {ABILITY_NONE, ABILITY_MINUS},
-        #endif
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_MINUS},
+        .abilityHidden = ABILITY_TECHNICIAN,
         .bodyColor = BODY_COLOR_PURPLE,
+        .firstStage = SPECIES_TOXEL,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SINISTEA_ANTIQUE] =
@@ -33254,7 +35844,10 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
         .bodyColor = BODY_COLOR_PURPLE,
+        .firstStage = SPECIES_SINISTEA,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_POLTEAGEIST_ANTIQUE] =
@@ -33283,7 +35876,10 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_NONE, ABILITY_NONE},
         #endif
         .bodyColor = BODY_COLOR_PURPLE,
+        .firstStage = SPECIES_SINISTEA,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_RUBY_CREAM] =
@@ -33313,6 +35909,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_MATCHA_CREAM] =
@@ -33342,6 +35941,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_MINT_CREAM] =
@@ -33371,6 +35973,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_LEMON_CREAM] =
@@ -33400,6 +36005,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_SALTED_CREAM] =
@@ -33429,6 +36037,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_RUBY_SWIRL] =
@@ -33458,6 +36069,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_CARAMEL_SWIRL] =
@@ -33487,6 +36101,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ALCREMIE_RAINBOW_SWIRL] =
@@ -33516,9 +36133,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .firstStage = SPECIES_MILCERY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_EISCUE_NOICE_FACE] =
+    [SPECIES_EISCUE_NOICE] =
     {
         .baseHP        = 75,
         .baseAttack    = 80,
@@ -33544,9 +36164,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_EISCUE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_INDEEDEE_FEMALE] =
+    [SPECIES_INDEEDEE_F] =
     {
         .baseHP        = 70,
         .baseAttack    = 55,
@@ -33571,6 +36194,9 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_INDEEDEE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MORPEKO_HANGRY] =
@@ -33600,9 +36226,12 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .cry_Type = CRY_PIKACHU,
+        .firstStage = SPECIES_MORPEKO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZACIAN_CROWNED_SWORD] =
+    [SPECIES_ZACIAN_CROWNED] =
     {
         .baseHP        = 92,
         .baseAttack    = 170,
@@ -33628,9 +36257,12 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .firstStage = SPECIES_ZACIAN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_ZAMAZENTA_CROWNED_SHIELD] =
+    [SPECIES_ZAMAZENTA_CROWNED] =
     {
         .baseHP        = 92,
         .baseAttack    = 130,
@@ -33656,6 +36288,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ETERNATUS_ETERNAMAX] =
@@ -33680,9 +36314,11 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_URSHIFU_RAPID_STRIKE_STYLE] =
+    [SPECIES_URSHIFU_RAPID_STRIKE] =
     {
         .baseHP        = 100,
         .baseAttack    = 130,
@@ -33708,6 +36344,8 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ZARUDE_DADA] =
@@ -33736,9 +36374,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_CALYREX_ICE_RIDER] =
+    [SPECIES_CALYREX_ICE] =
     {
         .baseHP        = 100,
         .baseAttack    = 165,
@@ -33764,9 +36404,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_CALYREX_SHADOW_RIDER] =
+    [SPECIES_CALYREX_SHADOW] =
     {
         .baseHP        = 100,
         .baseAttack    = 85,
@@ -33792,9 +36434,11 @@ const struct BaseStats gBaseStats[] =
         #endif
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 	
-	[SPECIES_QWILFISH_HISUIAN] =
+	[SPECIES_QWILFISH_HISUI] =
     {
         .baseHP        = 65,
         .baseAttack    = 95,
@@ -33818,6 +36462,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INTIMIDATE,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .firstStage = SPECIES_QWILFISH_HISUI,
+        .frontAnimFrames = sAnims_QWILFISH_HISUI,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 	
 	[SPECIES_OVERQWIL] =
@@ -33831,7 +36478,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_DARK,
         .type2 = TYPE_POISON,
         .catchRate = 45,
-        .expYield = 88,
+        .expYield = 179,
         .evYield_Attack    = 1,
         .item2 = ITEM_POISON_BARB,
         .genderRatio = PERCENT_FEMALE(50),
@@ -33844,6 +36491,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_INTIMIDATE,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .firstStage = SPECIES_QWILFISH_HISUI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KLEAVOR] =
@@ -33869,6 +36519,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STEADFAST,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_SCYTHER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 	
 	[SPECIES_BASCULEGION] =
@@ -33894,7 +36547,10 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_SWIFT_SWIM, ABILITY_ADAPTABILITY},
         .abilityHidden = ABILITY_MOLD_BREAKER,
         .bodyColor = BODY_COLOR_GREEN,
+        .firstStage = SPECIES_BASCULIN_WHITE_STRIPED,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_BASCULEGION,
+        .frontAnimId = ANIM_TIP_MOVE_FORWARD,
     },
 
     [SPECIES_SPRIGATITO] =
@@ -33921,6 +36577,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPRIGATITO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FLORAGATO] =
@@ -33947,6 +36605,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPRIGATITO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MEOWSCARADA] =
@@ -33973,6 +36633,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SPRIGATITO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FUECOCO] =
@@ -33999,6 +36661,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FUECOCO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CROCALOR] =
@@ -34025,6 +36689,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FUECOCO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SKELEDIRGE] =
@@ -34038,7 +36704,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_FIRE,
         .type2 = TYPE_GHOST,
         .catchRate = 45,
-        .expYield = 144,
+        .expYield = 265,
         .evYield_SpAttack  = 2,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
@@ -34051,6 +36717,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_FUECOCO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_QUAXLY] =
@@ -34077,6 +36745,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_QUAXLY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_QUAXWELL] =
@@ -34103,6 +36773,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_QUAXLY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_QUAQUAVAL] =
@@ -34116,7 +36788,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_WATER,
         .type2 = TYPE_FIGHTING,
         .catchRate = 45,
-        .expYield = 62,
+        .expYield = 265,
         .evYield_Attack    = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
@@ -34129,6 +36801,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_QUAXLY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LECHONK] =
@@ -34155,6 +36829,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_LECHONK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_OINKOLOGNE] =
@@ -34181,9 +36857,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_LECHONK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
-    [SPECIES_OINKOLOGNE_FEMALE] =
+    [SPECIES_OINKOLOGNE_F] =
     {
         .baseHP        =  100,
         .baseAttack    =  110,
@@ -34207,6 +36885,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_LECHONK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TAROUNTULA] =
@@ -34233,6 +36913,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TAROUNTULA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SPIDOPS] =
@@ -34246,7 +36928,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_BUG,
         .type2 = TYPE_BUG,
         .catchRate = 255,
-        .expYield = 194,
+        .expYield = 141,
         .evYield_Defense   = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
@@ -34259,6 +36941,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TAROUNTULA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NYMBLE] =
@@ -34285,6 +36969,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_NYMBLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_LOKIX] =
@@ -34311,6 +36997,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_NYMBLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PAWMI] =
@@ -34337,6 +37025,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWMI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PAWMO] =
@@ -34363,6 +37053,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWMI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PAWMOT] =
@@ -34389,6 +37081,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_PAWMI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TANDEMAUS] =
@@ -34415,6 +37109,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TANDEMAUS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MAUSHOLD] =
@@ -34428,7 +37124,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_NORMAL,
         .catchRate = 150,
-        .expYield = 61,
+        .expYield = 165,
         .evYield_Speed     = 1,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
@@ -34441,6 +37137,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_TANDEMAUS,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FIDOUGH] =
@@ -34469,6 +37167,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_FIDOUGH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DACHSBUN] =
@@ -34482,7 +37182,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_FAIRY,
         .type2 = TYPE_FAIRY,
         .catchRate = 190,
-        .expYield = 62,
+        .expYield = 167,
         .evYield_Speed     = 1,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
@@ -34497,6 +37197,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_FIDOUGH,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SMOLIV] =
@@ -34525,6 +37227,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SMOLIV,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_DOLLIV] =
@@ -34551,6 +37255,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SMOLIV,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARBOLIVA] =
@@ -34574,11 +37280,13 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_SEED_SOWER, ABILITY_NONE},
         .abilityHidden = ABILITY_HARVEST,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SMOLIV,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SQUAWKABILLY] =
@@ -34605,6 +37313,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_SQUAWKABILLY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NACLI] =
@@ -34633,6 +37343,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NACLI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_NACLSTACK] =
@@ -34661,6 +37373,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NACLI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GARGANACL] =
@@ -34689,6 +37403,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_NACLI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CHARCADET] =
@@ -34715,6 +37431,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARCADET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ARMAROUGE] =
@@ -34741,6 +37459,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARCADET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CERULEDGE] =
@@ -34767,6 +37487,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_CHARCADET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TADBULB] =
@@ -34793,6 +37515,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_TADBULB,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BELLIBOLT] =
@@ -34819,6 +37543,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_TADBULB,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WATTREL] =
@@ -34845,6 +37571,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_WATTREL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KILOWATTREL] =
@@ -34871,6 +37599,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .firstStage = SPECIES_WATTREL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MASCHIFF] =
@@ -34897,6 +37627,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MASCHIFF,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_MABOSSTIFF] =
@@ -34923,6 +37655,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_MASCHIFF,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SHROODLE] =
@@ -34949,6 +37683,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHROODLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GRAFAIAI] =
@@ -34975,6 +37711,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SHROODLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BRAMBLIN] =
@@ -35001,6 +37739,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BRAMBLIN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BRAMBLEGHAST] =
@@ -35027,6 +37767,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_BRAMBLIN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOEDSCOOL] =
@@ -35053,6 +37795,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_TOEDSCOOL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TOEDSCRUEL] =
@@ -35079,6 +37823,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_TOEDSCOOL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_KLAWF] =
@@ -35105,6 +37851,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_KLAWF,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CAPSAKID] =
@@ -35131,6 +37879,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CAPSAKID,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_SCOVILLAIN] =
@@ -35157,6 +37907,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CAPSAKID,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RELLOR] =
@@ -35183,6 +37935,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_RELLOR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_RABSCA] =
@@ -35209,6 +37963,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_RELLOR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FLITTLE] =
@@ -35235,6 +37991,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLITTLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ESPATHRA] =
@@ -35261,6 +38019,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLITTLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TINKATINK] =
@@ -35287,6 +38047,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_TINKATINK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TINKATUFF] =
@@ -35313,6 +38075,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_TINKATINK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_TINKATON] =
@@ -35335,10 +38099,12 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FAIRY,
         .eggGroup2 = EGG_GROUP_FAIRY,
         .abilities = {ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO},
-        .abilityHidden = ABILITY_PICKPOCKET,
+        .abilityHidden = ABILITY_STRONG_GRIP,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_TINKATINK,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WIGLETT] =
@@ -35365,6 +38131,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WIGLETT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_WUGTRIO] =
@@ -35391,6 +38159,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_WIGLETT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_BOMBIRDIER] =
@@ -35413,10 +38183,12 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_FLYING,
         .eggGroup2 = EGG_GROUP_FLYING,
         .abilities = {ABILITY_BIG_PECKS, ABILITY_KEEN_EYE},
-        .abilityHidden = ABILITY_KEEN_EYE,
+        .abilityHidden = ABILITY_ROCKY_PAYLOAD,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_BOMBIRDIER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FINIZEN] =
@@ -35443,6 +38215,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FINIZEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_PALAFIN] =
@@ -35469,6 +38243,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_FINIZEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_VAROOM] =
@@ -35495,6 +38271,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_VAROOM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_REVAVROOM] =
@@ -35521,6 +38299,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_REVAVROOM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CYCLIZAR] =
@@ -35547,6 +38327,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_CYCLIZAR,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_ORTHWORM] =
@@ -35573,6 +38355,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_ORTHWORM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GLIMMET] =
@@ -35599,6 +38383,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GLIMMET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GLIMMORA] =
@@ -35625,6 +38411,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GLIMMET,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_GREAVARD] =
@@ -35651,6 +38439,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GREAVARD,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_HOUNDSTONE] =
@@ -35677,6 +38467,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GREAVARD,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_FLAMIGO] =
@@ -35703,6 +38495,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLAMIGO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CETODDLE] =
@@ -35729,6 +38523,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CETODDLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 
     [SPECIES_CETITAN] =
@@ -35755,6 +38551,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_CETODDLE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_VELUZA] =
@@ -35781,6 +38579,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_VELUZA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_DONDOZO] =
@@ -35807,6 +38607,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_DONDOZO,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TATSUGIRI] =
@@ -35835,9 +38637,11 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_TATSUGIRI,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_WOOPER_PALDEAN] =
+    [SPECIES_WOOPER_PALDEA] =
     {
         .baseHP        = 55,
         .baseAttack    = 45,
@@ -35860,17 +38664,19 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_UNAWARE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_WOOPER_PALDEAN,
+        .firstStage = SPECIES_WOOPER_PALDEA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_CLODSIRE] =
     {
-        .baseHP        = 130,
-        .baseAttack    = 85,
-        .baseDefense   = 80,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 85,
+        .baseHP        = 140,
+        .baseAttack    = 80,
+        .baseDefense   = 70,
+        .baseSpAttack  = 45,
         .baseSpDefense = 100,
+        .baseSpeed     = 20,
         .type1 = TYPE_POISON,
         .type2 = TYPE_GROUND,
         .catchRate = 90,
@@ -35886,7 +38692,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_UNAWARE,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_WOOPER_PALDEAN,
+        .firstStage = SPECIES_WOOPER_PALDEA,
+        .frontAnimFrames = sAnims_TwoFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_GREAT_TUSK] =
@@ -35913,6 +38721,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .firstStage = SPECIES_GREAT_TUSK,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_SCREAM_TAIL] =
@@ -35939,6 +38750,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .firstStage = SPECIES_SCREAM_TAIL,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_BRUTE_BONNET] =
@@ -35965,6 +38779,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_BRUTE_BONNET,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_FLUTTER_MANE] =
@@ -35991,6 +38808,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FLUTTER_MANE,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_SLITHER_WING] =
@@ -36017,6 +38837,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_SLITHER_WING,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_SANDY_SHOCKS] =
@@ -36043,6 +38866,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_SANDY_SHOCKS,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_TREADS] =
@@ -36064,11 +38890,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_TREADS,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_BUNDLE] =
@@ -36090,11 +38919,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_BUNDLE,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_HANDS] =
@@ -36116,11 +38948,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_HANDS,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_JUGULIS] =
@@ -36142,11 +38977,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_JUGULIS,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_MOTH] =
@@ -36170,11 +39008,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_MOTH,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_THORNS] =
@@ -36196,11 +39037,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_THORNS,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_FRIGIBAX] =
@@ -36227,6 +39071,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FRIGIBAX,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_ARCTIBAX] =
@@ -36253,6 +39099,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FRIGIBAX,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_BAXCALIBUR] =
@@ -36279,6 +39127,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_FRIGIBAX,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_GIMMIGHOUL] =
@@ -36305,6 +39155,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GIMMIGHOUL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_GHOLDENGO] =
@@ -36318,7 +39170,7 @@ const struct BaseStats gBaseStats[] =
         .type1 = TYPE_STEEL,
         .type2 = TYPE_GHOST,
         .catchRate = 45,
-        .expYield = 60,
+        .expYield = 275,
         .evYield_SpAttack  = 1,
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
@@ -36331,6 +39183,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .firstStage = SPECIES_GIMMIGHOUL,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_WO_CHIEN] =
@@ -36360,6 +39214,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WO_CHIEN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_CHIEN_PAO] =
@@ -36387,6 +39243,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHIEN_PAO,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TING_LU] =
@@ -36414,6 +39272,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TING_LU,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_CHI_YU] =
@@ -36441,6 +39301,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_CHI_YU,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_ROARING_MOON] =
@@ -36467,6 +39329,9 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_ROARING_MOON,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_VALIANT] =
@@ -36488,11 +39353,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_VALIANT,
+        .flags = F_PARADOX_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_KORAIDON] =
@@ -36520,6 +39388,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_KORAIDON,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_MIRAIDON] =
@@ -36547,6 +39417,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MIRAIDON,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_WALKING_WAKE] =
@@ -36574,6 +39446,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_WALKING_WAKE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_LEAVES] =
@@ -36595,12 +39469,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_LEAVES,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_POLTCHAGEIST] =
@@ -36629,6 +39505,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_POLTCHAGEIST,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_POLTCHAGEIST_ARTISAN] =
@@ -36656,7 +39534,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_HEATPROOF,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_POLTCHAGEIST,
+        .firstStage = SPECIES_POLTCHAGEIST_ARTISAN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_SINISTCHA] =
@@ -36683,6 +39563,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .firstStage = SPECIES_POLTCHAGEIST,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_SINISTCHA_MASTERPIECE] =
@@ -36708,7 +39590,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_HEATPROOF,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_POLTCHAGEIST,
+        .firstStage = SPECIES_POLTCHAGEIST_ARTISAN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_OKIDOGI] =
@@ -36736,6 +39620,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_OKIDOGI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_MUNKIDORI] =
@@ -36763,6 +39649,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_MUNKIDORI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_FEZANDIPITI] =
@@ -36790,6 +39678,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_FEZANDIPITI,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_OGERPON] =
@@ -36817,6 +39707,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_OGERPON,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_GOUGING_FIRE] =
@@ -36844,6 +39736,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_GOUGING_FIRE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_RAGING_BOLT] =
@@ -36871,6 +39765,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_RAGING_BOLT,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_BOULDER] =
@@ -36892,12 +39788,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_BOULDER,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_IRON_CROWN] =
@@ -36919,12 +39817,14 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PROTOSYNTHESIS, ABILITY_PROTOSYNTHESIS},
-        .abilityHidden = ABILITY_PROTOSYNTHESIS,
+        .abilities = {ABILITY_QUARK_DRIVE, ABILITY_QUARK_DRIVE},
+        .abilityHidden = ABILITY_QUARK_DRIVE,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .firstStage = SPECIES_IRON_CROWN,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TERAPAGOS] =
@@ -36952,6 +39852,8 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_TERAPAGOS,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_PECHARUNT] =
@@ -36979,16 +39881,18 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
         .firstStage = SPECIES_PECHARUNT,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_TAUROS_PALDEAN_AQUA_BREED] =
+    [SPECIES_TAUROS_PALDEA_AQUA] =
     {
         .baseHP        = 75,
         .baseAttack    = 110,
         .baseDefense   = 105,
-        .baseSpeed     = 100,
         .baseSpAttack  = 30,
         .baseSpDefense = 70,
+        .baseSpeed     = 100,
         .type1 = TYPE_FIGHTING,
         .type2 = TYPE_WATER,
         .catchRate = 45,
@@ -37004,17 +39908,19 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_CUD_CHEW,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+        .firstStage = SPECIES_TAUROS_PALDEA_AQUA,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_TAUROS_PALDEAN_BLAZE_BREED] =
+    [SPECIES_TAUROS_PALDEA_BLAZE] =
     {
         .baseHP        = 75,
         .baseAttack    = 110,
         .baseDefense   = 105,
-        .baseSpeed     = 100,
         .baseSpAttack  = 30,
         .baseSpDefense = 70,
+        .baseSpeed     = 100,
         .type1 = TYPE_FIGHTING,
         .type2 = TYPE_FIRE,
         .catchRate = 45,
@@ -37030,17 +39936,19 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_CUD_CHEW,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
+        .firstStage = SPECIES_TAUROS_PALDEA_BLAZE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_TAUROS_PALDEAN_COMBAT_BREED] =
+    [SPECIES_TAUROS_PALDEA_COMBAT] =
     {
         .baseHP        = 75,
         .baseAttack    = 110,
         .baseDefense   = 105,
-        .baseSpeed     = 100,
         .baseSpAttack  = 30,
         .baseSpDefense = 70,
+        .baseSpeed     = 100,
         .type1 = TYPE_FIGHTING,
         .type2 = TYPE_FIGHTING,
         .catchRate = 45,
@@ -37056,7 +39964,9 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_CUD_CHEW,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
-        .firstStage = SPECIES_TAUROS_PALDEAN_COMBAT_BREED,
+        .firstStage = SPECIES_TAUROS_PALDEA_COMBAT,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_PALAFIN_HERO] =
@@ -37082,8 +39992,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_ZERO_TO_HERO,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .firstStage = SPECIES_FINIZEN,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
-    
+
     [SPECIES_MAUSHOLD_FOUR] =
     {
         .baseHP        =  74,
@@ -37107,6 +40020,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_TECHNICIAN,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TATSUGIRI_CURLY] =
@@ -37134,6 +40049,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STORM_DRAIN,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TATSUGIRI_STRETCHY] =
@@ -37161,6 +40078,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STORM_DRAIN,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TATSUGIRI_DROOPY] =
@@ -37188,9 +40107,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_STORM_DRAIN,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
-    
-    [SPECIES_OGERPON_WELLSPRING_MASK] =
+
+    [SPECIES_OGERPON_WELLSPRING] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
@@ -37213,9 +40134,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_DEFIANT,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_OGERPON_HEARTHFLAME_MASK] =
+    [SPECIES_OGERPON_HEARTHFLAME] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
@@ -37238,9 +40161,11 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_DEFIANT,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
-    [SPECIES_OGERPON_CORNERSTONE_MASK] =
+    [SPECIES_OGERPON_CORNERSTONE] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
@@ -37263,6 +40188,8 @@ const struct BaseStats gBaseStats[] =
         .abilityHidden = ABILITY_DEFIANT,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_DIALGA_ORIGIN] =
@@ -37291,6 +40218,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_PALKIA_ORIGIN] =
@@ -37319,6 +40248,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_ENAMORUS_THERIAN] =
@@ -37345,6 +40276,8 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
     
     [SPECIES_TERAPAGOS_STELLAR] =
@@ -37371,5 +40304,2600 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .flags = F_LEGENDARY_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CLEFABLE_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 80,
+        .baseDefense   = 93,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 110,
+        .baseSpeed     = 70,
+        .type1 = TYPE_FAIRY,
+        .type2 = TYPE_FLYING,
+        .catchRate = 25,
+        .expYield = 217,
+        .evYield_HP        = 3,
+        .item1 = ITEM_LEPPA_BERRY,
+        .item2 = ITEM_MOON_STONE,
+        .genderRatio = PERCENT_FEMALE(75),
+        .eggCycles = 10,
+        .friendship = 140,
+        .growthRate = GROWTH_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_MAGIC_GUARD, ABILITY_MAGIC_GUARD},
+        .abilityHidden = ABILITY_MAGIC_GUARD,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CLEFFA,
+        .cry_Type = CRY_FAIRY_MEDIUM,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_VICTREEBEL_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 125,
+        .baseDefense   = 85,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 95,
+        .baseSpeed     = 70,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_POISON,
+        .catchRate = 45,
+        .expYield = 221,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_GRASS,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_THICK_FAT, ABILITY_THICK_FAT},
+        .abilityHidden = ABILITY_THICK_FAT,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_BELLSPROUT,
+        .cry_Type = CRY_GRASS_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_STARMIE_MEGA_REDUX] = //Done?
+    {
+        .baseHP        = 60,
+        .baseAttack    = 75,
+        .baseDefense   = 105,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 105,
+        .baseSpeed     = 125,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 60,
+        .expYield = 182,
+        .evYield_Speed     = 2,
+        .item1 = ITEM_STARDUST,
+        .item2 = ITEM_STAR_PIECE,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_3,
+        .eggGroup2 = EGG_GROUP_WATER_3,
+        .abilities = {ABILITY_REGENERATOR, ABILITY_REGENERATOR},
+        .abilityHidden = ABILITY_REGENERATOR,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_STARYU,
+        .cry_Type = CRY_THING_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_STARMIE_MEGA] = //Done
+    {
+        .baseHP        = 60,
+        .baseAttack    = 100, //140 in ZA
+        .baseDefense   = 105,
+        .baseSpAttack  = 130,
+        .baseSpDefense = 105,
+        .baseSpeed     = 120,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 60,
+        .expYield = 182,
+        .evYield_Speed     = 2,
+        .item1 = ITEM_STARDUST,
+        .item2 = ITEM_STAR_PIECE,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_3,
+        .eggGroup2 = EGG_GROUP_WATER_3,
+        .abilities = {ABILITY_HUGE_POWER, ABILITY_HUGE_POWER},
+        .abilityHidden = ABILITY_HUGE_POWER,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_STARYU,
+        .cry_Type = CRY_THING_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DRAGONITE_MEGA] = //Done
+    {
+        .baseHP        = 91,
+        .baseAttack    = 124,
+        .baseDefense   = 115,
+        .baseSpAttack  = 145,
+        .baseSpDefense = 125,
+        .baseSpeed     = 100,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_FLYING,
+        .catchRate = 45,
+        .expYield = 270,
+        .evYield_Attack    = 3,
+        .item2 = ITEM_DRAGON_SCALE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 40,
+        .friendship = 35,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_MULTISCALE, ABILITY_MULTISCALE},
+        .abilityHidden = ABILITY_MULTISCALE,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_DRATINI,
+        .cry_Type = CRY_DRAGON_BIG,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MEGANIUM_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 92,
+        .baseDefense   = 115,
+        .baseSpAttack  = 143,
+        .baseSpDefense = 115,
+        .baseSpeed     = 80,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 45,
+        .expYield = 236,
+        .evYield_Defense   = 1,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_TRIAGE, ABILITY_TRIAGE},
+        .abilityHidden = ABILITY_TRIAGE,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CHIKORITA,
+        .cry_Type = CRY_MONSTER_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_FERALIGATR_MEGA] = //Done
+    {
+        .baseHP        = 85,
+        .baseAttack    = 160,
+        .baseDefense   = 125,
+        .baseSpAttack  = 89,
+        .baseSpDefense = 93,
+        .baseSpeed     = 78,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Attack    = 2,
+        .evYield_Defense   = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_DRAGONS_MAW, ABILITY_DRAGONS_MAW},
+        .abilityHidden = ABILITY_DRAGONS_MAW,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TOTODILE,
+        .cry_Type = CRY_LIZARD_BIG,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SKARMORY_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 140,
+        .baseDefense   = 110,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 100,
+        .baseSpeed     = 110,
+        .type1 = TYPE_STEEL,
+        .type2 = TYPE_FLYING,
+        .catchRate = 25,
+        .expYield = 163,
+        .evYield_Defense   = 2,
+        .item2 = ITEM_METAL_COAT,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_FLYING,
+        .eggGroup2 = EGG_GROUP_FLYING,
+        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_LIGHTNING_ROD},
+        .abilityHidden = ABILITY_LIGHTNING_ROD,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SKARMORY,
+        .cry_Type = CRY_BIRD_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_FROSLASS_MEGA] = //Done
+    {
+        .baseHP        = 70,
+        .baseAttack    = 80,
+        .baseDefense   = 70,
+        .baseSpAttack  = 140,
+        .baseSpDefense = 100,
+        .baseSpeed     = 120,
+        .type1 = TYPE_ICE,
+        .type2 = TYPE_GHOST,
+        .catchRate = 75,
+        .expYield = 168,
+        .evYield_Speed     = 2,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SNOW_WARNING},
+        .abilityHidden = ABILITY_SNOW_WARNING,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SNORUNT,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_EMBOAR_MEGA] = //Done
+    {
+        .baseHP        = 110,
+        .baseAttack    = 148,
+        .baseDefense   = 75,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 110,
+        .baseSpeed     = 75,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 45,
+        .expYield = 238,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_SUPREME_OVERLORD, ABILITY_SUPREME_OVERLORD},
+        .abilityHidden = ABILITY_SUPREME_OVERLORD,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TEPIG,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_EXCADRILL_MEGA] = //Done
+    {
+        .baseHP        = 110,
+        .baseAttack    = 165,
+        .baseDefense   = 100,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 65,
+        .baseSpeed     = 103,
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_STEEL,
+        .catchRate = 60,
+        .expYield = 178,
+        .evYield_Attack    = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MOLD_BREAKER, ABILITY_MOLD_BREAKER},
+        .abilityHidden = ABILITY_MOLD_BREAKER,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_DRILBUR,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SCOLIPEDE_MEGA] = //Done
+    {
+        .baseHP        = 60,
+        .baseAttack    = 140,
+        .baseDefense   = 149,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 99,
+        .baseSpeed     = 62,
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_POISON,
+        .catchRate = 45,
+        .expYield = 218,
+        .evYield_Speed     = 3,
+        .item1 = ITEM_PECHA_BERRY,
+        .item2 = ITEM_POISON_BARB,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_BUG,
+        .abilities = {ABILITY_TINTED_LENS, ABILITY_TINTED_LENS},
+        .abilityHidden = ABILITY_TINTED_LENS,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_VENIPEDE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SCRAFTY_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 130,
+        .baseDefense   = 135,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 135,
+        .baseSpeed     = 68,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 90,
+        .expYield = 171,
+        .evYield_Defense   = 1,
+        .evYield_SpDefense = 1,
+        .item2 = ITEM_MUSCLE_BAND,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_MOXIE, ABILITY_MOXIE},
+        .abilityHidden = ABILITY_MOXIE,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SCRAGGY,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_EELEKTROSS_MEGA] = //Done
+    {
+        .baseHP        = 85,
+        .baseAttack    = 145,
+        .baseDefense   = 80,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 90,
+        .baseSpeed     = 80,
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 30,
+        .expYield = 232,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_AMORPHOUS,
+        .eggGroup2 = EGG_GROUP_AMORPHOUS,
+        .abilities = {ABILITY_STRONG_JAW, ABILITY_STRONG_JAW},
+        .abilityHidden = ABILITY_STRONG_JAW,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TYNAMO,
+        .flags = F_MEGA_POKEMON | F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CHANDELURE_MEGA] = //Done
+    {
+        .baseHP        = 60,
+        .baseAttack    = 55,
+        .baseDefense   = 75,
+        .baseSpAttack  = 175,
+        .baseSpDefense = 110,
+        .baseSpeed     = 90,
+        .type1 = TYPE_GHOST,
+        .type2 = TYPE_FIRE,
+        .catchRate = 45,
+        .expYield = 234,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_AMORPHOUS,
+        .eggGroup2 = EGG_GROUP_AMORPHOUS,
+        .abilities = {ABILITY_SHADOW_TAG, ABILITY_SHADOW_TAG},
+        .abilityHidden = ABILITY_SHADOW_TAG,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_LITWICK,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_ZERAORA_MEGA] = //Done
+    {
+        .baseHP        = 88,
+        .baseAttack    = 157,
+        .baseDefense   = 75,
+        .baseSpAttack  = 147,
+        .baseSpDefense = 80,
+        .baseSpeed     = 153,
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 3,
+        .expYield = 270,
+        .evYield_Speed     = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_VOLT_ABSORB, ABILITY_VOLT_ABSORB},
+        .abilityHidden = ABILITY_VOLT_ABSORB,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_ZERAORA,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_VENUSAUR_MEGA_G] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 122,
+        .baseDefense   = 120,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 123,
+        .baseSpeed     = 80,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_POISON,
+        .catchRate = 45,
+        .expYield = 281,
+        .evYield_SpAttack  = 2,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_GRASSY_SURGE, ABILITY_GRASSY_SURGE},
+		.abilityHidden = ABILITY_GRASSY_SURGE,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_BULBASAUR,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_URSHIFU_MEGA_SINGLE_STRIKE] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 130,
+        .baseDefense   = 100,
+        .baseSpeed     = 97,
+        .baseSpAttack  = 63,
+        .baseSpDefense = 60,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_DARK,
+        .catchRate = 3,
+        .expYield = 275,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 120,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_UNSEEN_FIST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_KUBFU,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_URSHIFU_MEGA_RAPID_STRIKE] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 130,
+        .baseDefense   = 100,
+        .baseSpeed     = 97,
+        .baseSpAttack  = 63,
+        .baseSpDefense = 60,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_DARK,
+        .catchRate = 3,
+        .expYield = 275,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 120,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_UNSEEN_FIST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_KUBFU,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TOXTRICITY_MEGA_LOW_KEY] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 98,
+        .baseDefense   = 80,  //+10
+        .baseSpAttack  = 154, //+40
+        .baseSpDefense = 85,  //+15
+        .baseSpeed     = 110, //+35
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_POISON,
+        .catchRate = 45,
+        .expYield = 176,
+        .evYield_SpAttack  = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_PUNK_ROCK},
+        .abilityHidden = ABILITY_PUNK_ROCK,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TOXEL,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TOXTRICITY_MEGA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 98,
+        .baseDefense   = 80,  //+10
+        .baseSpAttack  = 154, //+40
+        .baseSpDefense = 85,  //+15
+        .baseSpeed     = 110, //+35
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_POISON,
+        .catchRate = 45,
+        .expYield = 176,
+        .evYield_SpAttack  = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_PUNK_ROCK},
+        .abilityHidden = ABILITY_PUNK_ROCK,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TOXAPEX,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TATSUGIRI_MEGA_STRETCHY] = //Done
+    {
+        .baseHP        = 68,
+        .baseAttack    = 65,
+        .baseDefense   = 90,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 125,
+        .baseSpeed     = 92,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_WATER,
+        .catchRate = 100,
+        .expYield = 166,
+        .evYield_SpAttack  = 2,
+        .item1 = ITEM_NONE,
+        .item2 = ITEM_NONE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_2,
+        .eggGroup2 = EGG_GROUP_WATER_2,
+        .abilities = {ABILITY_STORM_DRAIN, ABILITY_STORM_DRAIN},
+        .abilityHidden = ABILITY_STORM_DRAIN,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TATSUGIRI,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TATSUGIRI_MEGA_CURLY] = //Done
+    {
+        .baseHP        = 68,
+        .baseAttack    = 65,
+        .baseDefense   = 90,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 125,
+        .baseSpeed     = 92,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_WATER,
+        .catchRate = 100,
+        .expYield = 166,
+        .evYield_SpAttack  = 2,
+        .item1 = ITEM_NONE,
+        .item2 = ITEM_NONE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_2,
+        .eggGroup2 = EGG_GROUP_WATER_2,
+        .abilities = {ABILITY_STORM_DRAIN, ABILITY_STORM_DRAIN},
+        .abilityHidden = ABILITY_STORM_DRAIN,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TATSUGIRI,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TATSUGIRI_MEGA_DROOPY] = //Done
+    {
+        .baseHP        = 68,
+        .baseAttack    = 65,
+        .baseDefense   = 90,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 125,
+        .baseSpeed     = 92,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_WATER,
+        .catchRate = 100,
+        .expYield = 166,
+        .evYield_SpAttack  = 2,
+        .item1 = ITEM_NONE,
+        .item2 = ITEM_NONE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_2,
+        .eggGroup2 = EGG_GROUP_WATER_2,
+        .abilities = {ABILITY_STORM_DRAIN, ABILITY_STORM_DRAIN},
+        .abilityHidden = ABILITY_STORM_DRAIN,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TATSUGIRI,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_STARAPTOR_MEGA] = //Done
+    {
+        .baseHP        = 85,
+        .baseAttack    = 140,
+        .baseDefense   = 100,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 90,
+        .baseSpeed     = 110,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_FLYING,
+        .catchRate = 45,
+        .expYield = 218,
+        .evYield_Attack    = 3,
+        .item2 = ITEM_YACHE_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FLYING,
+        .eggGroup2 = EGG_GROUP_FLYING,
+        .abilities = {ABILITY_RECKLESS, ABILITY_RECKLESS},
+        .abilityHidden = ABILITY_RECKLESS,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_STARLY,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SCOVILLAIN_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 138,
+        .baseDefense   = 85,
+        .baseSpAttack  = 138,
+        .baseSpDefense = 85,
+        .baseSpeed     = 75,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_FIRE,
+        .catchRate = 75,
+        .expYield = 170,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_GRASS,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_MOODY, ABILITY_MOODY},
+        .abilityHidden = ABILITY_MOODY,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CAPSAKID,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SANDSLASH_MEGA_ALOLA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 150, //+40
+        .baseDefense   = 150, //+30
+        .baseSpAttack  = 25,
+        .baseSpDefense = 95,  //+30
+        .baseSpeed     = 65,
+        .type1 = TYPE_ICE,
+        .type2 = TYPE_STEEL,
+        .catchRate = 90,
+        .expYield = 158,
+        .evYield_Defense   = 2,
+        .item2 = ITEM_GRIP_CLAW,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS},
+        .abilityHidden = ABILITY_TOUGH_CLAWS,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_RILLABOOM_MEGA] = //Done
+    {
+        .baseHP        = 100,
+        .baseAttack    = 145,  //+20
+        .baseDefense   = 120,  //30
+        .baseSpAttack  = 60,
+        .baseSpDefense = 90,   //+20
+        .baseSpeed     = 115,  //+30
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_GRASS,
+        .catchRate = 45,
+        .expYield = 265,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_CACOPHONY, ABILITY_CACOPHONY},
+        .abilityHidden = ABILITY_CACOPHONY,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_GROOKEY,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MEOWSTIC_MEGA_F] = //Done
+    {
+        .baseHP        = 74,
+        .baseAttack    = 48,
+        .baseDefense   = 76,
+        .baseSpAttack  = 143,
+        .baseSpDefense = 101,
+        .baseSpeed     = 124,
+        .type1 = TYPE_PSYCHIC,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 75,
+        .expYield = 163,
+        .evYield_Speed     = 2,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_PRANKSTER, ABILITY_PRANKSTER},
+        .abilityHidden = ABILITY_PRANKSTER,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_ESPURR,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MEOWSTIC_MEGA] = //Done
+    {
+        .baseHP        = 74,
+        .baseAttack    = 48,
+        .baseDefense   = 76,
+        .baseSpAttack  = 143,
+        .baseSpDefense = 101,
+        .baseSpeed     = 124,
+        .type1 = TYPE_PSYCHIC,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 75,
+        .expYield = 163,
+        .evYield_Speed     = 2,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_PRANKSTER, ABILITY_PRANKSTER},
+        .abilityHidden = ABILITY_PRANKSTER,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_ESPURR,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MELMETAL_MEGA] = //Done
+    {
+        .baseHP        = 135,
+        .baseAttack    = 173, //+30
+        .baseDefense   = 173, //+30
+        .baseSpAttack  = 90,  //+10
+        .baseSpDefense = 95,  //+30
+        .baseSpeed     = 34,
+        .type1 = TYPE_STEEL,
+        .type2 = TYPE_STEEL,
+        .catchRate = 3,
+        .expYield = 270,
+        .evYield_Attack    = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_FULL_METAL_BODY, ABILITY_FULL_METAL_BODY},
+        .abilityHidden = ABILITY_FULL_METAL_BODY,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_MELTAN,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MAGEARNA_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 125,
+        .baseDefense   = 115,
+        .baseSpAttack  = 170,
+        .baseSpDefense = 115,
+        .baseSpeed     = 95,
+        .type1 = TYPE_STEEL,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 3,
+        .expYield = 270,
+        .evYield_SpAttack  = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_SOUL_HEART, ABILITY_SOUL_HEART},
+        .abilityHidden = ABILITY_SOUL_HEART,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_INTELEON_MEGA] = //Done
+    {
+        .baseHP        = 70,
+        .baseAttack    = 75,  //-10
+        .baseDefense   = 85,  //+20
+        .baseSpAttack  = 155, //+30
+        .baseSpDefense = 95,  //+30
+        .baseSpeed     = 150, //+30
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_WATER,
+        .catchRate = 45,
+        .expYield = 265,
+        .evYield_Speed     = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_QUICK_DRAW, ABILITY_QUICK_DRAW},
+        .abilityHidden = ABILITY_QUICK_DRAW,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SOBBLE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_HEATRAN_MEGA] = //Done
+    {
+        .baseHP        = 91,
+        .baseAttack    = 120,
+        .baseDefense   = 106,
+        .baseSpAttack  = 175,
+        .baseSpDefense = 141,
+        .baseSpeed     = 77,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_STEEL,
+        .catchRate = 3,
+        .expYield = 270,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 10,
+        .friendship = 100,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_FLASH_FIRE, ABILITY_MOLTEN_DOWN},
+        .abilityHidden = ABILITY_FLAME_BODY,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_HEATRAN,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GRIMMSNARL_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 150, //+30
+        .baseDefense   = 65,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 104, //+29
+        .baseSpeed     = 101, //+41
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 45,
+        .expYield = 255,
+        .evYield_Attack    = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_PRANKSTER, ABILITY_PRANKSTER},
+        .abilityHidden = ABILITY_PRANKSTER,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_IMPIDIMP,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GOLURK_MEGA] = //Done
+    {
+        .baseHP        = 89,
+        .baseAttack    = 159,
+        .baseDefense   = 105,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 105,
+        .baseSpeed     = 55,
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_GHOST,
+        .catchRate = 90,
+        .expYield = 169,
+        .evYield_Attack    = 2,
+        .item2 = ITEM_LIGHT_CLAY,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_MINERAL,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_IRON_FIST, ABILITY_KLUTZ},
+        .abilityHidden = ABILITY_NO_GUARD,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_GOLETT,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GOLISOPOD_MEGA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 150,
+        .baseDefense   = 175,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 120,
+        .baseSpeed     = 40,
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_WATER,
+        .catchRate = 45,
+        .expYield = 186,
+        .evYield_Defense   = 2,
+		.item1 = ITEM_RED_CARD,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_WATER_3,
+        .abilities = {ABILITY_EMERGENCY_EXIT, ABILITY_EMERGENCY_EXIT},
+        .abilityHidden = ABILITY_EMERGENCY_EXIT,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_WIMPOD,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GLIMMORA_MEGA] = //Done
+    {
+        .baseHP        = 83,
+        .baseAttack    = 90,
+        .baseDefense   = 105,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 96,
+        .baseSpeed     = 101,
+        .type1 = TYPE_ROCK,
+        .type2 = TYPE_POISON,
+        .catchRate = 25,
+        .expYield = 184,
+        .evYield_SpAttack = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MINERAL,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_CORROSION, ABILITY_CORROSION},
+        .abilityHidden = ABILITY_CORROSION,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_GLIMMET,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DARKRAI_MEGA] = //Done
+    {
+        .baseHP        = 70,
+        .baseAttack    = 120,
+        .baseDefense   = 130,
+        .baseSpAttack  = 165,
+        .baseSpDefense = 130,
+        .baseSpeed     = 85,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_DARK,
+        .catchRate = 3,
+        .expYield = 270,
+        .evYield_Speed     = 1,
+        .evYield_SpAttack  = 2,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_BAD_DREAMS, ABILITY_BAD_DREAMS},
+        .abilityHidden = ABILITY_BAD_DREAMS,
+        .bodyColor = BODY_COLOR_BLACK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_DARKRAI,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .cry_Type = CRY_DARKRAI,
+    },
+
+    [SPECIES_CRABOMINABLE_MEGA] = //Done
+    {
+        .baseHP        = 97,
+        .baseAttack    = 157,
+        .baseDefense   = 122,
+        .baseSpAttack  = 62,
+        .baseSpDefense = 107,
+        .baseSpeed     = 33,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_ICE,
+        .catchRate = 60,
+        .expYield = 167,
+        .evYield_Attack    = 2,
+        .item2 = ITEM_CHERI_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_3,
+        .eggGroup2 = EGG_GROUP_WATER_3,
+        .abilities = {ABILITY_FUR_COAT, ABILITY_FUR_COAT},
+        .abilityHidden = ABILITY_FUR_COAT,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CRABRAWLER,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CHIMECHO_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 50,
+        .baseDefense   = 110,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 120,
+        .baseSpeed     = 85,
+        .type1 = TYPE_PSYCHIC,
+        .type2 = TYPE_STEEL,
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_SpAttack  = 1,
+        .evYield_SpDefense = 1,
+        .item1 = ITEM_CLEANSE_TAG,
+        .item2 = ITEM_COLBUR_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_FAST,
+        .eggGroup1 = EGG_GROUP_AMORPHOUS,
+        .eggGroup2 = EGG_GROUP_AMORPHOUS,
+        .abilities = {ABILITY_CACOPHONY, ABILITY_CACOPHONY},
+        .abilityHidden = ABILITY_CACOPHONY,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+		.flags = F_GROUND_INMUNITY,
+        .firstStage = SPECIES_CHINGLING,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_BLASTOISE_MEGA_G] = //Done
+    {
+        .baseHP        = 79,
+        .baseAttack    = 135,
+        .baseDefense   = 115,
+        .baseSpAttack  = 103,
+        .baseSpDefense = 120,
+        .baseSpeed     = 78,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_WATER,
+        .catchRate = 45,
+        .expYield = 284,
+        .evYield_SpDefense = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE},
+        .abilityHidden = ABILITY_SHEER_FORCE,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_BAXCALIBUR_MEGA] = //Done
+    {
+        .baseHP        = 115,
+        .baseAttack    = 175,
+        .baseDefense   = 117,
+        .baseSpAttack  = 105,
+        .baseSpDefense = 101,
+        .baseSpeed     = 87,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_ICE,
+        .catchRate = 10,
+        .expYield = 300,
+        .evYield_Attack = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_DRAGON,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_THERMAL_EXCHANGE, ABILITY_THERMAL_EXCHANGE},
+        .abilityHidden = ABILITY_THERMAL_EXCHANGE,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FRIGIBAX,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_ARBOK_MEGA] = //Done
+    {
+        .baseHP        = 75,  // 60 -> 75
+        .baseAttack    = 145, //+50
+        .baseDefense   = 80,  // 69 -> 75
+        .baseSpAttack  = 65,
+        .baseSpDefense = 84,
+        .baseSpeed     = 110, //+30
+        .type1 = TYPE_POISON,
+        .type2 = TYPE_DARK,
+        .catchRate = 90,
+        .expYield = 157,
+        .evYield_Attack    = 2,
+        .item2 = ITEM_POISON_BARB,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_DARK_AURA, ABILITY_DARK_AURA},
+        .abilityHidden = ABILITY_DARK_AURA,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_EKANS,
+        .cry_Type = CRY_SNAKE_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_ABSOL_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 150,
+        .baseDefense   = 60,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 60,
+        .baseSpeed     = 135,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 30,
+        .expYield = 198,
+        .evYield_Attack    = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 35,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS},
+        .abilityHidden = ABILITY_TOUGH_CLAWS,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_ABSOL_MEGA_Z] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 95,
+        .baseDefense   = 60,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 60,
+        .baseSpeed     = 135,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_GHOST,
+        .catchRate = 30,
+        .expYield = 163,
+        .evYield_SpAttack    = 2,
+        .item2 = ITEM_LIFE_ORB,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 35,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MYSTIC_BLADES, ABILITY_MYSTIC_BLADES},
+        .abilityHidden = ABILITY_MYSTIC_BLADES,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_ABSOL,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_VANILLUXE_MEGA] = //Done
+    {
+        .baseHP        = 91,
+        .baseAttack    = 84,  //+9
+        .baseDefense   = 115, //+30
+        .baseSpAttack  = 160, //+60
+        .baseSpDefense = 125, //+30
+        .baseSpeed     = 70,  //-9
+        .type1 = TYPE_ICE,
+        .type2 = TYPE_ICE,
+        .catchRate = 45,
+        .expYield = 241,
+        .evYield_SpAttack  = 3,
+        .item1 = ITEM_NEVER_MELT_ICE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_MINERAL,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_ICE_ARMOR, ABILITY_ICE_ARMOR},
+        .abilityHidden = ABILITY_ICE_ARMOR,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_VANILLITE,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TYPHLOSION_HISUI_MEGA] =
+    {
+        .baseHP        = 73,
+        .baseAttack    = 89,
+        .baseDefense   = 109,
+        .baseSpAttack  = 149,
+        .baseSpDefense = 115,
+        .baseSpeed     = 99,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_GHOST,
+        .catchRate = 45,
+        .expYield = 240,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_CURSED_FLAME, ABILITY_CURSED_FLAME},
+        .abilityHidden = ABILITY_CURSED_FLAME,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CYNDAQUIL,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_TYPHLOSION_HISUI_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TYPHLOSION_MEGA] = //Done
+    {
+        .baseHP        = 78,
+        .baseAttack    = 94,
+        .baseDefense   = 98,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 105,
+        .baseSpeed     = 110,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_GROUND,
+        .catchRate = 45,
+        .expYield = 240,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_FLAMING_SOUL, ABILITY_FLAMING_SOUL},
+        .abilityHidden = ABILITY_FLAMING_SOUL,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CYNDAQUIL,
+        .cry_Type = CRY_MONSTER_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TSAREENA_MEGA] = //Done
+    {
+        .baseHP        = 72,
+        .baseAttack    = 150, //+30
+        .baseDefense   = 118, //+20
+        .baseSpAttack  = 70,  //+20
+        .baseSpDefense = 98,
+        .baseSpeed     = 112, //+40
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_GRASS,
+        .catchRate = 45,
+        .expYield = 230,
+        .evYield_Attack    = 3,
+        .item1 = ITEM_GRASSY_SEED,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_GRASS,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_STRIKER, ABILITY_STRIKER},
+        .abilityHidden = ABILITY_STRIKER,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_BOUNSWEET,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TOUCANNON_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 90,
+        .baseDefense   = 100, //+25
+        .baseSpAttack  = 145, //+25
+        .baseSpDefense = 100, //+25
+        .baseSpeed     = 70,  //+10
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_FLYING,
+        .catchRate = 45,
+        .expYield = 218,
+        .evYield_Attack    = 3,
+        .item2 = ITEM_RAWST_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FLYING,
+        .eggGroup2 = EGG_GROUP_FLYING,
+        .abilities = {ABILITY_MEGA_LAUNCHER, ABILITY_MEGA_LAUNCHER},
+        .abilityHidden = ABILITY_MEGA_LAUNCHER,
+        .bodyColor = BODY_COLOR_BLACK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_PIKIPEK,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CLEFABLE_MEGA_REDUX] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 80,
+        .baseDefense   = 110,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 93,
+        .baseSpeed     = 70,
+        .type1 = TYPE_FAIRY,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 25,
+        .expYield = 217,
+        .evYield_HP        = 3,
+        .item1 = ITEM_LEPPA_BERRY,
+        .item2 = ITEM_MOON_STONE,
+        .genderRatio = PERCENT_FEMALE(75),
+        .eggCycles = 10,
+        .friendship = 140,
+        .growthRate = GROWTH_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_SHOOTING_STAR, ABILITY_SHOOTING_STAR},
+        .abilityHidden = ABILITY_SHOOTING_STAR,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CLEFFA,
+        .cry_Type = CRY_FAIRY_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_TINKATON_MEGA] = //Done
+    {
+        .baseHP         = 85,
+        .baseAttack     = 125, //+50
+        .baseDefense    = 105, //+28
+        .baseSpAttack   = 90,  //20
+        .baseSpDefense  = 105,
+        .baseSpeed      = 96,  //+2
+        .type1 = TYPE_FAIRY,
+        .type2 = TYPE_STEEL,
+        .catchRate = 45,
+        .expYield = 253,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(100),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_STRONG_GRIP, ABILITY_STRONG_GRIP},
+        .abilityHidden = ABILITY_STRONG_GRIP,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TINKATINK,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SLOWKING_GALAR_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 70,
+        .baseDefense   = 80,  //+20
+        .baseSpAttack  = 135, //+30
+        .baseSpDefense = 180, //+40
+        .baseSpeed     = 30,
+        .type1 = TYPE_POISON,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 70,
+        .expYield = 172,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_CORROSION, ABILITY_CORROSION},
+        .abilityHidden = ABILITY_CORROSION,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .flags = F_GALARIAN_FORM | F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SLOWKING_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 70,
+        .baseDefense   = 80,  //+20
+        .baseSpAttack  = 135, //+30
+        .baseSpDefense = 180, //+40
+        .baseSpeed     = 30,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 70,
+        .expYield = 172,
+        .evYield_SpDefense = 3,
+        .item2 = ITEM_KINGS_ROCK,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_UNAWARE, ABILITY_UNAWARE},
+        .abilityHidden = ABILITY_UNAWARE,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SLOWPOKE,
+        .cry_Type = CRY_PIG_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SLOWBRO_GALAR_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 130,
+        .baseDefense   = 180,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 80,
+        .baseSpeed     = 30,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 75,
+        .expYield = 207,
+        .evYield_Defense   = 2,
+        .item2 = ITEM_KINGS_ROCK,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_QUICK_DRAW, ABILITY_QUICK_DRAW},
+		.abilityHidden = ABILITY_QUICK_DRAW,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SHUCKLE_MEGA] = //Done
+    {
+        .baseHP        = 30,
+        .baseAttack    = 60,  //+50
+        .baseDefense   = 250, //+25
+        .baseSpAttack  = 10,
+        .baseSpDefense = 250, //+25
+        .baseSpeed     = 5,
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_ROCK,
+        .catchRate = 190,
+        .expYield = 177,
+        .evYield_Defense   = 1,
+        .evYield_SpDefense = 1,
+        .item1 = ITEM_BERRY_JUICE,
+        .item2 = ITEM_BERRY_JUICE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_BUG,
+        .abilities = {ABILITY_SELF_SUFFICIENT, ABILITY_SELF_SUFFICIENT},
+        .abilityHidden = ABILITY_SELF_SUFFICIENT,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SHUCKLE,
+        .cry_Type = CRY_MOLLUSK_SMALL,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SHEDINJA_MEGA] = //Done
+    {
+        .baseHP        = 1,
+        .baseAttack    = 140, //+40
+        .baseDefense   = 45,
+        .baseSpAttack  = 70, //+10
+        .baseSpDefense = 30,
+        .baseSpeed     = 120, //+50
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_GHOST,
+        .catchRate = 45,
+        .expYield = 83,
+        .evYield_HP        = 2,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_ERRATIC,
+        .eggGroup1 = EGG_GROUP_MINERAL,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD},
+        .abilityHidden = ABILITY_WONDER_GUARD,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_NINCADA,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SERPERIOR_MEGA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 65,
+        .baseDefense   = 95,
+        .baseSpAttack  = 125,
+        .baseSpDefense = 110,
+        .baseSpeed     = 158,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 45,
+        .expYield = 238,
+        .evYield_Speed = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_ROYAL_PRESENCE, ABILITY_ROYAL_PRESENCE},
+        .abilityHidden = ABILITY_ROYAL_PRESENCE,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SNIVY,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SANDSLASH_MEGA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 140, // +40
+        .baseDefense   = 120, //
+        .baseSpAttack  = 25,  //
+        .baseSpDefense = 75,  // +20
+        .baseSpeed     = 105, // +40
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_GROUND,
+        .catchRate = 90,
+        .expYield = 158,
+        .evYield_Defense   = 2,
+        .item2 = ITEM_GRIP_CLAW,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS},
+        .abilityHidden = ABILITY_TOUGH_CLAWS,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SANDSHREW,
+        .cry_Type = CRY_RODDENT_BIG,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SAMUROTT_HISUI_MEGA] = //Done
+    {
+        .baseHP        = 90,
+        .baseAttack    = 148, //+40
+        .baseDefense   = 80,
+        .baseSpAttack  = 70,  //-30
+        .baseSpDefense = 110, //+45
+        .baseSpeed     = 130, //+45
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_DARK,
+        .catchRate = 45,
+        .expYield = 238,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_SHARPNESS, ABILITY_SHARPNESS},
+        .abilityHidden = ABILITY_SHARPNESS,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_OSHAWOTT,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_SAMUROTT_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 70,  //-30
+        .baseDefense   = 105, //+20
+        .baseSpAttack  = 148, //+40
+        .baseSpDefense = 80,  //+10
+        .baseSpeed     = 130, //+60
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 45,
+        .expYield = 238,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MYSTIC_BLADES, ABILITY_MYSTIC_BLADES},
+        .abilityHidden = ABILITY_MYSTIC_BLADES,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_OSHAWOTT,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_RIBOMBEE_MEGA] = //Done
+    {
+        .baseHP        = 60,
+        .baseAttack    = 55,
+        .baseDefense   = 70,  //+10
+        .baseSpAttack  = 130, //+35
+        .baseSpDefense = 105, //+35
+        .baseSpeed     = 144, //+20
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 75,
+        .expYield = 162,
+        .evYield_Speed     = 2,
+        .item2 = ITEM_HONEY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_FAIRY_AURA, ABILITY_FAIRY_AURA},
+        .abilityHidden = ABILITY_FAIRY_AURA,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CUTIEFLY,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_QUAGSIRE_MEGA] =
+    {
+        .baseHP        = 100, //
+        .baseAttack    = 85,  //-10
+        .baseDefense   = 130, //+30
+        .baseSpAttack  = 105, //+50
+        .baseSpDefense = 95,  //+20
+        .baseSpeed     = 35,  //-10
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_GROUND,
+        .catchRate = 90,
+        .expYield = 151,
+        .evYield_HP        = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_UNAWARE, ABILITY_UNAWARE},
+        .abilityHidden = ABILITY_UNAWARE,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_WOOPER,
+        .cry_Type = CRY_PIG_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_QUAGSIRE_MEGA,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MILOTIC_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 50,  //-10
+        .baseDefense   = 109, //+30
+        .baseSpAttack  = 140, //+40
+        .baseSpDefense = 155, //+20
+        .baseSpeed     = 101, //+10
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 60,
+        .expYield = 189,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_ERRATIC,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_AUTO_HEAL, ABILITY_AUTO_HEAL},
+        .abilityHidden = ABILITY_AUTO_HEAL,
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FEEBAS,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_LUXRAY_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 150, //+30
+        .baseDefense   = 99,  //+20
+        .baseSpAttack  = 105, //-10
+        .baseSpDefense = 99,  //+10
+        .baseSpeed     = 120, //+50
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 45,
+        .expYield = 235,
+        .evYield_Attack    = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_SHOCKING_MAW, ABILITY_SHOCKING_MAW},
+        .abilityHidden = ABILITY_SHOCKING_MAW,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SHINX,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_LANTURN_MEGA] = //Done
+    {
+        .baseHP        = 125,
+        .baseAttack    = 50,	//
+        .baseDefense   = 75,	//+10
+        .baseSpAttack  = 130,	//+40
+        .baseSpDefense = 106,   //+30
+        .baseSpeed     = 105,	//+35
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 75,
+        .expYield = 161,
+        .evYield_HP  = 2,
+        .item2 = ITEM_DEEP_SEA_SCALE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_2,
+        .eggGroup2 = EGG_GROUP_WATER_2,
+        .abilities = {ABILITY_RADIANCE, ABILITY_RADIANCE},
+        .abilityHidden = ABILITY_RADIANCE,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CHINCHOU,
+        .cry_Type = CRY_FISH_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_KROOKODILE_MEGA] = //Done
+    {
+        .baseHP        = 95,
+        .baseAttack    = 157, //+40
+        .baseDefense   = 95,  //+15
+        .baseSpAttack  = 65,
+        .baseSpDefense = 85,  //+15
+        .baseSpeed     = 112, //+30
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_DARK,
+        .catchRate = 45,
+        .expYield = 234,
+        .evYield_Attack    = 3,
+        .item1 = ITEM_BLACK_GLASSES,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MOXIE, ABILITY_MOXIE},
+        .abilityHidden = ABILITY_MOXIE,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SANDILE,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_FLYGON_MEGA] = //Done
+    {
+        .baseHP        = 80,
+        .baseAttack    = 125,
+        .baseDefense   = 90,
+        .baseSpAttack  = 125,
+        .baseSpDefense = 90,
+        .baseSpeed     = 130,
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 45,
+        .expYield = 234,
+        .evYield_Attack    = 1,
+        .evYield_Speed     = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE},
+        .abilityHidden = ABILITY_SHEER_FORCE,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_TRAPINCH,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON | F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DEWGONG_MEGA] = //Done
+    {
+        .baseHP        = 90,
+        .baseAttack    = 50, //70 -> 50
+        .baseDefense   = 80,
+        .baseSpAttack  = 140, //70 -> 90
+        .baseSpDefense = 105,
+        .baseSpeed     = 110,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_ICE,
+        .catchRate = 75,
+        .expYield = 166,
+        .evYield_SpDefense = 2,
+        .item1 = ITEM_ASPEAR_BERRY,
+        .item2 = ITEM_NEVER_MELT_ICE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_ICE_SCALES, ABILITY_ICE_SCALES},	// Hydratation -> Ice Body
+        .abilityHidden = ABILITY_ICE_SCALES, // Ice Body -> Ice Scales
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SEEL,
+        .cry_Type = CRY_PIG_MEDIUM,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CROBAT_MEGA] = //Done
+    {
+        .baseHP        = 85,
+        .baseAttack    = 140, //+50
+        .baseDefense   = 80,
+        .baseSpAttack  = 100, //+10
+        .baseSpDefense = 80,
+        .baseSpeed     = 170, //+40
+        .type1 = TYPE_POISON,
+        .type2 = TYPE_FLYING,
+        .catchRate = 90,
+        .expYield = 241,
+        .evYield_Speed     = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FLYING,
+        .eggGroup2 = EGG_GROUP_FLYING,
+        .abilities = {ABILITY_SHADOW_SHIELD, ABILITY_SHADOW_SHIELD},
+        .abilityHidden = ABILITY_SHADOW_SHIELD,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_ZUBAT,
+        .cry_Type = CRY_BAT_BIG,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CLODSIRE_MEGA] = //Done
+    {
+        .baseHP        = 140,
+        .baseAttack    = 135, //+55
+        .baseDefense   = 100, //+30
+        .baseSpAttack  = 30,  //-15
+        .baseSpDefense = 140, //+30
+        .baseSpeed     = 20,
+        .type1 = TYPE_POISON,
+        .type2 = TYPE_GROUND,
+        .catchRate = 90,
+        .expYield = 151,
+        .evYield_HP = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_POLLUTION, ABILITY_POLLUTION},
+        .abilityHidden = ABILITY_POLLUTION,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_WOOPER_PALDEA,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_BRELOOM_MEGA] = //Done
+    {
+        .baseHP        = 60,
+        .baseAttack    = 160, //+30
+        .baseDefense   = 90,  //+10
+        .baseSpAttack  = 60,
+        .baseSpDefense = 80,  //+20
+        .baseSpeed     = 110, //+40
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 90,
+        .expYield = 161,
+        .evYield_Attack    = 2,
+        .item1 = ITEM_TINY_MUSHROOM,
+        .item2 = ITEM_KEBIA_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 70,
+        .growthRate = GROWTH_FLUCTUATING,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_GRASS,
+        .abilities = {ABILITY_TECHNICIAN, ABILITY_TECHNICIAN},
+        .abilityHidden = ABILITY_TECHNICIAN,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SHROOMISH,
+        .flags = F_CUSTOM_FORM | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_RAICHU_MEGA_Y] = //Done
+    {
+        .baseHP        = 70,
+        .baseAttack    = 110, //+10
+        .baseDefense   = 55,
+        .baseSpAttack  = 160, //+60
+        .baseSpDefense = 90,  //+10
+        .baseSpeed     = 130, //+20
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 75,
+        .expYield = 218,
+        .evYield_Speed     = 3,
+		.item1 = ITEM_ORAN_BERRY,
+        .item2 = ITEM_LIGHT_BALL,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 10,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_OVERCHARGE, ABILITY_OVERCHARGE},
+        .abilityHidden = ABILITY_OVERCHARGE,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_PICHU,
+        .cry_Type = CRY_PIKACHU,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_RAICHU_MEGA_X] = //Done
+    {
+        .baseHP        = 70,
+        .baseAttack    = 145, //+45
+        .baseDefense   = 95,  //+40
+        .baseSpAttack  = 90,  //-10
+        .baseSpDefense = 95,  //+15
+        .baseSpeed     = 120, //+10
+        .type1 = TYPE_ELECTRIC,
+        .type2 = TYPE_ELECTRIC,
+        .catchRate = 75,
+        .expYield = 218,
+        .evYield_Speed     = 3,
+		.item1 = ITEM_ORAN_BERRY,
+        .item2 = ITEM_LIGHT_BALL,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 10,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FAIRY,
+        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_LIGHTNING_ROD},
+        .abilityHidden = ABILITY_LIGHTNING_ROD,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_PICHU,
+        .cry_Type = CRY_PIKACHU,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_FLOETTE_ETERNAL_MEGA] = //Done
+    {
+        .baseHP        = 74,
+        .baseAttack    = 85,
+        .baseDefense   = 87,
+        .baseSpAttack  = 155,
+        .baseSpDefense = 148,
+        .baseSpeed     = 102,
+        .type1 = TYPE_FAIRY,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 120,
+        .expYield = 243,
+        .evYield_SpDefense = 2,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_FLOWER_VEIL, ABILITY_NONE},
+        .abilityHidden = ABILITY_SYMBIOSIS,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_FALINKS_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 135,
+        .baseDefense   = 135,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 65,
+        .baseSpeed     = 100,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 45,
+        .expYield = 165,
+        .evYield_Attack    = 2,
+        .evYield_SpDefense = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_MINERAL,
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_BATTLE_ARMOR},
+        .abilityHidden = ABILITY_BATTLE_ARMOR,
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FALINKS,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DRAMPA_MEGA] = //Done
+    {
+        .baseHP        = 78,
+        .baseAttack    = 85,
+        .baseDefense   = 110,
+        .baseSpAttack  = 160,
+        .baseSpDefense = 116,
+        .baseSpeed     = 36,
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 70,
+        .expYield = 170,
+        .evYield_SpAttack  = 2,
+        .item2 = ITEM_PERSIM_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_MONSTER,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_BERSERK, ABILITY_BERSERK},
+        .abilityHidden = ABILITY_BERSERK,
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_DRAMPA,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_ZYGARDE_MEGA] = //Done
+    {
+        .baseHP        = 216,
+        .baseAttack    = 70,
+        .baseDefense   = 91,
+        .baseSpeed     = 216,
+        .baseSpAttack  = 85,
+        .baseSpDefense = 100,
+        .type1 = TYPE_DRAGON,
+        .type2 = TYPE_GROUND,
+        .catchRate = 3,
+        .expYield = 319,
+        .evYield_HP        = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_POWER_CONSTRUCT, ABILITY_POWER_CONSTRUCT},
+        .abilityHidden = ABILITY_POWER_CONSTRUCT,
+        .bodyColor = BODY_COLOR_BLACK,
+        .noFlip = FALSE,
+        .flags = F_LEGENDARY_POKEMON | F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_HAWLUCHA_MEGA] = //Done
+    {
+        .baseHP        = 78,
+        .baseAttack    = 137,
+        .baseDefense   = 100,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 93,
+        .baseSpeed     = 118,
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_FLYING,
+        .catchRate = 100,
+        .expYield = 175,
+        .evYield_Attack    = 2,
+        .item1 = ITEM_KINGS_ROCK,
+        .item2 = ITEM_POWER_HERB,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FLYING,
+        .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
+        .abilities = {ABILITY_MOXIE, ABILITY_MOXIE},
+        .abilityHidden = ABILITY_MOXIE,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_HAWLUCHA,
+        .cry_Type = CRY_BIRD_MEDIUM,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DRAGALGE_MEGA] = //Done
+    {
+        .baseHP        = 65,
+        .baseAttack    = 85,
+        .baseDefense   = 105,
+        .baseSpAttack  = 132,
+        .baseSpDefense = 163,
+        .baseSpeed     = 44,
+        .type1 = TYPE_POISON,
+        .type2 = TYPE_DRAGON,
+        .catchRate = 55,
+        .expYield = 173,
+        .evYield_SpDefense = 2,
+		.item1 = ITEM_CHOICE_SPECS,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        .abilities = {ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY},
+        .abilityHidden = ABILITY_ADAPTABILITY,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_SKRELP,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_BARBARACLE_MEGA] = //Done
+    {
+        .baseHP        = 72,
+        .baseAttack    = 140,
+        .baseDefense   = 130,
+        .baseSpAttack  = 64,
+        .baseSpDefense = 106,
+        .baseSpeed     = 88,
+        .type1 = TYPE_ROCK,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 45,
+        .expYield = 175,
+        .evYield_Attack    = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_3,
+        .eggGroup2 = EGG_GROUP_WATER_3,
+        .abilities = {ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS},
+        .abilityHidden = ABILITY_TOUGH_CLAWS,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_BINACLE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_MALAMAR_MEGA] = //Done
+    {
+        .baseHP        = 86,
+        .baseAttack    = 102,
+        .baseDefense   = 88,
+        .baseSpAttack  = 98,
+        .baseSpDefense = 120,
+        .baseSpeed     = 88,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 80,
+        .expYield = 169,
+        .evYield_Attack    = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_WATER_2,
+        .abilities = {ABILITY_OPPOSITE_DAY, ABILITY_OPPOSITE_DAY},
+        .abilityHidden = ABILITY_OPPOSITE_DAY,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_INKAY,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_PYROAR_MEGA] = //Done
+    {
+        .baseHP        = 86,
+        .baseAttack    = 88,
+        .baseDefense   = 92,
+        .baseSpAttack  = 129,
+        .baseSpDefense = 86,
+        .baseSpeed     = 126,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_NORMAL,
+        .catchRate = 65,
+        .expYield = 177,
+        .evYield_SpAttack  = 2,
+        .genderRatio = PERCENT_FEMALE(87.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MOXIE, ABILITY_MOXIE},
+        .abilityHidden = ABILITY_MOXIE,
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_LITLEO,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_GRENINJA_MEGA] = //Done
+    {
+        .baseHP        = 72,
+        .baseAttack    = 125,
+        .baseDefense   = 77,
+        .baseSpAttack  = 133,
+        .baseSpDefense = 81,
+        .baseSpeed     = 142,
+        .type1 = TYPE_WATER,
+        .type2 = TYPE_DARK,
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Speed     = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_WATER_1,
+        .eggGroup2 = EGG_GROUP_WATER_1,
+        .abilities = {ABILITY_PROTEAN, ABILITY_PROTEAN},
+        .abilityHidden = ABILITY_PROTEAN,
+        .bodyColor = BODY_COLOR_BLUE,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FROAKIE,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_CHESNAUGHT_MEGA] = //Done
+    {
+        .baseHP        = 88,
+        .baseAttack    = 137,
+        .baseDefense   = 172,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 115,
+        .baseSpeed     = 44,
+        .type1 = TYPE_GRASS,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 45,
+        .expYield = 239,
+        .evYield_Defense   = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_BULLETPROOF, ABILITY_BULLETPROOF},
+        .abilityHidden = ABILITY_BULLETPROOF,
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_CHESPIN,
+        .flags = F_MEGA_POKEMON,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+    },
+
+    [SPECIES_DELPHOX_MEGA] = //Done
+    {
+        .baseHP        = 75,
+        .baseAttack    = 69,
+        .baseDefense   = 72,
+        .baseSpAttack  = 159,
+        .baseSpDefense = 125,
+        .baseSpeed     = 134,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_PSYCHIC,
+        .catchRate = 45,
+        .expYield = 240,
+        .evYield_SpAttack  = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_MAGICIAN, ABILITY_MAGICIAN},
+        .abilityHidden = ABILITY_MAGICIAN,
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
+        .firstStage = SPECIES_FENNEKIN,
+        .flags = F_MEGA_POKEMON | F_GROUND_INMUNITY,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
     },
 };

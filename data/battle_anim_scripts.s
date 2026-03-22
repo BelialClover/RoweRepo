@@ -421,7 +421,7 @@ gBattleAnims_Moves::
 	.4byte Move_AQUA_TAIL
 	.4byte Move_SEED_BOMB
 	.4byte Move_AIR_SLASH
-	.4byte Move_XSCISSOR
+	.4byte Move_X_SCISSOR
 	.4byte Move_BUG_BUZZ
 	.4byte Move_DRAGON_PULSE
 	.4byte Move_DRAGON_RUSH
@@ -477,7 +477,7 @@ gBattleAnims_Moves::
 	.4byte Move_HEAD_SMASH
 	.4byte Move_DOUBLE_HIT
 	.4byte Move_ROAR_OF_TIME
-	.4byte Move_SPECIAL_REND
+	.4byte Move_SPACIAL_REND
 	.4byte Move_LUNAR_DANCE
 	.4byte Move_CRUSH_GRIP
 	.4byte Move_MAGMA_STORM
@@ -503,7 +503,7 @@ gBattleAnims_Moves::
 	.4byte Move_SLUDGE_WAVE
 	.4byte Move_QUIVER_DANCE
 	.4byte Move_HEAVY_SLAM
-	.4byte Move_SYCHRONOISE
+	.4byte Move_SYNCHRONOISE
 	.4byte Move_ELECTRO_BALL
 	.4byte Move_SOAK
 	.4byte Move_FLAME_CHARGE
@@ -532,7 +532,7 @@ gBattleAnims_Moves::
 	.4byte Move_QUASH
 	.4byte Move_ACROBATICS
 	.4byte Move_REFLECT_TYPE
-	.4byte Move_RETALITATE
+	.4byte Move_RETALIATE
 	.4byte Move_FINAL_GAMBIT
 	.4byte Move_BESTOW
 	.4byte Move_INFERNO
@@ -744,7 +744,7 @@ gBattleAnims_Moves::
 	.4byte Move_OBSTRUCT
 	.4byte Move_FALSE_SURRENDER
 	.4byte Move_METEOR_ASSAULT
-	.4byte Move_ETERNA_BEAM
+	.4byte Move_ETERNABEAM
 	.4byte Move_STEEL_BEAM
 	.4byte Move_EXPANDING_FORCE
 	.4byte Move_STEEL_ROLLER
@@ -848,7 +848,126 @@ gBattleAnims_Moves::
 	.4byte Move_NEUTRAL_PULSE
 	.4byte Move_SEASONAL_BEAM
 	.4byte Move_RAGING_FURY
-	.4byte Move_COUNT @ cannot be reached, because last move is Eerie Spell
+	.4byte Move_HITONOME
+	.4byte Move_TRICKONOME
+	.4byte Move_AMPONOME
+	.4byte Move_WEAKONOME
+	.4byte Move_TORCH_SONG
+	.4byte Move_INVERSE_ROOM
+@@@@@@@@@@@@ PLA Moves @@@@@@@@@@@@
+	.4byte Move_BARB_BARRAGE
+	.4byte Move_BITTER_MALICE
+	.4byte Move_BLEAKWIND_STORM
+	.4byte Move_CEASELESS_EDGE
+	.4byte Move_CHLOROBLAST
+	.4byte Move_DIRE_CLAW
+	.4byte Move_ESPER_WING
+	.4byte Move_HEADLONG_RUSH
+	.4byte Move_INFERNAL_PARADE
+	.4byte Move_LUNAR_BLESSING
+	.4byte Move_MOUNTAIN_GALE
+	.4byte Move_MYSTICAL_POWER
+	.4byte Move_POWER_SHIFT
+	.4byte Move_PSYSHIELD_BASH
+	.4byte Move_SANDSEAR_STORM
+	.4byte Move_SHELTER
+	.4byte Move_SPRINGTIDE_STORM
+	.4byte Move_STONE_AXE
+	.4byte Move_TAKE_HEART
+	.4byte Move_TRIPLE_ARROWS
+	.4byte Move_VICTORY_DANCE
+	.4byte Move_WILDBOLT_STORM
+@@@@@@@@@@@@ Z-Moves @@@@@@@@@@@@
+	.4byte Move_10000000_VOLT_THUNDERBOLT
+	.4byte Move_ACID_DOWNPOUR
+	.4byte Move_ALL_OUT_PUMMELING
+	.4byte Move_BLACK_HOLE_ECLIPSE
+	.4byte Move_BLOOM_DOOM
+	.4byte Move_BREAKNECK_BLITZ
+	.4byte Move_CATASTROPIKA
+	.4byte Move_CLANGOROUS_SOULBLAZE
+	.4byte Move_CONTINENTAL_CRUSH
+	.4byte Move_CORKSCREW_CRASH
+	.4byte Move_DEVASTATING_DRAKE
+	.4byte Move_EXTREME_EVOBOOST
+	.4byte Move_GENESIS_SUPERNOVA
+	.4byte Move_GIGAVOLT_HAVOC
+	.4byte Move_GUARDIAN_OF_ALOLA
+	.4byte Move_HYDRO_VORTEX
+	.4byte Move_INFERNO_OVERDRIVE
+	.4byte Move_LETS_SNUGGLE_FOREVER
+	.4byte Move_LIGHT_THAT_BURNS_THE_SKY
+	.4byte Move_MALICIOUS_MOONSAULT
+	.4byte Move_MENACING_MOONRAZE_MAELSTROM
+	.4byte Move_NEVER_ENDING_NIGHTMARE
+	.4byte Move_OCEANIC_OPERETTA
+	.4byte Move_PULVERIZING_PANCAKE
+	.4byte Move_SAVAGE_SPIN_OUT
+	.4byte Move_SEARING_SUNRAZE_SMASH
+	.4byte Move_SHATTERED_PSYCHE
+	.4byte Move_SINISTER_ARROW_RAID
+	.4byte Move_SOUL_STEALING_7_STAR_STRIKE
+	.4byte Move_SPLINTERED_STORMSHARDS
+	.4byte Move_STOKED_SPARKSURFER
+	.4byte Move_SUBZERO_SLAMMER
+	.4byte Move_SUPERSONIC_SKYSTRIKE
+	.4byte Move_TECTONIC_RAGE
+	.4byte Move_TWINKLE_TACKLE
+@@@@@@@@@@@@ Max Moves @@@@@@@@@@@@
+	.4byte Move_MAX_AIRSTREAM
+	.4byte Move_MAX_DARKNESS
+	.4byte Move_MAX_FLARE
+	.4byte Move_MAX_FLUTTERBY
+	.4byte Move_MAX_GEYSER
+	.4byte Move_MAX_GUARD
+	.4byte Move_MAX_HAILSTORM
+	.4byte Move_MAX_KNUCKLE
+	.4byte Move_MAX_LIGHTNING
+	.4byte Move_MAX_MINDSTORM
+	.4byte Move_MAX_OOZE
+	.4byte Move_MAX_OVERGROWTH
+	.4byte Move_MAX_PHANTASM
+	.4byte Move_MAX_QUAKE
+	.4byte Move_MAX_ROCKFALL
+	.4byte Move_MAX_STARFALL
+	.4byte Move_MAX_STEELSPIKE
+	.4byte Move_MAX_STRIKE
+	.4byte Move_MAX_WYRMWIND
+@@@@@@@@@@@@ G-Max Moves @@@@@@@@@@@@
+	.4byte Move_G_MAX_BEFUDDLE
+	.4byte Move_G_MAX_CANNONADE
+	.4byte Move_G_MAX_CENTIFERNO
+	.4byte Move_G_MAX_CHI_STRIKE
+	.4byte Move_G_MAX_CUDDLE
+	.4byte Move_G_MAX_DEPLETION
+	.4byte Move_G_MAX_DRUM_SOLO
+	.4byte Move_G_MAX_FINALE
+	.4byte Move_G_MAX_FIREBALL
+	.4byte Move_G_MAX_FOAM_BURST
+	.4byte Move_G_MAX_GOLD_RUSH
+	.4byte Move_G_MAX_GRAVITAS
+	.4byte Move_G_MAX_HYDROSNIPE
+	.4byte Move_G_MAX_MALODOR
+	.4byte Move_G_MAX_MELTDOWN
+	.4byte Move_G_MAX_ONE_BLOW
+	.4byte Move_G_MAX_RAPID_FLOW
+	.4byte Move_G_MAX_REPLENISH
+	.4byte Move_G_MAX_RESONANCE
+	.4byte Move_G_MAX_SANDBLAST
+	.4byte Move_G_MAX_SMITE
+	.4byte Move_G_MAX_SNOOZE
+	.4byte Move_G_MAX_STEELSURGE
+	.4byte Move_G_MAX_STONESURGE
+	.4byte Move_G_MAX_STUN_SHOCK
+	.4byte Move_G_MAX_SWEETNESS
+	.4byte Move_G_MAX_TARTNESS
+	.4byte Move_G_MAX_TERROR
+	.4byte Move_G_MAX_VINE_LASH
+	.4byte Move_G_MAX_VOLCALITH
+	.4byte Move_G_MAX_VOLT_CRASH
+	.4byte Move_G_MAX_WILDFIRE
+	.4byte Move_G_MAX_WIND_RAGE
+	.4byte Move_COUNT @ MOVE_PLACEHOLDER
 
 	.align 2
 gBattleAnims_StatusConditions::
@@ -2278,7 +2397,7 @@ Move_AIR_SLASH:
 	call UnsetSkyBg
 	end
 
-Move_XSCISSOR:
+Move_X_SCISSOR:
 	loadspritegfx ANIM_TAG_CUT
 	monbg ANIM_TARGET
 	setalpha 12, 8
@@ -3162,7 +3281,8 @@ Move_DEFOG:
 	clearmonbg ANIM_ATTACKER 
 	blendoff 
 	end 
-
+	
+Move_INVERSE_ROOM::
 Move_TRICK_ROOM::
 	call InitRoomAnimation
 	fadetobg BG_TRICK_ROOM
@@ -4251,7 +4371,7 @@ Move_ROAR_OF_TIME:
 	waitforvisualfinish
 	end
 
-Move_SPECIAL_REND:
+Move_SPACIAL_REND:
 	loadspritegfx ANIM_TAG_PUNISHMENT_BLADES
 	loadspritegfx ANIM_TAG_PINK_HEART_2       @ANIM_TAG_BERRY_EATEN
 	monbg ANIM_ATK_PARTNER
@@ -4973,7 +5093,7 @@ Move_HEAVY_SLAM:
 	blendoff
 	end
 
-Move_SYCHRONOISE:
+Move_SYNCHRONOISE:
 	loadspritegfx ANIM_TAG_THIN_RING @hypervoice ring
 	loadspritegfx ANIM_TAG_SPARK_2 @yellow color
 	loadspritegfx ANIM_TAG_WATER_ORB @blue color
@@ -5699,7 +5819,7 @@ Move_REFLECT_TYPE:
 	blendoff
 	end
 
-Move_RETALITATE:
+Move_RETALIATE:
 	loadspritegfx ANIM_TAG_CUT @Cut
 	monbg ANIM_DEF_PARTNER
 	setalpha 9, 8
@@ -14014,7 +14134,7 @@ BasicExplosion:
 	launchtemplate gExplosionSpriteTemplate, 0x83, 0x4 0x10 0x10 0x1 0x1
 	return
 
-Move_ETERNA_BEAM::
+Move_ETERNABEAM::
 	goto Move_HYPER_BEAM
 
 Move_STEEL_BEAM::
@@ -14136,7 +14256,7 @@ Move_JUNGLE_HEALING::
 	goto Move_AROMATHERAPY
 
 Move_EERIE_SPELL::
-	goto Move_SYCHRONOISE
+	goto Move_SYNCHRONOISE
 
 Move_ALLURING_VOICE::
 	goto Move_DISARMING_VOICE
@@ -14175,11 +14295,46 @@ Move_SEASONAL_BEAM:
 Move_RAGING_FURY:
 	goto Move_OUTRAGE
 
-Move_AQUA_STEP:
-Move_ARMOR_CANNON:
+Move_HITONOME:
+Move_TRICKONOME:
+Move_AMPONOME:
+Move_WEAKONOME:
+	loadspritegfx ANIM_TAG_FINGER
+	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
+	createsprite gThoughtBubbleSpriteTemplate, ANIM_ATTACKER, 11, 0, 100
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
+	delay 6
+	createsprite gMetronomeFingerSpriteTemplate, ANIM_ATTACKER, 12, 0
+	delay 24
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 22, 3
+	waitforvisualfinish
+	end
+
 Move_BITTER_BLADE:
-Move_BLAZING_TORQUE:
+	goto Move_SLASH
+
+Move_TWIN_BEAM:
+	goto Move_CONFUSION
+
+Move_ARMOR_CANNON:
+	goto Move_FLAMETHROWER
+
+Move_FLOWER_TRICK:
+	goto Move_SEED_BOMB
+
+Move_TORCH_SONG:
+	goto Move_SCREECH
+
+Move_AQUA_STEP:
+	goto Move_LIQUIDATION
+
+Move_TRIPLE_DIVE:
+	goto Move_LIQUIDATION
+
 Move_BLOOD_MOON:
+	goto Move_MOONBLAST
+
+Move_BLAZING_TORQUE:
 Move_BURNING_BULWARK:
 Move_CHILLY_RECEPTION:
 Move_COLLISION_COURSE:
@@ -14192,7 +14347,6 @@ Move_ELECTRO_DRIFT:
 Move_ELECTRO_SHOT:
 Move_FICKLE_BEAM:
 Move_FILLET_AWAY:
-Move_FLOWER_TRICK:
 Move_GLAIVE_RUSH:
 Move_HARD_PRESS:
 Move_HYDRO_STEAM:
@@ -14224,8 +14378,6 @@ Move_TERA_BLAST:
 Move_TERA_STARSTORM:
 Move_THUNDERCLAP:
 Move_TIDY_UP:
-Move_TRIPLE_DIVE:
-Move_TWIN_BEAM:
 Move_UPPER_HAND:
 Move_WICKED_TORQUE:
 	goto Move_TACKLE
@@ -23512,17 +23664,19 @@ Move_SKY_UPPERCUT:
 
 Move_SECRET_POWER:
 	createvisualtask AnimTask_GetBattleTerrain, 5
-	jumpargeq 0, BATTLE_TERRAIN_GRASS,       Move_NEEDLE_ARM
-	jumpargeq 0, BATTLE_TERRAIN_GRASS_DUSK,  Move_NEEDLE_ARM
-	jumpargeq 0, BATTLE_TERRAIN_GRASS_NIGHT, Move_NEEDLE_ARM
-	jumpargeq 0, BATTLE_TERRAIN_LONG_GRASS,  Move_MAGICAL_LEAF
-	jumpargeq 0, BATTLE_TERRAIN_SAND,        Move_MUD_SHOT
-	jumpargeq 0, BATTLE_TERRAIN_UNDERWATER,  Move_WATERFALL
-	jumpargeq 0, BATTLE_TERRAIN_WATER,       Move_SURF
-	jumpargeq 0, BATTLE_TERRAIN_POND,        Move_BUBBLE_BEAM
-	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,    Move_ROCK_THROW
-	jumpargeq 0, BATTLE_TERRAIN_CAVE,        Move_BITE
-	jumpargeq 0, BATTLE_TERRAIN_BUILDING,    Move_STRENGTH
+	jumpargeq 0, BATTLE_TERRAIN_GRASS,          Move_NEEDLE_ARM
+	jumpargeq 0, BATTLE_TERRAIN_GRASS_DUSK,     Move_NEEDLE_ARM
+	jumpargeq 0, BATTLE_TERRAIN_GRASS_NIGHT,    Move_NEEDLE_ARM
+	jumpargeq 0, BATTLE_TERRAIN_LONG_GRASS,     Move_MAGICAL_LEAF
+	jumpargeq 0, BATTLE_TERRAIN_SAND,           Move_MUD_SHOT
+	jumpargeq 0, BATTLE_TERRAIN_UNDERWATER,     Move_WATERFALL
+	jumpargeq 0, BATTLE_TERRAIN_WATER,          Move_SURF
+	jumpargeq 0, BATTLE_TERRAIN_POND,           Move_BUBBLE_BEAM
+	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,       Move_ROCK_THROW
+	jumpargeq 0, BATTLE_TERRAIN_CAVE,           Move_BITE
+	jumpargeq 0, BATTLE_TERRAIN_BUILDING,       Move_STRENGTH
+	jumpargeq 0, BATTLE_TERRAIN_NEWMOON_ISLAND, Move_NIGHTMARE
+
 	goto Move_SLAM
 
 Move_TWISTER:
@@ -23798,6 +23952,337 @@ WeatherBallIce:
 	call IceCrystalEffectShort
 	waitforvisualfinish
 	end
+
+@@@@@@@@@@@@@@@@@@@@@@@ PLA Moves @@@@@@@@@@@@@@@@@@@@@@@
+Move_BARB_BARRAGE::
+	goto Move_DYNAMAX_CANNON
+
+Move_BITTER_MALICE::
+	goto Move_DYNAMAX_CANNON
+
+Move_BLEAKWIND_STORM::
+	goto Move_DYNAMAX_CANNON
+
+Move_CEASELESS_EDGE::
+	goto Move_DYNAMAX_CANNON
+
+Move_CHLOROBLAST::
+	goto Move_DYNAMAX_CANNON
+
+Move_DIRE_CLAW::
+	goto Move_DYNAMAX_CANNON
+
+Move_ESPER_WING::
+	goto Move_DYNAMAX_CANNON
+
+Move_HEADLONG_RUSH::
+	goto Move_DYNAMAX_CANNON
+
+Move_INFERNAL_PARADE::
+	goto Move_DYNAMAX_CANNON
+
+Move_LUNAR_BLESSING::
+	goto Move_DYNAMAX_CANNON
+
+Move_MOUNTAIN_GALE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MYSTICAL_POWER::
+	goto Move_DYNAMAX_CANNON
+
+Move_POWER_SHIFT::
+	goto Move_DYNAMAX_CANNON
+
+Move_PSYSHIELD_BASH::
+	goto Move_DYNAMAX_CANNON
+
+Move_SANDSEAR_STORM::
+	goto Move_DYNAMAX_CANNON
+
+Move_SHELTER::
+	goto Move_DYNAMAX_CANNON
+
+Move_SPRINGTIDE_STORM::
+	goto Move_DYNAMAX_CANNON
+
+Move_STONE_AXE::
+	goto Move_DYNAMAX_CANNON
+
+Move_TAKE_HEART::
+	goto Move_DYNAMAX_CANNON
+
+Move_TRIPLE_ARROWS::
+	goto Move_DYNAMAX_CANNON
+
+Move_VICTORY_DANCE::
+	goto Move_DYNAMAX_CANNON
+
+Move_WILDBOLT_STORM::
+	goto Move_DYNAMAX_CANNON
+
+@@@@@@@@@@@@@@@@@@@@@@@ Z-Moves @@@@@@@@@@@@@@@@@@@@@@@
+Move_10000000_VOLT_THUNDERBOLT::
+	goto Move_DYNAMAX_CANNON
+
+Move_ACID_DOWNPOUR::
+	goto Move_DYNAMAX_CANNON
+
+Move_ALL_OUT_PUMMELING::
+	goto Move_DYNAMAX_CANNON
+
+Move_BLACK_HOLE_ECLIPSE::
+	goto Move_DYNAMAX_CANNON
+
+Move_BLOOM_DOOM::
+	goto Move_DYNAMAX_CANNON
+
+Move_BREAKNECK_BLITZ::
+	goto Move_DYNAMAX_CANNON
+
+Move_CATASTROPIKA::
+	goto Move_DYNAMAX_CANNON
+
+Move_CLANGOROUS_SOULBLAZE::
+	goto Move_DYNAMAX_CANNON
+
+Move_CONTINENTAL_CRUSH::
+	goto Move_DYNAMAX_CANNON
+
+Move_CORKSCREW_CRASH::
+	goto Move_DYNAMAX_CANNON
+
+Move_DEVASTATING_DRAKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_EXTREME_EVOBOOST::
+	goto Move_DYNAMAX_CANNON
+
+Move_GENESIS_SUPERNOVA::
+	goto Move_DYNAMAX_CANNON
+
+Move_GIGAVOLT_HAVOC::
+	goto Move_DYNAMAX_CANNON
+
+Move_GUARDIAN_OF_ALOLA::
+	goto Move_DYNAMAX_CANNON
+
+Move_HYDRO_VORTEX::
+	goto Move_DYNAMAX_CANNON
+
+Move_INFERNO_OVERDRIVE::
+	goto Move_DYNAMAX_CANNON
+
+Move_LETS_SNUGGLE_FOREVER::
+	goto Move_DYNAMAX_CANNON
+
+Move_LIGHT_THAT_BURNS_THE_SKY::
+	goto Move_DYNAMAX_CANNON
+
+Move_MALICIOUS_MOONSAULT::
+	goto Move_DYNAMAX_CANNON
+
+Move_MENACING_MOONRAZE_MAELSTROM::
+	goto Move_DYNAMAX_CANNON
+
+Move_NEVER_ENDING_NIGHTMARE::
+	goto Move_DYNAMAX_CANNON
+
+Move_OCEANIC_OPERETTA::
+	goto Move_DYNAMAX_CANNON
+
+Move_PULVERIZING_PANCAKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_SAVAGE_SPIN_OUT::
+	goto Move_DYNAMAX_CANNON
+
+Move_SEARING_SUNRAZE_SMASH::
+	goto Move_DYNAMAX_CANNON
+
+Move_SHATTERED_PSYCHE::
+	goto Move_DYNAMAX_CANNON
+
+Move_SINISTER_ARROW_RAID::
+	goto Move_DYNAMAX_CANNON
+
+Move_SOUL_STEALING_7_STAR_STRIKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_SPLINTERED_STORMSHARDS::
+	goto Move_DYNAMAX_CANNON
+
+Move_STOKED_SPARKSURFER::
+	goto Move_DYNAMAX_CANNON
+
+Move_SUBZERO_SLAMMER::
+	goto Move_DYNAMAX_CANNON
+
+Move_SUPERSONIC_SKYSTRIKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_TECTONIC_RAGE::
+	goto Move_DYNAMAX_CANNON
+
+Move_TWINKLE_TACKLE::
+	goto Move_DYNAMAX_CANNON
+
+@@@@@@@@@@@@@@@@@@@@@@@ Max Moves @@@@@@@@@@@@@@@@@@@@@@@
+Move_MAX_AIRSTREAM::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_DARKNESS::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_FLARE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_FLUTTERBY::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_GEYSER::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_GUARD::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_HAILSTORM::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_KNUCKLE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_LIGHTNING::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_MINDSTORM::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_OOZE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_OVERGROWTH::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_PHANTASM::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_QUAKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_ROCKFALL::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_STARFALL::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_STEELSPIKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_STRIKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_MAX_WYRMWIND::
+	goto Move_DYNAMAX_CANNON
+
+@@@@@@@@@@@@@@@@@@@@@@@ G-Max Moves @@@@@@@@@@@@@@@@@@@@@@@
+Move_G_MAX_BEFUDDLE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_CANNONADE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_CENTIFERNO::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_CHI_STRIKE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_CUDDLE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_DEPLETION::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_DRUM_SOLO::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_FINALE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_FIREBALL::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_FOAM_BURST::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_GOLD_RUSH::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_GRAVITAS::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_HYDROSNIPE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_MALODOR::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_MELTDOWN::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_ONE_BLOW::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_RAPID_FLOW::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_REPLENISH::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_RESONANCE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_SANDBLAST::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_SMITE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_SNOOZE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_STEELSURGE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_STONESURGE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_STUN_SHOCK::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_SWEETNESS::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_TARTNESS::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_TERROR::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_VINE_LASH::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_VOLCALITH::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_VOLT_CRASH::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_WILDFIRE::
+	goto Move_DYNAMAX_CANNON
+
+Move_G_MAX_WIND_RAGE::
+	goto Move_DYNAMAX_CANNON
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

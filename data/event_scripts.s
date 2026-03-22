@@ -688,6 +688,9 @@ EventScript_SetBrineyLocation_Route109:: @ 8271918
 	.include "data/scripts/field_tools.inc"
 	.include "data/scripts/opponent_scripts.inc"
 	.include "data/scripts/wild_mon_scripts.inc"
+	.include "data/scripts/alpha_mon_scripts.inc"
+	.include "data/scripts/legendary_mon_scripts.inc"
+	.include "data/scripts/gift_mon_scripts.inc"
 	.include "data/scripts/sevii_scripts.inc"
 
 @ scripts/notices.inc? signs.inc? See comment about text/notices.inc
@@ -845,7 +848,6 @@ Common_EventScript_FerryDepartIsland:: @ 8272250
 	return
 
 	.include "data/scripts/cave_of_origin.inc"
-	.include "data/scripts/kecleon.inc"
 
 Common_EventScript_NameReceivedPartyMon:: @ 82723DD
 	fadescreen FADE_TO_BLACK
@@ -1102,6 +1104,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/scripts/trainer_script.inc"
 	.include "data/scripts/berry_tree.inc"
 	.include "data/scripts/secret_base.inc"
+	.include "data/scripts/secret_power_tm.inc"
 	.include "data/scripts/cable_club.inc"
 	.include "data/text/cable_club.inc"
 	.include "data/scripts/contest_hall.inc"
@@ -1554,3 +1557,7 @@ loop:
 	.include "data/maps/EightIsland_Gym_F2/scripts.inc"
 
 	.include "data/maps/EightIsland_Cave_2F/scripts.inc"
+
+	.include "data/maps/InsideOfTruck2/scripts.inc"
+
+	.include "data/maps/Mauville_Sewers_1F/scripts.inc"

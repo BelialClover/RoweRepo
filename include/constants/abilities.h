@@ -271,7 +271,7 @@
 #define ABILITY_RIPEN 247            //Not Done
 #define ABILITY_ICE_FACE 248
 #define ABILITY_POWER_SPOT 249
-#define ABILITY_MIMICRY 250          //Not Done
+#define ABILITY_MIMICRY 250          //Changes the Pokémon's type depending on the terrain.
 #define ABILITY_SCREEN_CLEANER 251
 #define ABILITY_STEELY_SPIRIT 252
 #define ABILITY_PERISH_BODY 253
@@ -334,11 +334,11 @@
 #define ABILITY_POLLUTION           309
 #define ABILITY_TOXIC_JAWS          310
 
-#define ABILITY_LINGERING_AROMA     311 //Mummy clone - Working
-#define ABILITY_WELL_BAKED_BODY     312 //Similar to storm drain - Working
+#define ABILITY_LINGERING_AROMA     311 //Mummy clone
+#define ABILITY_WELL_BAKED_BODY     312 //Similar to storm drain
 #define ABILITY_WIND_POWER          313 //Similar to Flash Fire
 #define ABILITY_COMMANDER           314 //When the Pokémon enters a battle, it goes inside the mouth of an ally Dondozo if one is on the field. The Pokémon then issues commands from there.
-#define ABILITY_PURIFYING_SALT      315 //No status conditions + ghost resistance - Working
+#define ABILITY_PURIFYING_SALT      315 //No status conditions + ghost resistance
 #define ABILITY_MYCELIUM_MIGHT      316 //Similar to stall but for status moves
 #define ABILITY_COSTAR              317 //Similar to trace but for stat changes
 #define ABILITY_TOXIC_DEBRIS        318 //Similar to loose quills but for toxic spikes
@@ -348,8 +348,8 @@
 #define ABILITY_SWORD_OF_RUIN       322 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
 #define ABILITY_TABLETS_OF_RUIN     323 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
 #define ABILITY_VESSEL_OF_RUIN      324 //The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself.
-#define ABILITY_GOOD_AS_GOLD        325 //Immunity to status moves - Working
-#define ABILITY_THERMAL_EXCHANGE    326 //Similar to storm drain + no burn - Working
+#define ABILITY_GOOD_AS_GOLD        325 //Immunity to status moves
+#define ABILITY_THERMAL_EXCHANGE    326 //Similar to storm drain + no burn
 #define ABILITY_PROTOSYNTHESIS      327 //Boosts the Pokémon's most proficient stat in harsh sunlight or if the Pokémon is holding Booster Energy.
 #define ABILITY_SUPREME_OVERLORD    328 //When the Pokémon enters a battle, its Attack and Sp. Atk stats are slightly boosted for each of the allies in its party that have already been defeated.
 #define ABILITY_ARMOR_TAIL          329 //No priority moves against this mon
@@ -362,10 +362,34 @@
 #define ABILITY_MINDS_EYE           336 //The Pokémon ignores changes to opponents' evasiveness, its accuracy can't be lowered, and it can hit Ghost types with Normal- and Fighting-type moves.
 #define ABILITY_ZERO_TO_HERO        337 //The Pokémon transforms into its Hero Form when it switches out. - Will be added
 #define ABILITY_HOSPITALITY         338 //When the Pokémon enters a battle, it showers its ally with hospitality, restoring a small amount of the ally's HP.
-#define ABILITY_SELF_SUFFICIENT 	339 //Working
-#define ABILITY_ICY_VOICE        	340 //Working
+#define ABILITY_SELF_SUFFICIENT 	339
+#define ABILITY_ICY_VOICE        	340
+#define ABILITY_EERIE_VOICE      	361
+#define ABILITY_QUARK_DRIVE         341
 
-#define ABILITIES_COUNT_GEN8    ABILITY_ICY_VOICE + 1
+#define ABILITY_MYSTIC_BLADES       342 //Keen edge moves become Special and get a 20% boost in power
+#define ABILITY_SHOCKING_MAW        343 //Boost biting moves + 25% paralysis chance on those
+#define ABILITY_RADIANCE            344 //Boost Electric-type moves and makes them SE agains Dark Types
+#define ABILITY_ROYAL_PRESENCE      345
+#define ABILITY_STRONG_GRIP         346 //Boost Hammer moves, they don't make contact and ignore stat changes
+#define ABILITY_ICE_ARMOR           347
+#define ABILITY_SHINING_FIST        348 //Fist moves use special defense to calculate damage
+#define ABILITY_CURSED_FLAME        349 //Fire moves have a chance of cursing the target
+#define ABILITY_SEED_SOWER          350
+#define ABILITY_ANGER_SHELL         351
+#define ABILITY_ROCKY_PAYLOAD       352
+#define ABILITY_ELECTROMORPHOSIS    353
+#define ABILITY_OPPORTUNIST         354
+
+#define ABILITY_EMBODY_ASPECT_TEAL_MASK        355
+#define ABILITY_EMBODY_ASPECT_HEARTHFLAME_MASK 356
+#define ABILITY_EMBODY_ASPECT_WELLSPRING_MASK  357
+#define ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK 358
+
+#define ABILITY_TERA_SHELL          359
+#define ABILITY_TERAFORM_ZERO       360
+
+#define ABILITIES_COUNT_GEN8        ABILITY_EERIE_VOICE + 1
 
 #define ABILITIES_COUNT ABILITIES_COUNT_GEN8
 

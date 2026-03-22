@@ -3,6 +3,7 @@ const u32 gBattleTerrainPalette_TallGrass[] = INCBIN_U32("graphics/battle_terrai
 const u32 gBattleTerrainTilemap_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/map.bin.lz");
 const u32 gBattleTerrainPalette_TallGrass_Dusk[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_dusk.gbapal.lz");
 const u32 gBattleTerrainPalette_TallGrass_Night[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_night.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrass_Greyscale[] = INCBIN_U32("graphics/battle_terrain/tall_grass/pallete_greyscale.gbapal.lz");
 
 //Summer
 const u32 gBattleTerrainPalette_TallGrass_Summer[]       = INCBIN_U32("graphics/battle_terrain/tall_grass/palette.gbapal.lz");

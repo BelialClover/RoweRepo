@@ -565,6 +565,8 @@ gSpecials:: @ 81DBA64
 	def_special ScriptSetCaughtPokedexInfo
 	def_special DestroyFollower
 	def_special HideFollower
+	def_special ShowFollower
 	def_special ShouldStaticEncounterBeFirstStage
 	def_special DisableLegendaryMons
 	def_special EnableLegendaryMons
+	def_special SendUnusableMonsToBoxes

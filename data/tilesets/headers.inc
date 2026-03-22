@@ -12,6 +12,9 @@ gTileset_General:: @ 83DF704
 	.4byte gTilesetPalettes_General_Winter
 	.4byte gTilesetPalettes_General_Summer
 	.4byte gTilesetPalettes_General_Autumn
+	.4byte gTilesetTiles_General_Winter @ Winter_Tileset
+	.4byte gTilesetTiles_General_Summer @ Summer_Tileset
+	.4byte gTilesetTiles_General_Autumn @ Autumn_Tileset
 
 	.align 2
 gTileset_Petalburg:: @ 83DF71C
@@ -27,6 +30,9 @@ gTileset_Petalburg:: @ 83DF71C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Rustboro:: @ 83DF734
@@ -39,9 +45,12 @@ gTileset_Rustboro:: @ 83DF734
 	.4byte gMetatileAttributes_Rustboro
 	.4byte InitTilesetAnim_Rustboro
 	.4byte NULL @ Overrides
-	.4byte NULL @ Winter_Palette
-	.4byte NULL @ Summer_Palette
-	.4byte NULL @ Autumn_Palette
+	.4byte gTilesetPalettes_Rustboro_Winter @ Winter_Palette
+	.4byte gTilesetPalettes_Rustboro_Summer @ Summer_Palette
+	.4byte gTilesetPalettes_Rustboro_Autumn @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Dewford:: @ 83DF74C
@@ -57,6 +66,9 @@ gTileset_Dewford:: @ 83DF74C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Slateport:: @ 83DF764
@@ -72,6 +84,9 @@ gTileset_Slateport:: @ 83DF764
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Mauville:: @ 83DF77C
@@ -87,6 +102,9 @@ gTileset_Mauville:: @ 83DF77C
 	.4byte gTilesetPalettes_Mauville_Winter
 	.4byte gTilesetPalettes_Mauville_Summer
 	.4byte gTilesetPalettes_Mauville_Autumn
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Lavaridge:: @ 83DF794
@@ -102,6 +120,9 @@ gTileset_Lavaridge:: @ 83DF794
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Fallarbor:: @ 83DF7AC
@@ -117,6 +138,9 @@ gTileset_Fallarbor:: @ 83DF7AC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Fortree:: @ 83DF7C4
@@ -132,6 +156,9 @@ gTileset_Fortree:: @ 83DF7C4
 	.4byte gTilesetPalettes_Fortree_Winter
 	.4byte gTilesetPalettes_Fortree_Summer
 	.4byte gTilesetPalettes_Fortree_Autumn
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Lilycove:: @ 83DF7DC
@@ -147,6 +174,9 @@ gTileset_Lilycove:: @ 83DF7DC
 	.4byte gTilesetPalettes_Lilycove_Winter
 	.4byte gTilesetPalettes_Lilycove_Summer
 	.4byte gTilesetPalettes_Lilycove_Autumn
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Mossdeep:: @ 83DF7F4
@@ -162,6 +192,9 @@ gTileset_Mossdeep:: @ 83DF7F4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_EverGrande:: @ 83DF80C
@@ -177,6 +210,9 @@ gTileset_EverGrande:: @ 83DF80C
 	.4byte gTilesetPalettes_EverGrande_Winter
 	.4byte gTilesetPalettes_EverGrande_Summer
 	.4byte gTilesetPalettes_EverGrande_Autumn
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Pacifidlog:: @ 83DF824
@@ -192,6 +228,9 @@ gTileset_Pacifidlog:: @ 83DF824
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Sootopolis:: @ 83DF83C
@@ -207,6 +246,9 @@ gTileset_Sootopolis:: @ 83DF83C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleFrontierOutsideWest:: @ 83DF854
@@ -222,6 +264,9 @@ gTileset_BattleFrontierOutsideWest:: @ 83DF854
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleFrontierOutsideEast:: @ 83DF86C
@@ -237,6 +282,9 @@ gTileset_BattleFrontierOutsideEast:: @ 83DF86C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Building:: @ 83DF884
@@ -252,6 +300,9 @@ gTileset_Building:: @ 83DF884
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Shop:: @ 83DF89C
@@ -267,6 +318,9 @@ gTileset_Shop:: @ 83DF89C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PokemonCenter:: @ 83DF8B4
@@ -282,6 +336,9 @@ gTileset_PokemonCenter:: @ 83DF8B4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Cave:: @ 83DF8CC
@@ -297,6 +354,9 @@ gTileset_Cave:: @ 83DF8CC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PokemonSchool:: @ 83DF8E4
@@ -312,6 +372,9 @@ gTileset_PokemonSchool:: @ 83DF8E4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PokemonFanClub:: @ 83DF8FC
@@ -327,6 +390,9 @@ gTileset_PokemonFanClub:: @ 83DF8FC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Unused1:: @ 83DF914
@@ -342,6 +408,9 @@ gTileset_Unused1:: @ 83DF914
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MeteorFalls:: @ 83DF92C
@@ -357,6 +426,9 @@ gTileset_MeteorFalls:: @ 83DF92C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_OceanicMuseum:: @ 83DF944
@@ -372,6 +444,9 @@ gTileset_OceanicMuseum:: @ 83DF944
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_CableClub:: @ 83DF95C
@@ -387,6 +462,9 @@ gTileset_CableClub:: @ 83DF95C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SeashoreHouse:: @ 83DF974
@@ -402,6 +480,9 @@ gTileset_SeashoreHouse:: @ 83DF974
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PrettyPetalFlowerShop:: @ 83DF98C
@@ -417,6 +498,9 @@ gTileset_PrettyPetalFlowerShop:: @ 83DF98C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PokemonDayCare:: @ 83DF9A4
@@ -432,6 +516,9 @@ gTileset_PokemonDayCare:: @ 83DF9A4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Facility:: @ 83DF9BC
@@ -447,6 +534,9 @@ gTileset_Facility:: @ 83DF9BC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BikeShop:: @ 83DF9D4
@@ -462,6 +552,9 @@ gTileset_BikeShop:: @ 83DF9D4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_RusturfTunnel:: @ 83DF9EC
@@ -477,6 +570,9 @@ gTileset_RusturfTunnel:: @ 83DF9EC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseBrownCave:: @ 83DFA04
@@ -492,6 +588,9 @@ gTileset_SecretBaseBrownCave:: @ 83DFA04
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseTree:: @ 83DFA1C
@@ -507,6 +606,9 @@ gTileset_SecretBaseTree:: @ 83DFA1C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseShrub:: @ 83DFA34
@@ -522,6 +624,9 @@ gTileset_SecretBaseShrub:: @ 83DFA34
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseBlueCave:: @ 83DFA4C
@@ -537,6 +642,9 @@ gTileset_SecretBaseBlueCave:: @ 83DFA4C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseYellowCave:: @ 83DFA64
@@ -552,6 +660,9 @@ gTileset_SecretBaseYellowCave:: @ 83DFA64
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBaseRedCave:: @ 83DFA7C
@@ -567,6 +678,9 @@ gTileset_SecretBaseRedCave:: @ 83DFA7C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_InsideOfTruck:: @ 83DFA94
@@ -582,6 +696,9 @@ gTileset_InsideOfTruck:: @ 83DFA94
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Unused2:: @ 83DFAAC
@@ -597,6 +714,9 @@ gTileset_Unused2:: @ 83DFAAC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Contest:: @ 83DFAC4
@@ -612,6 +732,9 @@ gTileset_Contest:: @ 83DFAC4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_LilycoveMuseum:: @ 83DFADC
@@ -627,6 +750,9 @@ gTileset_LilycoveMuseum:: @ 83DFADC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BrendansMaysHouse:: @ 83DFAF4
@@ -642,6 +768,9 @@ gTileset_BrendansMaysHouse:: @ 83DFAF4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Lab:: @ 83DFB0C
@@ -657,6 +786,9 @@ gTileset_Lab:: @ 83DFB0C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Underwater:: @ 83DFB24
@@ -672,6 +804,9 @@ gTileset_Underwater:: @ 83DFB24
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PetalburgGym:: @ 83DFB3C
@@ -687,6 +822,9 @@ gTileset_PetalburgGym:: @ 83DFB3C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SootopolisGym:: @ 83DFB54
@@ -702,6 +840,9 @@ gTileset_SootopolisGym:: @ 83DFB54
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_GenericBuilding:: @ 83DFB6C
@@ -717,6 +858,9 @@ gTileset_GenericBuilding:: @ 83DFB6C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MauvilleGameCorner:: @ 83DFB84
@@ -732,6 +876,9 @@ gTileset_MauvilleGameCorner:: @ 83DFB84
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_RustboroGym:: @ 83DFB9C
@@ -747,6 +894,9 @@ gTileset_RustboroGym:: @ 83DFB9C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_DewfordGym:: @ 83DFBB4
@@ -762,6 +912,9 @@ gTileset_DewfordGym:: @ 83DFBB4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MauvilleGym:: @ 83DFBCC
@@ -777,6 +930,9 @@ gTileset_MauvilleGym:: @ 83DFBCC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_LavaridgeGym:: @ 83DFBE4
@@ -792,6 +948,9 @@ gTileset_LavaridgeGym:: @ 83DFBE4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_TrickHousePuzzle:: @ 83DFBFC
@@ -807,6 +966,9 @@ gTileset_TrickHousePuzzle:: @ 83DFBFC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_FortreeGym:: @ 83DFC14
@@ -822,6 +984,9 @@ gTileset_FortreeGym:: @ 83DFC14
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MossdeepGym:: @ 83DFC2C
@@ -837,6 +1002,9 @@ gTileset_MossdeepGym:: @ 83DFC2C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_InsideShip:: @ 83DFC44
@@ -852,6 +1020,9 @@ gTileset_InsideShip:: @ 83DFC44
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SecretBase:: @ 83DFC5C
@@ -867,6 +1038,9 @@ gTileset_SecretBase:: @ 83DFC5C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTilesetPointer_SecretBase:: @ 83DFC74
@@ -890,6 +1064,9 @@ gTileset_EliteFour:: @ 83DFC7C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleFrontier:: @ 83DFC94
@@ -905,6 +1082,9 @@ gTileset_BattleFrontier:: @ 83DFC94
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattlePalace:: @ 83DFCAC
@@ -920,6 +1100,9 @@ gTileset_BattlePalace:: @ 83DFCAC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleDome:: @ 83DFCC4
@@ -935,6 +1118,9 @@ gTileset_BattleDome:: @ 83DFCC4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleFactory:: @ 83DFCDC
@@ -950,6 +1136,9 @@ gTileset_BattleFactory:: @ 83DFCDC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattlePike:: @ 83DFCF4
@@ -965,6 +1154,9 @@ gTileset_BattlePike:: @ 83DFCF4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleArena:: @ 83DFD0C
@@ -980,6 +1172,9 @@ gTileset_BattleArena:: @ 83DFD0C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattlePyramid:: @ 83DFD24
@@ -995,6 +1190,9 @@ gTileset_BattlePyramid:: @ 83DFD24
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MirageTower:: @ 83DFD3C
@@ -1010,6 +1208,9 @@ gTileset_MirageTower:: @ 83DFD3C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MossdeepGameCorner:: @ 83DFD54
@@ -1025,6 +1226,9 @@ gTileset_MossdeepGameCorner:: @ 83DFD54
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_IslandHarbor:: @ 83DFD6C
@@ -1040,6 +1244,9 @@ gTileset_IslandHarbor:: @ 83DFD6C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_TrainerHill:: @ 83DFD84
@@ -1055,6 +1262,9 @@ gTileset_TrainerHill:: @ 83DFD84
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_NavelRock:: @ 83DFD9C
@@ -1070,6 +1280,9 @@ gTileset_NavelRock:: @ 83DFD9C
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleFrontierRankingHall:: @ 83DFDB4
@@ -1085,6 +1298,9 @@ gTileset_BattleFrontierRankingHall:: @ 83DFDB4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BattleTent:: @ 83DFDCC
@@ -1100,6 +1316,9 @@ gTileset_BattleTent:: @ 83DFDCC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MysteryEventsHouse:: @ 83DFDE4
@@ -1115,6 +1334,9 @@ gTileset_MysteryEventsHouse:: @ 83DFDE4
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_UnionRoom:: @ 83DFDFC
@@ -1130,6 +1352,9 @@ gTileset_UnionRoom:: @ 83DFDFC
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_General_FRLG::
@@ -1145,6 +1370,9 @@ gTileset_General_FRLG::
 	.4byte gTilesetPalettes_General_FRLG_Winter
 	.4byte gTilesetPalettes_General_FRLG_Summer
 	.4byte gTilesetPalettes_General_FRLG_Autumn
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Digglets_Cave::
@@ -1160,6 +1388,9 @@ gTileset_Digglets_Cave::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Cave_FRLG::
@@ -1175,6 +1406,9 @@ gTileset_Cave_FRLG::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SeafoamIslands::
@@ -1190,6 +1424,9 @@ gTileset_SeafoamIslands::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Building_FRLG::
@@ -1205,6 +1442,9 @@ gTileset_Building_FRLG::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PowerPlant::
@@ -1220,6 +1460,9 @@ gTileset_PowerPlant::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_CeruleanCave::
@@ -1235,6 +1478,9 @@ gTileset_CeruleanCave::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SeviiIslands123::
@@ -1250,6 +1496,9 @@ gTileset_SeviiIslands123::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_RockTunnel::
@@ -1265,6 +1514,9 @@ gTileset_RockTunnel::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MtEmber::
@@ -1280,6 +1532,9 @@ gTileset_MtEmber::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Viridian_Forest::
@@ -1295,6 +1550,9 @@ gTileset_Viridian_Forest::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_Pallet_Town::
@@ -1310,6 +1568,9 @@ gTileset_Pallet_Town::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_ViridianCity::
@@ -1325,6 +1586,9 @@ gTileset_ViridianCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PewterCity::
@@ -1340,6 +1604,9 @@ gTileset_PewterCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_CeruleanCity::
@@ -1355,6 +1622,9 @@ gTileset_CeruleanCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_LavenderTown::
@@ -1370,6 +1640,9 @@ gTileset_LavenderTown::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_VermilionCity::
@@ -1385,6 +1658,9 @@ gTileset_VermilionCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_FuchsiaCity::
@@ -1400,6 +1676,9 @@ gTileset_FuchsiaCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SaffronCity::
@@ -1415,6 +1694,9 @@ gTileset_SaffronCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_CeladonCity::
@@ -1430,6 +1712,9 @@ gTileset_CeladonCity::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_CinnabarIsland::
@@ -1445,6 +1730,9 @@ gTileset_CinnabarIsland::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_PokemonCenter_FRLG::
@@ -1460,6 +1748,9 @@ gTileset_PokemonCenter_FRLG::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_BerryForest::
@@ -1475,6 +1766,9 @@ gTileset_BerryForest::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SeviiIslands45::
@@ -1490,6 +1784,9 @@ gTileset_SeviiIslands45::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_MauvilleCityInside::
@@ -1505,6 +1802,9 @@ gTileset_MauvilleCityInside::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_SeviiIslands67::
@@ -1520,6 +1820,9 @@ gTileset_SeviiIslands67::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset
 
 	.align 2
 gTileset_GenericSeviiGym::
@@ -1535,3 +1838,6 @@ gTileset_GenericSeviiGym::
 	.4byte NULL @ Winter_Palette
 	.4byte NULL @ Summer_Palette
 	.4byte NULL @ Autumn_Palette
+	.4byte NULL @ Winter_Tileset
+	.4byte NULL @ Summer_Tileset
+	.4byte NULL @ Autumn_Tileset

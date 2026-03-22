@@ -1,0 +1,405 @@
+//Starters
+script Common_EventScript_Grass_Starter_Man{
+	lock
+	faceplayer
+	checkitem(ITEM_GREEN_SHARD, 2)
+	if(var(VAR_RESULT) == YES){
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+		waitmovement(0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_Delay48)
+		waitmovement(0)
+		msgbox(format("Are those Green Shards?\pDo you want to trade them\nfor one of my Pokémon?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES){
+			if(var(VAR_LAST_AVAILABLE_GEN) != 1){
+				msgbox(format("What region do you like the most?"), MSGBOX_DEFAULT)
+				scrollingmultichoice(SCROLLING_STARTER_REGION, 0, 0, 6, TRUE)
+			}
+			else{
+				setvar(VAR_RESULT, GEN_1)
+			}
+
+			switch(var(VAR_RESULT)){
+				case GEN_1:
+					bufferspeciesname(1, SPECIES_BULBASAUR)
+					if(!flag(FLAG_GOT_VENUSAUR_MEGA_STONE)){
+						givemon(SPECIES_BULBASAUR, 1, ITEM_VENUSAURITE)
+						setflag(FLAG_GOT_VENUSAUR_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_BULBASAUR, 1, ITEM_NONE)
+					}
+				break
+				case GEN_2:
+					bufferspeciesname(1, SPECIES_CHIKORITA)
+					if(!flag(FLAG_GOT_MEGANIUM_MEGA_STONE)){
+						givemon(SPECIES_CHIKORITA, 1, ITEM_MEGANIUMITE)
+						setflag(FLAG_GOT_MEGANIUM_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_CHIKORITA, 1, ITEM_NONE)
+					}
+				break
+				case GEN_3:
+					bufferspeciesname(1, SPECIES_TREECKO)
+					if(!flag(FLAG_GOT_SCEPTILE_MEGA_STONE)){
+						givemon(SPECIES_TREECKO, 1, ITEM_SCEPTILITE)
+						setflag(FLAG_GOT_SCEPTILE_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_TREECKO, 1, ITEM_NONE)
+					}
+				break
+				case GEN_4:
+					bufferspeciesname(1, SPECIES_TURTWIG)
+					if(!flag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)){
+						givemon(SPECIES_TURTWIG, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_TURTWIG, 1, ITEM_NONE)
+					}
+				break
+				case GEN_5:
+					bufferspeciesname(1, SPECIES_SNIVY)
+					if(!flag(FLAG_GOT_SERPERIOR_MEGA_STONE)){
+						givemon(SPECIES_SNIVY, 1, ITEM_SERPERIORITE)
+						setflag(FLAG_GOT_SERPERIOR_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_SNIVY, 1, ITEM_NONE)
+					}
+				break
+				case GEN_6:
+					bufferspeciesname(1, SPECIES_CHESPIN)
+					if(!flag(FLAG_GOT_DELPHOX_MEGA_STONE)){
+						givemon(SPECIES_CHESPIN, 1, ITEM_CHESNAUGHTITE)
+						setflag(FLAG_GOT_CHESNAUGHT_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_CHESPIN, 1, ITEM_NONE)
+					}
+				break
+				case GEN_7:
+					bufferspeciesname(1, SPECIES_ROWLET)
+					if(!flag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)){
+						givemon(SPECIES_ROWLET, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_ROWLET, 1, ITEM_NONE)
+					}
+				break
+				case GEN_8:
+					bufferspeciesname(1, SPECIES_GROOKEY)
+					if(!flag(FLAG_GOT_RILLABOOM_MEGA_STONE)){
+						givemon(SPECIES_GROOKEY, 1, ITEM_RILABOOMITE)
+						setflag(FLAG_GOT_RILLABOOM_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_GROOKEY, 1, ITEM_NONE)
+					}
+				break
+				case GEN_9:
+					bufferspeciesname(1, SPECIES_SPRIGATITO)
+					if(!flag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)){
+						givemon(SPECIES_SPRIGATITO, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_GRASS_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_SPRIGATITO, 1, ITEM_NONE)
+					}
+				break
+				default:
+					goto(Common_EventScript_Starter_Man_No_Trade)
+				break
+			}
+			msgbox(format("Here you go!"), MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox(format("{PLAYER} received {STR_VAR_2} from the Poke Fan."), MSGBOX_DEFAULT)
+			waitfanfare
+			removeitem(ITEM_GREEN_SHARD, 2)
+			msgbox(format("Please come again when you have spare shards!"), MSGBOX_DEFAULT)
+		}
+		else{
+			goto(Common_EventScript_Starter_Man_No_Trade)
+		}
+	}
+	else{
+		msgbox(format("If you have 2 Green Shards I can give you a good Pokémon."), MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Common_EventScript_Fire_Starter_Man{
+	lock
+	faceplayer
+	checkitem(ITEM_RED_SHARD, 2)
+	if(var(VAR_RESULT) == YES){
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+		waitmovement(0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_Delay48)
+		waitmovement(0)
+		msgbox(format("Are those Red Shards?\pDo you want to trade them\nfor one of my Pokémon?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES){
+			if(var(VAR_LAST_AVAILABLE_GEN) != 1){
+				msgbox(format("What region do you like the most?"), MSGBOX_DEFAULT)
+				scrollingmultichoice(SCROLLING_STARTER_REGION, 0, 0, 6, TRUE)
+			}
+			else{
+				setvar(VAR_RESULT, GEN_1)
+			}
+
+			switch(var(VAR_RESULT)){
+				case GEN_1:
+					bufferspeciesname(1, SPECIES_CHARMANDER)
+					if(!flag(FLAG_GOT_CHARIZARD_Y_MEGA_STONE)){
+						givemon(SPECIES_CHARMANDER, 1, ITEM_CHARIZARDITE_Y)
+						setflag(FLAG_GOT_CHARIZARD_Y_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_CHARMANDER, 1, ITEM_NONE)
+					}
+				break
+				case GEN_2:
+					bufferspeciesname(1, SPECIES_CYNDAQUIL)
+					if(!flag(FLAG_GOT_TYPHLOSION_MEGA_STONE)){
+						givemon(SPECIES_CYNDAQUIL, 1, ITEM_TYPHLOSIONITE)
+						setflag(FLAG_GOT_TYPHLOSION_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_CYNDAQUIL, 1, ITEM_NONE)
+					}
+				break
+				case GEN_3:
+					bufferspeciesname(1, SPECIES_TORCHIC)
+					if(!flag(FLAG_GOT_BLAZIKEN_MEGA_STONE)){
+						givemon(SPECIES_TORCHIC, 1, ITEM_BLAZIKENITE)
+						setflag(FLAG_GOT_BLAZIKEN_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_TORCHIC, 1, ITEM_NONE)
+					}
+				break
+				case GEN_4:
+					bufferspeciesname(1, SPECIES_CHIMCHAR)
+					if(!flag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)){
+						givemon(SPECIES_CHIMCHAR, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_CHIMCHAR, 1, ITEM_NONE)
+					}
+				break
+				case GEN_5:
+					bufferspeciesname(1, SPECIES_TEPIG)
+					if(!flag(FLAG_GOT_EMBOAR_MEGA_STONE)){
+						givemon(SPECIES_TEPIG, 1, ITEM_EMBOARITE)
+						setflag(FLAG_GOT_EMBOAR_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_TEPIG, 1, ITEM_NONE)
+					}
+				break
+				case GEN_6:
+					bufferspeciesname(1, SPECIES_FENNEKIN)
+					if(!flag(FLAG_GOT_DELPHOX_MEGA_STONE)){
+						givemon(SPECIES_FENNEKIN, 1, ITEM_DELPHOXITE)
+						setflag(FLAG_GOT_DELPHOX_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_FENNEKIN, 1, ITEM_NONE)
+					}
+				break
+				case GEN_7:
+					bufferspeciesname(1, SPECIES_LITTEN)
+					if(!flag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)){
+						givemon(SPECIES_LITTEN, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_LITTEN, 1, ITEM_NONE)
+					}
+				break
+				case GEN_8:
+					bufferspeciesname(1, SPECIES_SCORBUNNY)
+					if(!flag(FLAG_GOT_CINDERACE_MEGA_STONE)){
+						givemon(SPECIES_SCORBUNNY, 1, ITEM_CINDERACITE)
+						setflag(FLAG_GOT_CINDERACE_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_SCORBUNNY, 1, ITEM_NONE)
+					}
+				break
+				case GEN_9:
+					bufferspeciesname(1, SPECIES_FUECOCO)
+					if(!flag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)){
+						givemon(SPECIES_FUECOCO, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_FIRE_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_FUECOCO, 1, ITEM_NONE)
+					}
+				break
+				default:
+					goto(Common_EventScript_Starter_Man_No_Trade)
+				break
+			}
+			msgbox(format("Here you go!"), MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox(format("{PLAYER} received {STR_VAR_2} from the Poke Fan."), MSGBOX_DEFAULT)
+			waitfanfare
+			removeitem(ITEM_RED_SHARD, 2)
+			msgbox(format("Please come again when you have spare shards!"), MSGBOX_DEFAULT)
+		}
+		else{
+			goto(Common_EventScript_Starter_Man_No_Trade)
+		}
+	}
+	else{
+		msgbox(format("If you have 2 Red Shards I can give you a good Pokémon."), MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Common_EventScript_Water_Starter_Man{
+	lock
+	faceplayer
+	checkitem(ITEM_BLUE_SHARD, 2)
+	if(var(VAR_RESULT) == YES){
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+		waitmovement(0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_Delay48)
+		waitmovement(0)
+		msgbox(format("Are those Blue Shards?\pDo you want to trade them\nfor one of my Pokémon?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES){
+			if(var(VAR_LAST_AVAILABLE_GEN) != 1){
+				msgbox(format("What region do you like the most?"), MSGBOX_DEFAULT)
+				scrollingmultichoice(SCROLLING_STARTER_REGION, 0, 0, 6, TRUE)
+			}
+			else{
+				setvar(VAR_RESULT, GEN_1)
+			}
+
+			switch(var(VAR_RESULT)){
+				case GEN_1:
+					bufferspeciesname(1, SPECIES_SQUIRTLE)
+					if(!flag(FLAG_GOT_BLASTOISE_MEGA_STONE)){
+						givemon(SPECIES_SQUIRTLE, 1, ITEM_BLASTOISINITE)
+						setflag(FLAG_GOT_BLASTOISE_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_SQUIRTLE, 1, ITEM_NONE)
+					}
+				break
+				case GEN_2:
+					bufferspeciesname(1, SPECIES_TOTODILE)
+					if(!flag(FLAG_GOT_FERALIGATR_MEGA_STONE)){
+						givemon(SPECIES_TOTODILE, 1, ITEM_FERALIGITE)
+						setflag(FLAG_GOT_FERALIGATR_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_TOTODILE, 1, ITEM_NONE)
+					}
+				break
+				case GEN_3:
+					bufferspeciesname(1, SPECIES_MUDKIP)
+					if(!flag(FLAG_GOT_SWAMPERT_MEGA_STONE)){
+						givemon(SPECIES_MUDKIP, 1, ITEM_SWAMPERTITE)
+						setflag(FLAG_GOT_SWAMPERT_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_MUDKIP, 1, ITEM_NONE)
+					}
+				break
+				case GEN_4:
+					bufferspeciesname(1, SPECIES_PIPLUP)
+					if(!flag(FLAG_GOT_WATER_STARTER_DELTA_ORB)){
+						givemon(SPECIES_PIPLUP, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_WATER_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_PIPLUP, 1, ITEM_NONE)
+					}
+				break
+				case GEN_5:
+					bufferspeciesname(1, SPECIES_OSHAWOTT)
+					if(!flag(FLAG_GOT_SAMUROTT_MEGA_STONE)){
+						givemon(SPECIES_OSHAWOTT, 1, ITEM_SAMUROTTITE)
+						setflag(FLAG_GOT_SAMUROTT_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_OSHAWOTT, 1, ITEM_NONE)
+					}
+				break
+				case GEN_6:
+					bufferspeciesname(1, SPECIES_FROAKIE)
+					if(!flag(FLAG_GOT_GRENINJA_MEGA_STONE)){
+						givemon(SPECIES_FROAKIE, 1, ITEM_GRENINJITE)
+						setflag(FLAG_GOT_GRENINJA_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_FROAKIE, 1, ITEM_NONE)
+					}
+				break
+				case GEN_7:
+					bufferspeciesname(1, SPECIES_POPPLIO)
+					if(!flag(FLAG_GOT_WATER_STARTER_DELTA_ORB)){
+						givemon(SPECIES_POPPLIO, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_WATER_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_POPPLIO, 1, ITEM_NONE)
+					}
+				break
+				case GEN_8:
+					bufferspeciesname(1, SPECIES_SOBBLE)
+					if(!flag(FLAG_GOT_INTELEON_MEGA_STONE)){
+						givemon(SPECIES_SOBBLE, 1, ITEM_INTELEONITE)
+						setflag(FLAG_GOT_INTELEON_MEGA_STONE)
+					}
+					else{
+						givemon(SPECIES_SOBBLE, 1, ITEM_NONE)
+					}
+				break
+				case GEN_9:
+					bufferspeciesname(1, SPECIES_QUAXLY)
+					if(!flag(FLAG_GOT_WATER_STARTER_DELTA_ORB)){
+						givemon(SPECIES_QUAXLY, 1, ITEM_BOOSTER_STONE)
+						setflag(FLAG_GOT_WATER_STARTER_DELTA_ORB)
+					}
+					else{
+						givemon(SPECIES_QUAXLY, 1, ITEM_NONE)
+					}
+				break
+				default:
+					goto(Common_EventScript_Starter_Man_No_Trade)
+				break
+			}
+			msgbox(format("Here you go!"), MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox(format("{PLAYER} received {STR_VAR_2} from the Poke Fan."), MSGBOX_DEFAULT)
+			waitfanfare
+			removeitem(ITEM_BLUE_SHARD, 2)
+			msgbox(format("Please come again when you have spare shards!"), MSGBOX_DEFAULT)
+		}
+		else{
+			goto(Common_EventScript_Starter_Man_No_Trade)
+		}
+	}
+	else{
+		msgbox(format("If you have 2 Blue Shards I can give you a good Pokémon."), MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Common_EventScript_Starter_Man_No_Trade{
+	msgbox(format("Oh well, come again if you want to trade."), MSGBOX_DEFAULT)
+	release
+	end
+}

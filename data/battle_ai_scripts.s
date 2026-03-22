@@ -72,8 +72,8 @@ AI_CBM_CheckIfNegatesType:
 	if_equal ABILITY_STORM_DRAIN, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
-	if_equal ABILITY_WELL_BAKED_BODY, CheckIfFlashFireCancelsFire
-	if_equal ABILITY_THERMAL_EXCHANGE, CheckIfFlashFireCancelsFire
+	if_equal_u32 ABILITY_WELL_BAKED_BODY, CheckIfFlashFireCancelsFire
+	if_equal_u32 ABILITY_THERMAL_EXCHANGE, CheckIfFlashFireCancelsFire
 	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
 	if_equal ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
 	if_equal ABILITY_SOUNDPROOF, CheckIfSoundproofCancelsMove
@@ -272,6 +272,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_TRICK_ROOM, AI_CBM_TrickRoom
 	if_effect EFFECT_WONDER_ROOM, AI_CBM_WonderRoom
 	if_effect EFFECT_MAGIC_ROOM, AI_CBM_MagicRoom
+	if_effect EFFECT_INVERSE_ROOM, AI_CBM_InverseRoom
 	if_effect EFFECT_SOAK, AI_CBM_Soak
 	if_effect EFFECT_LOCK_ON, AI_CBM_LockOn
 	end
@@ -288,6 +289,10 @@ AI_CBM_Soak:
 	
 AI_CBM_TrickRoom:
 	if_field_status STATUS_FIELD_TRICK_ROOM, Score_Minus10
+	end
+	
+AI_CBM_InverseRoom:
+	if_field_status STATUS_FIELD_INVERSE_ROOM, Score_Minus10
 	end
 	
 AI_CBM_WonderRoom:
@@ -2965,7 +2970,7 @@ AI_CV_SemiInvulnerable_CheckIceType:
 	get_user_type2
 	if_equal TYPE_ICE, AI_CV_SemiInvulnerable_TryEncourage
 	get_ability AI_USER
-	if_in_bytes AI_HailResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
+	if_in_hwords AI_HailResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
 
 AI_CV_SemiInvulnerable5:
 	if_target_faster AI_CV_SemiInvulnerable_End
@@ -2996,11 +3001,12 @@ AI_SandstormResistantAbilities:
 	.byte -1
 	
 AI_HailResistantAbilities:
-	.byte ABILITY_ICE_BODY
-	.byte ABILITY_SNOW_CLOAK
-	.byte ABILITY_OVERCOAT
-	.byte ABILITY_MAGIC_GUARD
-	.byte -1
+	.2byte ABILITY_ICE_ARMOR
+	.2byte ABILITY_ICE_BODY
+	.2byte ABILITY_SNOW_CLOAK
+	.2byte ABILITY_OVERCOAT
+	.2byte ABILITY_MAGIC_GUARD
+	.2byte -1
 
 AI_CV_FakeOut:
 	if_ability AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End

@@ -233,99 +233,99 @@ const struct Achievements sAchievementsData[MAX_ACHIEVEMENTS_NUM] =
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_DEFEATED_ALL_GYMS,
     },
-    [ACHIEVEMENT_SEVII_1_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_1_COMPLETE] =
     {
         .name          = _("Sevii Research 1"),
-        .desc          = _("Find Colress at the end of Sevii 1."),
+        .desc          = _("Found Colress in One Island."),
         .hint          = _("One Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_EASY,
         .completedFlag = FLAG_GOT_SEVII_TICKET_1,
     },
-    [ACHIEVEMENT_SEVII_2_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_2_COMPLETE] =
     {
         .name          = _("Sevii Research 2"),
-        .desc          = _("Find Colress at the end of Sevii 2."),
+        .desc          = _("Found Colress in Two Island."),
         .hint          = _("Two Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_EASY,
         .completedFlag = FLAG_GOT_SEVII_TICKET_2,
     },
-    [ACHIEVEMENT_SEVII_3_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_3_COMPLETE] =
     {
         .name          = _("Sevii Research 3"),
-        .desc          = _("Find Colress at the end of Sevii 3."),
+        .desc          = _("Found Colress in Three Island."),
         .hint          = _("Three Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_3,
     },
-    [ACHIEVEMENT_SEVII_4_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_4_COMPLETE] =
     {
         .name          = _("Sevii Research 4"),
-        .desc          = _("Find Colress at the end of Sevii 4."),
+        .desc          = _("Found Colress in Four Island."),
         .hint          = _("Four Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_4,
     },
-    [ACHIEVEMENT_SEVII_5_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_5_COMPLETE] =
     {
         .name          = _("Sevii Research 5"),
-        .desc          = _("Find Colress at the end of Sevii 5."),
+        .desc          = _("Found Colress in Five Island."),
         .hint          = _("Five Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_5,
     },
-    [ACHIEVEMENT_SEVII_6_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_6_COMPLETE] =
     {
         .name          = _("Sevii Research 6"),
-        .desc          = _("Find Colress at the end of Sevii 6."),
+        .desc          = _("Found Colress in Six Island."),
         .hint          = _("Six Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_6,
     },
-    [ACHIEVEMENT_SEVII_7_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_7_COMPLETE] =
     {
         .name          = _("Sevii Research 7"),
-        .desc          = _("Find Colress at the end of Sevii 7."),
+        .desc          = _("Found Colress in Seven Island."),
         .hint          = _("Seven Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_7,
     },
-    [ACHIEVEMENT_SEVII_8_COMPLETE] = 
+    [ACHIEVEMENT_SEVII_8_COMPLETE] =
     {
         .name          = _("Sevii Research 8"),
-        .desc          = _("Find Colress at the end of Sevii 8."),
+        .desc          = _("Found Colress in Eight Island."),
         .hint          = _("Eight Isle"),
         .rewardName    = _(""),
         .rewardType    = REWARD_TYPE_OTHER,
-        .reward        = REWARD_TYPE_TRAINER_EXP,
-        .reward_qty    = 80,
+        .reward        = REWARD_TYPE_BP,
+        .reward_qty    = 20,
         .difficulty    = QUEST_DIFFICULTY_MEDIUM,
         .completedFlag = FLAG_GOT_SEVII_TICKET_8,
     },
@@ -923,7 +923,7 @@ static const u16 sSideQuestDifficultyItemIds[] =
 	ITEM_POKE_BALL,
 	ITEM_GREAT_BALL,
 	ITEM_ULTRA_BALL,
-	ITEM_MASTER_BALL,
+	ITEM_CHERISH_BALL,
 };
 
 // Selected an incomplete quest
@@ -2312,7 +2312,7 @@ void Task_OpenQuestMenuFromStartMenu(u8 taskId)
 bool8 GetSetQuestFlag(u8 quest, u8 caseId)
 {
     u8 status = gSaveBlock2Ptr->achievementStatus[quest];
-    //mgba_printf(MGBA_LOG_WARN, "GetSetQuestFlag quest %d, caseId %d, status %d", quest, caseId, status);
+    //DebugPrint("GetSetQuestFlag quest %d, caseId %d, status %d", quest, caseId, status);
 
     switch (caseId)
     {
@@ -2889,7 +2889,7 @@ static void HandleAchievementUnlock(u8 questIndex){
                 case SPECIES_BRONZOR:
                 case SPECIES_DODUO:
                 case SPECIES_TAILLOW:
-                case SPECIES_MIMEJR:
+                case SPECIES_MIME_JR:
                 case SPECIES_NINCADA:
                 case SPECIES_MACHOKE:
                 case SPECIES_VICTREEBEL:

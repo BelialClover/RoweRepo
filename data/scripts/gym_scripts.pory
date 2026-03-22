@@ -5,14 +5,14 @@ const BADGE_ITEM_03 = ITEM_GOOD_ROD
 const BADGE_ITEM_04 = ITEM_ROCK_SMASH_TOOL
 const BADGE_ITEM_05 = ITEM_CATCHING_CHARM
 const BADGE_ITEM_06 = ITEM_STRENGTH_TOOL
-const BADGE_ITEM_07 = ITEM_ROCK_CLIMB_TOOL
+const BADGE_ITEM_07 = ITEM_EFFORT_TOOL
 const BADGE_ITEM_08 = ITEM_SUPER_ROD
 const BADGE_ITEM_09 = ITEM_FLY_CHARM
 const BADGE_ITEM_10 = ITEM_FLY_TOOL
 const BADGE_ITEM_11 = ITEM_MEGA_BRACELET
 const BADGE_ITEM_12 = ITEM_EXP_CHARM
 const BADGE_ITEM_13 = ITEM_OVAL_CHARM
-const BADGE_ITEM_14 = ITEM_CASINO_CHARM
+const BADGE_ITEM_14 = ITEM_ALPHA_CHARM
 const BADGE_ITEM_15 = ITEM_WONDER_CHARM
 const BADGE_ITEM_16 = ITEM_SHINY_CHARM
 
@@ -90,7 +90,7 @@ text Special_Gym_Text_Explain_Item_13{
 
 //Casino Charm
 text Special_Gym_Text_Explain_Item_14{
-	format("This item is the Casino Charm. It will let you use any of the casino machines for free.")
+	format("This item is the Alpha Charm. It will let you encounter wild alpha Pokémon in the wild.")
 }
 
 //Wonder Charm
@@ -211,14 +211,14 @@ script EventScript_Gym_Attendant_Call {
 		case 1:  pokenavcall(format("Scott: Hey {PLAYER}, I heard you won your first Gym battle! That's an incredible start.\pYou should head to Lilycove or Slateport. From there, you can reach the Sevii Islands, which also have 8 Gyms.\pGood luck!", "1_latin_rse", 180))
 		case 2:  pokenavcall(format("Scott: Great job on earning your second badge, {PLAYER}! I knew you had what it takes.\pBy the way, did you know your Pokémon can share Egg or Tutor moves through the 'Learn Move' feature in the Party screen?\pKeep pushing forward!", "1_latin_rse", 180))
 		case 3:  pokenavcall(format("Scott: Wow, three badges already, {PLAYER}! You're moving fast!\pIf you give your lead Pokémon an Everstone or Eviolite, you'll encounter only first stage Pokémon in the wild. Cool trick, huh?\pTake care!", "1_latin_rse", 180))
-		case 4:  pokenavcall(format("Scott: Four badges, {PLAYER}! That's halfway through the challenge.\pHave you visited the Battle Mart in Oldale? They've got Nature Mints that might help your Pokémon grow stronger.\pKeep up the momentum!", "1_latin_rse", 180))
+		case 4:  pokenavcall(format("Scott: Four badges, {PLAYER}! That's a quarter of the way through the challenge.\pHave you visited the Battle Mart in Oldale? They've got Nature Mints that might help your Pokémon grow stronger.\pKeep up the momentum!", "1_latin_rse", 180))
 		case 5:  pokenavcall(format("Scott: Five badges, {PLAYER}! You're making amazing progress!\pHave you tried Wonder Trading yet? It costs 5BP, but you can get some incredible Pokémon that way.\pBest of luck on the next one!", "1_latin_rse", 180))
 		case 6:  pokenavcall(format("Scott: Six badges under your belt, {PLAYER}. That's impressive!\pDid you know the blue haired nurse in Pokémon Centers now teaches Egg Moves? That might be useful for your team.\pKeep up the hard work!", "1_latin_rse", 180))
 		case 7:  pokenavcall(format("Scott: Seven badges, {PLAYER}! You're so close to conquering this challenge!\pI heard the Lilycove Department Store has stocked up on Evolution items. It's worth checking out.\pGood luck!", "1_latin_rse", 180))
-		case 8:  pokenavcall(format("Scott: Eight badges already, {PLAYER}? That's incredible!\pIf this were a single region league, you'd be ready for the Elite Four, but there's still more to go. I believe in you!", "1_latin_rse", 180))
+		case 8:  pokenavcall(format("Scott: Eight badges already, {PLAYER}? That's incredible!\pIf this were a single region league, you'd be ready for the Elite Four, but there's still 8 more to go. I believe in you!", "1_latin_rse", 180))
 		case 9:  pokenavcall(format("Scott: Nine badges, {PLAYER}! You're on a roll.\pThe blue haired nurse in Pokémon Centers now offers to teach Tutor Moves. Maybe give it a look.\pKeep it up!", "1_latin_rse", 180))
 		case 10: pokenavcall(format("Scott: Ten badges? Amazing work, {PLAYER}!\pThe next Gym Leader should give you a Mega Ring. With that, your team will reach a whole new level. Keep going!", "1_latin_rse", 180))
-		case 11: pokenavcall(format("Scott: Eleven badges, {PLAYER}. You're almost there!\pNow that you have a Mega Ring, you can Mega Evolve your Pokémon. Just press the Start Button during battle while selecting a move.\pGood luck!", "1_latin_rse", 180))
+		case 11: pokenavcall(format("Scott: Eleven badges, {PLAYER}. You're almost there!\pNow that you have a Mega Ring, you can Mega Evolve your Pokémon. Just press the Start Button during battle while selecting a move.\pAlso, I've been hearing reports of unusually strong Pokémon appearing in various areas. Be careful if you run into one, but if you manage to defeat them, they might leave behind something special.\pGood luck!", "1_latin_rse", 180))
 		case 12: pokenavcall(format("Scott: Twelve badges? You're unstoppable, {PLAYER}!\pThe blue haired nurse in Pokémon Centers can now teach TM Moves to your Pokémon. That might help for the next challenge.\pYou've got this!", "1_latin_rse", 180))
 		case 13: pokenavcall(format("Scott: Three more badges to go, {PLAYER}. You're in the final stretch now!\pI'm rooting for you all the way!", "1_latin_rse", 180))
 		case 14: pokenavcall(format("Scott: Fourteen badges just two more left, {PLAYER}!\pI know you've got what it takes to finish strong!", "1_latin_rse", 180))
@@ -547,7 +547,7 @@ script RustboroCity_Gym_EventScript_Set_Gym_Pokemon_Species{
 		case 17: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_AGGRON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_AGGRON) //Level 70
 	}
 
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ARON) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ARON)
 	}
 	return
@@ -809,7 +809,7 @@ script DewfordTown_Gym_EventScript_Set_Gym_Pokemon_Species{
 		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HARIYAMA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HARIYAMA) //Level 70
 	}
 
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MAKUHITA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MAKUHITA)
 	}
 	return
@@ -1077,7 +1077,7 @@ script MauvilleCity_Gym_EventScript_Set_Gym_Pokemon_Species{
 		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_MANECTRIC) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_MANECTRIC) //Level 70
 	}
 
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_ELECTRIKE) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_ELECTRIKE)
 	}
 	return
@@ -1598,7 +1598,7 @@ script PetalburgCity_Gym_EventScript_Set_Gym_Pokemon_Species{
 	}
 
 	
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SLAKOTH) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SLAKOTH)
 	}
 	return
@@ -1860,7 +1860,7 @@ script FortreeCity_Gym_EventScript_Set_Gym_Pokemon_Species{
 		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_SWELLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_SWELLOW) //Level 70
 	}
 
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_TAILLOW) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_TAILLOW)
 	}
 	return
@@ -2391,7 +2391,7 @@ script SootopolisCity_Gym_1F_EventScript_Set_Gym_Pokemon_Species{
 		case 8: setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_KINGDRA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_KINGDRA) //Level 70
 	}
 
-	if(flag(FLAG_NO_EVOLUTION_MODE)){
+	if(flag(FLAG_NO_EVOLUTION_MODE) || flag(FLAG_LITTLE_CUP_MODE)){
 		setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEMON_000 + SPECIES_HORSEA) setvar(VAR_GYM_POKEMON_SPECIES, SPECIES_HORSEA)
 	}
 	return

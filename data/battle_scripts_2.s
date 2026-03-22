@@ -139,6 +139,19 @@ BattleScript_LegendaryPokemonBallBlock::
 	printstring STRINGID_TRYWEAKENINGITFIRST
 	waitmessage 0x40
 	finishaction
+	
+BattleScript_AlphaPokemonBallBlock::
+	waitmessage 0x40
+	printstring STRINGID_THEALPHAMONBLOCKEDTHEBALL
+	waitmessage 0x40
+	printstring STRINGID_TRYWEAKENINGITFIRST
+	waitmessage 0x40
+	finishaction
+
+BattleScript_CantCatchBallBlock::
+	printstring STRINGID_CANTCATCHTHISPOKEMON
+	waitmessage 0x40
+	finishaction
 
 BattleScript_PlayerUsesItem::
 	setbyte sMOVEEND_STATE, 0xF

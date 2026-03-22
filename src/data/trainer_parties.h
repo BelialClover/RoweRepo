@@ -889,7 +889,7 @@ static const struct TrainerMon sTrainerMons_SwimmerFemaleAbigail[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_SLOWPOKE_GALARIAN,
+    .species = SPECIES_SLOWPOKE_GALAR,
     },
     {
     //.iv = 20,
@@ -1126,7 +1126,7 @@ static const struct TrainerMon sTrainerMons_CrushGirlTanya[] = {
     .abilityNum = 3,
     .happiness = 0,
 	.heldItem = ITEM_BLACK_BELT,
-    .species = SPECIES_FARFETCHD_GALARIAN,
+    .species = SPECIES_FARFETCHD_GALAR,
     },
     {
     //.iv = 70,
@@ -1478,7 +1478,7 @@ static const struct TrainerMon sTrainerMons_CamperBryce[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_RATTATA_ALOLAN
+    .species = SPECIES_RATTATA_ALOLA
     },
     {
     //.iv = 0,
@@ -1486,7 +1486,7 @@ static const struct TrainerMon sTrainerMons_CamperBryce[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_SANDSHREW_ALOLAN
+    .species = SPECIES_SANDSHREW_ALOLA
     },
 };
 
@@ -1497,7 +1497,7 @@ static const struct TrainerMon sTrainerMons_PicnickerClaire[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_MEOWTH_ALOLAN
+    .species = SPECIES_MEOWTH_ALOLA
     },
     {
     //.iv = 0,
@@ -1505,7 +1505,7 @@ static const struct TrainerMon sTrainerMons_PicnickerClaire[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_MEOWTH_ALOLAN
+    .species = SPECIES_MEOWTH_ALOLA
     },
     {
     //.iv = 0,
@@ -2230,7 +2230,7 @@ static const struct TrainerMon sParty_Owen[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_FLABEBE_ORANGE_FLOWER,
+    .species = SPECIES_FLABEBE_ORANGE,
     }
 };
 
@@ -2338,7 +2338,7 @@ static const struct TrainerMon sTrainerMons_TuberAlexis[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_SLOWPOKE_GALARIAN,
+    .species = SPECIES_SLOWPOKE_GALAR,
     },
     {
     //.iv = 140,
@@ -2346,7 +2346,7 @@ static const struct TrainerMon sTrainerMons_TuberAlexis[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_CORSOLA_GALARIAN,
+    .species = SPECIES_CORSOLA_GALAR,
     }
 };
 
@@ -2983,7 +2983,7 @@ static const struct TrainerMon sParty_Patricia[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_MIMEJR,
+    .species = SPECIES_MIME_JR,
     },
     {
     //.iv = 0,
@@ -3814,7 +3814,7 @@ static const struct TrainerMon sParty_Winston1[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ZIGZAGOON_GALARIAN,
+    .species = SPECIES_ZIGZAGOON_GALAR,
     .postgameheldItem = ITEM_NONE,
     .heldItem = ITEM_NUGGET
     },
@@ -6431,7 +6431,7 @@ static const struct TrainerMon sParty_Sidney[] = {
     .abilityNum = 0,
     .happiness  = 252,
     .species    = SPECIES_TYRANITAR,
-    .heldItem   = ITEM_ABSOLITE,
+    .heldItem   = ITEM_TYRANITARITE,
 	.pokeball   = ITEM_LUXURY_BALL,
 	.nature     = NATURE_JOLLY,
     .moves      = {MOVE_STONE_EDGE, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_IRON_HEAD},
@@ -6659,7 +6659,7 @@ static const struct TrainerMon sParty_Sidney_Doubles_2[] = {
     .heldItem   = ITEM_ABSOLITE,
 	.pokeball   = ITEM_LUXURY_BALL,
 	.nature     = NATURE_JOLLY,
-    .moves      = {MOVE_X_SCISSOR, MOVE_THROAT_CHOP, MOVE_ROCK_SLIDE, MOVE_QUICK_ATTACK},
+    .moves      = {MOVE_X_SCISSOR, MOVE_THROAT_CHOP, MOVE_PLAY_ROUGH, MOVE_QUICK_ATTACK},
     .style      = STYLE_SPEEDSTER,
     }
 };
@@ -6719,7 +6719,7 @@ static const struct TrainerMon sParty_Phoebe[] = {
     .evs        = {0, 252, 252, 0, 6, 0}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_MAROWAK_ALOLAN,
+    .species    = SPECIES_MAROWAK_ALOLA,
 	.pokeball   = ITEM_DUSK_BALL,
 	.nature     = NATURE_ADAMANT,
     .heldItem   = ITEM_THICK_CLUB,
@@ -6758,7 +6758,7 @@ static const struct TrainerMon sParty_Phoebe_2[] = {
     .evs        = {0, 252, 0, 0, 6, 252}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_ZOROARK_HISUIAN,
+    .species    = SPECIES_ZOROARK_HISUI,
 	.pokeball   = ITEM_DUSK_BALL,
 	.nature     = NATURE_JOLLY,
     .heldItem   = ITEM_ASSAULT_VEST,
@@ -6834,7 +6834,7 @@ static const struct TrainerMon sParty_Phoebe_Doubles[] = {
     .evs        = {0, 252, 252, 0, 6, 0}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_MAROWAK_ALOLAN,
+    .species    = SPECIES_MAROWAK_ALOLA,
 	.pokeball   = ITEM_DUSK_BALL,
 	.nature     = NATURE_ADAMANT,
     .heldItem   = ITEM_THICK_CLUB,
@@ -7056,7 +7056,7 @@ static const struct TrainerMon sParty_Glacia_2[] = {
     .evs        = {0, 0, 6, 252, 0, 252}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_NINETALES_ALOLAN,
+    .species    = SPECIES_NINETALES_ALOLA,
 	.pokeball   = ITEM_DIVE_BALL,
 	.nature     = NATURE_TIMID,
     .heldItem   = ITEM_ICY_ROCK,
@@ -7137,7 +7137,7 @@ static const struct TrainerMon sParty_Glacia_Doubles[] = {
     .evs        = {0, 0, 6, 252, 0, 252}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_NINETALES_ALOLAN,
+    .species    = SPECIES_NINETALES_ALOLA,
 	.pokeball   = ITEM_DIVE_BALL,
 	.nature     = NATURE_TIMID,
     .heldItem   = ITEM_ICY_ROCK,
@@ -7176,7 +7176,7 @@ static const struct TrainerMon sParty_Glacia_Doubles[] = {
     .evs        = {6, 252, 0, 0, 0, 252}, 
     .abilityNum = 2,
     .happiness  = 252,
-    .species    = SPECIES_DARMANITAN_GALARIAN,
+    .species    = SPECIES_DARMANITAN_GALAR,
 	.isShiny    = FALSE,
 	.pokeball   = ITEM_DIVE_BALL,
 	.nature     = NATURE_JOLLY,
@@ -7256,7 +7256,7 @@ static const struct TrainerMon sParty_Glacia_Doubles_2[] = {
     .evs        = {6, 252, 0, 0, 0, 252}, 
     .abilityNum = 0,
     .happiness  = 252,
-    .species    = SPECIES_DARMANITAN_GALARIAN,
+    .species    = SPECIES_DARMANITAN_GALAR,
 	.isShiny    = FALSE,
 	.pokeball   = ITEM_DIVE_BALL,
 	.nature     = NATURE_JOLLY,
@@ -7325,7 +7325,7 @@ static const struct TrainerMon sParty_Drake[] = {
     .abilityNum = 1,
     .happiness  = 255,
     .species    = SPECIES_DRACOVISH,
-	.isShiny    = TRUE,
+	.isShiny    = FALSE,
 	.pokeball   = ITEM_FRIEND_BALL,
 	.nature     = NATURE_JOLLY,
     .heldItem   = ITEM_LIFE_ORB,
@@ -7472,7 +7472,7 @@ static const struct TrainerMon sParty_Drake_Doubles[] = {
     .evs        = {6, 0, 0, 252, 0, 252}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_GOODRA_HISUIAN,
+    .species    = SPECIES_GOODRA_HISUI,
 	.isShiny    = FALSE,
 	.pokeball   = ITEM_FRIEND_BALL,
 	.nature     = NATURE_MODEST,
@@ -7566,7 +7566,7 @@ static const struct TrainerMon sParty_Drake_Doubles_2[] = {
     .evs        = {6, 0, 0, 252, 0, 252}, 
     .abilityNum = 2,
     .happiness  = 255,
-    .species    = SPECIES_EXEGGUTOR_ALOLAN,
+    .species    = SPECIES_EXEGGUTOR_ALOLA,
 	.isShiny    = TRUE,
 	.pokeball   = ITEM_FRIEND_BALL,
 	.nature     = NATURE_JOLLY,
@@ -7670,19 +7670,6 @@ static const struct TrainerMon sParty_Wallace[] = {
     .style      = STYLE_JUGGERNAUT,
     },
     {
-    .lvl        = 70,
-    .evs        = {0, 0, 6, 252, 252, 0}, 
-    .abilityNum = 1,
-    .happiness  = 255,
-    .species    = SPECIES_MILOTIC,
-	.isShiny    = TRUE,
-	.pokeball   = ITEM_LOVE_BALL,
-	.nature     = NATURE_BOLD,
-    .heldItem   = ITEM_WEAKNESS_POLICY,
-    .moves      = {MOVE_SCALD, MOVE_ICE_BEAM, MOVE_ALLURING_VOICE, MOVE_RECOVER},
-    .style      = STYLE_JUGGERNAUT,
-    },
-    {
     .lvl        = 75,
     .evs        = {6, 252, 0, 0, 0, 252}, 
     .abilityNum = 2,
@@ -7691,10 +7678,23 @@ static const struct TrainerMon sParty_Wallace[] = {
 	.isShiny    = FALSE,
 	.pokeball   = ITEM_CHERISH_BALL,
 	.nature     = NATURE_JOLLY,
-    .heldItem   = ITEM_SHARPEDONITE,
+    .heldItem   = ITEM_LIFE_ORB,
     .moves      = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_LIQUIDATION, MOVE_POISON_FANG},
     .style      = STYLE_SPEEDSTER,
-    }
+    },
+    {
+    .lvl        = 70,
+    .evs        = {0, 0, 6, 252, 252, 0}, 
+    .abilityNum = 1,
+    .happiness  = 255,
+    .species    = SPECIES_MILOTIC,
+	.isShiny    = TRUE,
+	.pokeball   = ITEM_LOVE_BALL,
+	.nature     = NATURE_BOLD,
+    .heldItem   = ITEM_MILOTICITE,
+    .moves      = {MOVE_SCALD, MOVE_ICE_BEAM, MOVE_ALLURING_VOICE, MOVE_RECOVER},
+    .style      = STYLE_JUGGERNAUT,
+    },
 };
 
 static const struct TrainerMon sParty_Wallace_2[] = {
@@ -7742,7 +7742,7 @@ static const struct TrainerMon sParty_Wallace_2[] = {
     .evs        = {0, 252, 6, 0, 0, 252}, 
     .abilityNum = 1,
     .happiness  = 255,
-    .species    = SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+    .species    = SPECIES_TAUROS_PALDEA_AQUA,
 	.isShiny    = FALSE,
 	.pokeball   = ITEM_LURE_BALL,
 	.nature     = NATURE_JOLLY,
@@ -8415,7 +8415,7 @@ static const struct TrainerMon sParty_TateAndLiza1[] = {
 	.evs = {6, 0, 0, 252, 0, 252}, 
     .abilityNum = 2,
     .happiness = 255,
-	.species = SPECIES_INDEEDEE_FEMALE,
+	.species = SPECIES_INDEEDEE_F,
     .postgameheldItem = ITEM_TERRAIN_EXTENDER,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_EXPANDING_FORCE, MOVE_HYPER_VOICE, MOVE_HELPING_HAND, MOVE_DAZZLING_GLEAM},
@@ -10647,7 +10647,7 @@ static const struct TrainerMon sParty_Dylan1[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_FARFETCHD_GALARIAN,
+    .species = SPECIES_FARFETCHD_GALAR,
     }
 };
 
@@ -10792,7 +10792,7 @@ static const struct TrainerMon sParty_Demetrius[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ZIGZAGOON_GALARIAN,
+    .species = SPECIES_ZIGZAGOON_GALAR,
     },
     {
     //.iv = 0,
@@ -13019,7 +13019,7 @@ static const struct TrainerMon sParty_Diana3[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_PONYTA_GALARIAN,
+    .species = SPECIES_PONYTA_GALAR,
     },
     {
     //.iv = 20,
@@ -13802,7 +13802,7 @@ static const struct TrainerMon sParty_Reyna[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_FARFETCHD_GALARIAN,
+    .species = SPECIES_FARFETCHD_GALAR,
     },
     {
     //.iv = 200,
@@ -15655,7 +15655,7 @@ static const struct TrainerMon sParty_Sylvia[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_MIMEJR,
+    .species = SPECIES_MIME_JR,
     },
     {
     //.iv = 200,
@@ -15810,7 +15810,7 @@ static const struct TrainerMon sParty_Clifford[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_SLOWPOKE_GALARIAN,
+    .species = SPECIES_SLOWPOKE_GALAR,
     },
 	{
     //.iv = 200,
@@ -15837,7 +15837,7 @@ static const struct TrainerMon sParty_Nicholas[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_MR_MIME_GALARIAN,
+    .species = SPECIES_MR_MIME_GALAR,
     }
 };
 
@@ -16171,7 +16171,7 @@ static const struct TrainerMon sParty_Tiana[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ZIGZAGOON_GALARIAN,
+    .species = SPECIES_ZIGZAGOON_GALAR,
     },
 	{
     //.iv = 0,
@@ -16206,7 +16206,7 @@ static const struct TrainerMon sParty_Haley1[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_PONYTA_GALARIAN,
+    .species = SPECIES_PONYTA_GALAR,
     },
 	{
     //.iv = 0,
@@ -16214,7 +16214,7 @@ static const struct TrainerMon sParty_Haley1[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ORICORIO_PA_U,
+    .species = SPECIES_ORICORIO_PAU,
     },
     {
     //.iv = 0,
@@ -18358,7 +18358,7 @@ static const struct TrainerMon sParty_ReliAndIan[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_CORSOLA_GALARIAN,
+    .species = SPECIES_CORSOLA_GALAR,
     }
 };
 
@@ -19189,7 +19189,7 @@ static const struct TrainerMon sParty_Pete[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_SHELLOS_EAST_SEA,
+    .species = SPECIES_SHELLOS_EAST,
     }
 };
 
@@ -19235,7 +19235,7 @@ static const struct TrainerMon sParty_Andres1[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_GEODUDE_ALOLAN,
+    .species = SPECIES_GEODUDE_ALOLA,
     }
 };
 
@@ -19604,7 +19604,7 @@ static const struct TrainerMon sParty_Brandi[] = {
     .evs = {0, 0, 0, 0, 0, 0}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ORICORIO_PA_U,
+    .species = SPECIES_ORICORIO_PAU,
     },
 };
 
@@ -20582,7 +20582,7 @@ static const struct TrainerMon sParty_Wattson2[] = {
     .evs = {0, 252, 0, 0, 0, 252}, 
     .abilityNum = 2,
     .happiness = 255,
-    .species = SPECIES_GEODUDE_ALOLAN,
+    .species = SPECIES_GEODUDE_ALOLA,
     .postgameheldItem = ITEM_AIR_BALLOON,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_RETURN, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_EXPLOSION},
@@ -20684,7 +20684,7 @@ static const struct TrainerMon sParty_Wattson4[] = {
     .evs = {0, 0, 0, 252, 0, 252}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_RAICHU_ALOLAN,
+    .species = SPECIES_RAICHU_ALOLA,
     .postgameheldItem = ITEM_ELECTRIC_GEM,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_SURF, MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_GRASS_KNOT},
@@ -20732,7 +20732,7 @@ static const struct TrainerMon sParty_Wattson4[] = {
     .evs = {0, 0, 0, 252, 0, 252}, 
     .abilityNum = 3,
     .happiness = 0,
-    .species = SPECIES_ELECTRODE_HISUIAN,
+    .species = SPECIES_ELECTRODE_HISUI,
     .postgameheldItem = ITEM_LIFE_ORB,
     .heldItem = ITEM_LIFE_ORB,
     .postgamemoves = {MOVE_ELECTRO_BALL, MOVE_ENERGY_BALL, MOVE_DARK_PULSE, MOVE_FLASH_CANNON},
@@ -20921,7 +20921,7 @@ static const struct TrainerMon sParty_Flannery3[] = {
 	.evs = {6, 252, 0, 0, 0, 252}, 
     .abilityNum = 0,
     .happiness = 0,
-	.species = SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
+	.species = SPECIES_TAUROS_PALDEA_BLAZE,
     .postgameheldItem = ITEM_ROCKY_HELMET,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_CLOSE_COMBAT, MOVE_FLARE_BLITZ, MOVE_EARTHQUAKE, MOVE_WILD_CHARGE},
@@ -21808,7 +21808,7 @@ static const struct TrainerMon sParty_TateAndLiza3[] = {
 	.evs = {6, 0, 0, 252, 0, 252}, 
     .happiness = 255,
     .abilityNum = 3,
-	.species = SPECIES_INDEEDEE_FEMALE,
+	.species = SPECIES_INDEEDEE_F,
     .postgameheldItem = ITEM_TERRAIN_EXTENDER,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_PSYSHOCK, MOVE_PSYCHIC_TERRAIN, MOVE_FOCUS_BLAST, MOVE_ENERGY_BALL},
@@ -21871,7 +21871,7 @@ static const struct TrainerMon sParty_TateAndLiza4[] = {
     .evs = {6, 0, 0, 252, 0, 252}, 
     .abilityNum = 0,
     .happiness = 255,
-	.species = SPECIES_MEOWSTIC_FEMALE,
+	.species = SPECIES_MEOWSTIC_F,
     .postgameheldItem = ITEM_TERRAIN_EXTENDER,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_SHADOW_BALL, MOVE_THUNDERBOLT, MOVE_PSYSHOCK, MOVE_PSYCHIC_TERRAIN},
@@ -23666,7 +23666,7 @@ static const struct TrainerMon sParty_Red[] = {
 	//.ivs = {31, 31, 31, 31, 31, 31}, 
     .abilityNum = 2,
     .happiness = 255,
-    .species = SPECIES_PIKACHU_PARTNER_CAP,
+    .species = SPECIES_PIKACHU_PARTNER,
 	.isShiny = FALSE,
 	.pokeball = ITEM_CHERISH_BALL,
 	.nature = NATURE_MODEST,
@@ -23899,7 +23899,7 @@ static const struct TrainerMon sParty_Leader_Dark[] = {
     .evs = {0, 0, 0, 252, 6, 252}, 
     .abilityNum = 2,
     .happiness = 255,
-    .species = SPECIES_MEOWTH_ALOLAN,
+    .species = SPECIES_MEOWTH_ALOLA,
     .postgameheldItem = ITEM_ASSAULT_VEST,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_DARK_PULSE, MOVE_POWER_GEM, MOVE_SURF, MOVE_THUNDERBOLT},
@@ -24085,7 +24085,7 @@ static const struct TrainerMon sParty_PainterRayna[] = {
 };
 
 static const struct TrainerMon sParty_YoungsterDestin[] = {
-    GENERIC_MON(SPECIES_RATTATA_ALOLAN),
+    GENERIC_MON(SPECIES_RATTATA_ALOLA),
     GENERIC_MON(SPECIES_CHATOT),
 };
 
@@ -24153,7 +24153,7 @@ static const struct TrainerMon sParty_SwimmerMaleToby[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_QWILFISH_HISUIAN,
+    .species = SPECIES_QWILFISH_HISUI,
     },
     {
     .lvl = 2,
@@ -24205,7 +24205,7 @@ static const struct TrainerMon sParty_JugglerMason[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_VOLTORB_HISUIAN,
+    .species = SPECIES_VOLTORB_HISUI,
     },
     {
     .lvl = 2,
@@ -24231,20 +24231,20 @@ static const struct TrainerMon sParty_YoungCoupleEveJon[] = {
 
 static const struct TrainerMon sParty_PsychicJaclyn[] = {
     GENERIC_MON(SPECIES_NATU),
-    GENERIC_MON(SPECIES_SLOWPOKE_GALARIAN),
+    GENERIC_MON(SPECIES_SLOWPOKE_GALAR),
     GENERIC_MON(SPECIES_ABRA)
 };
 
 static const struct TrainerMon sParty_AromaLadyMiah[] = {
     GENERIC_MON(SPECIES_ODDISH),
-    GENERIC_MON(SPECIES_ORICORIO_PA_U)
+    GENERIC_MON(SPECIES_ORICORIO_PAU)
 };
 
 static const struct TrainerMon sParty_CoolCoupleLexNya[] = {
     GENERIC_MON(SPECIES_MILTANK),
-    GENERIC_MON(SPECIES_TAUROS_PALDEAN_COMBAT_BREED),
-    GENERIC_MON(SPECIES_TAUROS_PALDEAN_AQUA_BREED),
-    GENERIC_MON(SPECIES_TAUROS_PALDEAN_BLAZE_BREED)
+    GENERIC_MON(SPECIES_TAUROS_PALDEA_COMBAT),
+    GENERIC_MON(SPECIES_TAUROS_PALDEA_AQUA),
+    GENERIC_MON(SPECIES_TAUROS_PALDEA_BLAZE)
 };
 
 static const struct TrainerMon sParty_PicnickerMarcy[] = {
@@ -24264,7 +24264,7 @@ static const struct TrainerMon sParty_PkmnRangerKatelyn[] = {
 };
 
 static const struct TrainerMon sParty_TamerEvan[] = {
-    GENERIC_MON(SPECIES_SANDSHREW_ALOLAN),
+    GENERIC_MON(SPECIES_SANDSHREW_ALOLA),
     GENERIC_MON(SPECIES_LICKITUNG),
     GENERIC_MON(SPECIES_TEDDIURSA)
 };
@@ -24277,22 +24277,22 @@ static const struct TrainerMon sParty_CrushGirlCyndy[] = {
 
 static const struct TrainerMon sParty_CooltrainerLeroy[] = {
     GENERIC_MON(SPECIES_RHYDON),
-    GENERIC_MON(SPECIES_SLOWPOKE_GALARIAN),
+    GENERIC_MON(SPECIES_SLOWPOKE_GALAR),
     GENERIC_MON(SPECIES_KANGASKHAN),
     GENERIC_MON(SPECIES_TEDDIURSA)
 };
 
 static const struct TrainerMon sParty_CooltrainerMichelle[] = {
-    GENERIC_MON(SPECIES_MEOWTH_ALOLAN),
+    GENERIC_MON(SPECIES_MEOWTH_ALOLA),
     GENERIC_MON(SPECIES_SEEL),
     GENERIC_MON(SPECIES_VULPIX),
-    GENERIC_MON(SPECIES_PONYTA_GALARIAN),
+    GENERIC_MON(SPECIES_PONYTA_GALAR),
     GENERIC_MON(SPECIES_GIRAFARIG),
 };
 
 static const struct TrainerMon sParty_HikerDaryl[] = {
     GENERIC_MON(SPECIES_BONSLY),
-    GENERIC_MON(SPECIES_GEODUDE_ALOLAN),
+    GENERIC_MON(SPECIES_GEODUDE_ALOLA),
 };
 
 static const struct TrainerMon sParty_RuinManiacStanly[] = {
@@ -24307,7 +24307,7 @@ static const struct TrainerMon sParty_RuinManiacFoster[] = {
 
 static const struct TrainerMon sParty_LassDalia[] = {
     GENERIC_MON(SPECIES_HOPPIP),
-    GENERIC_MON(SPECIES_GROWLITHE_HISUIAN),
+    GENERIC_MON(SPECIES_GROWLITHE_HISUI),
 };
 
 static const struct TrainerMon sParty_RuinManiacLayton[] = {
@@ -24365,7 +24365,7 @@ static const struct TrainerMon sParty_PkmnBreederBethany[] = {
 };
 
 static const struct TrainerMon sParty_YoungsterCordell[] = {
-    GENERIC_MON(SPECIES_FARFETCHD_GALARIAN),
+    GENERIC_MON(SPECIES_FARFETCHD_GALAR),
     GENERIC_MON(SPECIES_OSHAWOTT),
 };
 
@@ -24396,7 +24396,7 @@ static const struct TrainerMon sParty_TeamRocketGrunt47[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_SNEASEL_HISUIAN,
+    .species = SPECIES_SNEASEL_HISUI,
     },
 };
 
@@ -24417,12 +24417,12 @@ static const struct TrainerMon sParty_TeamRocketGrunt49[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_RATTATA_ALOLAN,
+    .species = SPECIES_RATTATA_ALOLA,
     },
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_GRIMER_ALOLAN,
+    .species = SPECIES_GRIMER_ALOLA,
     },
     {
     .lvl = 2,
@@ -24445,7 +24445,7 @@ static const struct TrainerMon sParty_TeamRocketGrunt50[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_WOOPER_PALDEAN,
+    .species = SPECIES_WOOPER_PALDEA,
     },
 };
 
@@ -24476,7 +24476,7 @@ static const struct TrainerMon sParty_ScientistGideon[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_VOLTORB_HISUIAN,
+    .species = SPECIES_VOLTORB_HISUI,
     },
     {
     .lvl = 2,
@@ -24504,7 +24504,7 @@ static const struct TrainerMon sParty_TeamRocketAdmin[] = {
     {
     .lvl = 2,
     .abilityNum = 3,
-    .species = SPECIES_SLOWPOKE_GALARIAN,
+    .species = SPECIES_SLOWPOKE_GALAR,
     },
     {
     .lvl = 2,
@@ -24520,9 +24520,32 @@ static const struct TrainerMon sParty_TeamRocketAdmin[] = {
 
 static const struct TrainerMon sParty_Debug_Opponent[] = {
     {
-    .lvl = 0,
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
     .abilityNum = 0,
-    .species = SPECIES_WOOPER_PALDEAN,
+    .happiness = 255,
+    .species = SPECIES_MIMIKYU,
+	.nature = NATURE_ADAMANT,
+	.pokeball = ITEM_HEAVY_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_NONE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_PLAY_ROUGH, MOVE_SPLASH, MOVE_SPLASH, MOVE_SPLASH},
+    .moves = {MOVE_PLAY_ROUGH, MOVE_SPLASH, MOVE_SPLASH, MOVE_SPLASH}
+    },
+    {
+    .lvl = 5,
+    .evs = {6, 252, 0, 0, 0, 252}, 
+    .abilityNum = 0,
+    .happiness = 255,
+    .species = SPECIES_CLEFABLE,
+	.nature = NATURE_ADAMANT,
+	.pokeball = ITEM_HEAVY_BALL,
+	.isShiny = FALSE,
+    .postgameheldItem = ITEM_NONE,
+    .heldItem = ITEM_NONE,
+    .postgamemoves = {MOVE_PLAY_ROUGH, MOVE_SPLASH, MOVE_SPLASH, MOVE_SPLASH},
+    .moves = {MOVE_PLAY_ROUGH, MOVE_SPLASH, MOVE_SPLASH, MOVE_SPLASH}
     },
 };
 
@@ -25057,7 +25080,7 @@ static const struct TrainerMon sParty_Morty[] = {
     {
     .evs = {6, 0, 0, 252, 0, 252}, 
     .abilityNum = 0,
-    .species = SPECIES_ZORUA_HISUIAN,
+    .species = SPECIES_ZORUA_HISUI,
     .nature = NATURE_TIMID,
     .postgameheldItem = ITEM_ASSAULT_VEST,
     .heldItem = ITEM_LUM_BERRY,
@@ -25082,7 +25105,7 @@ static const struct TrainerMon sParty_Morty2[] = {
     {
     .evs = {252, 0, 252, 6, 0, 0}, 
     .abilityNum = 2,
-    .species = SPECIES_CORSOLA_GALARIAN,
+    .species = SPECIES_CORSOLA_GALAR,
     .nature = NATURE_CALM,
     .postgameheldItem = ITEM_GHOST_GEM,
     .heldItem = ITEM_GHOST_GEM,
@@ -25115,7 +25138,7 @@ static const struct TrainerMon sParty_Morty2[] = {
     {
     .evs = {252, 252, 0, 0, 0, 6}, 
     .abilityNum = 2,
-    .species = SPECIES_MAROWAK_ALOLAN,
+    .species = SPECIES_MAROWAK_ALOLA,
     .nature = NATURE_ADAMANT,
     .postgameheldItem = ITEM_THICK_CLUB,
     .heldItem = ITEM_THICK_CLUB,
@@ -25173,7 +25196,7 @@ static const struct TrainerMon sParty_Chuck[] = {
 	{
     .evs = {0, 252, 6, 0, 0, 252}, 
     .abilityNum = 0,
-    .species = SPECIES_SNEASEL_HISUIAN,
+    .species = SPECIES_SNEASEL_HISUI,
     .nature = NATURE_JOLLY,
     .postgameheldItem = ITEM_FOCUS_SASH,
     .heldItem = ITEM_NONE,
@@ -25428,7 +25451,7 @@ static const struct TrainerMon sParty_Pryce[] = {
 	{
     .evs = {0, 0, 6, 252, 0, 252}, 
     .abilityNum = 2,
-    .species = SPECIES_VULPIX_ALOLAN,
+    .species = SPECIES_VULPIX_ALOLA,
     .nature = NATURE_TIMID,
     .postgameheldItem = ITEM_ICY_ROCK,
     .heldItem = ITEM_NONE,
@@ -25949,7 +25972,7 @@ static const struct TrainerMon sParty_Norman_Little_Cup[] = {
     {
     .evs = {0, 0, 252, 0, 0, 252}, 
     .abilityNum = 1,
-    .species = SPECIES_ZORUA_HISUIAN,
+    .species = SPECIES_ZORUA_HISUI,
     .postgameheldItem = ITEM_LIFE_ORB,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_SHADOW_BALL, MOVE_BURNING_JEALOUSY, MOVE_EXTRASENSORY, MOVE_ICY_WIND},
@@ -26425,7 +26448,7 @@ static const struct TrainerMon sParty_Chuck_Little_Cup[] = {
     {
     .evs = {0, 252, 0, 0, 0, 252}, 
     .abilityNum = 1,
-    .species = SPECIES_SNEASEL_HISUIAN,
+    .species = SPECIES_SNEASEL_HISUI,
     .postgameheldItem = ITEM_LIFE_ORB,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_KNOCK_OFF, MOVE_POISON_JAB, MOVE_CLOSE_COMBAT, MOVE_X_SCISSOR},
@@ -26434,7 +26457,7 @@ static const struct TrainerMon sParty_Chuck_Little_Cup[] = {
     {
     .evs = {252, 252, 0, 0, 0, 0}, 
     .abilityNum = 2,
-    .species = SPECIES_FARFETCHD_GALARIAN,
+    .species = SPECIES_FARFETCHD_GALAR,
     .postgameheldItem = ITEM_BERRY_JUICE,
     .heldItem = ITEM_SITRUS_BERRY,
     .postgamemoves = {MOVE_LEAF_BLADE, MOVE_CLOSE_COMBAT, MOVE_THROAT_CHOP, MOVE_BRAVE_BIRD},
@@ -26482,7 +26505,7 @@ static const struct TrainerMon sParty_Jasmine_Little_Cup[] = {
     {
     .evs = {170, 170, 0, 0, 170, 0}, 
     .abilityNum = 1,
-    .species = SPECIES_SANDSHREW_ALOLAN,
+    .species = SPECIES_SANDSHREW_ALOLA,
     .postgameheldItem = ITEM_FOCUS_SASH,
     .heldItem = ITEM_NONE,
     .postgamemoves = {MOVE_IRON_HEAD, MOVE_ICE_PUNCH, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE},

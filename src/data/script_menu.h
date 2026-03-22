@@ -909,7 +909,7 @@ static const struct MenuAction MultichoiceList_Costumes[] =
 	{gText_Costume_BW},
 	{gText_Costume_DP},
 	{gText_Costume_RBY},
-	//{gText_Cancel2},
+	{gText_Costume_ORAS},
 };
 
 static const struct MultichoiceListStruct sMultichoiceLists[] =

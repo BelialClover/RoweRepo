@@ -200,6 +200,20 @@
 #define SCROLLING_BLUE_NURSE_MOVE_LEARN                  10
 #define SCROLLING_SEASONS                                11
 #define SCROLLING_SEVII_TICKET                           12
-#define NUM_SCROLLING_SETS                               SCROLLING_SEVII_TICKET + 1
+#define SCROLLING_GENERATIONS                            13
+#define SCROLLING_TYPES                                  14
+#define SCROLLING_OTHER_GAME_MODES                       15
+#define SCROLLING_YEAR                                   16
+#define SCROLLING_MONTH                                  17
+#define SCROLLING_DAY                                    18
+#define SCROLLING_MONOPOLY                               19
+#define SCROLLING_MONOPOLY_PC                            20
+#define SCROLLING_STARTER_REGION                         21
+#define SCROLLING_ENDLESS_BATTLE_QUESTION                22
+#define SCROLLING_ENDLESS_BATTLE_DIFFICULTY              23
+#define SCROLLING_COSTUMES_MALE                          24
+#define SCROLLING_COSTUMES_FEMALE                        25
+
+#define NUM_SCROLLING_SETS                               SCROLLING_COSTUMES_FEMALE + 1
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H

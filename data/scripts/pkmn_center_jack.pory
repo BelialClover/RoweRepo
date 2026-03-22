@@ -1,219 +1,3 @@
-raw `
-Common_EventScript_PkmnCenterJack_Companion_Stuff::
-	msgbox gText_PkmnCenterJack_GotPokemonQuestions, MSGBOX_DEFAULT
-	multichoice 16, 0, MULTI_COMPANION_OPTIONS, 0
-	copyvar VAR_TEMP_1, VAR_RESULT
-	switch VAR_TEMP_1
-	case 0, Common_EventScript_PkmnCenterJack_Companion_Get_Trainer_Password
-	case 4, Common_EventScript_PkmnCenterJack
-	case MULTI_B_PRESSED, Common_EventScript_PkmnCenterJack
-	end
-
-Common_EventScript_PkmnCenterJack_TeachMove::
-	lock
-	faceplayer
-	bufferpartymonnick 0, 0
-	msgbox Text_IVChecker_1, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, GetHpIV
-	buffernumberstring 0, VAR_RESULT
-	specialvar VAR_RESULT, GetAtkIV
-	buffernumberstring 1, VAR_RESULT
-	specialvar VAR_RESULT, GetDefIV
-	buffernumberstring 2, VAR_RESULT
-	msgbox Text_IVChecker_2, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, GetSpAtkIV
-	buffernumberstring 0, VAR_RESULT
-	specialvar VAR_RESULT, GetSpDefIV
-	buffernumberstring 1, VAR_RESULT
-	specialvar VAR_RESULT, GetSpeedIV
-	buffernumberstring 2, VAR_RESULT
-	msgbox Text_IVChecker_3, MSGBOX_DEFAULT
-	release
-	end
-
-Common_EventScript_PkmnCenterJack_ComeBackAnytime::
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-    end
-	
-Common_EventScript_PkmnCenterJack_NoEnoughBadges::
-	msgbox gText_PkmnCenterJack_CantTeachMoves, MSGBOX_DEFAULT
-	releaseall
-    end
-
-@Start a Random Battle	
-Common_EventScript_PkmnCenterJack_StartARandomBattle::
-	msgbox Common_PkmnCenterJack_Text_MockBattle, MSGBOX_DEFAULT
-	waitmessage
-	multichoice 0, 0, MULTI_MOCK_BATTLE_OPTIONS, 0
-	switch VAR_RESULT
-    case 0, Common_EventScript_PkmnCenterJack_StartARandomBattle_Easy
-	case 1, Common_EventScript_PkmnCenterJack_StartARandomBattle_Medium
-    case 2, Common_EventScript_PkmnCenterJack_StartARandomBattle_Hard
-	case 3, Common_EventScript_PkmnCenterJack_StartARandomBattle_PSS
-	case 4, Common_EventScript_PkmnCenterJack
-	case MULTI_B_PRESSED, Common_EventScript_PkmnCenterJack
-	end
-	
-Common_EventScript_PkmnCenterJack_StartARandomBattle_Easy::
-	msgbox Common_PkmnCenterJack_Text_MockBattle_Easy, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NURSE_KIRSTEN, Common_PkmnCenterJack_Text_MockBattle_Defeat
-	special HealPlayerParty
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-    end
-	
-Common_EventScript_PkmnCenterJack_StartARandomBattle_Medium::
-	msgbox Common_PkmnCenterJack_Text_MockBattle_Normal, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NURSE_SACHIKO, Common_PkmnCenterJack_Text_MockBattle_Defeat
-	special HealPlayerParty
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-    end
-	
-Common_EventScript_PkmnCenterJack_StartARandomBattle_Hard::
-	msgbox Common_PkmnCenterJack_Text_MockBattle_Hard, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NURSE_SHERY, Common_PkmnCenterJack_Text_MockBattle_Defeat
-	special HealPlayerParty
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-    end
-
-Common_EventScript_PkmnCenterJack_StartARandomBattle_PSS::
-	msgbox Common_PkmnCenterJack_Text_MockBattle_PSS, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_PSS_TRAINER, Common_PkmnCenterJack_Text_MockBattle_Defeat
-	special HealPlayerParty
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-    end
-
-@Rate Nickname
-Common_EventScript_PkmnCenterJack_NameRater_ChooseMonToRate::
-	msgbox Common_PkmnCenterJack_Text_CritiqueWhichMonNickname, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	compare VAR_0x8004, 255
-	goto_if_ne Common_EventScript_PkmnCenterJack_NameRater_RateMonNickname
-	compare VAR_0x8004, 255
-	goto_if_eq Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate
-	end
-
-Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate::
-	msgbox Common_PkmnCenterJack_Text_DoVisitAgain, MSGBOX_DEFAULT
-	release
-	end
-
-Common_EventScript_PkmnCenterJack_NameRater_RateMonNickname::
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq Common_EventScript_PkmnCenterJack_NameRater_CantRateEgg
-	special BufferMonNickname
-	msgbox Common_PkmnCenterJack_Text_FineNameSuggestBetterOne, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Common_EventScript_PkmnCenterJack_NameRater_ChangeNickname
-	compare VAR_RESULT, NO
-	goto_if_eq Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate
-	end
-
-Common_EventScript_PkmnCenterJack_NameRater_CantRateEgg::
-	msgbox Common_PkmnCenterJack_Text_ThatIsMerelyAnEgg, MSGBOX_DEFAULT
-	release
-	end
-
-Common_EventScript_PkmnCenterJack_NameRater_ChangeNickname::
-	msgbox Common_PkmnCenterJack_Text_WhatShallNewNameBe, MSGBOX_DEFAULT
-	call Common_EventScript_NameReceivedPartyMon
-	specialvar VAR_RESULT, TryPutNameRaterShowOnTheAir
-	special BufferMonNickname
-	compare VAR_RESULT, TRUE
-	goto_if_eq Common_EventScript_PkmnCenterJack_NameRater_NewNameDifferent
-	msgbox Common_PkmnCenterJack_Text_NameNoDifferentYetSuperior, MSGBOX_DEFAULT
-	release
-	end
-
-Common_EventScript_PkmnCenterJack_NameRater_NewNameDifferent::
-	msgbox Common_PkmnCenterJack_Text_MonShallBeKnownAsName, MSGBOX_DEFAULT
-	release
-	end
-
-@Move Deleter
-Common_EventScript_PkmnCenterJack_MoveDeleter_ChooseMonAndMoveToForget::
-	msgbox Common_PkmnCenterJack_Text_WhichMonShouldForget, MSGBOX_DEFAULT
-	special ChoosePartyMon
-	waitstate
-	compare VAR_0x8004, 255
-	goto_if_eq Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain
-	special IsSelectedMonEgg
-	compare VAR_RESULT, TRUE
-	goto_if_eq Common_EventScript_PkmnCenterJack_MoveDeleter_EggCantForgetMoves
-	special GetNumMovesSelectedMonHas
-	compare VAR_RESULT, 1
-	goto_if_eq Common_EventScript_PkmnCenterJack_MoveDeleter_MonOnlyKnowsOneMove
-	msgbox Common_PkmnCenterJack_Text_WhichMoveShouldBeForgotten, MSGBOX_DEFAULT
-	fadescreen FADE_TO_BLACK
-	special MoveDeleterChooseMoveToForget
-	fadescreen FADE_FROM_BLACK
-	compare VAR_0x8005, MAX_MON_MOVES
-	goto_if_eq Common_EventScript_PkmnCenterJack_MoveDeleter_ChooseMonAndMoveToForget
-	special BufferMoveDeleterNicknameAndMove
-	msgbox Common_PkmnCenterJack_Text_MonsMoveShouldBeForgotten, MSGBOX_YESNO
-	switch VAR_RESULT
-	case YES, Common_EventScript_PkmnCenterJack_MoveDeleter_TryForgetMove
-	case NO, Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_MoveDeleter_TryForgetMove::
-	special IsLastMonThatKnowsSurf
-	compare VAR_RESULT, TRUE
-	goto_if_eq Common_EventScript_PkmnCenterJack_MoveDeleter_LastMonWithSurf
-	special MoveDeleterForgetMove
-	playfanfare MUS_MOVE_DELETED
-	waitfanfare
-	msgbox Common_PkmnCenterJack_Text_MonHasForgottenMove, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_MoveDeleter_MonOnlyKnowsOneMove::
-	special BufferMoveDeleterNicknameAndMove
-	msgbox Common_PkmnCenterJack_Text_MonOnlyKnowsOneMove, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_MoveDeleter_EggCantForgetMoves::
-	msgbox Common_PkmnCenterJack_Text_EggCantForgetMoves, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain::
-	msgbox Common_PkmnCenterJack_Text_ComeAgain, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Common_EventScript_PkmnCenterJack_MoveDeleter_LastMonWithSurf::
-	special BufferMoveDeleterNicknameAndMove
-	msgbox Common_PkmnCenterJack_Text_CantForgetSurf, MSGBOX_DEFAULT
-	releaseall
-	end
-	
-//------------------------------------------------------------------------------
-	
-Common_EventScript_PkmnCenterJack_MoveReminder_ComeBackAnytime:: @ 8201452
-	msgbox gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT
-	releaseall
-	end
-
-`
-
-script Common_Eventscript_CheckForItems{
-	//Item Finder
-	checkitem(ITEM_ITEMFINDER, 1)
-	if(var(VAR_RESULT) == FALSE){
-		additem(ITEM_ITEMFINDER)
-	}
-	return
-}
-
 //Blue Nurse Stuff
 script Common_EventScript_PkmnCenterJack{
 	lockall
@@ -223,28 +7,309 @@ script Common_EventScript_PkmnCenterJack{
 	scrollingmultichoice(SCROLLING_BLUE_NURSE_OPTIONS, 0, 0, 6, TRUE)
 	switch(var(VAR_RESULT)){
 		case 0:
+			//Change Costume
 			goto(Common_EventScript_PkmnCenterJack_Change_Costume)
 		break
 		case 1:
+			//Start Mock Battle
 			goto(Common_EventScript_PkmnCenterJack_StartARandomBattle)
 		break
 		case 2:
+			//Change Nickname
 			goto(Common_EventScript_PkmnCenterJack_NameRater_ChooseMonToRate)
 		break
 		case 3:
-			goto(Common_EventScript_PkmnCenterJack_Move_Learner)
+			//Move Learner
+			if(flag(FLAG_METRONOME_ONLY_MODE)){
+				msgbox(format("Sorry you can't learn or forget moves on this mode!"))
+				goto(Common_EventScript_PkmnCenterJack)
+			}
+			else{
+				goto(Common_EventScript_PkmnCenterJack_Move_Learner)
+			}
 		break
 		case 4:
+			//Wonder Trade
 			goto(Common_EventScript_PkmnCenterJack_WonderTrade)
 		break
 		case 5:
-			goto(Common_EventScript_PkmnCenterJack_Lower_Difficulty)
+			//Enable Double Battle Mode
+			goto(Common_EventScript_PkmnCenterJack_Double_Battle_Mode)
 		break
 		case 6:
+			//Lower Difficulty
+			goto(Common_EventScript_PkmnCenterJack_Lower_Difficulty)
+		break
+		case 7:
+			//Change Season
+			goto(Common_EventScript_PkmnCenterJack_ChangeSeason)
+		break
+		case 8:
+			//Change Date
+			goto(Common_EventScript_PkmnCenterJack_ChangeYear)
+		break
+		case 9:
 		default:
 			goto(Common_EventScript_PkmnCenterJack_ComeBackAnytime)
 		break
 	}
+}
+
+
+
+script Common_EventScript_PkmnCenterJack_Double_Battle_Mode{
+	if(!flag(FLAG_DOUBLE_BATTLE_MODE)){
+		msgbox(format("Do you want to {COLOR GREEN}enable{COLOR DARK_GREY} the {COLOR BLUE}Double Battle Mode{COLOR DARK_GREY}?"), MSGBOX_DEFAULT)
+		waitmessage
+		multichoice(0, 0, MULTI_GAME_MODE_ENABLE, 0)
+	}
+	else{
+		msgbox(format("Do you want to {COLOR RED}disable{COLOR DARK_GREY} the {COLOR BLUE}Double Battle Mode{COLOR DARK_GREY}?"), MSGBOX_DEFAULT)
+		waitmessage
+		multichoice(0, 0, MULTI_GAME_MODE_DISABLE, 0)
+	}
+
+	switch(var(VAR_RESULT)){
+		case 0:
+			if(!flag(FLAG_DOUBLE_BATTLE_MODE)){
+				playfanfare(SE_SAVE)
+				msgbox(format("The {COLOR BLUE}Double Battle Mode{COLOR DARK_GREY} was {COLOR GREEN}enabled{COLOR DARK_GREY}!"), MSGBOX_DEFAULT)
+				waitfanfare
+				setflag(FLAG_DOUBLE_BATTLE_MODE)
+			}
+			else{
+				playfanfare(SE_BOO)
+				msgbox(format("The {COLOR BLUE}Double Battle Mode{COLOR DARK_GREY} was {COLOR RED}disabled{COLOR DARK_GREY}!"), MSGBOX_DEFAULT)
+				waitfanfare
+				clearflag(FLAG_DOUBLE_BATTLE_MODE)
+			}
+		break
+		case 1:
+			msgbox(format("This will make every battle a Double Battle as long as you have 2 Pokémon that can battle."), MSGBOX_DEFAULT)
+		break
+		case 2:
+		case MULTI_B_PRESSED: 
+			goto(Common_EventScript_PkmnCenterJack_ComeBackAnytime)
+		break
+	}
+	
+	goto(Common_EventScript_PkmnCenterJack_Double_Battle_Mode)
+}
+
+script Common_EventScript_PkmnCenterJack_Companion_Stuff {
+	msgbox(gText_PkmnCenterJack_GotPokemonQuestions, MSGBOX_DEFAULT)
+	multichoice(16, 0, MULTI_COMPANION_OPTIONS, 0)
+	copyvar(VAR_TEMP_1, VAR_RESULT)
+	switch (var(VAR_TEMP_1)) {
+		case 0: goto(Common_EventScript_PkmnCenterJack_Companion_Get_Trainer_Password)
+		case 4: goto(Common_EventScript_PkmnCenterJack)
+		case MULTI_B_PRESSED: goto(Common_EventScript_PkmnCenterJack)
+	}
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_ComeBackAnytime {
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+// Start a Random Battle
+script Common_EventScript_PkmnCenterJack_StartARandomBattle {
+	msgbox(Common_PkmnCenterJack_Text_MockBattle, MSGBOX_DEFAULT)
+	waitmessage
+	multichoice(0, 0, MULTI_MOCK_BATTLE_OPTIONS, 0)
+	switch (var(VAR_RESULT)) {
+		case 0: goto(Common_EventScript_PkmnCenterJack_StartARandomBattle_Easy)
+		case 1: goto(Common_EventScript_PkmnCenterJack_StartARandomBattle_Medium)
+		case 2: goto(Common_EventScript_PkmnCenterJack_StartARandomBattle_Hard)
+		case 3: goto(Common_EventScript_PkmnCenterJack_StartARandomBattle_PSS)
+		case 4: goto(Common_EventScript_PkmnCenterJack)
+		case MULTI_B_PRESSED: goto(Common_EventScript_PkmnCenterJack)
+	}
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_StartARandomBattle_Easy {
+	msgbox(Common_PkmnCenterJack_Text_MockBattle_Easy, MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_NURSE_KIRSTEN, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+	special(HealPlayerParty)
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_StartARandomBattle_Medium {
+	msgbox(Common_PkmnCenterJack_Text_MockBattle_Normal, MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_NURSE_SACHIKO, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+	special(HealPlayerParty)
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_StartARandomBattle_Hard {
+	msgbox(Common_PkmnCenterJack_Text_MockBattle_Hard, MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_NURSE_SHERY, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+	special(HealPlayerParty)
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_StartARandomBattle_PSS {
+	msgbox(Common_PkmnCenterJack_Text_MockBattle_PSS, MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_PSS_TRAINER, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+	special(HealPlayerParty)
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+// Rate Nickname
+script Common_EventScript_PkmnCenterJack_NameRater_ChooseMonToRate {
+	msgbox(Common_PkmnCenterJack_Text_CritiqueWhichMonNickname, MSGBOX_DEFAULT)
+	special(ChoosePartyMon)
+	waitstate
+	if (var(VAR_0x8004) != 255) {
+		goto(Common_EventScript_PkmnCenterJack_NameRater_RateMonNickname)
+	}
+	goto(Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate)
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate {
+	msgbox(Common_PkmnCenterJack_Text_DoVisitAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_NameRater_RateMonNickname {
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	if (var(VAR_RESULT) == SPECIES_EGG) {
+		goto(Common_EventScript_PkmnCenterJack_NameRater_CantRateEgg)
+	}
+	special(BufferMonNickname)
+	msgbox(Common_PkmnCenterJack_Text_FineNameSuggestBetterOne, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		goto(Common_EventScript_PkmnCenterJack_NameRater_ChangeNickname)
+	}
+	goto(Common_EventScript_PkmnCenterJack_NameRater_DeclineNameRate)
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_NameRater_CantRateEgg {
+	msgbox(Common_PkmnCenterJack_Text_ThatIsMerelyAnEgg, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_NameRater_ChangeNickname {
+	msgbox(Common_PkmnCenterJack_Text_WhatShallNewNameBe, MSGBOX_DEFAULT)
+	call(Common_EventScript_NameReceivedPartyMon)
+	specialvar(VAR_RESULT, TryPutNameRaterShowOnTheAir)
+	special(BufferMonNickname)
+	if (var(VAR_RESULT) == TRUE) {
+		goto(Common_EventScript_PkmnCenterJack_NameRater_NewNameDifferent)
+	}
+	msgbox(Common_PkmnCenterJack_Text_NameNoDifferentYetSuperior, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_NameRater_NewNameDifferent {
+	msgbox(Common_PkmnCenterJack_Text_MonShallBeKnownAsName, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+// Move Deleter
+script Common_EventScript_PkmnCenterJack_MoveDeleter_ChooseMonAndMoveToForget {
+	msgbox(Common_PkmnCenterJack_Text_WhichMonShouldForget, MSGBOX_DEFAULT)
+	special(ChoosePartyMon)
+	waitstate
+	if (var(VAR_0x8004) == 255) {
+		goto(Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain)
+	}
+	special(IsSelectedMonEgg)
+	if (var(VAR_RESULT) == TRUE) {
+		goto(Common_EventScript_PkmnCenterJack_MoveDeleter_EggCantForgetMoves)
+	}
+	special(GetNumMovesSelectedMonHas)
+	if (var(VAR_RESULT) == 1) {
+		goto(Common_EventScript_PkmnCenterJack_MoveDeleter_MonOnlyKnowsOneMove)
+	}
+	msgbox(Common_PkmnCenterJack_Text_WhichMoveShouldBeForgotten, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(MoveDeleterChooseMoveToForget)
+	fadescreen(FADE_FROM_BLACK)
+	if (var(VAR_0x8005) == MAX_MON_MOVES) {
+		goto(Common_EventScript_PkmnCenterJack_MoveDeleter_ChooseMonAndMoveToForget)
+	}
+	special(BufferMoveDeleterNicknameAndMove)
+	msgbox(Common_PkmnCenterJack_Text_MonsMoveShouldBeForgotten, MSGBOX_YESNO)
+	switch (var(VAR_RESULT)) {
+		case YES: goto(Common_EventScript_PkmnCenterJack_MoveDeleter_TryForgetMove)
+		case NO: goto(Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain)
+	}
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_MoveDeleter_TryForgetMove {
+	special(IsLastMonThatKnowsSurf)
+	if (var(VAR_RESULT) == TRUE) {
+		goto(Common_EventScript_PkmnCenterJack_MoveDeleter_LastMonWithSurf)
+	}
+	special(MoveDeleterForgetMove)
+	playfanfare(MUS_MOVE_DELETED)
+	waitfanfare
+	msgbox(Common_PkmnCenterJack_Text_MonHasForgottenMove, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_MoveDeleter_MonOnlyKnowsOneMove {
+	special(BufferMoveDeleterNicknameAndMove)
+	msgbox(Common_PkmnCenterJack_Text_MonOnlyKnowsOneMove, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_MoveDeleter_EggCantForgetMoves {
+	msgbox(Common_PkmnCenterJack_Text_EggCantForgetMoves, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_MoveDeleter_ComeAgain {
+	msgbox(Common_PkmnCenterJack_Text_ComeAgain, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_EventScript_PkmnCenterJack_MoveDeleter_LastMonWithSurf {
+	special(BufferMoveDeleterNicknameAndMove)
+	msgbox(Common_PkmnCenterJack_Text_CantForgetSurf, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+//------------------------------------------------------------------------------
+
+script Common_EventScript_PkmnCenterJack_MoveReminder_ComeBackAnytime {
+	msgbox(gText_PkmnCenterJack_ComeBackAnytime, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Common_Eventscript_CheckForItems{
+	//Item Finder
+	checkitem(ITEM_ITEMFINDER, 1)
+	if(var(VAR_RESULT) == FALSE){
+		additem(ITEM_ITEMFINDER)
+	}
+	return
 }
 
 script Common_EventScript_PkmnCenterJack_Clear_Move_Tutor_Data{
@@ -277,7 +342,6 @@ script Common_EventScript_PkmnCenterJack_Move_Learner{
 		break
 	}
 }
-
 
 script Common_EventScript_PkmnCenterJack_Lower_Difficulty{
 	if(var(VAR_DIFFICULTY) != DIFFICULTY_EASY){
@@ -317,36 +381,104 @@ script Common_EventScript_PkmnCenterJack_Change_Costume{
 	lock
 	faceplayer
 	msgbox(format("What outfit do you want to use today?"), MSGBOX_DEFAULT)
-	multichoice(16, 0, MULTI_COSTUMES, 0)
-	copyvar(VAR_TEMP_1, VAR_RESULT)
-	switch(var(VAR_RESULT)){
-		case EMERALD_COSTUME:
-		case RS_COSTUME:
-		case FRLG_COSTUME:
-		case RBY_COSTUME:
-			copyvar(VAR_COSTUME_NUMBER, VAR_TEMP_1)
-			msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
-			//Refreshes the map
-			warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
-		break
-		case BW_COSTUME:
-		case DP_COSTUME:
-			checkplayergender
-			if(var(VAR_RESULT) == GENDER_FEMALE){
-				//Hilda Costume is yet to be added
-				msgbox(format("Sorry but this costume has not been added to the game yet."), MSGBOX_DEFAULT)
-			}
-			else{
-				copyvar(VAR_COSTUME_NUMBER, VAR_TEMP_1)
-				//Refreshes the map
+	checkplayergender
+	if(var(VAR_RESULT) == GENDER_FEMALE){
+		scrollingmultichoice(SCROLLING_COSTUMES_FEMALE, 0, 0, 6, TRUE)
+		switch(var(VAR_RESULT)){
+			case 0: //May (RS)
+				setvar(VAR_COSTUME_NUMBER, RS_COSTUME)
 				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
 				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
-			}
-		break
-		case NUM_COSTUMES:
-		case MULTI_B_PRESSED:
-			msgbox(format("Come back anytime you want to change outfits!"), MSGBOX_DEFAULT)
-		break
+			break
+			case 1: //May (Emerald)
+				setvar(VAR_COSTUME_NUMBER, EMERALD_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 2: //May (ORAS)
+				setvar(VAR_COSTUME_NUMBER, ORAS_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 3: //Leaf (RBY)
+				setvar(VAR_COSTUME_NUMBER, RBY_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 4: //Leaf (FRLG)
+				setvar(VAR_COSTUME_NUMBER, FRLG_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 5: //Dawn (DP)
+				setvar(VAR_COSTUME_NUMBER, DP_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 6: //Dawn (Pt)
+				setvar(VAR_COSTUME_NUMBER, EXTRA_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			default:
+			case MULTI_B_PRESSED:
+				msgbox(format("Come back anytime you want to change outfits!"), MSGBOX_DEFAULT)
+			break
+		}
+	}
+	else{
+		scrollingmultichoice(SCROLLING_COSTUMES_MALE, 0, 0, 6, TRUE)
+		switch(var(VAR_RESULT)){
+			case 0: //Brendan (RS)
+				setvar(VAR_COSTUME_NUMBER, RS_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 1: //Brendan (Emerald)
+				setvar(VAR_COSTUME_NUMBER, EMERALD_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 2: //Brendan (ORAS)
+				setvar(VAR_COSTUME_NUMBER, ORAS_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 3: //Red (RBY)
+				setvar(VAR_COSTUME_NUMBER, RBY_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 4: //Red (FRLG)
+				setvar(VAR_COSTUME_NUMBER, FRLG_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 5: //Green (FRLG)
+				setvar(VAR_COSTUME_NUMBER, EXTRA_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 6: //Ethan
+				setvar(VAR_COSTUME_NUMBER, GSC_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 7: //Lucas (DP)
+				setvar(VAR_COSTUME_NUMBER, DP_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			case 8: //Hilbert (BW)
+				setvar(VAR_COSTUME_NUMBER, BW_COSTUME)
+				msgbox(format("Come this way so you can change your outfit"), MSGBOX_DEFAULT)
+				warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+			break
+			default:
+			case MULTI_B_PRESSED:
+				msgbox(format("Come back anytime you want to change outfits!"), MSGBOX_DEFAULT)
+			break
+		}
 	}
 	releaseall
 	end
@@ -386,11 +518,11 @@ script Common_EventScript_PkmnCenterJack_WonderTrade{
 		else{
 			special(ChoosePartyMon)
 			waitstate
-			copyvar(VAR_0x800A, VAR_0x8004)
 			//No Pokemon Chosen
-			if(var(VAR_0x8004) == 255){
+			if(var(VAR_0x8004) == 0xFF){
 				goto(Common_EventScript_PkmnCenterJack_WonderTrade_Cancel)
 			}
+			copyvar(VAR_0x800A, VAR_0x8004)
 			copyvar(VAR_0x8005, VAR_0x800A)
 			specialvar(VAR_RESULT, GetTradeSpecies)
 			copyvar(VAR_0x800B, VAR_RESULT)
@@ -412,18 +544,13 @@ script Common_EventScript_PkmnCenterJack_WonderTrade{
 			clearflag(FLAG_FOLLOWER_IS_ENABLED)
 			msgbox(format("Please take care of your new Pokémon."), MSGBOX_DEFAULT)
 		}
-		checkitem(ITEM_WONDER_CHARM, 1)
-		if(var(VAR_RESULT) == FALSE){
-			hidemoneybox
 		}
-	}
 	release
 	end
 }
-	
+
 script Common_EventScript_PkmnCenterJack_WonderTrade_Cancel{
 	msgbox(format("All right. Let me know if you want to give it a try."), MSGBOX_DEFAULT)
-	hidemoneybox
 	goto(Common_EventScript_PkmnCenterJack)
 }
 
@@ -646,3 +773,403 @@ script Common_EventScript_PkmnCenterJack_TM_TutorMoveTutor_ChooseMon{
 	}
 }
 
+script Common_EventScript_PkmnCenterJack_ChangeSeason{
+	msgbox(format("Please chose the season you like the best."), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_SEASONS, 0, 0, 5, TRUE)
+	switch(var(VAR_RESULT)){
+		case SEASON_SPRING:
+			setvar(VAR_CURRENT_SEASON, SEASON_SPRING)
+			setflag(FLAG_SYS_DISABLE_AUTOMATIC_SEASON)
+			msgbox(format("You will play in Spring!"))
+		break
+		case SEASON_SUMMER:
+			setvar(VAR_CURRENT_SEASON, SEASON_SUMMER)
+			setflag(FLAG_SYS_DISABLE_AUTOMATIC_SEASON)
+			msgbox(format("You will play in Summer!"))
+		break
+		case SEASON_AUTUMN:
+			setvar(VAR_CURRENT_SEASON, SEASON_AUTUMN)
+			setflag(FLAG_SYS_DISABLE_AUTOMATIC_SEASON)
+			msgbox(format("You will play in Autumn!"))
+		break
+		case SEASON_WINTER:
+			setvar(VAR_CURRENT_SEASON, SEASON_WINTER)
+			setflag(FLAG_SYS_DISABLE_AUTOMATIC_SEASON)
+			msgbox(format("You will play in Winter!"))
+		break
+		default:
+			msgbox(format("The season will update according to the real time!"))
+		break
+		case MULTI_B_PRESSED:
+		break
+	}
+	goto(Common_EventScript_PkmnCenterJack)
+}
+
+script Common_EventScript_PkmnCenterJack_ChangeYear{
+	msgbox(format("Please tell me the current year"), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_YEAR, 0, 0, 5, TRUE)
+	switch(var(VAR_RESULT)){
+		default:
+			copyvar(VAR_TEMP_1, VAR_RESULT)
+			goto(Common_EventScript_PkmnCenterJack_ChangeMonth)
+		break
+		case MULTI_B_PRESSED:
+			setvar(VAR_TEMP_1, 0)
+			setvar(VAR_TEMP_1, 1)
+			setvar(VAR_TEMP_1, 2)
+		break
+	}
+	goto(Common_EventScript_PkmnCenterJack)
+}
+
+script Common_EventScript_PkmnCenterJack_ChangeMonth{
+	msgbox(format("Please tell me the current month"), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_MONTH, 0, 0, 5, TRUE)
+	switch(var(VAR_RESULT)){
+		default:
+			copyvar(VAR_TEMP_2, VAR_RESULT)
+			goto(Common_EventScript_PkmnCenterJack_ChangeDay)
+		break
+		case MULTI_B_PRESSED:
+			setvar(VAR_TEMP_1, 0)
+			setvar(VAR_TEMP_1, 1)
+			setvar(VAR_TEMP_1, 2)
+		break
+	}
+	goto(Common_EventScript_PkmnCenterJack)
+}
+
+script Common_EventScript_PkmnCenterJack_ChangeDay{
+	msgbox(format("Please tell me the current day"), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_DAY, 0, 0, 5, TRUE)
+	switch(var(VAR_RESULT)){
+		default:
+			copyvar(VAR_TEMP_3, VAR_RESULT)
+			setflag(FLAG_SYS_RESET_DATE)
+			setvar(VAR_OVERWORLD_SPECIALS, SPECIAL_SET_DATE)
+			drawbox
+			msgbox(format("You Changed the Date!"))
+		break
+		case MULTI_B_PRESSED:
+			setvar(VAR_TEMP_1, 0)
+			setvar(VAR_TEMP_1, 1)
+			setvar(VAR_TEMP_1, 2)
+			//setvar(VAR_RTC_FAKE_DAYS, 0)
+		break
+	}
+	goto(Common_EventScript_PkmnCenterJack)
+}
+
+const FLAG_UNLOCK_MEGA_STONES = FLAG_GOT_BADGE_11
+
+//Mega Stones
+mart Mart_Guru_Stones_XY {
+	ITEM_BOOSTER_STONE
+	ITEM_ABOMASITE
+	ITEM_ABSOLITE
+	ITEM_AERODACTYLITE
+	ITEM_ALAKAZITE
+	ITEM_AMPHAROSITE
+	ITEM_AUDINITE
+	ITEM_BANETTITE
+	ITEM_BLASTOISINITE
+	ITEM_CHARIZARDITE_X
+	ITEM_CHARIZARDITE_Y
+	ITEM_GALLADITE
+	ITEM_GARCHOMPITE
+	ITEM_GARDEVOIRITE
+	ITEM_GENGARITE
+	ITEM_GYARADOSITE
+	ITEM_HERACRONITE
+	ITEM_HOUNDOOMINITE
+	ITEM_KANGASKHANITE
+	ITEM_LUCARIONITE
+	ITEM_MANECTITE
+	ITEM_MAWILITE
+	ITEM_MEDICHAMITE
+	ITEM_PINSIRITE
+	ITEM_SCIZORITE
+	ITEM_TYRANITARITE
+	ITEM_VENUSAURITE
+}
+
+mart Mart_Guru_Stones_ORAS {
+	ITEM_BOOSTER_STONE
+	ITEM_BLAZIKENITE
+	ITEM_BEEDRILLITE
+	ITEM_PIDGEOTITE
+	ITEM_SLOWBRONITE
+	ITEM_STEELIXITE
+	ITEM_SWAMPERTITE
+	ITEM_SCEPTILITE
+	ITEM_SABLENITE
+	ITEM_SHARPEDONITE
+	ITEM_CAMERUPTITE
+	ITEM_ALTARIANITE
+	ITEM_GLALITITE
+	ITEM_SALAMENCITE
+	ITEM_METAGROSSITE
+	ITEM_LOPUNNITE
+}
+
+mart Mart_Guru_Stones_G {
+	ITEM_BOOSTER_STONE
+	ITEM_VENAUSURITE_G
+	ITEM_BLASTOISTE_G
+	ITEM_GRIMMSNARLITE
+	ITEM_RILABOOMITE
+	ITEM_CINDERACITE
+	ITEM_INTELEONITE
+	ITEM_TOXTRICITITE
+	ITEM_ALCREMITE
+	ITEM_APPLETITE
+	ITEM_BUTTERFRITE
+	ITEM_CENTISITE
+	ITEM_COALOSSITE
+	ITEM_CORVIKNITE
+	ITEM_DREDNAWITE
+	ITEM_FLAPPLITE
+	ITEM_GARBODORITE
+	ITEM_HATTERENITE
+	ITEM_KINGLERITE
+	ITEM_LAPRITE
+	ITEM_MACHAMPITE
+	ITEM_ORBEETLITE
+	ITEM_SANDACONDITE
+	ITEM_SNORLAXITE
+}
+
+mart Mart_Guru_Stones_ER {
+	ITEM_BOOSTER_STONE
+	ITEM_SLOWKINGITE
+	ITEM_CROBATITE
+	ITEM_DEWGONGITE
+	ITEM_TYPHLOSIONITE
+	ITEM_LANTURNITE
+	ITEM_QUAGSIRITE
+	ITEM_BRELOOMITE
+	ITEM_SHEDINJITE
+	ITEM_FLYGONITE
+	ITEM_MILOTICITE
+	ITEM_SERPERIORITE
+	ITEM_SAMUROTTITE
+	ITEM_RIBOMBITE
+	ITEM_CLODSIRITE
+	ITEM_SANDSLASHITE
+	ITEM_TOUCANNONITE
+	ITEM_VANILLUXITE
+	ITEM_TINKATITE
+	ITEM_SHUCKLENITE
+	ITEM_KROOKODILENITE
+	ITEM_TSEERENITE
+	ITEM_LUXRAYNITE
+	ITEM_CLEFABLITE_R
+	//ITEM_STARMINITE_R
+	ITEM_ARBOKITE
+}
+
+mart Mart_Guru_Stones_ZA_DLC{
+	ITEM_BOOSTER_STONE
+	ITEM_CHIMECHITE
+	ITEM_ABSOLITE_Z
+	ITEM_STARAPTORITE
+	ITEM_GARCHOMPITE_Z
+	ITEM_LUCARIONITE_Z
+	ITEM_MEOWSTITE
+	ITEM_GOLURKITE
+	ITEM_CRABOMINABLITE
+	ITEM_GOLISPODITE
+	ITEM_MAGEARNITE
+	ITEM_SCOVILLAINITE
+	ITEM_GLIMMORITE
+	ITEM_TATSIGIRITE
+	ITEM_BAXCALIBURITE
+	ITEM_RAICHUNITE_X
+	ITEM_RAICHUNITE_Y
+}
+
+mart Mart_Guru_Stones_Legendaries{
+	ITEM_BOOSTER_STONE
+	ITEM_RED_ORB
+	ITEM_BLUE_ORB
+	//ITEM_NECROZMANITE
+	ITEM_DARKRAITE
+	//ITEM_HEATRANITE
+	//ITEM_ZERAORANITE
+	//ITEM_URISHIFUNITE
+	ITEM_MELMETALITE
+	ITEM_MEWTWONITE_X
+	ITEM_MEWTWONITE_Y
+	//ITEM_ZYGARDITE
+	ITEM_FLOETTITE
+	ITEM_LATIASITE
+	ITEM_LATIOSITE
+	ITEM_DIANCITE
+}
+
+mart Mart_Guru_Stones_ZA {
+	ITEM_BOOSTER_STONE
+	ITEM_CLEFABLITE
+	ITEM_VICTRIBELITE
+	ITEM_STARMINITE
+	ITEM_DRAGONINITE
+	ITEM_MEGANIUMITE
+	ITEM_FERALIGITE
+	ITEM_SKARMORITE
+	ITEM_FROSLASSITE
+	ITEM_EMBOARITE
+	ITEM_EXCADRITE
+	ITEM_SCOLIPITE
+	ITEM_SCRAFTINITE
+	ITEM_EELEKTROSSITE
+	ITEM_CHANDELURITE
+	ITEM_DELPHOXITE
+	ITEM_CHESNAUGHTITE
+	ITEM_GRENINJITE
+	ITEM_PYROARITE
+	ITEM_MALAMARITE
+	ITEM_BARBARACITE
+	ITEM_DRAGALGITE
+	ITEM_HAWLUCHANITE
+	ITEM_DRAMPANITE
+	ITEM_FALINKSITE
+}
+
+script Common_Mega_Stone_Guru_No_Braclet{
+	msgbox(format("I'm an stone collector, I have a big collection but I don't know what to do with it right now, maybe I could sell them in a time of need."), MSGBOX_NPC)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_XY{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell rare stones from Kalos!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_XY)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_ORAS{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell rare stones!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_ORAS)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_SWSH{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell big stones from Galar!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_G)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_ZA{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell shiny new stones from Kalos!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_ZA)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_ZA_DLC{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell weird stones from Kalos!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_ZA_DLC)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_ER{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell rare stones from a strange place!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_ER)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Common_Mega_Stone_Guru_Legendary{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell powerful stones!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_Legendaries)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script OldaleTown_House1_EventScript_BattleMart_Mega{
+	lock
+	faceplayer
+	if(!flag(FLAG_UNLOCK_MEGA_STONES)){
+		goto(Common_Mega_Stone_Guru_No_Braclet)
+	}
+	setvar(VAR_SHOP_TYPE, MART_TYPE_NORMAL) //Pokemon Shop
+	setvar(VAR_SHOP_MONEY_TYPE, MART_MONEY_TYPE_BATTLE_POINTS) //Battle Points
+	message(format("Hello, I sell rare stones from Kalos!, How may I serve you?"))
+	waitmessage
+	pokemart(Mart_Guru_Stones_XY)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}

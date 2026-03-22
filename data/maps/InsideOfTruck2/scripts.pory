@@ -1,0 +1,388 @@
+mapscripts InsideOfTruck2_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0: Common_Start_Monopoly
+    ]
+}
+
+const VAR_CURRENT_DICE_ROLL = VAR_TEMP_0
+const VAR_CURRENT_SLOT      = VAR_TEMP_1
+const VAR_CURRENT_ROW       = VAR_TEMP_2
+const MAX_CURRENT_SLOT      = 32
+script Common_Start_Monopoly{
+	lock
+	faceplayer
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
+	waitmovement(0)
+	msgbox(format("Do you want to start the game?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		giveitem(ITEM_POKE_BALL, 10)
+
+		givemon(SPECIES_NONE, 10, ITEM_NONE)
+		msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+
+		givemon(SPECIES_NONE, 10, ITEM_NONE)
+		msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+
+		givemon(SPECIES_NONE, 10, ITEM_NONE)
+		msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+
+		setflag(FLAG_SYS_POKEMON_GET)
+
+		msgbox(format("Game Start!"), MSGBOX_DEFAULT)
+		goto(Common_Start_Monopoly_Dice)
+	}
+	else{
+		msgbox(format("Monopoly End"), MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Common_Start_Monopoly_Dice{
+	closemessage
+	scrollingmultichoice(SCROLLING_MONOPOLY, 0, 0, 4, TRUE)
+	switch(var(VAR_RESULT)){
+		case 0:  
+			random(6)
+			copyvar(VAR_CURRENT_DICE_ROLL, VAR_RESULT)
+			addvar(VAR_CURRENT_DICE_ROLL, 1)
+			switch (var(VAR_CURRENT_DICE_ROLL)){
+				case 1:
+					msgbox(format("Dice Result: 1"), MSGBOX_DEFAULT)
+				break
+				case 2:
+					msgbox(format("Dice Result: 2"), MSGBOX_DEFAULT)
+				break
+				case 3:
+					msgbox(format("Dice Result: 3"), MSGBOX_DEFAULT)
+				break
+				case 4:
+					msgbox(format("Dice Result: 4"), MSGBOX_DEFAULT)
+				break
+				case 5:
+					msgbox(format("Dice Result: 5"), MSGBOX_DEFAULT)
+				break
+				case 6:
+					msgbox(format("Dice Result: 6"), MSGBOX_DEFAULT)
+				break
+			}
+			call(Common_Start_Monopoly_Move_Player)
+			call(Common_Start_Monopoly_Slot_Script)
+		break
+		case 1:    	
+			msgbox(format("Item Usage not implemented yet."), MSGBOX_DEFAULT)		
+		break
+		case 2:    	
+			msgbox(format("Party menu not implemented yet."), MSGBOX_DEFAULT)		
+		break
+		case 3:    	
+			msgbox(format("Game Restart not implemented yet."), MSGBOX_DEFAULT)		
+		break
+	}
+
+	goto(Common_Start_Monopoly_Dice)
+}
+
+script Common_Start_Monopoly_Move_Player{
+	while (var(VAR_CURRENT_DICE_ROLL) != 0) {
+		if(var(VAR_CURRENT_SLOT) < 8){
+    		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+		}
+		elif(var(VAR_CURRENT_SLOT) < 16){
+    		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right * 2))
+		}
+		elif(var(VAR_CURRENT_SLOT) < 24){
+    		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 2))
+		}
+		elif(var(VAR_CURRENT_SLOT) < 32){
+    		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2))
+		}
+		else{
+    		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up * 2))
+		}
+		waitmovement(0)
+		addvar(VAR_CURRENT_SLOT, 1)
+		subvar(VAR_CURRENT_DICE_ROLL, 1)
+
+		switch(var(VAR_CURRENT_SLOT)){
+			case MAX_CURRENT_SLOT:
+    		    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_right))
+		        waitmovement(0)
+				playfanfare (MUS_HEAL)
+				msgbox(format("{PLAYER} Party got healed and got some money along with some Pokéballs"), MSGBOX_DEFAULT)
+				giveitem(ITEM_POKE_BALL, 2)
+				addmoney(500, 0)
+				special(HealPlayerParty)
+				subvar(VAR_CURRENT_SLOT, MAX_CURRENT_SLOT)
+				addvar(VAR_CURRENT_ROW, 1)
+			break
+            case 8:
+    		    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
+		        waitmovement(0)
+            case 16:
+    		    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+		        waitmovement(0)
+            break
+            case 24:
+    		    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_up))
+		        waitmovement(0)
+            break
+		}
+    }
+	return
+}
+
+const SLOT_WILD_1 = 1
+const SLOT_WILD_2 = 7
+const SLOT_WILD_3 = 9
+const SLOT_WILD_4 = 19
+const SLOT_WILD_5 = 31
+const SLOT_WILD_6 = 4
+const SLOT_WILD_7 = 10
+const SLOT_WILD_8 = 22
+const SLOT_WILD_9 = 29
+
+const SLOT_FREE_1 = 0
+const SLOT_FREE_2 = 8
+const SLOT_FREE_3 = 16
+const SLOT_FREE_4 = 24
+
+const SLOT_NPC_1 = 2
+const SLOT_NPC_2 = 11
+const SLOT_NPC_3 = 21
+const SLOT_NPC_4 = 30
+
+const SLOT_SHOP_1 = 3
+const SLOT_SHOP_2 = 12
+const SLOT_SHOP_3 = 17
+const SLOT_SHOP_4 = 25
+
+const SLOT_POKEMON_CENTER_1 = 5
+const SLOT_POKEMON_CENTER_2 = 13
+const SLOT_POKEMON_CENTER_3 = 23
+const SLOT_POKEMON_CENTER_4 = 28
+
+const SLOT_TRAINER_1 = 6
+const SLOT_TRAINER_2 = 20
+const SLOT_TRAINER_3 = 27
+
+const SLOT_GYM = 15
+const SLOT_SAFARI = 14
+const SLOT_DAYCARE = 18
+const SLOT_LAB = 26
+
+script Common_Start_Monopoly_Slot_Script{
+	//Trigger Script
+	switch(var(VAR_CURRENT_SLOT)){
+		case SLOT_FREE_1:
+		case SLOT_FREE_2:
+		case SLOT_FREE_3:
+		case SLOT_FREE_4:
+			//msgbox(format("Nothing Happened in the free space"), MSGBOX_DEFAULT)
+		break
+		case SLOT_WILD_1:
+		case SLOT_WILD_2:
+		case SLOT_WILD_3:
+		case SLOT_WILD_4:
+		case SLOT_WILD_5:
+		case SLOT_WILD_6:
+		case SLOT_WILD_7:
+		case SLOT_WILD_8:
+		case SLOT_WILD_9:
+			msgbox(format("Wild Battle Start"), MSGBOX_DEFAULT)
+			setwildbattle(SPECIES_NONE, 2, ITEM_NONE)
+    		dowildbattle
+		break
+		case SLOT_NPC_1:
+		case SLOT_NPC_2:
+		case SLOT_NPC_3:
+		case SLOT_NPC_4:
+			call(Common_Start_Monopoly_Slot_NPC)
+		break
+		case SLOT_SHOP_1:
+		case SLOT_SHOP_2:
+		case SLOT_SHOP_3:
+		case SLOT_SHOP_4:
+			msgbox(format("Do you want to enter to the shop?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == YES){
+				message(gText_HowMayIServeYou)
+				waitmessage
+				pokemart(0)
+				msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+			}
+		break
+		case SLOT_POKEMON_CENTER_1:
+		case SLOT_POKEMON_CENTER_2:
+		case SLOT_POKEMON_CENTER_3:
+		case SLOT_POKEMON_CENTER_4:
+			call(Common_Start_Monopoly_Slot_Pokemon_Center)
+		break
+		case SLOT_TRAINER_1:
+		case SLOT_TRAINER_2:
+		case SLOT_TRAINER_3:
+			msgbox(format("Trainer Battle Start"), MSGBOX_DEFAULT)
+			trainerbattle_no_intro(TRAINER_NURSE_KIRSTEN, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+		break
+		case SLOT_GYM:
+			msgbox(format("Do you feel strong enough to Battle the Gym Leader?"), MSGBOX_YESNO)
+			if(var(VAR_RESULT) == YES){
+				msgbox(format("Gym Leader Battle Start"), MSGBOX_DEFAULT)
+				switch(var(VAR_NUM_BADGES)){
+					case 0:
+						trainerbattle_no_intro(TRAINER_ROXANNE_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 1:
+						trainerbattle_no_intro(TRAINER_BRAWLY_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 2:
+						trainerbattle_no_intro(TRAINER_WATTSON_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 3:
+						trainerbattle_no_intro(TRAINER_FLANNERY_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 4:
+						trainerbattle_no_intro(TRAINER_NORMAN_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 5:
+						trainerbattle_no_intro(TRAINER_WINONA_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 6:
+						trainerbattle_no_intro(TRAINER_TATE_AND_LIZA_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 7:
+						trainerbattle_no_intro(TRAINER_JUAN_1, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 8:
+						trainerbattle_no_intro(TRAINER_SIDNEY, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 9:
+						trainerbattle_no_intro(TRAINER_PHOEBE, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 10:
+						trainerbattle_no_intro(TRAINER_GLACIA, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 11:
+						trainerbattle_no_intro(TRAINER_DRAKE, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+					break
+					case 12:
+						trainerbattle_no_intro(TRAINER_WALLACE, Common_PkmnCenterJack_Text_MockBattle_Defeat)
+						msgbox(format("Demo Ends!"), MSGBOX_DEFAULT)
+					break
+				}
+				addvar(VAR_NUM_BADGES, 1)
+			}
+			else{
+				giveitem(ITEM_SODA_POP, 1)
+			}
+		break
+		case SLOT_SAFARI:
+			playfanfare (SE_SLIDING_DOOR)
+			msgbox(format("{PLAYER} entered the Safari Zone"), MSGBOX_DEFAULT)
+			giveitem(ITEM_SAFARI_BALL, 5)
+		break
+		case SLOT_DAYCARE:
+			playfanfare (SE_SLIDING_DOOR)
+			msgbox(format("Entering the Daycare"), MSGBOX_DEFAULT)
+			givemon(SPECIES_NONE, 10, ITEM_NONE)
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox(format("{PLAYER} received a {STR_VAR_1} from the daycare man!"), MSGBOX_DEFAULT)
+			waitfanfare
+		break
+		case SLOT_LAB:
+			playfanfare (SE_SLIDING_DOOR)
+			msgbox(format("{PLAYER} entered the Pokémon Lab"), MSGBOX_DEFAULT)
+			giveitem(ITEM_POKE_BALL, 10)
+			//goto(Common_Start_Monopoly_Slot_Starter_Script)
+		break
+	}
+	return
+}
+
+script Common_Start_Monopoly_Slot_NPC{
+	random(4)
+	switch(var(VAR_RESULT)){
+		default:
+		case 0:
+			msgbox(format("You find an old man sleeping and gave him his coffee, you got 500¥ for helping him"), MSGBOX_DEFAULT)
+			addmoney(500, 0)
+			playfanfare(MUS_OBTAIN_ITEM)
+		break
+		case 1:
+			goto(Common_Start_Monopoly_Slot_Get_RandomMon)
+		break
+		case 2:
+			msgbox(format("You found an item hidden in the bushes"), MSGBOX_DEFAULT)
+			giveitem(ITEM_FOCUS_SASH, 1)
+		break
+		case 3:
+			msgbox(format("A team rocket member stole 500¥ from your bag while you were resting"), MSGBOX_DEFAULT)
+			removemoney(500, 0)
+			playfanfare(SE_FAILURE)
+		break
+	}
+}
+
+script Common_Start_Monopoly_Slot_Get_RandomMon{
+	msgbox(format("You find someone Selling a Pokémon for 500¥, seems sketchy will you buy it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES){
+		givemon(SPECIES_NONE, 10, ITEM_NONE)
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+		waitfanfare
+	}
+}
+
+script Common_Start_Monopoly_Slot_Pokemon_Center{
+	playfanfare (SE_SLIDING_DOOR)
+	msgbox(format("{PLAYER} entered the Pokémon Center, what do you want to do?"), MSGBOX_DEFAULT)
+	scrollingmultichoice(SCROLLING_MONOPOLY_PC, 0, 0, 4, TRUE)
+	switch(var(VAR_RESULT)){
+		case 0:
+			playfanfare (MUS_HEAL)
+			msgbox(format("{PLAYER} Party got healed"), MSGBOX_DEFAULT)
+			special(HealPlayerParty)
+		break
+		case 1:
+			msgbox(format("{PLAYER} entered the PSS"), MSGBOX_DEFAULT)
+		break
+		case 2:
+			msgbox(format("{PLAYER} Trained a little!"), MSGBOX_DEFAULT)
+		break
+		case 3:
+			playfanfare(SE_FLEE)
+		break
+	}
+}
+
+script Common_Start_Monopoly_Slot_Starter_Script{
+	generateStarters
+	setflag(FLAG_CHOSING_STARTER)
+	setvar(VAR_STARTER_POKEMON, 0)
+	special(SendUnusableMonsToBoxes)
+
+	msgbox(format("Please choose your starter Pokémon"), MSGBOX_DEFAULT)
+	waitmessage
+	scrollingmultichoice(SCROLLING_SET_STARTERS, 0, 0, 6, FALSE)
+	switch(var(VAR_RESULT)){
+		default:  
+			showmonpic(SPECIES_NONE, 10, 3)
+			msgbox(format("Do you want the {STR_VAR_2} Pokemon {STR_VAR_1} as your Starter Pokemon?"), MSGBOX_YESNO)
+			hidemonpic
+			if (var(VAR_RESULT) == NO){
+				goto(Start_EventScript_Chose_Starter)
+			}
+			givemon(SPECIES_NONE, 10, ITEM_NONE)
+			playfanfare(MUS_OBTAIN_ITEM)
+			waitfanfare
+			msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+		break
+		case MULTI_B_PRESSED: 
+		case 9:
+			givemon(SPECIES_NONE, 10, ITEM_NONE)
+			playfanfare(MUS_OBTAIN_ITEM)
+			waitfanfare
+			msgbox(format("{PLAYER} received a {STR_VAR_1}!"), MSGBOX_DEFAULT)
+		break
+	}
+	goto(Common_Start_Monopoly_Dice)
+}

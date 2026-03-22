@@ -23,7 +23,6 @@ enum{
     BASIC_INFORMATION_4,
     BASIC_INFORMATION_5,
     BASIC_INFORMATION_6,
-    BASIC_INFORMATION_7,
     NUM_BASIC_ENTRIES,
 };
 
@@ -45,12 +44,6 @@ enum{
     FAQ_INFORMATION_14,
     FAQ_INFORMATION_15,
     FAQ_INFORMATION_16,
-    FAQ_INFORMATION_17,
-    /*FAQ_INFORMATION_18,
-    FAQ_INFORMATION_19,
-    FAQ_INFORMATION_20,
-    FAQ_INFORMATION_21,
-    FAQ_INFORMATION_22,*/
     NUM_FAQ_ENTRIES,
 };
 
@@ -68,15 +61,6 @@ enum{
     TRAINER_TIPS_INFORMATION_10,
     TRAINER_TIPS_INFORMATION_11,
     TRAINER_TIPS_INFORMATION_12,
-    TRAINER_TIPS_INFORMATION_13,
-    TRAINER_TIPS_INFORMATION_14,
-    TRAINER_TIPS_INFORMATION_15,
-    TRAINER_TIPS_INFORMATION_16,
-    TRAINER_TIPS_INFORMATION_17,
-    TRAINER_TIPS_INFORMATION_18,
-    TRAINER_TIPS_INFORMATION_19,
-    TRAINER_TIPS_INFORMATION_20,
-    TRAINER_TIPS_INFORMATION_21,
     NUM_TRAINER_TIPS_ENTRIES,
 };
 
@@ -119,6 +103,9 @@ const struct MenuEntry sMenuEntry[NUM_INFORMATION_ENTRIES] = {
                 "within the Pokemon summary screen."
             ),
 */
+
+#define INFORMATION_ENTRIES_WIDTH  213
+#define FORMAT_INFORMATION_ENTRIES(str) _f(8, 213, str) // FONT_SMALL_NARROW, 213px width
 
 const struct InformationEntry sInformationEntry[NUM_INFORMATION_ENTRIES][MAX_NUM_ENTRIES_PER_TAB] = {
     [INFORMATION_ENTRIES_BASIC] = {
@@ -194,7 +181,6 @@ const struct InformationEntry sInformationEntry[NUM_INFORMATION_ENTRIES][MAX_NUM
                     "-Double Battle Mode\n"
                     "-Inverse Mode\n"
                     "-No Evs mode\n"
-                    "-3 Different Game Difficulties\n"
                     "-Random Party Mode\n"
                     "-Little Cup like mode\n"
                     "-No need for HMs\n"
@@ -228,35 +214,9 @@ const struct InformationEntry sInformationEntry[NUM_INFORMATION_ENTRIES][MAX_NUM
             .numPages = 5,
         },
         [BASIC_INFORMATION_3] = {
-            .title = _("Level Cap"),
-            .description = {
-                [INFORMATION_PAGE_1] =
-                _(
-                    "The game has a different Level Cap depending on\n"
-                    "the difficulty, easy mode has no cap.          \n"
-                    "\n"
-                    "Normal Mode:                                   \n"
-                    "-Pokémon will stop receiving stats after the   \n"
-                    "level cap and will gain them back after a badge\n"
-                    "\n"
-                    "Hard Mode:                                     \n"
-                    "-Your Pokémon will stop gaining exp after you  \n"
-                    "reach the level cap."
-                ),
-            },
-            .numPages = 1
-        },
-        [BASIC_INFORMATION_4] = {
             .title = _("Pokemon Styles"),
             .description = {
-                [INFORMATION_PAGE_1] =
-                _(
-                    "This game has 8 different Pokemon Styles, each \n"
-                    "style having different strengths and weaknesses\n"
-                    "modifying the base stats of a Pokemon directly,\n"
-                    "they are unlocked at different levels, the next\n"
-                    "pages lists all of them.\n"
-                ),
+                [INFORMATION_PAGE_1] = FORMAT_INFORMATION_ENTRIES("This game has 8 different Pokemon Styles, each style having different strengths and weaknesses modifying the base stats of a Pokemon directly, they are unlocked at different levels, the next pages lists all of them."),
                 [INFORMATION_PAGE_2] =
                 _(
                     "-Balanced\n"
@@ -282,518 +242,228 @@ const struct InformationEntry sInformationEntry[NUM_INFORMATION_ENTRIES][MAX_NUM
             },
             .numPages = 3
         },
-        [BASIC_INFORMATION_5] = {
+        [BASIC_INFORMATION_4] = {
             .title = _("Easy Difficulty"),
             .description = {
-                //Page 1
+                [INFORMATION_PAGE_1] =
                 _(
-                    "-The game is overall easier than Normal Mode.  \n"
-                    "-There are no level caps.                      \n"
-                    "-The AI should be dumber than in Normal Mode."
+                    "-There are no level caps.\n"
+                    "-Reduced AI intelligence.\n"
+                    "-Lowest wild and trainer Pokémon levels.\n"
+                    "-NPC Pokémon have the lowest IVs.\n"
+                    "-Can choose SET or SHIFT battle style.\n"
+                ),
+            },
+            .numPages = 1
+        },
+        [BASIC_INFORMATION_5] = {
+            .title = _("Normal Difficulty"),
+            .description = {
+                [INFORMATION_PAGE_1] =
+                _(
+                    "-Smarter AI than Easy Mode.\n"
+                    "-Higher wild and trainer Pokémon levels.\n"
+                    "-NPC Pokémon have higher IVs than Easy.\n"
+                    "-Soft level cap: your Pokémon stop gaining\n"
+                    " stats at the cap but still earn EXP, learn\n"
+                    " moves and can evolve. Stats return to normal\n"
+                    " after you get your next badge.\n"
+                    "-Can customize level cap in options.\n"
                 ),
             },
             .numPages = 1
         },
         [BASIC_INFORMATION_6] = {
-            .title = _("Normal Difficulty"),
-            .description = {
-                //Page 1
-                _(
-                    "-The AI is smarter than in Easy Mode.          \n"
-                    "-The Level of the Trainer and Wild Pokémon is  \n"
-                    " Higher than in Easy Mode.                     \n"
-                    "-Trainers will have more Pokémon early in the  \n"
-                    " game.                                         \n"
-                    "-Your Pokémon will not gain stats after they   \n"
-                    " reach a level cap but you can get new moves   \n"
-                    " and evolve, after you get your next badge your\n"
-                    " Pokémon stats will go back to normal."
-                ),
-            },
-            .numPages = 1
-        },
-        [BASIC_INFORMATION_7] = {
             .title = _("Hard Difficulty"),
             .description = {
-                //Page 1
+                [INFORMATION_PAGE_1] =
                 _(
-                    "-Smarter AI                                    \n"
-                    "-Battle Mode is always set to Set.             \n"
-                    "-The Level of the Trainer and Wild Pokémon is  \n"
-                    " Higher than in Normal/Easy Mode.              \n"
-                    "-Gym Leaders Pokémon number scales depending on\n"
-                    " the number of Pokémon on your team on the     \n"
-                    " first fights.                                 \n"
-                    "-You can't use items on a Trainer battles.     \n"
-                    "-You can't save while in the elite four rooms. \n"
-                    "-You get some bonuses from playing on hard."
+                    "-Smartest AI.\n"
+                    "-Highest wild and trainer Pokémon levels.\n"
+                    "-NPC Pokémon have the highest IVs.\n"
+                    "-Hard level cap: Pokémon gain NO EXP at cap.\n"
+                    "-Battle Mode is forced to Set.\n"
+                    "-Cannot customize level cap in options.\n"
+                ),
+                [INFORMATION_PAGE_2] =
+                _(
+                    "-Gym Leaders scale to your team size in the\n"
+                    " first fights.\n"
+                    "-You can't use items in trainer battles.\n"
+                    "-You can't save in the Elite Four rooms.\n"
+                    "-You get some bonuses for playing on hard.\n"
                 ),
             },
-            .numPages = 1
+            .numPages = 2
         },
     },
     [INFORMATION_ENTRIES_FAQ] = {
         [FAQ_INFORMATION_1] = {
-            .title = _("What are the supported Emulators?"),
-            .description = 
-            //Page 1
-            _(
-                "For PC: mGBA standalone emulator               \n"
-                "Android:  MyBoy!, Pizzaboy GBA or Retroarch    \n"
-                "using the mGBA core                            \n"
-                "3DS:  Virtual Console Injection(with NSUI not  \n"
-                "GBA Ultimate Injector) and open agb firm       \n"
-                "Vita and Switch:  mGBA standalone emulator     \n"
-                "IOs: OpenEMU with mGBA core, afterplay.io,     \n"
-                "Ingnited Emulator with mGBA core, Retroarch in \n"
-                "the App store(Don't use Delta Emulator)"
-            ),
-            .numPages = 1
+            .title = _("How do IVs work in this game?"),
+            .description = {
+                [INFORMATION_PAGE_1] = FORMAT_INFORMATION_ENTRIES("Unlike traditional Pokémon games, IVs are not random. All Pokémon start with 1 IV in each stat. IVs are controlled globally through the Trainer Skills menu under Stat Boosts. Each Skill point you invest gives +3 IVs to that stat for ALL Pokémon you own."),
+                [INFORMATION_PAGE_2] = FORMAT_INFORMATION_ENTRIES("Each Stat Boost skill has a max level of 10, giving 31 IVs per stat (the maximum). There are separate skills for HP, Atk, Def, Sp.Atk, Sp.Def, and Speed. If your Pokémon feel weak, make sure you have invested Skill points into Stat Boosts!"),
+            },
+            .numPages = 2
         },
-        /*[FAQ_INFORMATION_1] = {
-            .title = _("Where can I Find X Evolution Stone or Item?"),
-            .description = 
-            //Page 1
-            _(
-                "All the evolution items are sold in Oldale     \n"
-                "Battle Mart for 20BP."
-            ),
-            .numPages = 1
-        },*/
         [FAQ_INFORMATION_2] = {
-            .title = _("Why does every cry sounds the same?"),
-            .description = 
-            //Page 1
-            _(
-                "They were removed to make space for more stuff \n"
-                " since the gba cartidge can only go up to 32mb,\n"
-                "the cries use around 16mb so they were removed \n"
-                "to make space for more features and content.   \n"
-                "If you don't want to hear the same cries you   \n"
-                "can disable them in the options by changing the\n"
-                "Use generic cry option to off."
-            ),
+            .title = _("How do I find or evolve a Pokémon?"),
+            .description = FORMAT_INFORMATION_ENTRIES("The in-game Pokédex shows every Pokémon's location and evolution method, even if you haven't seen it yet. You can also check the summary screen of a Pokémon in your party for its evolution requirements."),
             .numPages = 1
         },
         [FAQ_INFORMATION_3] = {
-            .title = _("Is every Pokémon available in this game?"),
-            .description = 
-            //Page 1
-            _(
-                "Every Pokémon up to gen 9 are available in this\n"
-                "game, the only exeptions are mythicals,        \n"
-                "legendaries and paradoxes but all the other    \n"
-                "Pokémon are obtainable in game somehow."
-            ),
+            .title = _("How do trade evolutions work?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Use a Link Cable as an evolution item on the Pokémon. For Pokémon that normally need a held item to trade-evolve (like Metal Coat), just use that item directly on the Pokémon instead."),
             .numPages = 1
         },
         [FAQ_INFORMATION_4] = {
-            .title = _("What is the Surprise Me Option?"),
-            .description = 
-            //Page 1
-            _(
-                "It gives you any First Stage Pokémon randomly  \n"
-                "the only exeptions are mythicals and           \n"
-                "legendaries."
-            ),
+            .title = _("Why won't my Pokémon evolve?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Make sure your Pokémon is not holding an Eviolite, as it works like an Everstone in this game and prevents evolution. Also check that you haven't used an Exiolite on it. Some evolution methods have been changed, so check the in-game Pokédex. Finally, make sure you're not in No-Evolution Mode."),
             .numPages = 1
         },
         [FAQ_INFORMATION_5] = {
-            .title = _("How can I Mega Evolve in this game?"),
-            .description = 
-            //Page 1
-            _(
-                "By pressing Start in the move screen with a    \n"
-                "Pokémon that can Mega Evolve holding its Mega  \n"
-                "Stone after you have the Mega Bracelet         \n"
-                "(Obtained after 11 Badges)"
-            ),
+            .title = _("How do I change Abilities or Natures?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Use an Ability Capsule or Ability Patch to change abilities, or a Nature Mint to change natures. All of these can be purchased at the Oldale Town Battle Mart for BP."),
             .numPages = 1
         },
         [FAQ_INFORMATION_6] = {
-            .title = _("How can I evolve Pokémon that evolve by trade?"),
-            .description = 
-            //Page 1
-            _(
-                "Use the Link Cable as an evolution stone, and  \n"
-                "for mons that use items(example metal coat)    \n"
-                "just use the items directly."
-            ),
+            .title = _("How do shinies work in this game?"),
+            .description = FORMAT_INFORMATION_ENTRIES("The shiny rate is 1/4096. After earning all 16 badges, you receive a Shiny Charm that doubles your odds to 1/2048. No Pokémon in this game is shiny locked."),
             .numPages = 1
         },
         [FAQ_INFORMATION_7] = {
-            .title = _("How can I Wonder Trade in this game?"),
-            .description = 
-            //Page 1
-            _(
-                "Go to any Pokémon Center with 5bp and talk to  \n"
-                "the blue nurse next to the Nurse Joy."
-            ),
+            .title = _("How do I Mega Evolve?"),
+            .description = FORMAT_INFORMATION_ENTRIES("First, obtain the Mega Bracelet by defeating 11 Gym Leaders. Then, in battle, press Start on the move screen while your Pokémon is holding its Mega Stone."),
             .numPages = 1
         },
         [FAQ_INFORMATION_8] = {
-            .title = _("Is there any Egg Move Tutor?"),
-            .description = 
-            //Page 1
-            _(
-                "Yes, it can be found in any Pokémon center next\n"
-                "to the nurse joy, you need 9 badges and will   \n"
-                "cost some BP per move"
-            ),
+            .title = _("Is every Pokémon available?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Every Pokémon up to Gen 9 is available. The only exceptions are Mythicals, Legendaries, and Paradox Pokémon. All other Pokémon can be obtained in-game."),
             .numPages = 1
         },
         [FAQ_INFORMATION_9] = {
-            .title = _("Can I change my Pokémon Abilities/Natures?"),
-            .description = 
-            //Page 1
-            _(
-                "Yes, but you need an Ability Capsule/Patch or a\n"
-                "Nature Mint, they can be obtained on the\n"
-                "Oldale Town Battle Mart for some BP."
-            ),
+            .title = _("How do I Wonder Trade?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Go to any Pokémon Center and talk to the blue nurse next to Nurse Joy. It costs 5 BP per trade."),
             .numPages = 1
         },
         [FAQ_INFORMATION_10] = {
-            .title = _("Where can I find X Pokémon?"),
-            .description = 
-            //Page 1
-            _(
-                "Check the Pokedex, you don't need to see any of\n"
-                "them to see their location, or you can use the \n"
-                "online Pokédex in another device."
-            ),
+            .title = _("Is there an Egg Move Tutor?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Yes, you can find one in every Pokémon Center next to Nurse Joy. You need at least 9 badges to use it, and each move costs some BP."),
             .numPages = 1
         },
         [FAQ_INFORMATION_11] = {
-            .title = _("How can I evolve X Pokémon?"),
-            .description = 
-            //Page 1
-            _(
-                "The in-game Pokedex tells you how to evolve    \n"
-                "every pokemon in the game, if you have that    \n"
-                "Pokémon in your party check the summary screen \n"
-                "take a look there."
-            ),
+            .title = _("How do I get Hidden Pokémon?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Every 50 steps, the DexNav may detect a nearby Pokémon. Press A while walking to encounter it. There is a chance that it will be a Hidden Pokémon with special attributes."),
             .numPages = 1
         },
         [FAQ_INFORMATION_12] = {
-            .title = _("How can I get the Hidden Pokemon?"),
-            .description = 
-            //Page 1
-            _(
-                "After each 50 steps you get a Pokemon          \n"
-                "notification from the dexnav press A while     \n"
-                "walking to be able to fight it, there is a     \n"
-                "possibility that its a hidden Pokemon."
-            ),
+            .title = _("What is the Surprise Me option?"),
+            .description = FORMAT_INFORMATION_ENTRIES("It gives you a random first-stage Pokémon as your starter. Mythicals and Legendaries are excluded."),
             .numPages = 1
         },
         [FAQ_INFORMATION_13] = {
-            .title = _("Are my saves compatible with future versions?"),
-            .description = 
-            //Page 1
-            _(
-                "Yes, they are compatible if that changes at    \n"
-                "some point I will notify everyone in the       \n"
-                "Pokecommunity post."
-            ),
-            .numPages = 1
+            .title = _("What are the supported emulators?"),
+            .description = {
+                [INFORMATION_PAGE_1] =
+                _(
+                    "-PC: mGBA standalone emulator\n"
+                    "-Android: MyBoy!, Pizzaboy GBA, or\n"
+                    " Retroarch with the mGBA core\n"
+                    "-3DS: VC Injection (NSUI, not GBA\n"
+                    " Ultimate Injector) or open agb firm\n"
+                    "-Vita/Switch: mGBA standalone emulator\n"
+                ),
+                [INFORMATION_PAGE_2] =
+                _(
+                    "-iOS: OpenEMU with mGBA core,\n"
+                    " afterplay.io, Ignited Emulator with\n"
+                    " mGBA core, or Retroarch from the\n"
+                    " App Store.\n"
+                    "\n"
+                    "Do NOT use Delta Emulator.\n"
+                ),
+            },
+            .numPages = 2
         },
         [FAQ_INFORMATION_14] = {
-            .title = _("How can I change Rotom Forms?"),
-            .description = 
-            //Page 1
-            _(
-                "By talking to the box in the Bike Store."
-            ),
+            .title = _("Why does every cry sound the same?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Unique cries were removed to free up space. The GBA cartridge only supports 32MB, and cries alone used about 16MB. You can disable the generic cries in the Options menu by setting 'Use generic cry' to Off."),
             .numPages = 1
         },
         [FAQ_INFORMATION_15] = {
-            .title = _("Why does my Pokémon won't evolve?"),
-            .description = 
-            //Page 1
-            _(
-                "Check that you haven't used an Exiolite on that\n"
-                "specific Pokémon and the Pokémon isn't holding \n"
-                "an Eviolite as this game changed it to make it \n"
-                "work similar to an everstone.                  \n"
-                "Also check that the Pokémon evolution is not   \n"
-                "different in this game since some of them were \n"
-                "changed, check the in-game Pokedex for more    \n"
-                "information, and make sure you are not in the \n"
-                "No-Evolution mode."
-            ),
+            .title = _("How do I change Rotom's form?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Talk to the box inside the Bike Store to change Rotom's form."),
             .numPages = 1
         },
         [FAQ_INFORMATION_16] = {
-            .title = _("What is the shiny rate in this game?"),
-            .description = 
-            //Page 1
-            _(
-                "The same shiny rate is 1/4000 but you can get a\n"
-                "shiny charm that doubles those chances after   \n"
-                "you get your 16th badge."
-            ),
-            .numPages = 1
-        },
-        [FAQ_INFORMATION_17] = {
-            .title = _("Is any Pokémon shiny locked?"),
-            .description = 
-            //Page 1
-            _(
-                "No, there are no shiny locked Pokemon."
-            ),
+            .title = _("Are saves compatible with updates?"),
+            .description = FORMAT_INFORMATION_ENTRIES("Yes, your saves are compatible with future versions. If this ever changes, it will be announced on the Pokecommunity post."),
             .numPages = 1
         },
     },
-    
+
     [INFORMATION_ENTRIES_TRAINER_TIPS] = {
         [TRAINER_TIPS_INFORMATION_1] = {
-            .title = _("1 - Wonder Trade"),
-            .description = 
-            //Page 1
-            _(
-                "You can wonder trade in any Pokémon Center in  \n"
-                "exchange for 5BP."
-            ),
+            .title = _("1 - Oldale Battle Mart"),
+            .description = FORMAT_INFORMATION_ENTRIES("The Oldale Battle Mart sells Evolution Items (20 BP each), Nature Mints (10 BP each), Ability Capsules, Ability Patches, and other important items. Visit Eight Island for the same selection."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_2] = {
-            .title = _("2 - Mystery Gift"),
-            .description = 
-            //Page 1
-            _(
-                "You can get your mystery gift by saving the    \n"
-                "game, reseting and using the option Myster Gift\n"
-                "in the save load menu."
-            ),
+            .title = _("2 - Trainer Skills"),
+            .description = FORMAT_INFORMATION_ENTRIES("Invest in Bonus Battle skills early to increase your chance of earning double BP from battles. Trainer XP Boost helps you unlock more skills faster, while Pokémon XP Boost reduces the grind on your journey."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_3] = {
-            .title = _("3 - Starters"),
-            .description = 
-            //Page 1
-            _(
-                "You can get starters by trading red, green and \n"
-                "blue shards in Lavaridge, Fortree and Lilycove."
-            ),
+            .title = _("3 - Egg Moves"),
+            .description = FORMAT_INFORMATION_ENTRIES("Pokémon in your party that know an Egg or Tutor move can teach it to compatible party members. Place two Pokémon of the same Egg Group in your party and select Learn Moves. Great for getting strong moves early!"),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_4] = {
-            .title = _("4 - Ash Greninja"),
-            .description = 
-            //Page 1
-            _(
-                "You can change any Greninja ability with an    \n"
-                "ability capsule to get a Battle Bond Greninja."
-            ),
+            .title = _("4 - Farming BP"),
+            .description = FORMAT_INFORMATION_ENTRIES("You can farm BP by rebattling Gym Trainers. After defeating a Gym Leader in a rematch, talk to them to reset their trainers so you can fight them again."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_5] = {
-            .title = _("5 - Evolution Requirment"),
-            .description = 
-            //Page 1
-            _(
-                "You can see any Pokémon Evolution requirements \n"
-                "in the summary screen in the last page by      \n"
-                "scrolling the info pressing A."
-            ),
+            .title = _("5 - Evolution Requirements"),
+            .description = FORMAT_INFORMATION_ENTRIES("You can check any Pokémon's evolution requirements in the summary screen on the last page by pressing A to scroll through the info."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_6] = {
-            .title = _("6 - Dexnav Chain"),
-            .description = 
-            //Page 1
-            _(
-                "If the dexnav chain is not working for you it's\n"
-                "because you have to Register the Pokemon in the\n"
-                "dexnav before starting the chain by pressing R \n"
-                "in the Dexnav menu."
-            ),
+            .title = _("6 - DexNav Chaining"),
+            .description = FORMAT_INFORMATION_ENTRIES("To start a DexNav chain, you must first register the target Pokémon by pressing R in the DexNav menu. Without registering, the chain won't work."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_7] = {
-            .title = _("7 - Evolution Items"),
-            .description = 
-            //Page 1
-            _(
-                "You can get all the evolution items in Oldale  \n"
-                "or in Eight island at 20 Battle Points each."
-            ),
-            .numPages = 1
+            .title = _("7 - DexNav Shiny Hunting"),
+            .description = {
+                [INFORMATION_PAGE_1] = FORMAT_INFORMATION_ENTRIES("You can shiny hunt using the DexNav. Register your target Pokémon and KO them to build up your Search Level. Higher Search Levels unlock better shiny odds. The DexNav Chain Trainer Skill also boosts your starting Search Level."),
+                [INFORMATION_PAGE_2] = FORMAT_INFORMATION_ENTRIES("Search Level 200+: about 1/1000 shiny chance. Search Level 400+: about 1/500 shiny chance. Search Level 500+: about 1/250 shiny chance. The Shiny Charm and certain date bonuses grant extra rolls, improving your odds further."),
+            },
+            .numPages = 2
         },
         [TRAINER_TIPS_INFORMATION_8] = {
-            .title = _("8 - Nature Mints"),
-            .description = 
-            //Page 1
-            _(
-                "You can get nature mints in Oldale Battle Mart \n"
-                "for 10BP a piece."
-            ),
+            .title = _("8 - Encounter First Stages"),
+            .description = FORMAT_INFORMATION_ENTRIES("If your lead Pokémon holds an Everstone, you will only encounter the base form of wild Pokémon, regardless of their level."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_9] = {
-            .title = _("9 - Gym Leader"),
-            .description = 
-            //Page 1
-            _(
-                "In hard mode the Gym leader will match the     \n"
-                "number of Pokémon in your team early on, if you\n"
-                "are having problems you can leave some of them \n"
-                "in the Pokemon Storage System."
-            ),
+            .title = _("9 - Getting More Starters"),
+            .description = FORMAT_INFORMATION_ENTRIES("You can obtain additional starters by trading Red, Green, and Blue Shards to NPCs in Lavaridge, Fortree, and Lilycove."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_10] = {
-            .title = _("10 - Farm BP"),
-            .description = 
-            //Page 1
-            _(
-                "You can farm BP by rebattling Gym Trainers, you\n"
-                "can fight them an infinite number of times by  \n"
-                "talking with the leader after defeating it in a\n"
-                "rematch."
-            ),
+            .title = _("10 - Mystery Gift"),
+            .description = FORMAT_INFORMATION_ENTRIES("To claim a Mystery Gift, save your game, reset, and select the Mystery Gift option from the title screen menu."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_11] = {
-            .title = _("11 - Mega Bracelet"),
-            .description = 
-            //Page 1
-            _(
-                "You can get the Mega Bracelet by defeating 11  \n"
-                "gym leaders."
-            ),
+            .title = _("11 - Sevii Island Tickets"),
+            .description = FORMAT_INFORMATION_ENTRIES("You start the game with one random Sevii Island ticket. To unlock more islands, find Colress at the end of each island's route or dungeon."),
             .numPages = 1
         },
         [TRAINER_TIPS_INFORMATION_12] = {
-            .title = _("12 - Sevii Island Tickets"),
-            .description = 
-            //Page 1
-            _(
-                "You can get more Sevii Island Tickets by       \n"
-                "finding corless at the end of each island route\n"
-                "or dungeon, you also always start with one     \n"
-                "random ticket."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_13] = {
-            .title = _("13 - Level Caps"),
-            .description = 
-            //Page 1
-            _(
-                "In Normal or Hard difficulty mode, the level of\n"
-                "the Gym Leader's strongest pokemon will        \n"
-                "determine your own Level Cap. On Normal mode,  \n"
-                "you will gain XP & levels but your stats will  \n"
-                "remain locked in at the level cap until you    \n"
-                "clear the Gym. On Hard mode, you will not gain \n"
-                "any XP until you clear the Gym."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_14] = {
-            .title = _("14 - Trainer Skills - Stat Boosts"),
-            .description = 
-            //Page 1
-            _(
-                "Don't forget to invest some of your Trainer    \n"
-                "Skill points into Stat Boosts! For each point  \n"
-                "you invest, all pokemon you own gain an 3 IVs  \n"
-                "in that Stat."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_15] = {
-            .title = _("16 - Trainer Skills - Stat Boosts 2"),
-            .description = 
-            //Page 1
-            _(
-                "All Pokemon start with 0 IVs until you begin   \n"
-                "putting in Skill points for Stat Boosts. If you\n"
-                "notice your Pokemon isn't performing the way   \n"
-                "you like, try adding to your Stat Boosts."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_16] = {
-            .title = _("16 - Trainer Skills - Bonus Battle"),
-            .description = 
-            //Page 1
-            _(
-                "BP is used for some of the best & most         \n"
-                "important items in the game, so take advantage \n"
-                "early by investing in Bonus Battle skills.     \n"
-                "This increases the chance you get double BP    \n"
-                "from any battle."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_17] = {
-            .title = _("17 - Trainer Skills - XP Boosts"),
-            .description = 
-            //Page 1
-            _(
-                "There's a lot of milestones to reach in Rowe   \n"
-                "but if you want to get there fast invest in    \n"
-                "these Skills. Trainer XP Boost will make       \n"
-                "collecting other skills much easier, while     \n"
-                "Pokemon XP boost will help lessen the grind on \n"
-                "your journey!"
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_18] = {
-            .title = _("18 - Trainer Skills - XP Boosts"),
-            .description = 
-            //Page 1
-            _(
-                "Pokemon in your party that know an Egg/Tutor   \n"
-                "move can teach your other (compatible) Pokemon \n"
-                "how to use the move. Simply place two pokemon  \n"
-                "of the same egg group in your party and selec  \n"
-                "Learn Moves on the pokemon you want to teach.  \n"
-                "Ifyou're struggling early in the game, try     \n"
-                "catching lots of pokemon and seeing if you can \n"
-                "get any Egg moves!"
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_19] = {
-            .title = _("19 - Shiny Odds"),
-            .description = 
-            //Page 1
-            _(
-                "Your Shiny odds are 1/4096, but you can make   \n"
-                "finding them easier by acquiring the Shiny     \n"
-                "Charm, rewarded after defeating all 16 gyms."
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_20] = {
-            .title = _("20 - Dexnav Shiny Hunt"),
-            .description = 
-            //Page 1
-            _(
-                "You can Shiny hunt with DexNav! Target your    \n"
-                "selected pokemon, and you will have increased  \n"
-                "odds after 50 consecutive KOs. Be sure to bring\n"
-                "a party member who can efficiently fight your  \n"
-                "target!"
-            ),
-            .numPages = 1
-        },
-        [TRAINER_TIPS_INFORMATION_21] = {
-            .title = _("21 - Encounter First Stages"),
-            .description = 
-            //Page 1
-            _(
-                "If you give your leading Pokémon an Everstone, \n"
-                "you will only encounter the base form of the   \n"
-                "Pokemon you would've seen, regardless of the   \n"
-                "Level of the wild pokemon."
-            ),
+            .title = _("12 - Ash Greninja"),
+            .description = FORMAT_INFORMATION_ENTRIES("Use an Ability Capsule on any Greninja to change its ability to Battle Bond, turning it into Ash-Greninja."),
             .numPages = 1
         },
     },

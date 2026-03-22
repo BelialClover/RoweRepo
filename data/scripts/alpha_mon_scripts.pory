@@ -1,0 +1,3144 @@
+
+//Alpha Encounters
+script Common_EventScript_SetAlphaDefaultData{
+	setflag(FLAG_ALPHA_CREATION)
+    setflag(FLAG_ENABLE_ALPHA_WILD_BATTLE_BOOST)
+    setflag(FLAG_GOOD_MOVESET_CREATION)
+    setflag(FLAG_SMART_AI)
+	setvar(VAR_BOSS_BATTLE_HP_MULTIPIER, 100)
+	return
+}
+
+script Common_Eventscript_Enable_Alphas{
+	if(flag(FLAG_GOT_BADGE_11)){
+		clearflag(FLAG_DISABLE_PORTALS)
+	}
+	else{
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_Eventscript_Enable_Alphas_Clefable{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CLEFABLE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Clefable{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CLEFABLE, 2)
+	setwildbattle(SPECIES_CLEFABLE, LEVEL_SCALE_WILD_BOSS, ITEM_CLEFABLITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CLEFABLE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Clefable teleported but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CLEFABLITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_CLEFABLE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Clefable teleported!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Dragonite{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DRAGONITE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Dragonite{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DRAGONITE, 2)
+	setwildbattle(SPECIES_DRAGONITE, LEVEL_SCALE_WILD_BOSS, ITEM_DRAGONINITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DRAGONITE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Dragonite flew away but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DRAGONINITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_DRAGONITE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Dragonite flew away!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Starmie{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_STARMIE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Starmie{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_STARMIE, 2)
+	setwildbattle(SPECIES_STARMIE, LEVEL_SCALE_WILD_BOSS, ITEM_STARMINITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_STARMIE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Starmie teleported but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_STARMINITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_STARMIE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Starmie teleported!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Victreebel{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_VICTREEBEL_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Victreebel{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_VICTREEBEL, 2)
+	setwildbattle(SPECIES_VICTREEBEL, LEVEL_SCALE_WILD_BOSS, ITEM_VICTRIBELITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_VICTREEBEL_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Victreebel ran away but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_VICTRIBELITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            setvar(VAR_0x8004, SPECIES_STARMIE)
+            setweather(WEATHER_NONE)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            bufferspeciesname(0, VAR_0x8004)
+            msgbox(format("Victreebel ran away!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Excadrill{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_EXCADRILL_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Excadrill{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_EXCADRILL, 2)
+	setwildbattle(SPECIES_EXCADRILL, LEVEL_SCALE_WILD_BOSS, ITEM_EXCADRITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_EXCADRILL_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Excadrill dug out of the cave but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_EXCADRITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Excadrill dug out of the cave!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Froslass{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_FROSLASS_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Froslass{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_FROSLASS, 2)
+	setwildbattle(SPECIES_FROSLASS, LEVEL_SCALE_WILD_BOSS, ITEM_FROSLASSITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_FROSLASS_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Froslass escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_FROSLASSITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Froslass escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Scolipede{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SCOLIPEDE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Scolipede{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SCOLIPEDE, 2)
+	setwildbattle(SPECIES_SCOLIPEDE, LEVEL_SCALE_WILD_BOSS, ITEM_SCOLIPITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SCOLIPEDE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Scolipede escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SCOLIPITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Scolipede escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Skarmory{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SKARMORY_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Skarmory{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SKARMORY, 2)
+	setwildbattle(SPECIES_SKARMORY, LEVEL_SCALE_WILD_BOSS, ITEM_SKARMORITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SKARMORY_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Skarmory flew away but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SKARMORITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Skarmory flew away!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Emboar{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_EMBOAR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Emboar{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_EMBOAR, 2)
+	setwildbattle(SPECIES_EMBOAR, LEVEL_SCALE_WILD_BOSS, ITEM_EMBOARITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_EMBOAR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Emboar escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_EMBOARITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Emboar escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Scrafty{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SCRAFTY_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Scrafty{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SCRAFTY, 2)
+	setwildbattle(SPECIES_SCRAFTY, LEVEL_SCALE_WILD_BOSS, ITEM_SCRAFTINITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SCRAFTY_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Scrafty escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SCRAFTINITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Scrafty escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Eelektross{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_EELEKTROSS_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Eelektross{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_EELEKTROSS, 2)
+	setwildbattle(SPECIES_EELEKTROSS, LEVEL_SCALE_WILD_BOSS, ITEM_EELEKTROSSITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_EELEKTROSS_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Eelektross escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_EELEKTROSSITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Eelektross escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Chandelure{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CHANDELURE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Chandelure{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CHANDELURE, 2)
+	setwildbattle(SPECIES_CHANDELURE, LEVEL_SCALE_WILD_BOSS, ITEM_CHANDELURITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CHANDELURE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Chandelure escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CHANDELURITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Chandelure escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Delphox{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DELPHOX_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Delphox{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DELPHOX, 2)
+	setwildbattle(SPECIES_DELPHOX, LEVEL_SCALE_WILD_BOSS, ITEM_DELPHOXITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DELPHOX_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Delphox escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DELPHOXITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Delphox escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Chesnaught{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CHESNAUGHT_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Chesnaught{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CHESNAUGHT, 2)
+	setwildbattle(SPECIES_CHESNAUGHT, LEVEL_SCALE_WILD_BOSS, ITEM_CHESNAUGHTITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CHESNAUGHT_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Chesnaught escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CHESNAUGHTITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Chesnaught escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Greninja{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GRENINJA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Greninja{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GRENINJA, 2)
+	setwildbattle(SPECIES_GRENINJA, LEVEL_SCALE_WILD_BOSS, ITEM_GRENINJITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GRENINJA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Greninja escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GRENINJITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Greninja escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Pyroar{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_PYROAR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Pyroar{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_PYROAR, 2)
+	setwildbattle(SPECIES_PYROAR, LEVEL_SCALE_WILD_BOSS, ITEM_PYROARITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_PYROAR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Pyroar escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_PYROARITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Pyroar escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Malamar{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_MALAMAR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Malamar{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_MALAMAR, 2)
+	setwildbattle(SPECIES_MALAMAR, LEVEL_SCALE_WILD_BOSS, ITEM_MALAMARITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_MALAMAR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Malamar escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_MALAMARITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Malamar escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Barbaracle{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_BARBARACLE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Barbaracle{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_BARBARACLE, 2)
+	setwildbattle(SPECIES_BARBARACLE, LEVEL_SCALE_WILD_BOSS, ITEM_BARBARACITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_BARBARACLE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Barbaracle escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_BARBARACITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Barbaracle escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Dragalge{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DRAGALGE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Dragalge{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DRAGALGE, 2)
+	setwildbattle(SPECIES_DRAGALGE, LEVEL_SCALE_WILD_BOSS, ITEM_DRAGALGITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DRAGALGE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Dragalge escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DRAGALGITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Dragalge escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Hawlucha{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_HAWLUCHA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Hawlucha{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_HAWLUCHA, 2)
+	setwildbattle(SPECIES_HAWLUCHA, LEVEL_SCALE_WILD_BOSS, ITEM_HAWLUCHANITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_HAWLUCHA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Hawlucha escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_HAWLUCHANITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Hawlucha escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Zygarde{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_ZYGARDE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Zygarde{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_ZYGARDE, 2)
+	setwildbattle(SPECIES_ZYGARDE, LEVEL_SCALE_WILD_BOSS, ITEM_ZYGARDITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_ZYGARDE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Zygarde escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_ZYGARDITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Zygarde escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Drampa{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DRAMPA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Drampa{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DRAMPA, 2)
+	setwildbattle(SPECIES_DRAMPA, LEVEL_SCALE_WILD_BOSS, ITEM_DRAMPANITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DRAMPA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Drampa escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DRAMPANITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Drampa escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Falinks{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_FALINKS_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Falinks{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_FALINKS, 2)
+	setwildbattle(SPECIES_FALINKS, LEVEL_SCALE_WILD_BOSS, ITEM_FALINKSITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_FALINKS_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Falinks escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_FALINKSITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Falinks escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Raichu_X{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_RAICHU_X_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Raichu_X{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_RAICHU, 2)
+	setwildbattle(SPECIES_RAICHU, LEVEL_SCALE_WILD_BOSS, ITEM_RAICHUNITE_X)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_RAICHU_X_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Raichu X escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_RAICHUNITE_X, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Raichu X escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Raichu_Y{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_RAICHU_Y_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Raichu_Y{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_RAICHU, 2)
+	setwildbattle(SPECIES_RAICHU, LEVEL_SCALE_WILD_BOSS, ITEM_RAICHUNITE_Y)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_RAICHU_Y_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Raichu Y escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_RAICHUNITE_Y, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Raichu Y escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Dewgong{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DEWGONG_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Dewgong{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DEWGONG, 2)
+	setwildbattle(SPECIES_DEWGONG, LEVEL_SCALE_WILD_BOSS, ITEM_DEWGONGITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DEWGONG_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Dewgong escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DEWGONGITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Dewgong escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Typhlosion{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TYPHLOSION_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Typhlosion{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TYPHLOSION, 2)
+	setwildbattle(SPECIES_TYPHLOSION, LEVEL_SCALE_WILD_BOSS, ITEM_TYPHLOSIONITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TYPHLOSION_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Typhlosion escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TYPHLOSIONITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Typhlosion escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Lanturn{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_LANTURN_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Lanturn{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_LANTURN, 2)
+	setwildbattle(SPECIES_LANTURN, LEVEL_SCALE_WILD_BOSS, ITEM_LANTURNITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_LANTURN_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Lanturn escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_LANTURNITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Lanturn escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Quagsire{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_QUAGSIRE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Quagsire{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_QUAGSIRE, 2)
+	setwildbattle(SPECIES_QUAGSIRE, LEVEL_SCALE_WILD_BOSS, ITEM_QUAGSIRITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_QUAGSIRE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Quagsire escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_QUAGSIRITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Quagsire escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Breloom{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_BRELOOM_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Breloom{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_BRELOOM, 2)
+	setwildbattle(SPECIES_BRELOOM, LEVEL_SCALE_WILD_BOSS, ITEM_BRELOOMITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_BRELOOM_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Breloom escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_BRELOOMITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Breloom escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Shedinja{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SHEDINJA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Shedinja{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SHEDINJA, 2)
+	setwildbattle(SPECIES_SHEDINJA, LEVEL_SCALE_WILD_BOSS, ITEM_SHEDINJITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SHEDINJA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Shedinja escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SHEDINJITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Shedinja escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Flygon{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_FLYGON_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Flygon{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	msgbox(format("Flygon: gon!"), MSGBOX_DEFAULT)
+	playmoncry(SPECIES_FLYGON, 2)
+	setwildbattle(SPECIES_FLYGON, LEVEL_SCALE_WILD_BOSS, ITEM_FLYGONITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_FLYGON_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Flygon escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_FLYGONITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Flygon escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Serperior{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SERPERIOR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Serperior{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SERPERIOR, 2)
+	setwildbattle(SPECIES_SERPERIOR, LEVEL_SCALE_WILD_BOSS, ITEM_SERPERIORITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SERPERIOR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Serperior escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SERPERIORITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Serperior escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Samurott{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SAMUROTT_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Samurott{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SAMUROTT, 2)
+	setwildbattle(SPECIES_SAMUROTT, LEVEL_SCALE_WILD_BOSS, ITEM_SAMUROTTITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SAMUROTT_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Samurott escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SAMUROTTITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Samurott escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Ribombee{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_RIBOMBEE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Ribombee{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_RIBOMBEE, 2)
+	setwildbattle(SPECIES_RIBOMBEE, LEVEL_SCALE_WILD_BOSS, ITEM_RIBOMBITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_RIBOMBEE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Ribombee escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_RIBOMBITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Ribombee escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Clodsire{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CLODSIRE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Clodsire{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CLODSIRE, 2)
+	setwildbattle(SPECIES_CLODSIRE, LEVEL_SCALE_WILD_BOSS, ITEM_CLODSIRITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CLODSIRE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Clodsire escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CLODSIRITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Clodsire escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Sandslash{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SANDSLASH_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Sandslash{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SANDSLASH, 2)
+	setwildbattle(SPECIES_SANDSLASH, LEVEL_SCALE_WILD_BOSS, ITEM_SANDSLASHITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SANDSLASH_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Sandslash escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SANDSLASHITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Sandslash escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Toucannon{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TOUCANNON_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Toucannon{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TOUCANNON, 2)
+	setwildbattle(SPECIES_TOUCANNON, LEVEL_SCALE_WILD_BOSS, ITEM_TOUCANNONITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TOUCANNON_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Toucannon escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TOUCANNONITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Toucannon escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Vanilluxe{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_VANILLUXE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Vanilluxe{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_VANILLUXE, 2)
+	setwildbattle(SPECIES_VANILLUXE, LEVEL_SCALE_WILD_BOSS, ITEM_VANILLUXITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_VANILLUXE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Vanilluxe escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_VANILLUXITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Vanilluxe escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Tinkaton{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TINKATON_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Tinkaton{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TINKATON, 2)
+	setwildbattle(SPECIES_TINKATON, LEVEL_SCALE_WILD_BOSS, ITEM_TINKATITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TINKATON_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Tinkaton escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TINKATITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Tinkaton escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Shuckle{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SHUCKLE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Shuckle{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SHUCKLE, 2)
+	setwildbattle(SPECIES_SHUCKLE, LEVEL_SCALE_WILD_BOSS, ITEM_SHUCKLENITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SHUCKLE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Shuckle escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SHUCKLENITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Shuckle escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Krookodile{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_KROOKODILE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Krookodile{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_KROOKODILE, 2)
+	setwildbattle(SPECIES_KROOKODILE, LEVEL_SCALE_WILD_BOSS, ITEM_KROOKODILENITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_KROOKODILE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Krookodile escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_KROOKODILENITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Krookodile escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Luxray{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_LUXRAY_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Luxray{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_LUXRAY, 2)
+	setwildbattle(SPECIES_LUXRAY, LEVEL_SCALE_WILD_BOSS, ITEM_LUXRAYNITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_LUXRAY_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Luxray escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_LUXRAYNITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Luxray escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Milotic{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_MILOTIC_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Milotic{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_MILOTIC, 2)
+	setwildbattle(SPECIES_MILOTIC, LEVEL_SCALE_WILD_BOSS, ITEM_MILOTICITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_MILOTIC_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Milotic escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_MILOTICITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Milotic escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Tsareena{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TSAREENA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Tsareena{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TSAREENA, 2)
+	setwildbattle(SPECIES_TSAREENA, LEVEL_SCALE_WILD_BOSS, ITEM_TSEERENITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TSAREENA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Tsareena escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TSEERENITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Tsareena escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Crobat{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CROBAT_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Crobat{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CROBAT, 2)
+	setwildbattle(SPECIES_CROBAT, LEVEL_SCALE_WILD_BOSS, ITEM_CROBATITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CROBAT_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Crobat escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CROBATITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Crobat escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Slowking{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SLOWKING_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Slowking{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SLOWKING, 2)
+	setwildbattle(SPECIES_SLOWKING, LEVEL_SCALE_WILD_BOSS, ITEM_SLOWKINGITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SLOWKING_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Slowking escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SLOWKINGITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Slowking escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Grimmsnarl{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GRIMMSNARL_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Grimmsnarl{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GRIMMSNARL, 2)
+	setwildbattle(SPECIES_GRIMMSNARL, LEVEL_SCALE_WILD_BOSS, ITEM_GRIMMSNARLITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GRIMMSNARL_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Grimmsnarl escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GRIMMSNARLITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Grimmsnarl escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Melmetal{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_MELMETAL_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Melmetal{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_MELMETAL, 2)
+	setwildbattle(SPECIES_MELMETAL, LEVEL_SCALE_WILD_BOSS, ITEM_MELMETALITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_MELMETAL_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Melmetal escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_MELMETALITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Melmetal escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Rillaboom{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_RILLABOOM_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Rillaboom{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_RILLABOOM, 2)
+	setwildbattle(SPECIES_RILLABOOM, LEVEL_SCALE_WILD_BOSS, ITEM_RILABOOMITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_RILLABOOM_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Rillaboom escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_RILABOOMITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Rillaboom escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Cinderace{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CINDERACE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Cinderace{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CINDERACE, 2)
+	setwildbattle(SPECIES_CINDERACE, LEVEL_SCALE_WILD_BOSS, ITEM_CINDERACITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CINDERACE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Cinderace escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CINDERACITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Cinderace escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Inteleon{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_INTELEON_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Inteleon{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_INTELEON, 2)
+	setwildbattle(SPECIES_INTELEON, LEVEL_SCALE_WILD_BOSS, ITEM_INTELEONITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_INTELEON_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Inteleon escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_INTELEONITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Inteleon escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Chimecho{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CHIMECHO_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Chimecho{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CHIMECHO, 2)
+	setwildbattle(SPECIES_CHIMECHO, LEVEL_SCALE_WILD_BOSS, ITEM_CHIMECHITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CHIMECHO_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Chimecho escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CHIMECHITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Chimecho escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Staraptor{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_STARAPTOR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Staraptor{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_STARAPTOR, 2)
+	setwildbattle(SPECIES_STARAPTOR, LEVEL_SCALE_WILD_BOSS, ITEM_STARAPTORITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_STARAPTOR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Staraptor escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_STARAPTORITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Staraptor escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Golurk{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GOLURK_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Golurk{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GOLURK, 2)
+	setwildbattle(SPECIES_GOLURK, LEVEL_SCALE_WILD_BOSS, ITEM_GOLURKITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GOLURK_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Golurk escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GOLURKITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Golurk escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Crabominable{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CRABOMINABLE_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Crabominable{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CRABOMINABLE, 2)
+	setwildbattle(SPECIES_CRABOMINABLE, LEVEL_SCALE_WILD_BOSS, ITEM_CRABOMINABLITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CRABOMINABLE_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Crabominable escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CRABOMINABLITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Crabominable escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Golisopod{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GOLISOPOD_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Golisopod{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GOLISOPOD, 2)
+	setwildbattle(SPECIES_GOLISOPOD, LEVEL_SCALE_WILD_BOSS, ITEM_GOLISPODITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GOLISOPOD_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Golisopod escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GOLISPODITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Golisopod escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Magearna{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_MAGEARNA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Magearna{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_MAGEARNA, 2)
+	setwildbattle(SPECIES_MAGEARNA, LEVEL_SCALE_WILD_BOSS, ITEM_MAGEARNITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_MAGEARNA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Magearna escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_MAGEARNITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Magearna escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Scovillain{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_SCOVILLAIN_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Scovillain{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_SCOVILLAIN, 2)
+	setwildbattle(SPECIES_SCOVILLAIN, LEVEL_SCALE_WILD_BOSS, ITEM_SCOVILLAINITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_SCOVILLAIN_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Scovillain escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_SCOVILLAINITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Scovillain escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Glimmora{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GLIMMORA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Glimmora{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GLIMMORA, 2)
+	setwildbattle(SPECIES_GLIMMORA, LEVEL_SCALE_WILD_BOSS, ITEM_GLIMMORITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GLIMMORA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Glimmora escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GLIMMORITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Glimmora escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Baxcalibur{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_BAXCALIBUR_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Baxcalibur{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_BAXCALIBUR, 2)
+	setwildbattle(SPECIES_BAXCALIBUR, LEVEL_SCALE_WILD_BOSS, ITEM_BAXCALIBURITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_BAXCALIBUR_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Baxcalibur escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_BAXCALIBURITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Baxcalibur escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Zeraora{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_ZERAORA_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Zeraora{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_ZERAORA, 2)
+	setwildbattle(SPECIES_ZERAORA, LEVEL_SCALE_WILD_BOSS, ITEM_ZERAORANITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_ZERAORA_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Zeraora escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_ZERAORANITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Zeraora escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Arbok{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_ARBOK_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Arbok{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_ARBOK, 2)
+	setwildbattle(SPECIES_ARBOK, LEVEL_SCALE_WILD_BOSS, ITEM_ARBOKITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_ARBOK_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Arbok escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_ARBOKITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Arbok escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Toxtricity{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TOXTRICITY_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Toxtricity{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TOXTRICITY, 2)
+	setwildbattle(SPECIES_TOXTRICITY, LEVEL_SCALE_WILD_BOSS, ITEM_TOXTRICITITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TOXTRICITY_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Toxtricity escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TOXTRICITITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Toxtricity escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Urshifu{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_URSHIFU_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Urshifu{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_URSHIFU, 2)
+	setwildbattle(SPECIES_URSHIFU, LEVEL_SCALE_WILD_BOSS, ITEM_URISHIFUNITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_URSHIFU_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Urshifu escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_URISHIFUNITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Urshifu escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Meowstic{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_MEOWSTIC_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Meowstic{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_MEOWSTIC, 2)
+	setwildbattle(SPECIES_MEOWSTIC, LEVEL_SCALE_WILD_BOSS, ITEM_MEOWSTITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_MEOWSTIC_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Meowstic escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_MEOWSTITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Meowstic escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Tatsugiri{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_TATSUGIRI_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Tatsugiri{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_TATSUGIRI, 2)
+	setwildbattle(SPECIES_TATSUGIRI, LEVEL_SCALE_WILD_BOSS, ITEM_TATSIGIRITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_TATSUGIRI_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Tatsugiri escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_TATSIGIRITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Tatsugiri escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Darkrai{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_DARKRAI_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Darkrai{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_DARKRAI, 2)
+	setwildbattle(SPECIES_DARKRAI, LEVEL_SCALE_WILD_BOSS, ITEM_DARKRAITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_DARKRAI_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Darkrai escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_DARKRAITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Darkrai escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Floette_Eternal{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_FLOETTE_ETERNAL_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Floette_Eternal{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_FLOETTE, 2)
+	setwildbattle(SPECIES_FLOETTE, LEVEL_SCALE_WILD_BOSS, ITEM_FLOETTITE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_FLOETTE_ETERNAL_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Floette escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_FLOETTITE, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Floette escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Clefable_R{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_CLEFABLE_R_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Clefable_R{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_CLEFABLE, 2)
+	setwildbattle(SPECIES_CLEFABLE, LEVEL_SCALE_WILD_BOSS, ITEM_CLEFABLITE_R)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_CLEFABLE_R_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Clefable escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_CLEFABLITE_R, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Clefable escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Starmie_R{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_STARMIE_R_MEGA_STONE)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Starmie_R{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_STARMIE, 2)
+	setwildbattle(SPECIES_STARMIE, LEVEL_SCALE_WILD_BOSS, ITEM_STARMINITE_R)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_STARMIE_R_MEGA_STONE)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Starmie escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_STARMINITE_R, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Starmie escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Absol_Z{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_ABSOL_MEGA_STONE_Z)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Absol_Z{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_ABSOL, 2)
+	setwildbattle(SPECIES_ABSOL, LEVEL_SCALE_WILD_BOSS, ITEM_ABSOLITE_Z)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_ABSOL_MEGA_STONE_Z)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Absol escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_ABSOLITE_Z, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Absol escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Lucario_Z{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_LUCARIO_MEGA_STONE_Z)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Lucario_Z{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_LUCARIO, 2)
+	setwildbattle(SPECIES_LUCARIO, LEVEL_SCALE_WILD_BOSS, ITEM_LUCARIONITE_Z)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_LUCARIO_MEGA_STONE_Z)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Lucario escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_LUCARIONITE_Z, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Lucario escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}
+
+script Common_Eventscript_Enable_Alphas_Garchomp_Z{
+	call(Common_Eventscript_Enable_Alphas)
+	if(flag(FLAG_GOT_GARCHOMP_MEGA_STONE_Z)){
+		setflag(FLAG_DISABLE_PORTALS)
+	}
+}
+
+script Common_EventScript_Alpha_Garchomp_Z{
+	lock
+	faceplayer
+	call(Common_EventScript_SetAlphaDefaultData)
+	playmoncry(SPECIES_GARCHOMP, 2)
+	setwildbattle(SPECIES_GARCHOMP, LEVEL_SCALE_WILD_BOSS, ITEM_GARCHOMPITE_Z)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+        case B_OUTCOME_WON:
+            setflag(FLAG_GOT_GARCHOMP_MEGA_STONE_Z)
+            setflag(FLAG_DISABLE_PORTALS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+			if(var(VAR_RESULT) == B_OUTCOME_WON){
+				msgbox(format("Garchomp escaped but something was left behind!"), MSGBOX_DEFAULT)
+				giveitem(ITEM_GARCHOMPITE_Z, 1)
+			}
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Garchomp escaped!"), MSGBOX_DEFAULT)
+        break
+    }
+	release
+	end
+}

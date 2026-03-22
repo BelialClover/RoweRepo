@@ -141,6 +141,12 @@
 #define HOLD_EFFECT_UTILITY_UMBRELLA 158
 #define HOLD_EFFECT_MENTAL_HERB      159
 
+#define HOLD_EFFECT_MEGA_STONE_R     160 //Mega Stones for made up mega evolutions
+#define HOLD_EFFECT_MEGA_STONE_G     161 //Mega Stones for Giantmax mons
+#define HOLD_EFFECT_INVERSE_GEM      162
+#define HOLD_EFFECT_INVERSE_SHIELD   163
+#define HOLD_EFFECT_LOADED_DICE      164
+
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
 #endif // GUARD_HOLD_EFFECTS_H

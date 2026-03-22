@@ -1,0 +1,25 @@
+script EventScript_MixRecordsPrompt {
+	lock
+	faceplayer
+	msgbox(Text_WouldYouLikeToMixRecords, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		goto(EventScript_MixRecords)
+	}
+	goto(EventScript_DeclineMixRecords)
+}
+
+raw `
+EventScript_MixRecords::
+	special RecordMixingPlayerSpotTriggered
+	waitstate
+	lock
+	faceplayer
+`
+
+script EventScript_DeclineMixRecords {
+	message(Text_WeHopeToSeeYouAgain)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}

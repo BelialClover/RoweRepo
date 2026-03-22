@@ -80,3 +80,24 @@ const u8 *const gNatureNamePointers[NUM_NATURES] =
     [NATURE_CAREFUL] = sCarefulNatureName,
     [NATURE_QUIRKY] = sQuirkyNatureName,
 };
+
+static const u8 sBalancedStyleName[]    = _("Balanced");
+static const u8 sStrikerStyleName[]     = _("Striker");
+static const u8 sTankStyleName[]        = _("Tank");
+static const u8 sDisruptorStyleName[]   = _("Disruptor");
+static const u8 sJuggernautStyleName[]  = _("Juggernaut");
+static const u8 sBruiserStyleName[]     = _("Bruiser");
+static const u8 sSpeedsterStyleName[]   = _("Speedster");
+static const u8 sAll_RounderStyleName[] = _("All-Rounder");
+
+const u8 *const gStyleNamePointers[NUM_STYLES] = 
+{
+	[STYLE_BALANCED]    = sBalancedStyleName,
+	[STYLE_STRIKER]     = sStrikerStyleName,
+	[STYLE_TANK]        = sTankStyleName,
+	[STYLE_DISRUPTOR]   = sDisruptorStyleName,
+	[STYLE_JUGGERNAUT]  = sJuggernautStyleName,
+	[STYLE_BRUISER]     = sBruiserStyleName,
+	[STYLE_SPEEDSTER]   = sSpeedsterStyleName,
+	[STYLE_ALL_ROUNDER] = sAll_RounderStyleName,
+};

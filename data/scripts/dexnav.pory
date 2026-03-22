@@ -1,0 +1,52 @@
+script EventScript_StartDexNavBattle {
+	lock
+	playse(0x15)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	waitse
+	dowildbattle
+	release
+}
+
+script EventScript_NotFoundNearby {
+	msgbox(sText_NotFoundNearby, MSGBOX_SIGN)
+}
+
+text sText_NotFoundNearby {
+	"It couldn't be found nearby.\n"
+	"Try looking in a different area!"
+}
+
+script EventScript_MovedTooFast {
+	msgbox(sText_TryMovingSlower, MSGBOX_SIGN)
+}
+
+text sText_TryMovingSlower {
+	"The Pokémon got away! Try moving\n"
+	"more slowly by holding the A button."
+}
+
+script EventScript_PokemonGotAway {
+	msgbox(sText_PokemonGotAway, MSGBOX_SIGN)
+}
+
+text sText_PokemonGotAway {
+	"The Pokémon got away!"
+}
+
+script EventScript_LostSignal {
+	msgbox(sText_LostSignal, MSGBOX_SIGN)
+}
+
+text sText_LostSignal {
+	"There is no reaction.\n"
+	"The signal was lost!"
+}
+
+script EventScript_TooDark {
+	msgbox(sText_TooDark, MSGBOX_SIGN)
+}
+
+text sText_TooDark {
+	"It's too dark to search\nfor a Pokémon!"
+}

@@ -12248,6 +12248,19 @@ const struct Trainer gTrainers[] = {
     },
 
     // Mock Battles
+    [TRAINER_ENDLESS_TRAINER] =
+    {
+        .partyLevel = TRAINER_LEVEL_MOCK_BATTLE,
+        .trainerClass = TRAINER_CLASS_BLACK_BELT,
+        .encounterMusic = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_BLACK_BELT,
+        .trainerName = _("Endless"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .party = TRAINER_PARTY(sParty_Dynamic),
+    },
+
     [TRAINER_NURSE_SHERY] =
     {
         .partyLevel = TRAINER_LEVEL_MOCK_BATTLE,

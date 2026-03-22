@@ -545,6 +545,9 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_KINGS_ROCK]           = gItemEffect_EvoStone,
     [ITEM_DUBIOUS_DISC]         = gItemEffect_EvoStone,
     [ITEM_LINK_CABLE]           = gItemEffect_EvoStone,
+    [ITEM_REAPER_CLOTH]         = gItemEffect_EvoStone,
+    [ITEM_SACHET]               = gItemEffect_EvoStone,
+    [ITEM_WHIPPED_DREAM]        = gItemEffect_EvoStone,
 
     [ITEM_UNREMARKABLE_TEACUP]  = gItemEffect_EvoStone,
     [ITEM_MASTERPIECE_TEACUP]   = gItemEffect_EvoStone,

@@ -162,6 +162,12 @@
 #define TRAINER_PIC_LEADER_VOLKNER        138
 
 #define TRAINER_PIC_RED_RBY               139
+#define TRAINER_PIC_GOLD                  140
+#define TRAINER_PIC_KRIS                  141
+#define TRAINER_PIC_ORAS_BRENDAN          142
+#define TRAINER_PIC_ORAS_MAY              143
+#define TRAINER_PIC_GREEN                 144
+#define TRAINER_PIC_DAWN_PT               145
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -177,6 +183,12 @@
 #define TRAINER_BACK_PIC_HILDA                  11
 #define TRAINER_BACK_PIC_BLUE                   12
 #define TRAINER_BACK_PIC_RED_RBY                13
+#define TRAINER_BACK_PIC_GOLD                   14
+#define TRAINER_BACK_PIC_KRIS                   15
+#define TRAINER_BACK_PIC_GREEN                  16
+#define TRAINER_BACK_PIC_ORAS_BRENDAN           17
+#define TRAINER_BACK_PIC_ORAS_MAY               18
+#define TRAINER_BACK_PIC_DAWN_PT                19
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1

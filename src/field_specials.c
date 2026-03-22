@@ -286,7 +286,7 @@ u16 GetRecordedCyclingRoadResults(void) {
 }
 
 void UpdateCyclingRoadState(void) {
-    if (gLastUsedWarp.mapNum == MAP_NUM(ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE) && gLastUsedWarp.mapGroup == MAP_GROUP(ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE))
+    if (gLastUsedWarp.mapNum == MAP_NUM(MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE) && gLastUsedWarp.mapGroup == MAP_GROUP(MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE))
     {
         return;
     }
@@ -339,38 +339,38 @@ u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
         case SS_TIDAL_DEPART_SLATEPORT:
             if (*varCruiseStepCount < 60)
             {
-                *mapNum = MAP_NUM(ROUTE134);
+                *mapNum = MAP_NUM(MAP_ROUTE134);
                 *x = *varCruiseStepCount + 19;
             }
             else if (*varCruiseStepCount < 140)
             {
-                *mapNum = MAP_NUM(ROUTE133);
+                *mapNum = MAP_NUM(MAP_ROUTE133);
                 *x = *varCruiseStepCount - 60;
             }
             else
             {
-                *mapNum = MAP_NUM(ROUTE132);
+                *mapNum = MAP_NUM(MAP_ROUTE132);
                 *x = *varCruiseStepCount - 140;
             }
             break;
         case SS_TIDAL_HALFWAY_SLATEPORT:
             if (*varCruiseStepCount < 66)
             {
-                *mapNum = MAP_NUM(ROUTE132);
+                *mapNum = MAP_NUM(MAP_ROUTE132);
                 *x = 65 - *varCruiseStepCount;
             }
             else if (*varCruiseStepCount < 146) {
-                *mapNum = MAP_NUM(ROUTE133);
+                *mapNum = MAP_NUM(MAP_ROUTE133);
                 *x = 145 - *varCruiseStepCount;
             }
             else
             {
-                *mapNum = MAP_NUM(ROUTE134);
+                *mapNum = MAP_NUM(MAP_ROUTE134);
                 *x = 224 - *varCruiseStepCount;
             }
             break;
     }
-    *mapGroup = MAP_GROUP(ROUTE132);
+    *mapGroup = MAP_GROUP(MAP_ROUTE132);
     *y = 20;
     return SS_TIDAL_LOCATION_CURRENTS;
 }
@@ -974,11 +974,11 @@ void CableCarWarp(void)
 {
     if (gSpecialVar_0x8004 != 0)
     {
-        SetWarpDestination(MAP_GROUP(ROUTE112_CABLE_CAR_STATION), MAP_NUM(ROUTE112_CABLE_CAR_STATION), -1, 6, 4);
+        SetWarpDestination(MAP_GROUP(MAP_ROUTE112_CABLE_CAR_STATION), MAP_NUM(MAP_ROUTE112_CABLE_CAR_STATION), -1, 6, 4);
     }
     else
     {
-        SetWarpDestination(MAP_GROUP(MT_CHIMNEY_CABLE_CAR_STATION), MAP_NUM(MT_CHIMNEY_CABLE_CAR_STATION), -1, 6, 4);
+        SetWarpDestination(MAP_GROUP(MAP_MT_CHIMNEY_CABLE_CAR_STATION), MAP_NUM(MAP_MT_CHIMNEY_CABLE_CAR_STATION), -1, 6, 4);
     }
 }
 
@@ -1040,6 +1040,12 @@ void DestroyFollower(void)
 void HideFollower(void)
 {
 	POF_FollowerHide();
+}
+
+void ShowFollower(void)
+{
+    FlagClear(FLAG_FOLLOWER_IS_ENABLED);
+	POF_TryToCreateFollower();
 }
 
 void FieldShowRegionMap(void)
@@ -1472,8 +1478,8 @@ bool8 Special_AreLeadMonEVsMaxedOut(void)
 u8 TryUpdateRusturfTunnelState(void)
 {
     if (!FlagGet(FLAG_RUSTURF_TUNNEL_OPENED) 
-        && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(RUSTURF_TUNNEL) 
-        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(RUSTURF_TUNNEL))
+        && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RUSTURF_TUNNEL) 
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RUSTURF_TUNNEL))
     {
         if (FlagGet(FLAG_HIDE_RUSTURF_TUNNEL_ROCK_1))
         {
@@ -1744,8 +1750,8 @@ bool8 IsBadEggInParty(void)
 
 bool8 InMultiPartnerRoom(void)
 {
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM)
-        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM) &&
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM)
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM) &&
         VarGet(VAR_FRONTIER_BATTLE_MODE) == FRONTIER_MODE_MULTIS)
         return TRUE;
     return FALSE;
@@ -1831,22 +1837,22 @@ void SetDeptStoreFloor(void)
     u8 deptStoreFloor;
     switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
     {
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_1F):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F):
             deptStoreFloor = DEPT_STORE_FLOORNUM_1F;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_2F):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_2F):
             deptStoreFloor = DEPT_STORE_FLOORNUM_2F;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_3F):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_3F):
             deptStoreFloor = DEPT_STORE_FLOORNUM_3F;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_4F):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_4F):
             deptStoreFloor = DEPT_STORE_FLOORNUM_4F;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_5F):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F):
             deptStoreFloor = DEPT_STORE_FLOORNUM_5F;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP):
+        case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP):
             deptStoreFloor = DEPT_STORE_FLOORNUM_ROOFTOP;
             break;
         default:
@@ -1861,27 +1867,27 @@ u16 GetDeptStoreDefaultFloorChoice(void)
     sLilycoveDeptStore_NeverRead = 0;
     sLilycoveDeptStore_DefaultFloorChoice = 0;
 
-    if (gSaveBlock1Ptr->dynamicWarp.mapGroup == MAP_GROUP(LILYCOVE_CITY_DEPARTMENT_STORE_1F))
+    if (gSaveBlock1Ptr->dynamicWarp.mapGroup == MAP_GROUP(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F))
     {
         switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
         {
-            case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_5F):
+            case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F):
                 sLilycoveDeptStore_NeverRead = 0;
                 sLilycoveDeptStore_DefaultFloorChoice = 0;
                 break;
-            case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_4F):
+            case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_4F):
                 sLilycoveDeptStore_NeverRead = 0;
                 sLilycoveDeptStore_DefaultFloorChoice = 1;
                 break;
-            case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_3F):
+            case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_3F):
                 sLilycoveDeptStore_NeverRead = 0;
                 sLilycoveDeptStore_DefaultFloorChoice = 2;
                 break;
-            case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_2F):
+            case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_2F):
                 sLilycoveDeptStore_NeverRead = 0;
                 sLilycoveDeptStore_DefaultFloorChoice = 3;
                 break;
-            case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_1F):
+            case MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F):
                 sLilycoveDeptStore_NeverRead = 0;
                 sLilycoveDeptStore_DefaultFloorChoice = 4;
                 break;
@@ -2104,7 +2110,7 @@ bool8 UsedPokemonCenterWarp(void)
 
 bool32 PlayerNotAtTrainerHillEntrance(void)
 {
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_HILL_ENTRANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_HILL_ENTRANCE))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TRAINER_HILL_ENTRANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TRAINER_HILL_ENTRANCE))
     {
         return FALSE;
     }
@@ -3527,7 +3533,7 @@ static void WaitForDeoxysRockMovement(u8 taskId)
 void IncrementBirthIslandRockStepCount(void)
 {
     u16 var = VarGet(VAR_DEOXYS_ROCK_STEP_COUNT);
-    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR))
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_BIRTH_ISLAND_EXTERIOR))
     {
         var++;
         if (var > 99)
@@ -3629,22 +3635,22 @@ void CreateAbnormalWeatherEvent(void)
 bool32 GetAbnormalWeatherMapNameAndType(void)
 {
     static const u8 sAbnormalWeatherMapNumbers[] = {
-        MAP_NUM(ROUTE114),
-        MAP_NUM(ROUTE114),
-        MAP_NUM(ROUTE115),
-        MAP_NUM(ROUTE115),
-        MAP_NUM(ROUTE116),
-        MAP_NUM(ROUTE116),
-        MAP_NUM(ROUTE118),
-        MAP_NUM(ROUTE118),
-        MAP_NUM(ROUTE105),
-        MAP_NUM(ROUTE105),
-        MAP_NUM(ROUTE125),
-        MAP_NUM(ROUTE125),
-        MAP_NUM(ROUTE127),
-        MAP_NUM(ROUTE127),
-        MAP_NUM(ROUTE129),
-        MAP_NUM(ROUTE129)
+        MAP_NUM(MAP_ROUTE114),
+        MAP_NUM(MAP_ROUTE114),
+        MAP_NUM(MAP_ROUTE115),
+        MAP_NUM(MAP_ROUTE115),
+        MAP_NUM(MAP_ROUTE116),
+        MAP_NUM(MAP_ROUTE116),
+        MAP_NUM(MAP_ROUTE118),
+        MAP_NUM(MAP_ROUTE118),
+        MAP_NUM(MAP_ROUTE105),
+        MAP_NUM(MAP_ROUTE105),
+        MAP_NUM(MAP_ROUTE125),
+        MAP_NUM(MAP_ROUTE125),
+        MAP_NUM(MAP_ROUTE127),
+        MAP_NUM(MAP_ROUTE127),
+        MAP_NUM(MAP_ROUTE129),
+        MAP_NUM(MAP_ROUTE129)
     };
 
     u16 abnormalWeather = VarGet(VAR_ABNORMAL_WEATHER_LOCATION);
@@ -3661,22 +3667,22 @@ bool8 AbnormalWeatherHasExpired(void)
 {
     // Duplicate array.
     static const u8 sAbnormalWeatherMapNumbers[] = {
-        MAP_NUM(ROUTE114),
-        MAP_NUM(ROUTE114),
-        MAP_NUM(ROUTE115),
-        MAP_NUM(ROUTE115),
-        MAP_NUM(ROUTE116),
-        MAP_NUM(ROUTE116),
-        MAP_NUM(ROUTE118),
-        MAP_NUM(ROUTE118),
-        MAP_NUM(ROUTE105),
-        MAP_NUM(ROUTE105),
-        MAP_NUM(ROUTE125),
-        MAP_NUM(ROUTE125),
-        MAP_NUM(ROUTE127),
-        MAP_NUM(ROUTE127),
-        MAP_NUM(ROUTE129),
-        MAP_NUM(ROUTE129)
+        MAP_NUM(MAP_ROUTE114),
+        MAP_NUM(MAP_ROUTE114),
+        MAP_NUM(MAP_ROUTE115),
+        MAP_NUM(MAP_ROUTE115),
+        MAP_NUM(MAP_ROUTE116),
+        MAP_NUM(MAP_ROUTE116),
+        MAP_NUM(MAP_ROUTE118),
+        MAP_NUM(MAP_ROUTE118),
+        MAP_NUM(MAP_ROUTE105),
+        MAP_NUM(MAP_ROUTE105),
+        MAP_NUM(MAP_ROUTE125),
+        MAP_NUM(MAP_ROUTE125),
+        MAP_NUM(MAP_ROUTE127),
+        MAP_NUM(MAP_ROUTE127),
+        MAP_NUM(MAP_ROUTE129),
+        MAP_NUM(MAP_ROUTE129)
     };
 
     u16 steps = VarGet(VAR_ABNORMAL_WEATHER_STEP_COUNTER);
@@ -3690,15 +3696,15 @@ bool8 AbnormalWeatherHasExpired(void)
     if (++steps > 999)
     {
         VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, 0);
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_MARINE_CAVE))
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_UNDERWATER_MARINE_CAVE))
         {
             switch (gSaveBlock1Ptr->location.mapNum)
             {
-                case MAP_NUM(UNDERWATER_MARINE_CAVE):
-                case MAP_NUM(MARINE_CAVE_ENTRANCE):
-                case MAP_NUM(MARINE_CAVE_END):
-                case MAP_NUM(TERRA_CAVE_ENTRANCE):
-                case MAP_NUM(TERRA_CAVE_END):
+                case MAP_NUM(MAP_UNDERWATER_MARINE_CAVE):
+                case MAP_NUM(MAP_MARINE_CAVE_ENTRANCE):
+                case MAP_NUM(MAP_MARINE_CAVE_END):
+                case MAP_NUM(MAP_TERRA_CAVE_ENTRANCE):
+                case MAP_NUM(MAP_TERRA_CAVE_END):
                     VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 1);
                     return FALSE;
                 default:
@@ -3706,14 +3712,14 @@ bool8 AbnormalWeatherHasExpired(void)
             }
         }
 
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_ROUTE127))
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_UNDERWATER_ROUTE127))
         {
             switch (gSaveBlock1Ptr->location.mapNum)
             {
-                case MAP_NUM(UNDERWATER_ROUTE127):
-                case MAP_NUM(UNDERWATER_ROUTE129):
-                case MAP_NUM(UNDERWATER_ROUTE105):
-                case MAP_NUM(UNDERWATER_ROUTE125):
+                case MAP_NUM(MAP_UNDERWATER_ROUTE127):
+                case MAP_NUM(MAP_UNDERWATER_ROUTE129):
+                case MAP_NUM(MAP_UNDERWATER_ROUTE105):
+                case MAP_NUM(MAP_UNDERWATER_ROUTE125):
                     VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 1);
                     return FALSE;
                 default:
@@ -3749,18 +3755,18 @@ u32 GetMartEmployeeObjectEventId(void)
 {
     static const u8 sPokeMarts[][3] =
     {
-        { MAP_GROUP(OLDALE_TOWN_MART),     MAP_NUM(OLDALE_TOWN_MART),     1 },
-        { MAP_GROUP(LAVARIDGE_TOWN_MART),  MAP_NUM(LAVARIDGE_TOWN_MART),  1 }, 
-        { MAP_GROUP(FALLARBOR_TOWN_MART),  MAP_NUM(FALLARBOR_TOWN_MART),  1 },
-        { MAP_GROUP(VERDANTURF_TOWN_MART), MAP_NUM(VERDANTURF_TOWN_MART), 1 },
-        { MAP_GROUP(PETALBURG_CITY_MART),  MAP_NUM(PETALBURG_CITY_MART),  1 },
-        { MAP_GROUP(SLATEPORT_CITY_MART),  MAP_NUM(SLATEPORT_CITY_MART),  1 },
-        { MAP_GROUP(MAUVILLE_CITY_MART),   MAP_NUM(MAUVILLE_CITY_MART),   1 },
-        { MAP_GROUP(RUSTBORO_CITY_MART),   MAP_NUM(RUSTBORO_CITY_MART),   1 },
-        { MAP_GROUP(FORTREE_CITY_MART),    MAP_NUM(FORTREE_CITY_MART),    1 },
-        { MAP_GROUP(MOSSDEEP_CITY_MART),   MAP_NUM(MOSSDEEP_CITY_MART),   1 },
-        { MAP_GROUP(SOOTOPOLIS_CITY_MART), MAP_NUM(SOOTOPOLIS_CITY_MART), 1 },
-        { MAP_GROUP(BATTLE_FRONTIER_MART), MAP_NUM(BATTLE_FRONTIER_MART), 1 }
+        { MAP_GROUP(MAP_OLDALE_TOWN_MART),     MAP_NUM(MAP_OLDALE_TOWN_MART),     1 },
+        { MAP_GROUP(MAP_LAVARIDGE_TOWN_MART),  MAP_NUM(MAP_LAVARIDGE_TOWN_MART),  1 }, 
+        { MAP_GROUP(MAP_FALLARBOR_TOWN_MART),  MAP_NUM(MAP_FALLARBOR_TOWN_MART),  1 },
+        { MAP_GROUP(MAP_VERDANTURF_TOWN_MART), MAP_NUM(MAP_VERDANTURF_TOWN_MART), 1 },
+        { MAP_GROUP(MAP_PETALBURG_CITY_MART),  MAP_NUM(MAP_PETALBURG_CITY_MART),  1 },
+        { MAP_GROUP(MAP_SLATEPORT_CITY_MART),  MAP_NUM(MAP_SLATEPORT_CITY_MART),  1 },
+        { MAP_GROUP(MAP_MAUVILLE_CITY_MART),   MAP_NUM(MAP_MAUVILLE_CITY_MART),   1 },
+        { MAP_GROUP(MAP_RUSTBORO_CITY_MART),   MAP_NUM(MAP_RUSTBORO_CITY_MART),   1 },
+        { MAP_GROUP(MAP_FORTREE_CITY_MART),    MAP_NUM(MAP_FORTREE_CITY_MART),    1 },
+        { MAP_GROUP(MAP_MOSSDEEP_CITY_MART),   MAP_NUM(MAP_MOSSDEEP_CITY_MART),   1 },
+        { MAP_GROUP(MAP_SOOTOPOLIS_CITY_MART), MAP_NUM(MAP_SOOTOPOLIS_CITY_MART), 1 },
+        { MAP_GROUP(MAP_BATTLE_FRONTIER_MART), MAP_NUM(MAP_BATTLE_FRONTIER_MART), 1 }
     };
 
     u8 i;
@@ -4030,7 +4036,7 @@ void GetBattlePyramidHint(void)
 // Used to avoid a potential softlock if the player respawns on Dewford with no way off
 void ResetHealLocationFromDewford(void)
 {
-    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(DEWFORD_TOWN) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(DEWFORD_TOWN))
+    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(MAP_DEWFORD_TOWN) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(MAP_DEWFORD_TOWN))
     {
         SetLastHealLocationWarp(HEAL_LOCATION_PETALBURG_CITY);
     }

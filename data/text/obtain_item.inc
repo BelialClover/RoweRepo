@@ -12,6 +12,10 @@ gText_PutItemInPocket:: @ 8272A9A
 	.string "{PLAYER} put away {STR_VAR_2}\n"
 	.string "in the {STR_VAR_3} Pocket.$"
 
+gText_ItemSentToPC::
+	.string "{STR_VAR_2} was sent\n"
+	.string "to the PC.$"
+
 gText_PlayerFoundOneItem:: @ 8272ABF
 	.string "{PLAYER} found one {STR_VAR_2}!$"
 
@@ -36,7 +40,7 @@ gText_TheDecorWasTransferredToThePC:: @ 8272B48
 #else
 gText_ObtainedTheItem:: @ 8272A78
 	.string "Obtained {STR_VAR_2}!$"
-    
+
 gText_ObtainedTheItems::
     .string "Obtained {STR_VAR_1} {STR_VAR_2}!$"
 
@@ -46,6 +50,10 @@ gText_TheBagIsFull:: @ 8272A89
 gText_PutItemInPocket:: @ 8272A9A
 	.string "{PLAYER} put away {STR_VAR_2}\n"
 	.string "in the {STR_VAR_3} Pocket.$"
+
+gText_ItemSentToPC::
+	.string "{STR_VAR_2} was sent\n"
+	.string "to the PC.$"
 
 gText_PlayerFoundOneItem:: @ 8272ABF
 	.string "{PLAYER} found one {STR_VAR_2}!$"

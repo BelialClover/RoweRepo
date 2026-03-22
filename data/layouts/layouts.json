@@ -114,8 +114,8 @@
     {
       "id": "LAYOUT_DEWFORD_TOWN",
       "name": "DewfordTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 25,
+      "height": 25,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordTown/border.bin",
@@ -225,7 +225,7 @@
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
       "width": 60,
-      "height": 20,
+      "height": 25,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route107/border.bin",
@@ -5394,7 +5394,7 @@
     {
       "id": "LAYOUT_ROUTER1062",
       "name": "Router1062_Layout",
-      "width": 40,
+      "width": 35,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -6016,8 +6016,8 @@
       "name": "SevenIsland_TanobyRuins_MoneanChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_Cave_FRLG",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_MoneanChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_MoneanChamber/map.bin"
     },
@@ -6026,8 +6026,8 @@
       "name": "SevenIsland_TanobyRuins_LiptoppChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_LiptoppChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_LiptoppChamber/map.bin"
     },
@@ -6036,8 +6036,8 @@
       "name": "SevenIsland_TanobyRuins_WeepthChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_WeepthChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_WeepthChamber/map.bin"
     },
@@ -6046,8 +6046,8 @@
       "name": "SevenIsland_TanobyRuins_DilfordChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_DilfordChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_DilfordChamber/map.bin"
     },
@@ -6056,8 +6056,8 @@
       "name": "SevenIsland_TanobyRuins_ScufibChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_ScufibChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_ScufibChamber/map.bin"
     },
@@ -6066,8 +6066,8 @@
       "name": "SevenIsland_TanobyRuins_RixyChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_RixyChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_RixyChamber/map.bin"
     },
@@ -6076,8 +6076,8 @@
       "name": "SevenIsland_TanobyRuins_ViapoisChamber_Layout",
       "width": 23,
       "height": 17,
-      "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SevenIsland_TanobyRuins_ViapoisChamber/border.bin",
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins_ViapoisChamber/map.bin"
     },
@@ -6097,7 +6097,7 @@
       "width": 60,
       "height": 32,
       "primary_tileset": "gTileset_General_FRLG",
-      "secondary_tileset": "gTileset_BerryForest",
+      "secondary_tileset": "gTileset_Viridian_Forest",
       "border_filepath": "data/layouts/SixIsland_PatternBush/border.bin",
       "blockdata_filepath": "data/layouts/SixIsland_PatternBush/map.bin"
     },
@@ -6204,8 +6204,8 @@
     {
       "id": "LAYOUT_MT_EMBER_RUBY_PATH_B1F",
       "name": "MtEmber_RubyPath_B1F_Layout",
-      "width": 18,
-      "height": 16,
+      "width": 27,
+      "height": 19,
       "primary_tileset": "gTileset_General_FRLG",
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/MtEmber_RubyPath_B1F/border.bin",
@@ -6560,6 +6560,26 @@
       "secondary_tileset": "gTileset_Cave_FRLG",
       "border_filepath": "data/layouts/EightIsland_Cave_2F/border.bin",
       "blockdata_filepath": "data/layouts/EightIsland_Cave_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_INSIDE_OF_TRUCK2",
+      "name": "InsideOfTruck2_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/InsideOfTruck2/border.bin",
+      "blockdata_filepath": "data/layouts/InsideOfTruck2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_SEWERS_1F",
+      "name": "Mauville_Sewers_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MauvilleCityInside",
+      "border_filepath": "data/layouts/Mauville_Sewers_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Mauville_Sewers_1F/map.bin"
     }
   ]
 }

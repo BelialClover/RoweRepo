@@ -1,0 +1,311 @@
+
+//Legendary Pokemon
+script Common_EventScript_SetLegendaryDefaultData{
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+	setvar(VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER)
+	return
+}
+
+script TerraCave_End_EventScript_Groudon {
+	lockall
+	call(Common_EventScript_SetLegendaryDefaultData)
+    setflag(FLAG_MEGA_EVOLVE_WILD_POKEMON)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	waitmovement(0)
+	applymovement(LOCALID_GROUDON, TerraCave_End_Movement_GroudonApproach)
+	waitmovement(0)
+	waitse
+	playmoncry(SPECIES_GROUDON, 2)
+	delay(40)
+	waitmoncry
+	setvar(VAR_LAST_TALKED, LOCALID_GROUDON)
+    setwildbattlewithcustommoves(SPECIES_GROUDON, 75, ITEM_RED_ORB, MOVE_PRECIPICE_BLADES, MOVE_HEAT_CRASH, MOVE_HAMMER_ARM, MOVE_HEAVY_SLAM, 0, NATURE_ADAMANT)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	setvar(VAR_TEMP_1, 0)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_GROUDON)
+			setvar(VAR_SHOULD_END_ABNORMAL_WEATHER, 1)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Groudon dived into the magma"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script MarineCave_End_EventScript_Kyogre {
+	lockall
+	call(Common_EventScript_SetLegendaryDefaultData)
+    setflag(FLAG_MEGA_EVOLVE_WILD_POKEMON)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	waitmovement(0)
+	applymovement(LOCALID_KYOGRE, MarineCave_End_Movement_KyogreApproach)
+	waitmovement(0)
+	waitse
+	playmoncry(SPECIES_KYOGRE, 2)
+	delay(40)
+	waitmoncry
+	setvar(VAR_LAST_TALKED, LOCALID_KYOGRE)
+    setwildbattlewithcustommoves(SPECIES_KYOGRE, 75, ITEM_BLUE_ORB, MOVE_ORIGIN_PULSE, MOVE_ICE_BEAM, MOVE_THUNDER, MOVE_ANCIENT_POWER, 0, NATURE_MODEST)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	setvar(VAR_TEMP_1, 0)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_KYOGRE)
+			setvar(VAR_SHOULD_END_ABNORMAL_WEATHER, 1)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Groudon dived into the magma"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Mesprit_Encounter{
+    lock
+    faceplayer
+	call(Common_EventScript_SetLegendaryDefaultData)
+    playmoncry(SPECIES_MESPRIT, 2)
+    msgbox(format("Mesprit: Mes..."))
+    setwildbattlewithcustommoves(SPECIES_MESPRIT, 75, ITEM_LEFTOVERS, MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_GRASS_KNOT, MOVE_POWER_GEM, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_MESPRIT)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Mesprit teleported to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Landorus_Encounter{
+    lock
+    faceplayer
+	call(Common_EventScript_SetLegendaryDefaultData)
+    playmoncry(SPECIES_LANDORUS, 2)
+    msgbox(format("Landorus: Lan..."))
+    setwildbattlewithcustommoves(SPECIES_LANDORUS, 75, ITEM_LEFTOVERS, MOVE_EARTH_POWER, MOVE_SLUDGE_BOMB, MOVE_GRASS_KNOT, MOVE_CALM_MIND, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_LANDORUS)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Landorus away!"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Darkrai_Encounter{
+	call(Common_EventScript_SetLegendaryDefaultData)
+    setflag(FLAG_MEGA_EVOLVE_WILD_POKEMON)
+    playmoncry(SPECIES_DARKRAI, 2)
+    msgbox(format("Darkrai: Dar!"))
+    setwildbattlewithcustommoves(SPECIES_DARKRAI, 80, ITEM_DARKRAITE, MOVE_DARK_PULSE, MOVE_DARK_VOID, MOVE_PSYSHOCK, MOVE_SHADOW_BALL, 0, NATURE_TIMID)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_DARKRAI)
+            msgbox(format("The bad dream went away and {PLAYER} could rest peacefully."), MSGBOX_DEFAULT)
+            playfanfare(MUS_HEAL)
+            waitfanfare
+            special(HealPlayerParty)
+		    fadescreen(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            msgbox(format("The bad dream went away and {PLAYER} could rest peacefully."), MSGBOX_DEFAULT)
+            playfanfare(MUS_HEAL)
+            waitfanfare
+            special(HealPlayerParty)
+		    fadescreen(FADE_FROM_BLACK)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Cobalion_Encounter{
+    lock
+    faceplayer
+	call(Common_EventScript_SetLegendaryDefaultData)
+    playmoncry(SPECIES_COBALION, 2)
+    msgbox(format("Cobalion: Coba!"))
+    setwildbattlewithcustommoves(SPECIES_COBALION, 75, ITEM_STEEL_GEM, MOVE_POISON_JAB, MOVE_SACRED_SWORD, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE, 0, NATURE_ADAMANT)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_COBALION)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Cobalion escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Virizion_Encounter{
+    lock
+    faceplayer
+	call(Common_EventScript_SetLegendaryDefaultData)
+    playmoncry(SPECIES_VIRIZION, 2)
+    msgbox(format("Virizion: Viri!"))
+    setwildbattlewithcustommoves(SPECIES_VIRIZION, 75, ITEM_GRASS_GEM, MOVE_LEAF_BLADE, MOVE_SACRED_SWORD, MOVE_X_SCISSOR, MOVE_STONE_EDGE, 0, NATURE_ADAMANT)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_VIRIZION)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Virizion escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Keldeo_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_KELDEO, 2)
+	setvar(VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER)
+    msgbox(format("Keldeo: Kel!"))
+    //delay(40)
+    //waitmoncry
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_KELDEO, 75, ITEM_WATER_GEM, MOVE_SECRET_SWORD, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_AIR_SLASH, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_KELDEO)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Keldeo escaped to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}
+
+script Common_EventScript_Victini_Encounter{
+    lock
+    faceplayer
+    playmoncry(SPECIES_VICTINI, 2)
+	setvar(VAR_BOSS_BATTLE_HP_MULTIPIER, LEGENDARY_HP_MULTIPLIER)
+    msgbox(format("Victini: Vic!"))
+    setflag(FLAG_TOTEM_BATTLE)
+    setvar(VAR_NUM_WILD_POKEMON_STAT_BOOST, 2)
+    setwildbattlewithcustommoves(SPECIES_VICTINI, 75, ITEM_FIRE_GEM, MOVE_V_CREATE, MOVE_PSYSHOCK, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, 0, NATURE_TIMID)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    switch(var(VAR_RESULT)){
+        case B_OUTCOME_CAUGHT:
+            setflag(FLAG_DEFEATED_VICTINI)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        break
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_WON:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            removeobject(VAR_LAST_TALKED)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(format("Victini teleported to somewhere"), MSGBOX_DEFAULT)
+        break
+    }
+    release
+    end
+}

@@ -7,6 +7,12 @@ script Debug_ShowFieldMessageStringVar4{
 }
 
 script Debug_CheatStart{
+	goto(Common_EventScript_Alpha_Starmie)
 	trainerbattle_single(TRAINER_DEBUG_OPPONENT, format("Debug Battle Start!"), format("Is this for real?"))
 	msgbox(format("..."), MSGBOX_AUTOCLOSE)
+}
+
+script Common_EventScript_Refresh_Map {
+	warp(MAP_LITTLEROOT_TOWN, 192, 192, 192)
+	end
 }

@@ -297,6 +297,21 @@ u8 GetPlayerUsableMons(void)
     return PartySize;
 }
 
+u8 GetPlayerHighestLevel(void)
+{
+    int i;
+	u8 partyLevel = 1;
+    struct Pokemon *pokemon = gPlayerParty;
+
+    for (i = 0; i < PARTY_SIZE; i++, pokemon++)
+    {
+    	u16 level = GetMonData(pokemon, MON_DATA_LEVEL);
+        if (isMonUsableInBattle(pokemon, FALSE) && partyLevel < level)
+            partyLevel = level;
+    }
+    return partyLevel;
+}
+
 u8 GetPlayerPartySize(void)
 {
     int i;
@@ -327,7 +342,7 @@ u16 getScalingData(u8 type){
 	u8 numBadges  = GetNumBadges();
 	u16 data      = gScalingInfo[difficulty][type][numBadges];
 
-	//mgba_printf(MGBA_LOG_WARN, "getScalingData difficulty %d numBadges %d data %d", difficulty, numBadges, data);
+	//DebugPrint("getScalingData difficulty %d numBadges %d data %d", difficulty, numBadges, data);
 
 	return data;
 }
@@ -346,7 +361,7 @@ u16 GetCurrentLevelCap(void)
 	u16 level          = getScalingData(SCALING_BOSS_MON_LEVEL) + getScalingData(SCALING_BOSS_MAX_MON_NUM);
 	bool8 gameFinished = (GetNumBadges() == SCALING_ENDGAME);
 
-	//mgba_printf(MGBA_LOG_WARN, "GetCurrentLevelCap level %d gameFinished %d", level, gameFinished);
+	//DebugPrint("GetCurrentLevelCap level %d gameFinished %d", level, gameFinished);
 
 	if(FlagGet(FLAG_LITTLE_CUP_MODE) && !FlagGet(FLAG_GRINDLESS_MODE))
 		return LITLE_CUP_LEVEL;
@@ -391,12 +406,12 @@ u8 getLevelCapLevel(void){
     u8 level         = (NUM_DIFFICULTIES - 1) - VarGet(VAR_LEVEL_CAP_LEVEL);
 	u8 maxDifficulty = GetGameDifficultyLevel();
 
-	//mgba_printf(MGBA_LOG_WARN, "getLevelCapLevel level %d maxDifficulty %d", level, maxDifficulty);
+	//DebugPrint("getLevelCapLevel level %d maxDifficulty %d", level, maxDifficulty);
 
-    if(level <= GetGameDifficultyLevel())
+    if(level <= maxDifficulty)
         return level;
     else
-        return NUM_DIFFICULTIES - 1;
+        return NUM_DIFFICULTIES - 1; //Strict Level Cap
 }
 
 u16 GetWhiteoutMoney(void){
@@ -489,6 +504,8 @@ u16 GetWildPokemon(u16 basespecies, u8 level, u16 heldItem){
 	u8 BadgesMidgame = 5;
 	u8 BadgesLategame = 7;
 	
+	//DebugPrint("GetWildPokemon basespecies: %s level: %d  heldItem: %s", DebugStr(gSpeciesNames[basespecies]), level, DebugStr(ItemId_GetName(heldItem)));
+	
 	if(basespecies == SPECIES_AUDINO || basespecies == SPECIES_RELICANTH)
 		return basespecies;
 	else if(FlagGet(FLAG_RANDOMIZED_MODE) && !FlagGet(FLAG_PARTY_RANDOMIZED_MODE) && !FlagGet(FLAG_TRUE_RANDOM_MODE) && IsPokemonValid(GetRandomFirstStage(basespecies)))
@@ -580,12 +597,10 @@ u16 GetRandomizedWildPokemon(u16 basespecies, u8 level, u16 heldItem){
 	u8 BadgesMidgame = 5;
 	u8 BadgesLategame = 7;
 	
-	if(FlagGet(FLAG_NO_EVOLUTION_MODE)|| FlagGet(FLAG_LITTLE_CUP_MODE))
+	if(FlagGet(FLAG_NO_EVOLUTION_MODE) || FlagGet(FLAG_LITTLE_CUP_MODE))
 		return GetSpeciesFirstStage(basespecies);
 	
-	if (heldItem == ITEM_EVERSTONE || heldItem == ITEM_EVIOLITE ||
-	    !GetSetPokedexFlag(SpeciesToNationalPokedexNum(basespecies), FLAG_GET_SEEN) ||
-	    level == getMinWildPokemonLevel())
+	if (heldItem == ITEM_EVERSTONE || heldItem == ITEM_EVIOLITE || !GetSetPokedexFlag(SpeciesToNationalPokedexNum(basespecies), FLAG_GET_SEEN) ||  level == getMinWildPokemonLevel())
 		return basespecies;
 	
 	if(FlagGet(FLAG_GRINDLESS_MODE) || FlagGet(FLAG_LITTLE_CUP_MODE))
@@ -697,7 +712,6 @@ u16 GetTrainerPokemon(u16 basespecies, u8 level){
 		case EVO_LEVEL_EXIOLITE:
 		case EVO_MELMETAL:
 		case EVO_ALCREMIE:
-		//case EVO_EXIOLITE:
 		case EVO_LEVEL_RAIN:
 		case EVO_LEVEL_DUSK:
 		case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
@@ -711,7 +725,7 @@ u16 GetTrainerPokemon(u16 basespecies, u8 level){
 					return gEvolutionTable[split][0].targetSpecies;
 			}
 		break;
-		
+
 		//Midgame Evolutions
 		case EVO_TRADE_SPECIFIC_MON:
 		case EVO_BEAUTY:
@@ -775,7 +789,7 @@ u16 GetRandomizedTrainerPokemon(u16 basespecies, u8 level){
 		case EVO_LEVEL_EXIOLITE:
 		case EVO_MELMETAL:
 		case EVO_ALCREMIE:
-		//case EVO_EXIOLITE:
+		case EVO_EXIOLITE:
 		case EVO_LEVEL_RAIN:
 		case EVO_LEVEL_DUSK:
 		case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
@@ -866,7 +880,17 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 					SPECIES_SLOWBRO,
 					SPECIES_SLOWKING,
 				};
-				
+
+				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
+			}
+		break;
+		case SPECIES_SLOWPOKE_GALAR:
+			if(level >= 36){
+				u16 PossibleEvo[] = {
+					SPECIES_SLOWBRO_GALAR,
+					SPECIES_SLOWKING_GALAR,
+				};
+
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
 			}
 		break;
@@ -931,8 +955,8 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			}
 		break;
 		case SPECIES_BURMY:
-		case SPECIES_BURMY_SANDY_CLOAK:
-		case SPECIES_BURMY_TRASH_CLOAK:
+		case SPECIES_BURMY_SANDY:
+		case SPECIES_BURMY_TRASH:
 			if(level >= 20){
 				u16 PossibleEvo[] = {
 					SPECIES_WORMADAM,
@@ -968,7 +992,7 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 					SPECIES_VIVILLON_OCEAN,
 					SPECIES_VIVILLON_JUNGLE,
 					SPECIES_VIVILLON_FANCY,
-					SPECIES_VIVILLON_POKE_BALL,
+					SPECIES_VIVILLON_POKEBALL,
 				};
 					
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1016,8 +1040,8 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			if(!disablealternateforms){
 				u16 PossibleEvo[] = {
 					SPECIES_BURMY,
-					SPECIES_BURMY_SANDY_CLOAK,
-					SPECIES_BURMY_TRASH_CLOAK,
+					SPECIES_BURMY_SANDY,
+					SPECIES_BURMY_TRASH,
 				};
 				
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1027,8 +1051,8 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			if(!disablealternateforms){
 				u16 PossibleEvo[] = {
 					SPECIES_WORMADAM,
-					SPECIES_WORMADAM_SANDY_CLOAK,
-					SPECIES_WORMADAM_TRASH_CLOAK,
+					SPECIES_WORMADAM_SANDY,
+					SPECIES_WORMADAM_TRASH,
 				};
 				
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1070,15 +1094,15 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			if(!disablealternateforms){
 				u16 PossibleEvo[] = {
 					SPECIES_FURFROU,
-					SPECIES_FURFROU_HEART_TRIM,
-					SPECIES_FURFROU_STAR_TRIM,
-					SPECIES_FURFROU_DIAMOND_TRIM,
-					SPECIES_FURFROU_DEBUTANTE_TRIM,
-					SPECIES_FURFROU_MATRON_TRIM,
-					SPECIES_FURFROU_DANDY_TRIM,
-					SPECIES_FURFROU_LA_REINE_TRIM,
-					SPECIES_FURFROU_KABUKI_TRIM,
-					SPECIES_FURFROU_PHARAOH_TRIM,
+					SPECIES_FURFROU_HEART,
+					SPECIES_FURFROU_STAR,
+					SPECIES_FURFROU_DIAMOND,
+					SPECIES_FURFROU_DEBUTANTE,
+					SPECIES_FURFROU_MATRON,
+					SPECIES_FURFROU_DANDY,
+					SPECIES_FURFROU_LA_REINE,
+					SPECIES_FURFROU_KABUKI,
+					SPECIES_FURFROU_PHARAOH,
 				};
 				
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1131,7 +1155,7 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 				u16 PossibleEvo[] = {
 					SPECIES_ORICORIO,
 					SPECIES_ORICORIO_POM_POM,
-					SPECIES_ORICORIO_PA_U,
+					SPECIES_ORICORIO_PAU,
 					SPECIES_ORICORIO_SENSU,
 				};
 				
@@ -1142,7 +1166,7 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			if(!disablealternateforms){
 				u16 PossibleEvo[] = {
 					SPECIES_INDEEDEE,
-					SPECIES_INDEEDEE_FEMALE,
+					SPECIES_INDEEDEE_F,
 				};
 				
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1152,7 +1176,7 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 			if(!disablealternateforms){
 				u16 PossibleEvo[] = {
 					SPECIES_MEOWSTIC,
-					SPECIES_MEOWSTIC_FEMALE,
+					SPECIES_MEOWSTIC_F,
 				};
 				
 				return PossibleEvo[rand % (sizeof(PossibleEvo)/sizeof(PossibleEvo[0]))];
@@ -1167,40 +1191,40 @@ u16 SplitEvolutions(u16 basespecies, u8 level){
 	//Regional forms
 	switch(basespecies){
 		case SPECIES_RAICHU:
-			return SPECIES_RAICHU_ALOLAN;
+			return SPECIES_RAICHU_ALOLA;
 		break;
 		case SPECIES_EXEGGUTOR:
-			return SPECIES_EXEGGUTOR_ALOLAN;
+			return SPECIES_EXEGGUTOR_ALOLA;
 		break;
 		case SPECIES_MAROWAK:
-			return SPECIES_MAROWAK_ALOLAN;
+			return SPECIES_MAROWAK_ALOLA;
 		break;
 		case SPECIES_MR_MIME:
-			return SPECIES_MR_MIME_GALARIAN;
+			return SPECIES_MR_MIME_GALAR;
 		break;
 		case SPECIES_WEEZING:
-			return SPECIES_WEEZING_GALARIAN;
+			return SPECIES_WEEZING_GALAR;
 		break;
 		case SPECIES_TYPHLOSION:
-			return SPECIES_TYPHLOSION_HISUIAN;
+			return SPECIES_TYPHLOSION_HISUI;
 		break;
 		case SPECIES_DECIDUEYE:
-			return SPECIES_DECIDUEYE_HISUIAN;
+			return SPECIES_DECIDUEYE_HISUI;
 		break;
 		case SPECIES_SAMUROTT:
-			return SPECIES_SAMUROTT_HISUIAN;
+			return SPECIES_SAMUROTT_HISUI;
 		break;
 		case SPECIES_SLIGGOO:
-			return SPECIES_SLIGGOO_HISUIAN;
+			return SPECIES_SLIGGOO_HISUI;
 		break;
 		case SPECIES_AVALUGG:
-			return SPECIES_AVALUGG_HISUIAN;
+			return SPECIES_AVALUGG_HISUI;
 		break;
 		case SPECIES_BRAVIARY:
-			return SPECIES_BRAVIARY_HISUIAN;
+			return SPECIES_BRAVIARY_HISUI;
 		break;
 		case SPECIES_LILLIGANT:
-			return SPECIES_LILLIGANT_HISUIAN;
+			return SPECIES_LILLIGANT_HISUI;
 		break;
 	}
 	
@@ -1541,7 +1565,7 @@ bool8 CheckIfPokemonIsUsableByTrainer(u16 trainerNum, u16 species){
 				return TRUE;
 		break;
 		case TRAINER_CLASS_TRIATHLETE:
-			if(SpeciesHasType(species, TYPE_FLYING) || SpeciesHasEggGroup(species, EGG_GROUP_FLYING) || gBaseStats[species].evYield_Speed == 2 || SpeciesCanHaveAbility(species, ABILITY_RUN_AWAY))
+			if(SpeciesHasType(species, TYPE_FLYING) || SpeciesHasEggGroup(species, EGG_GROUP_FLYING) || gBaseStats[species].evYield_Speed == 2 || SpeciesCanHaveAbility(species, ABILITY_SPEED_BOOST))
 				return TRUE;
 		break;
 		case TRAINER_CLASS_SCHOOL_KID:
@@ -1662,12 +1686,12 @@ u16 GetCurrentMapWildPokemon(u8 isWaterMon, u8 index)
 		if (landMonsInfo == NULL)
 			return SPECIES_NONE;
 		else
-			return landMonsInfo->wildPokemon[index%11].species;
+			return landMonsInfo->wildPokemon[index % 11].species;
 	}
 	else if (waterMonsInfo == NULL)
         return SPECIES_NONE;
 	else
-		return waterMonsInfo->wildPokemon[index%4].species;
+		return waterMonsInfo->wildPokemon[index % 4].species;
 	
 	return SPECIES_NONE;
 }
@@ -2193,7 +2217,7 @@ void RandomizeEverything(void){
         do{
             costume = Random() % NUM_COSTUMES - 1;
         }
-        while(costume == DP_COSTUME || costume == BW_COSTUME || costume >= NUM_COSTUMES);
+        while(costume == BW_COSTUME || costume >= NUM_COSTUMES);
     }
     else{
         do{
@@ -2201,8 +2225,17 @@ void RandomizeEverything(void){
         }
         while(costume >= NUM_COSTUMES);
     }
-    //mgba_printf(MGBA_LOG_WARN, "DebugAction_Util_GiveRandomTeam costume %d, gender %d", costume, gender);
+    //DebugPrint("DebugAction_Util_GiveRandomTeam costume %d, gender %d", costume, gender);
     VarSet(VAR_COSTUME_NUMBER, costume);
+}
+
+void RestorePartyPPMoves(void){
+	u8 i;
+
+	for(i = 0; i < PARTY_SIZE; i++){
+		if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+			CalculateMonStats(&gPlayerParty[i]);
+	}
 }
 
 void RandomizeIfSpeciesNone(void)
@@ -2387,18 +2420,18 @@ u16 GetRandomItem(u16 species, u16 ability, u8 count, bool8 canMega)
 		case SPECIES_PICHU:
 		case SPECIES_PIKACHU:
 		case SPECIES_RAICHU:
-		case SPECIES_RAICHU_ALOLAN:
+		case SPECIES_RAICHU_ALOLA:
 		case SPECIES_MINUN:
 		case SPECIES_PLUSLE:
 			item = ITEM_LIGHT_BALL;
 		break;
 		case SPECIES_FARFETCHD:
-		case SPECIES_FARFETCHD_GALARIAN:
+		case SPECIES_FARFETCHD_GALAR:
 		case SPECIES_SIRFETCHD:
 			item = ITEM_STICK;
 		break;
 		case SPECIES_CUBONE:
-		case SPECIES_MAROWAK_ALOLAN:
+		case SPECIES_MAROWAK_ALOLA:
 		case SPECIES_MAROWAK:
 			item = ITEM_THICK_CLUB;
 		break;
@@ -2903,7 +2936,7 @@ struct Pokemon CreateMonFromPartyRamData(u8 num){
 
 	
 	if(FlagGet(FLAG_MGBA_PRINT_ENABLED))
-		mgba_printf(MGBA_LOG_WARN, "Species %d", GetMonData(&mon, MON_DATA_SPECIES));
+		DebugPrint("Species %d", GetMonData(&mon, MON_DATA_SPECIES));
 
     SetMonData(&mon, MON_DATA_HELD_ITEM,        &heldItem);
     SetMonData(&mon, MON_DATA_NATURE,    &nature);
@@ -3054,7 +3087,7 @@ bool8 CheckRamForPasswordTrainer(void){
         species = GetMonData(&newMon, MON_DATA_SPECIES);
 		if(species == SPECIES_NONE){
 			if(FlagGet(FLAG_MGBA_PRINT_ENABLED))
-				mgba_printf(MGBA_LOG_WARN, "Check %d Failed", i);
+				DebugPrint("Check %d Failed", i);
 			return FALSE;
 		}
 	}

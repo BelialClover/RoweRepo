@@ -1,3 +1,8 @@
+#define SIGNATURE_MOVE_DESCRIPTION_WIDTH  224
+#define SIGNATURE_MOVE_DESCRIPTION_FONT  8 // FONT_SMALL_NARROW
+#define FORMAT_SIGNATURE_MOVE_DESCRIPTION(str) _f(SIGNATURE_MOVE_DESCRIPTION_FONT, SIGNATURE_MOVE_DESCRIPTION_WIDTH, str)
+#define DEFINE_SIGNATURE_MOVE_DESCRIPTION(str) .summaryScreen_description = FORMAT_SIGNATURE_MOVE_DESCRIPTION(str)
+
 const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
     // Kanto ---------------------------------------------------------------------------------------------------------------------------------------------
     [SPECIES_BULBASAUR] =
@@ -26,11 +31,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 40 BP move that seeds\n"
-            "the target."
-        ),
+        .unlockedLevel = 10,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 40 BP move that seeds the target."),
     },
 
     [SPECIES_IVYSAUR] =
@@ -56,10 +59,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 2 hit 35 BP move that can\n"
-            "seed the target."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 2 hit 35 BP move that can seed the target."),
     },
 
     [SPECIES_VENUSAUR] =
@@ -70,21 +71,30 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 140,
-                .argument     = SIGNATURE_POWER_CHANGE_IN_CONDITIONS,
-                .chance       = SIGNATURE_CONDITION_WEATHER_SUN,
+                .variable     = 100,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 120,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_WEATHER_SUN,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_EFFECT_CHANGE,
                 .variable     = EFFECT_HIT,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 20, //10% of its max HP
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Always charges in one turn, becomes a 140BP\n"
-            "move in the sun."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move normally and 120BP in the sun, always charges in one turn and restores 20% of the damage done as HP."),
     },
 
     [SPECIES_VENUSAUR_MEGA] =
@@ -95,21 +105,69 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 140,
-                .argument     = SIGNATURE_POWER_CHANGE_IN_CONDITIONS,
-                .chance       = SIGNATURE_CONDITION_WEATHER_SUN,
+                .variable     = 110,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 130,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_WEATHER_SUN,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_EFFECT_CHANGE,
                 .variable     = EFFECT_HIT,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 25, //20% of its max HP
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Always charges in one turn, becomes a 140BP\n"
-            "move in the sun."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 110BP move normally and 130BP in the sun, always charges in one turn and restores 25% of the damage done as HP."),
+    },
+
+    [SPECIES_VENUSAUR_MEGA_G] =
+    {
+        .move = MOVE_SOLAR_BEAM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 130,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_WEATHER_SUN,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 25, //20% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_PHYSICAL,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a physical 110BP move normally and 130BP in the sun, always charges in one turn and restores 25% of the damage done as HP."),
     },
 
     [SPECIES_CHARMANDER] =
@@ -138,11 +196,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 30 BP move that burns\n"
-            "the target."
-        ),
+        .unlockedLevel = 10,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 30 BP move that burns the target."),
     },
 
     [SPECIES_CHARIZARD] =
@@ -153,7 +209,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_EFFECT_CHANCE,
-                .variable     = 40,
+                .variable     = 30,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
@@ -161,12 +217,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_ROCK,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Has a 30% chance to burn the target\n"
-            "and is super effective against\n"
-            "Rock types."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a 30% chance to burn the target and is super effective against Rock types."),
     },
 
     [SPECIES_CHARIZARD_MEGA_Y] =
@@ -190,11 +243,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 110,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 110BP move that has a 40%\n"
-            "chance of burning and hits Rock types x2."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 110BP move that has a 40% chance of burning and hits Rock types x2."),
     },
 
     [SPECIES_CHARIZARD_MEGA_X] =
@@ -218,12 +269,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Fire/Dragon type move that\n"
-            "hits Rock types x2 and uses the\n"
-            "highest attacking stat."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fire/Dragon type move that hits Rock types x2 and uses the highest attacking stat."),
     },
 
     [SPECIES_BLASTOISE] =
@@ -238,25 +286,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_CONDITION_WEATHER_RAIN,
-            },
-            [SIGNATURE_MOVE_EFFECT_4] = 
-            {
-                .modification = SIGNATURE_MOD_CHANGE_TARGET,
-                .variable     = MOVE_TARGET_BOTH,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_MEGA_LAUNCHER_BOOST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 Accuracy move that ignores\n"
-            "target stat changes, gains priority\n"
-            "in rain and hits both targets."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 Accuracy move that ignores target stat changes and becomes a launcher move."),
     },
 
     [SPECIES_BLASTOISE_MEGA] =
@@ -271,20 +312,86 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_CONDITION_WEATHER_RAIN,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_MEGA_LAUNCHER_BOOST,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100 Accuracy move that ignores target stat changes and becomes a launcher move."),
+    },
+
+    [SPECIES_BLASTOISE_MEGA_G] =
+    {
+        .move = MOVE_HYDRO_PUMP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_MEGA_LAUNCHER_BOOST,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_PHYSICAL,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100 Accuracy move that ignores target stat changes and becomes a launcher move."),
+    },
+
+    [SPECIES_CATERPIE] =
+    {
+        .move = MOVE_STRING_SHOT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 40,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_SPEED,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_INFESTATION,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100 Accuracy move that ignores\n"
-            "target stat changes, gains priority\n"
-            "in rain and hits both targets."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 40 BP move that lowers the target speed and has a chance on infesting the target."),
     },
 
     [SPECIES_METAPOD] =
@@ -298,11 +405,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_DEFENSE_UP_2,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Raises the Defense of the\n"
-            "user twice."
-        ),
+        .unlockedLevel = FALSE,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Raises the Defense of the user twice."),
     },
 
     [SPECIES_BUTTERFREE] =
@@ -328,12 +433,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move, that can\n"
-            "poison the foe and set up tailwind\n"
-            "to its team."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move, that can poison the foe and set up tailwind to its team."),
     },
 
     [SPECIES_BUTTERFREE_MEGA] =
@@ -359,12 +461,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 95,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move that can poison the\n"
-            "foe and set up tailwind to its\n"
-            "team and has 95% accuracy."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move that can poison the foe and set up tailwind to its team and has 95% accuracy."),
     },
 
     [SPECIES_KAKUNA] =
@@ -378,11 +477,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_DEFENSE_UP_2,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Raises the Defense of the\n"
-            "user twice."
-        ),
+        .unlockedLevel = FALSE,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Raises the Defense of the user twice."),
     },
 
     [SPECIES_BEEDRILL] =
@@ -405,11 +502,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 45 BP move that hits Bug types x2\n"
-            "and ignores the target Defense changes."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45 BP move that hits Bug types x2 and ignores the target Defense changes."),
     },
 
     [SPECIES_BEEDRILL_MEGA] =
@@ -432,11 +527,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 50 BP move that hits Bug types x2\n"
-            "and ignores the target Defense changes."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50 BP move that hits Bug types x2 and ignores the target Defense changes."),
     },
 
     [SPECIES_RATICATE] =
@@ -454,14 +547,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that ignores"
-            "target stat changes.\n"
-        ),
+        .unlockedLevel = 33,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that ignores target stat changes."),
     },
 
-    [SPECIES_RATICATE_ALOLAN] =
+    [SPECIES_RATICATE_ALOLA] =
     {
         .move = MOVE_CRUNCH,
         .moveEffect =
@@ -476,11 +567,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that ignores"
-            "target stat changes.\n"
-        ),
+        .unlockedLevel = 33,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that ignores target stat changes."),
     },
 
     [SPECIES_FEAROW] =
@@ -503,11 +592,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_GROUND,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that hits Ground types x2\n"
-            "and ignores target stat changes"
-        ),
+        .unlockedLevel = 33,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that hits Ground types x2 and ignores target stat changes"),
     },
 
     [SPECIES_PICHU] =
@@ -528,15 +615,19 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_ADD_RECKOIL,
-                .variable     = 25,
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 35, //25% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
             },
         },
         .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a recoil 130 BP move that has a\n"
-            "20% chance of setting electric terrain."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a recoil 130 BP move that has a 20% chance of setting electric terrain and uses the highest attacking stat for damage calculation."),
     },
 
     [SPECIES_PIKACHU] =
@@ -547,7 +638,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 115,
+                .variable     = 120,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
@@ -555,12 +646,21 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_SET_TERRAIN_ELECTRIC,
                 .chance       = 15,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 25, //25% of its max HP
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 115 BP move that has a 15%\n"
-            "chance of setting electric terrain."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a recoil 120 BP move that has a 15% chance of setting electric terrain and uses the highest attacking stat for damage calculation."),
     },
 
     [SPECIES_RAICHU] =
@@ -577,17 +677,103 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_TERRAIN_ELECTRIC,
-                .chance       = 25,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 25, //25% of its max HP
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 120 BP move that has a 25%\n"
-            "chance of setting electric terrain."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a recoil 120 BP move that has a chance of setting electric terrain and uses the highest attacking stat for damage calculation."),
     },
 
-    [SPECIES_RAICHU_ALOLAN] =
+    [SPECIES_RAICHU_MEGA_X] =
+    {
+        .move = MOVE_VOLT_TACKLE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 125,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_TERRAIN_ELECTRIC,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 25, //25% of its max HP
+            },
+        },
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a recoil 125 BP move that has a chance of setting electric terrain, hits super effective against electric types and ignores the target stat changes."),
+    },
+
+    [SPECIES_RAICHU_MEGA_Y] =
+    {
+        .move = MOVE_VOLT_TACKLE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 125,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_TERRAIN_ELECTRIC,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_REMOVE_FLAG,
+                .variable     = FLAG_MAKES_CONTACT,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 25, //25% of its max HP
+            },
+        },
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an special 125 BP recoil move that has a chance of setting electric terrain, can paralyze the target and does not make contact."),
+    },
+
+    [SPECIES_RAICHU_ALOLA] =
     {
         .move = MOVE_VOLT_TACKLE,
         .moveEffect =
@@ -609,12 +795,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_PSYCHIC,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 120 BP Electric and Psychic\n"
-            "type move that has a 15% chance\n"
-            "of setting electric terrain"
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 120 BP Electric and Psychic type move that has a 15% chance of setting electric terrain"),
     },
 
     [SPECIES_ARBOK] =
@@ -638,13 +821,140 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
                 .chance       = 30,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SET_HEAL_BLOCK,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95BP moves that hit steel\n"
-            "types x2 and has a 30% chance of\n"
-            "paralyzing the target"
-        ),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP moves that hit steel types x2 and has a 30% chance of paralyzing the target and blocks healing for 5 turns"),
+    },
+
+    [SPECIES_JIGGLYPUFF] =
+    {
+        .move = MOVE_SING,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SLEEP,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 80,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 30 BP move with 80% accuracy that makes the target sleep."),
+    },
+
+    [SPECIES_WIGGLYTUFF] =
+    {
+        .move = MOVE_HYPER_VOICE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SLEEP,
+                .chance       = 20,  // Not a chance-based modification
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_FAIRY,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 100,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100 BP Fairy-type move that can make the target sleep."),
+    },
+
+    [SPECIES_VULPIX] =
+    {
+        .move = MOVE_WILL_O_WISP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 35,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HEX,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that burns the target and doubles in power when the target is affected by status problems."),
+    },
+
+    [SPECIES_NINETALES] =
+    {
+        .move = MOVE_WILL_O_WISP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 45,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HEX,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45 BP move that burns the target and doubles in power when the target is affected by status problems."),
     },
 
     [SPECIES_HYPNO] =
@@ -678,12 +988,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 85,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move with 85% accuracy\n"
-            "that makes the target sleep and becomes\n"
-            "stronger in psychic terrain."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 30 BP move with 85% accuracy that makes the target sleep and becomes stronger in psychic terrain."),
     },
 
     [SPECIES_GOLEM] =
@@ -706,15 +1013,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_ROCK,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Rock-type move that ignores\n"
-            "the target defense and sets up Stealth\n"
-            "Rock when used."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Rock-type move that ignores the target defense and sets up Stealth Rock when used."),
     },
 
-    [SPECIES_GOLEM_ALOLAN] =
+    [SPECIES_GOLEM_ALOLA] =
     {
         .move = MOVE_EXPLOSION,
         .moveEffect =
@@ -734,12 +1038,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_ELECTRIC,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Electric-type move that ignores\n"
-            "the target defense and sets up Electric\n"
-            "Terrain when used."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Electric-type move that ignores the target defense and sets up Electric Terrain when used."),
     },
 
     [SPECIES_DUGTRIO] =
@@ -764,14 +1065,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move that hits the target 3 times,\n"
-            "can flinch the target."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that hits the target 3 times, can flinch the target."),
     },
 
-    [SPECIES_DUGTRIO_ALOLAN] =
+    [SPECIES_DUGTRIO_ALOLA] =
     {
         .move = MOVE_DIG,
         .moveEffect =
@@ -793,11 +1092,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move that hits the target 3 times,\n"
-            "can lower the target speed."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that hits the target 3 times, can lower the target speed."),
     },
 
     [SPECIES_DODUO] =
@@ -822,11 +1119,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 15,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 40 BP move that hits the target twice,\n"
-            "can raise the user attack."
-        ),
+        .unlockedLevel = 15,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 40 BP move that hits the target twice, can raise the user attack."),
     },
 
     [SPECIES_DODRIO] =
@@ -851,11 +1146,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move that hits the target 3 times,\n"
-            "can raise the user attack."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that hits the target 3 times, can raise the user attack."),
     },
 
     [SPECIES_MAGNETON] =
@@ -880,11 +1173,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10, //Effect per hit
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move that hits the target 3 times,\n"
-            "paralysis chances becomes 10% per hit."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that hits the target 3 times, paralysis chances becomes 10% per hit."),
     },
 
     [SPECIES_MEOWTH] =
@@ -910,11 +1201,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 28,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that can raise\n"
-            "the user speed and flinch the target."
-        ),
+        .unlockedLevel = 23,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move that can raise the user speed and flinch the target."),
     },
 
     [SPECIES_PERSIAN] =
@@ -941,13 +1230,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP move that can raise\n"
-            "the user speed or flinch the target."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that can raise the user speed or flinch the target."),
     },
 
-    [SPECIES_MEOWTH_ALOLAN] =
+    [SPECIES_MEOWTH_ALOLA] =
     {
         .move = MOVE_PAY_DAY,
         .moveEffect =
@@ -974,15 +1261,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = 28,
-        .summaryScreen_description = _(
-            "Becomes an special 80BP Dark Type\n"
-            "move that can raise Sp.Atk and uses\n"
-            "the attacker highest attacking stat."
-        ),
+        .unlockedLevel = 23,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a special 90BP Dark-type move that can raise Sp.Atk and uses the highest attacking stat."),
     },
 
-    [SPECIES_PERSIAN_ALOLAN] =
+    [SPECIES_PERSIAN_ALOLA] =
     {
         .move = MOVE_PAY_DAY,
         .moveEffect =
@@ -1010,14 +1294,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an special 80BP Dark Type\n"
-            "move that can raise Sp.Atk and uses\n"
-            "the attacker highest attacking stat."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a special 90BP Dark-type move that can raise Sp.Atk and uses the highest attacking stat."),
     },
 
-    [SPECIES_MEOWTH_GALARIAN] =
+    [SPECIES_MEOWTH_GALAR] =
     {
         .move = MOVE_PAY_DAY,
         .moveEffect =
@@ -1043,12 +1324,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel =28,
-        .summaryScreen_description = _(
-            "Becomes a 80BP Steel Type move\n"
-            "that can raise Attack and ignores\n"
-            "the target defense changes."
-        ),
+        .unlockedLevel = 23,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP Steel Type move that can raise Attack and ignores the target defense changes."),
     },
 
     [SPECIES_PERRSERKER] =
@@ -1078,11 +1356,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP Steel Type move\n"
-            "that can raise Attack and ignores\n"
-            "the target defense changes."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP Steel Type move that can raise Attack and ignores the target defense changes."),
     },
 
     [SPECIES_PARAS] =
@@ -1103,15 +1378,14 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_HEAL_WHEN_USED,
-                .chance       = 25, //25% of its own HP
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURE,
+                .argument     = 25, //25% of its max HP
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Grass type move that has a 30% chance\n"
-            "of seeding the target and cures the user."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Grass type move that has a 30% chance of seeding the target and cures the user."),
     },
 
     [SPECIES_PARASECT] =
@@ -1136,11 +1410,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Bug/Ghost type move that\n"
-            "has a 10% chance of cursing the target\n"
-            "and ignores the target defense."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Bug/Ghost type move that has a 10% chance of cursing the target and ignores the target defense."),
     },
 
     [SPECIES_CUBONE] =
@@ -1161,15 +1432,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_MOD_HIT_AIRBONE_TARGETS,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIT_IN_AIR,
+            },
+            
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Gains priority in sandstorms and hits\n"
-            "Flying types Super Effectively and ignores\n"
-            "the target defense."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Gains priority in sandstorms and hits Flying-types super effectively also hits airborne targets."),
     },
 
     [SPECIES_MAROWAK] =
@@ -1193,16 +1467,22 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
                 .variable     = TYPE_FLYING,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_HIT_AIRBONE_TARGETS,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIT_IN_AIR,
+            },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 75BP move that gains\n"
-            "priority in sandstorms and hits\n"
-            "Flying types Super Effectively"
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP move that gains priority in sandstorms, hits Flying-types super effectively and hits airborne targets."),
     },
 
-    [SPECIES_MAROWAK_ALOLAN] =
+    [SPECIES_MAROWAK_ALOLA] =
     {
         .move = MOVE_SHADOW_BONE,
         .moveEffect =
@@ -1219,12 +1499,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = STAT_ATK,
                 .chance       = 20,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIT_IN_AIR,
+            },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Has a 10% chance of cursing the\n"
-            "target or raise the user attack."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a 10% chance of cursing the target or raise the user attack."),
     },
 
     [SPECIES_EXEGGUTOR] =
@@ -1250,14 +1533,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that has a 25%\n"
-            "chance to confuse and uses the user\n"
-            "highest attacking stat."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that has a 25% chance to confuse and uses the user highest attacking stat."),
     },
 
-    [SPECIES_EXEGGUTOR_ALOLAN] =
+    [SPECIES_EXEGGUTOR_ALOLA] =
     {
         .move = MOVE_DRAGON_HAMMER,
         .moveEffect =
@@ -1275,11 +1555,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that has a 10%\n"
-            "chance to flinch and uses the user\n"
-            "highest attacking stat."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that has a 10% chance to flinch and uses the user highest attacking stat."),
     },
 
     [SPECIES_MACHAMP] =
@@ -1299,11 +1576,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 50,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95BP move that can has a 50%\n"
-            "chance of boosting the user defense."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that has a 50% chance of boosting the user defense."),
     },
 
     [SPECIES_MACHAMP_MEGA] =
@@ -1322,11 +1597,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = STAT_ATK,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that hits the\n"
-            "target attack stat rather than defense."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that hits the target attack stat rather than defense."),
     },
 
     [SPECIES_LICKITUNG] =
@@ -1341,8 +1614,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable     = EFFECT_ABSORB,
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURE,
+                .argument     = 25, //25% of its max HP
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
@@ -1350,12 +1624,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_NORMAL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 75BP Normal-type move\n"
-            "that cures 25% of the user health\n"
-            "when used."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP Normal-type move that restores 25% of the user's health."),
     },
 
     [SPECIES_LICKILICKY] =
@@ -1379,12 +1650,119 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_NORMAL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 85BP Normal-type move that\n"
-            "hits the target once but still doubles"
-            "from defense curl."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 85BP Normal-type move that hits the target once but still doubles from defense curl."),
+    },
+
+    [SPECIES_CLEFABLE] =
+    {
+        .move = MOVE_MOONBLAST,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_STEALTH_ROCK,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that may raise the user special attack and may set up Stealth Rocks."),
+    },
+
+    [SPECIES_CLEFABLE_MEGA] =
+    {
+        .move = MOVE_MOONBLAST,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_STEALTH_ROCK,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that may raise the user special attack and may set up Stealth Rocks."),
+    },
+
+    [SPECIES_VICTREEBEL] =
+    {
+        .move = MOVE_JAW_LOCK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_TRAP,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_POISON,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_POISON,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move traps the foe for two to five turns, doing damage each turn and has a high chance of poisoning the target."),
+    },
+
+    [SPECIES_VICTREEBEL_MEGA] =
+    {
+        .move = MOVE_JAW_LOCK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_TRAP,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_POISON,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_POISON,
+                .chance       = 50,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move traps the foe for two to five turns, doing damage each turn and has a high chance of poisoning the target."),
     },
 
     [SPECIES_HITMONLEE] =
@@ -1404,11 +1782,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Gets an accuracy of 100 and can\n"
-            "raise speed."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Gets an accuracy of 100 and can raise speed."),
     },
 
     [SPECIES_HITMONCHAN] =
@@ -1432,12 +1808,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 60BP move that ignores\n"
-            "the target stat changes and can raise\n"
-            "the user defense."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60BP move that ignores the target stat changes and can raise the user defense."),
     },
 
     [SPECIES_HITMONTOP] =
@@ -1462,11 +1835,31 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_SELF_REMOVE_HAZARDS,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 35BP move that can raise\n"
-            "Attack and removes hazards."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35BP move that can raise Attack and removes hazards."),
+    },
+
+    [SPECIES_ANNIHILAPE] =
+    {
+        .move = MOVE_RAGE_FIST,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 30, //30% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+        },
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Now heals a portion of the damage done and can hit normal-type targets."),
     },
 
     [SPECIES_VOLTORB] =
@@ -1491,13 +1884,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 70BP move that uses\n"
-            "the user's Speed stat to\n"
-            "calculate damage and can raise the\n"
-            "user speed."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP move that uses the user's Speed stat to calculate damage and can raise the user speed."),
     },
 
     [SPECIES_ELECTRODE] =
@@ -1523,15 +1912,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that uses\n"
-            "the user's Speed stat to\n"
-            "calculate damage and can raise the\n"
-            "user speed."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP move that uses the user's Speed stat to calculate damage and can raise the user speed."),
     },
 
-    [SPECIES_VOLTORB_HISUIAN] =
+    [SPECIES_VOLTORB_HISUI] =
     {
         .move = MOVE_ENERGY_BALL,
         .moveEffect =
@@ -1553,15 +1938,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 70BP move that uses the user's\n"
-            "Speed stat to calculate damage and can\n"
-            "raise the user speed."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP move that uses the user's Speed stat to calculate damage and can raise the user speed."),
     },
 
-    [SPECIES_ELECTRODE_HISUIAN] =
+    [SPECIES_ELECTRODE_HISUI] =
     {
         .move = MOVE_ENERGY_BALL,
         .moveEffect =
@@ -1584,11 +1966,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that uses the user's\n"
-            "Speed stat to calculate damage and can\n"
-            "raise the user speed."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP move that uses the user's Speed stat to calculate damage and can raise the user speed."),
     },
 
     [SPECIES_KOFFING] =
@@ -1612,11 +1991,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = 35,
-        .summaryScreen_description = _(
-            "Becomes a 60BP move that has 90%\n"
-            "chance of poisoning the target\n"
-            "with 90 accuracy."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60BP move that has 90% chance of poisoning the target with 90 accuracy."),
     },
 
     [SPECIES_WEEZING] =
@@ -1641,13 +2018,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 45BP move that has 100%\n"
-            "chance of poisoning the target\n"
-            "with 95 accuracy."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45BP move that has 100% chance of poisoning the target with 95 accuracy."),
     },
 
-    [SPECIES_WEEZING_GALARIAN] =
+    [SPECIES_WEEZING_GALAR] =
     {
         .move = MOVE_SMOG,
         .moveEffect =
@@ -1674,10 +2049,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 40BP move that has 100%\n"
-            "chance of poisoning the target\n"
-            "with 95 accuracy and gains the fairy type."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45BP move that has 100% chance of poisoning the target with 95 accuracy and gains the Fairy type."),
     },
 
     [SPECIES_STARYU] =
@@ -1712,10 +2085,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = MOVE_TARGET_SELECTED,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 50BP Water-type priority move that\n"
-            "can confuse the foe, hits a single target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50BP Water-type priority move that can confuse the foe, hits a single target."),
     },
 
     [SPECIES_STARMIE] =
@@ -1750,10 +2122,51 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = MOVE_TARGET_SELECTED,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 60BP Water-type priority move that\n"
-            "can confuse the foe, hits a single target."),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60BP Water-type priority move that can confuse the foe, hits a single target."),
+    },
+
+    [SPECIES_STARMIE_MEGA] =
+    {
+        .move = MOVE_SWIFT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_WATER,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PRIORITY,
+                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CONFUSION,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_SELECTED,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_PHYSICAL,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP Physical Water-type priority move that can confuse the foe, hits a single target."),
     },
 
     [SPECIES_CLOYSTER] =
@@ -1774,9 +2187,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Water-type move that\n"
-            "can set up spikes."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water-type move that can set up spikes."),
     },
 
     [SPECIES_ARCANINE] =
@@ -1801,13 +2213,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70 BP Fire type move\n"
-            "that can burn the target."),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP Fire type move that can burn the target."),
     },
 
-    [SPECIES_ARCANINE_HISUIAN] =
+    [SPECIES_ARCANINE_HISUI] =
     {
         .move = MOVE_EXTREME_SPEED,
         .moveEffect =
@@ -1829,10 +2240,71 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70 BP Rock type move\n"
-            "that can burn the target."),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP Rock type move that can burn the target."),
+    },
+
+    [SPECIES_SMOOCHUM] =
+    {
+        .move = MOVE_DRAINING_KISS,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_PSYCHIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP Psychic-type move that may infatuate the target, ignores defense changes."),
+    },
+
+    [SPECIES_JYNX] =
+    {
+        .move = MOVE_DRAINING_KISS,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ICE,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Ice-type move that may infatuate the target, ignores defense changes."),
     },
 
     [SPECIES_TAUROS] =
@@ -1843,16 +2315,21 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 110,
+                .variable     = 120,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 25, //25% of its max HP
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 110 BP move."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 120 BP recoil move."),
     },
 
-    [SPECIES_TAUROS_PALDEAN_AQUA_BREED] =
+    [SPECIES_TAUROS_PALDEA_AQUA] =
     {
         .move = MOVE_RAGING_BULL,
         .moveEffect =
@@ -1864,12 +2341,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Water-type move."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water-type move."),
     },
 
-    [SPECIES_TAUROS_PALDEAN_BLAZE_BREED] =
+    [SPECIES_TAUROS_PALDEA_BLAZE] =
     {
         .move = MOVE_RAGING_BULL,
         .moveEffect =
@@ -1881,12 +2357,11 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Fire-type move."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fire-type move."),
     },
 
-    [SPECIES_TAUROS_PALDEAN_COMBAT_BREED] =
+    [SPECIES_TAUROS_PALDEA_COMBAT] =
     {
         .move = MOVE_RAGING_BULL,
         .moveEffect =
@@ -1898,26 +2373,90 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Fighting-type move."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fighting-type move."),
     },
 
-    [SPECIES_BOUFFALANT] =
+    [SPECIES_CHANSEY] =
     {
-        .move = MOVE_HEAD_CHARGE,
+        .move = MOVE_SOFT_BOILED,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_DEF,
+                .chance       = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_HEAL_STATUS,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a high chance of boosting its own defense and curing its own status problems."),
+    },
+
+    [SPECIES_BLISSEY] =
+    {
+        .move = MOVE_SOFT_BOILED,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_DEF,
+                .chance       = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_HEAL_STATUS,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a high chance of boosting its own defense and curing its own status problems."),
+    },
+
+    [SPECIES_MAGIKARP] =
+    {
+        .move = MOVE_SPLASH,
         .moveEffect =
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 140,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ACCURACY_DOWN_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_BOTH,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 140 BP move."
-        ),
+        .unlockedLevel = 99,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20 BP move that targets both enemies and lowers their accuracy."),
     },
 
     [SPECIES_GYARADOS] =
@@ -1941,11 +2480,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a single hit 100 BP Flying-type\n"
-            "move that dos not lock the user."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a single hit 100 BP Flying-type move that does not lock the user."),
     },
 
     [SPECIES_GYARADOS_MEGA] =
@@ -1969,11 +2506,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a single hit 110 BP Water-type\n"
-            "move that dos not lock the user."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a single hit 110 BP Water-type move that does not lock the user."),
     },
 
     [SPECIES_LAPRAS] =
@@ -1984,8 +2519,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_FREEZE,
-                .chance       = 10,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FROSTBITE,
+                .chance       = 20,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
@@ -1998,11 +2533,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = MOVE_TARGET_BOTH,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Water and Ice type move\n"
-            "that can freeze the target, does not hit allies."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water and Ice type move that can frostbite the target, does not hit allies."),
     },
 
     [SPECIES_LAPRAS_MEGA] =
@@ -2013,7 +2546,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_FREEZE,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FROSTBITE,
                 .chance       = 25,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
@@ -2027,11 +2560,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = MOVE_TARGET_BOTH,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Water and Ice type move\n"
-            "that can freeze the target, does not hit allies."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water and Ice type move that can frostbite the target, does not hit allies."),
     },
 
     [SPECIES_DITTO] =
@@ -2046,7 +2577,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "Becomes a Priority move."),
     },
 
@@ -2060,10 +2591,25 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_FLYING,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 30,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Flying type move."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP Flying-type move that ignores stat changes and has a higher chance of lowering the target defense."),
     },
 
     [SPECIES_AERODACTYL_MEGA] =
@@ -2079,12 +2625,22 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 95,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_STAT_STAGES_IGNORED,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 40,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP Rock type move."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100 BP Rock-type move that ignores stat changes and has a higher chance of lowering the target defense."),
     },
 
     [SPECIES_DRAGONITE] =
@@ -2103,9 +2659,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 70,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        .unlockedLevel = 60,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "Becomes a 70BP Flying type move."),
+    },
+
+    [SPECIES_DRAGONITE_MEGA] =
+    {
+        .move = MOVE_EXTREME_SPEED,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 25, //25% of its max HP
+            },
+        },
+        .unlockedLevel = 60,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP Flying type move that restores some of the damage done to the target."),
     },
 
     [SPECIES_ARTICUNO] =
@@ -2130,12 +2713,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Ice move that can hit x2\n"
-            "against Water-types, set up hail and\n"
-            "has a 90% accuracy."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Ice move that can hit x2 against Water-types, set up hail and has a 90% accuracy."),
     },
 
     [SPECIES_ZAPDOS] =
@@ -2160,12 +2740,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Electric move that can hit x2\n"
-            "against Grass-types, set up electric terrain\n"
-            "and has a 90% accuracy."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Electric move that can hit x2 against Grass-types, set up electric terrain and has a 90% accuracy."),
     },
 
     [SPECIES_MOLTRES] =
@@ -2190,12 +2767,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Fire move that can hit x2\n"
-            "against Water-types, set up Sunny Day\n"
-            "and has a 90% accuracy."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fire move that can hit x2 against Water-types, set up Sunny Day and has a 90% accuracy."),
     },
 
     // Jotho ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -2220,12 +2794,47 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_SET_TERRAIN_GRASS,
                 .chance       = 20,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that lowers the target's\n"
-            "Attack stat and can set up grassy terrain."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a special 100BP move that lowers the target's attack stat, can set up Grassy Terrain and does not hit allies."),
+    },
+
+    [SPECIES_MEGANIUM_MEGA] =
+    {
+        .move = MOVE_PETAL_BLIZZARD,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_SPDEF,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_TERRAIN_MISTY,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a special 110BP move that lowers the target's special defense stat, can set up misty terrain and does not hit allies."),
     },
 
     [SPECIES_TYPHLOSION] =
@@ -2244,11 +2853,108 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Can set up the sun and only goes down to\n"
-            "60BP."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Can set up the sun and only goes down to 60BP."),
+    },
+
+    [SPECIES_TYPHLOSION_MEGA] =
+    {
+        .move = MOVE_ERUPTION,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_OTHER,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_WEATHER_SUN,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Can set up the sun and only goes down to 60BP."),
+    },
+
+    [SPECIES_TYPHLOSION_HISUI] =
+    {
+        .move = MOVE_INFERNO,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 75,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP Ghost-type move that does extra damage to targets affected by status conditions and has a high chance of burning the target."),
+    },
+
+    [SPECIES_TYPHLOSION_HISUI_MEGA] =
+    {
+        .move = MOVE_INFERNO,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 120,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP Ghost-type move that does extra damage to targets affected by status conditions and has a high chance of burning the target."),
     },
 
     [SPECIES_FERALIGATR] =
@@ -2267,12 +2973,47 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_WATER,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_DMG_UNDERWATER,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Water-type move that can confuse\n"
-            "the target."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water-type move that can confuse the target and can hit underwater targets."),
+    },
+
+    [SPECIES_FERALIGATR_MEGA] =
+    {
+        .move = MOVE_JAW_LOCK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CONFUSION,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_DRAGON,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_DMG_UNDERWATER,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_REMOVE_FLAG,
+                .variable     = FLAG_MAKES_CONTACT,
+            }
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Dragon-type move that can confuse the target, does not make contact and can hit underwater targets."),
     },
 
     [SPECIES_FURRET] =
@@ -2296,11 +3037,143 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_PRIORITY_ALWAYS,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Now also raises the speed stat and gains\n"
-            "priority"
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Now also raises the speed stat and gains priority"),
+    },
+
+    [SPECIES_FORRETRESS] =
+    {
+        .move = MOVE_GYRO_BALL,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 33,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_DEF,
+                .chance       = 33,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPEED,
+                .argument     = TRUE, //Stat Down
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Now also lowers the user speed and may boost the attack or defense stats."),
+    },
+
+    [SPECIES_PHANPY] =
+    {
+        .move = MOVE_ROLLOUT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 65,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_RAPID_SPIN,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+        },
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 65 BP single hit Ground-type move that removes the field hazards and boost the user speed."),
+    },
+
+    [SPECIES_DONPHAN] =
+    {
+        .move = MOVE_ROLLOUT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_RAPID_SPIN,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP single hit Ground-type move that removes the field hazards and boost the user speed."),
+    },
+
+    [SPECIES_TOGEKISS] =
+    {
+        .move = MOVE_AIR_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 85,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_SPEED,
+                .chance       = 25,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 85BP move with a 100% accuracy that may lower the target speed."),
+    },
+
+    [SPECIES_MAGCARGO] =
+    {
+        .move = MOVE_ANCIENT_POWER,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 40,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 40BP move that has a higher chance of boosting its stats and always burns the target."),
     },
 
     [SPECIES_AMPHAROS] =
@@ -2320,11 +3193,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 25,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP move that can Set up electric\n"
-            "terrain"
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that can set up electric terrain"),
     },
 
     [SPECIES_AMPHAROS_MEGA] =
@@ -2344,10 +3215,127 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 35,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP move that can Set up electric\n"
-            "terrain"),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that can set up electric terrain"),
+    },
+
+    [SPECIES_SUNFLORA] =
+    {
+        .move = MOVE_SOLAR_BEAM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP single turn move that restores the user's HP by half of the damage dealt and may seed the target."),
+    },
+
+    [SPECIES_URSALUNA] =
+    {
+        .move = MOVE_TAKE_DOWN,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 120,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_BOTH,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_CLOSE_COMBAT,
+            },
+        },
+        .unlockedLevel = 55,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 120BP Ground-Type Close Combat variant that hits both targets."),
+    },
+
+    [SPECIES_URSALUNA_BLOODMOON] =
+    {
+        .move = MOVE_BLOOD_MOON,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+        },
+        .unlockedLevel = 55,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes super effective against Ghost-types."),
+    },
+
+    [SPECIES_GIRAFARIG] =
+    {
+        .move = MOVE_TWIN_BEAM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 45,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 25,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45BP move that hits twice having a chance to boost the user Sp.Atk."),
+    },
+
+    [SPECIES_FARIGIRAF] =
+    {
+        .move = MOVE_TWIN_BEAM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50BP move that hits twice having a chance to boost the user Sp.Atk."),
     },
 
     [SPECIES_HERACROSS] =
@@ -2363,19 +3351,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_ACCURACY,
-                .variable     = 95,
+                .variable     = 100,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable     = EFFECT_TRAP,
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 25,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move with 95% accuracy\n"
-            "that traps the target."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move with 100% accuracy that may boost the user Attack."),
     },
 
     [SPECIES_HERACROSS_MEGA] =
@@ -2391,19 +3378,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_ACCURACY,
-                .variable     = 95,
+                .variable     = 100,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable     = EFFECT_TRAP,
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100 BP move with 95% accuracy\n"
-            "that traps the target."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move with 100% accuracy that may boost the user Attack."),
     },
 
     [SPECIES_SNUBBULL] =
@@ -2428,10 +3414,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 15,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70BP Fairy-type move\n"
-            "that can infatuate the target"),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP Fairy-type move that can infatuate the target"),
     },
 
     [SPECIES_GRANBULL] =
@@ -2457,10 +3442,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP Fairy-type move\n"
-            "that can infatuate the target"
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP Fairy-type move that can infatuate the target"),
     },
 
     [SPECIES_DUNSPARCE] =
@@ -2485,10 +3468,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a priority 80BP move\n"
-            "that can taunt the target"),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a priority 80BP move that can taunt the target"),
     },
 
     [SPECIES_DUDUNSPARCE] =
@@ -2513,10 +3495,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a priority 90BP move\n"
-            "that can taunt the target"),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a priority 90BP move that can taunt the target"),
     },
 
     [SPECIES_DUDUNSPARCE_THREE_SEGMENT] =
@@ -2541,10 +3522,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a priority 90BP move\n"
-            "that can taunt the target"),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a priority 90BP move that can taunt the target"),
     },
 
     [SPECIES_XATU] =
@@ -2563,11 +3543,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_PRIORITY_ALWAYS,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a priority move that sets up psychic\n"
-            "terrain"
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a priority move that sets up psychic terrain"),
     },
 
     [SPECIES_SKARMORY] =
@@ -2586,11 +3564,35 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 95,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Now uses the Defense Stat to calculate\n"
-            "the damage and has a 95% accuracy."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Now uses the Defense Stat to calculate the damage and has a 95% accuracy."),
+    },
+
+    [SPECIES_SKARMORY_MEGA] =
+    {
+        .move = MOVE_STEEL_WING,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_DEF,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SPEED,
+                .variable     = 200,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Now has a 100% accuracy, is twice as fast and boost the user defense."),
     },
 
     [SPECIES_CHINCHOU] =
@@ -2609,11 +3611,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_POWER,
                 .variable     = 70,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70BP move that gives the target the\n"
-            "Water-type"),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP Water/Electric move that gives the target the Water-type"),
     },
 
     [SPECIES_LANTURN] =
@@ -2632,12 +3638,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_POWER,
                 .variable     = 80,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that gives the target the\n"
-            "Water-type"
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP Water/Electric type move that gives the target the Water-type"),
     },
 
     [SPECIES_SPINARAK] =
@@ -2651,8 +3660,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_OPPONET_SET_STICKY_WEB,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        .unlockedLevel = 15,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "Now also sets up Sticky Web"),
     },
 
@@ -2668,7 +3677,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "Now also sets up Sticky Web"),
     },
 
@@ -2692,12 +3701,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP move that now has a 20% chance\n"
-            "of increasing the user attack stat and ignores\n"
-            "the target defense stat changes."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that now has a 20% chance of increasing the user attack stat and ignores the target defense stat changes."),
     },
 
     [SPECIES_SCIZOR_MEGA] =
@@ -2720,12 +3726,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that now has a 20% chance\n"
-            "of increasing the user attack stat and ignores\n"
-            "the target defense stat changes."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that now has a 20% chance of increasing the user attack stat and ignores the target defense stat changes."),
     },
 
     [SPECIES_STEELIX] =
@@ -2745,11 +3748,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 25,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Has a 95% accuracy and can set up\n"
-            "sandstorm."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a 95% accuracy and can set up sandstorm."),
     },
 
     [SPECIES_STEELIX_MEGA] =
@@ -2769,11 +3770,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 35,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Has a 100% accuracy and can set up\n"
-            "sandstorm."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Has a 100% accuracy and can set up sandstorm."),
     },
 
     [SPECIES_OCTILLERY] =
@@ -2792,8 +3791,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_TAUNT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "Becomes a 80BP move that taunts the target"),
     },
 
@@ -2813,12 +3812,69 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_POISON,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MIN_TIMES,
+                .variable     = 4,
+            },
+        },
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now has a 10% chance of setting a layer of toxic spikes per hit, becomes a Poison type move and hits a minimum of 4 times."),
+    },
+
+    [SPECIES_QWILFISH_HISUI] =
+    {
+        .move = MOVE_PIN_MISSILE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_TOXIC_SPIKES,
+                .chance       = 10, //Chance per hit
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_DARK,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MIN_TIMES,
+                .variable     = 3,
+            },
+        },
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now has a 10% chance of setting a layer of toxic spikes per hit, becomes a Dark-type move and hits a minimum of 3 times."),
+    },
+
+    [SPECIES_OVERQWIL] =
+    {
+        .move = MOVE_PIN_MISSILE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_TOXIC_SPIKES,
+                .chance       = 15, //Chance per hit
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_DARK,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MIN_TIMES,
+                .variable     = 4,
+            },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now has a 10% chance of setting a layer of\n"
-            "toxic spikes per hit and becomes a Poison\n"
-            "type move."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now has a 10% chance of setting a layer of toxic spikes per hit, becomes a Dark-type move and hits a minimum of 4 times."),
     },
 
     [SPECIES_DELIBIRD] =
@@ -2836,11 +3892,48 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_WEATHER_HAIL,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 25, //25% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now sets Hail when used and becomes an\n"
-            "an Ice-Type move."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now sets Hail when used and becomes an Ice-Type move, it uses the highest attacking stat for damage calculation, absorbs some of the damage done as HP."),
+    },
+
+    [SPECIES_IRON_BUNDLE] =
+    {
+        .move = MOVE_PRESENT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ICE,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_TERRAIN_ELECTRIC,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It can set Electric Terrain when used and becomes an Ice-Type move, it uses the highest attacking stat for damage calculation."),
     },
 
     [SPECIES_BELLOSSOM] =
@@ -2857,7 +3950,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
                 .variable     = STAT_SPEED,
-                .chance       = 50,
+                .chance       = 30,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
@@ -2871,12 +3964,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95BP move that does not lock the user,\n"
-            "it has a 50% chance of raising the user speed and\n"
-            "can set up grassy terrain."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that does not lock the user, it has a 30% chance of raising the user speed and can set up grassy terrain."),
     },
 
     [SPECIES_CROBAT] =
@@ -2900,12 +3990,47 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = STAT_DEF,
                 .chance       = 30,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SET_HEAL_BLOCK,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes Super Effective against Steel-types,\n"
-            "it's power gets rised to 85 and has a 30%\n"
-            "chance of lowering the defense."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes a 85BP move that hits SE against Steel-types, has a chance of lowering the defense and blocks healing for 5 turns."),
+    },
+
+    [SPECIES_CROBAT_MEGA] =
+    {
+        .move = MOVE_CROSS_POISON,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 85,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_STEEL,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_DEF,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SET_HEAL_BLOCK,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes a 85BP move that hits SE against Steel-types, has a chance of lowering the defense and blocks healing for 5 turns."),
     },
 
     // Hoenn ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -2919,19 +4044,20 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PSS_CHANGE,
                 .variable     = SPLIT_HIGHEST,
             },
-            [SIGNATURE_MOVE_EFFECT_3] = 
+            [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_TERRAIN_GRASS,
                 .chance       = 25,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now uses the highest attacking stat to\n"
-            "calculate it's damage and can set up grassy\n"
-            "terrain."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now uses the highest attacking stat to calculate it's damage and can set up grassy terrain, ignores the target defense stat changes."),
     },
 
     [SPECIES_SCEPTILE_MEGA] =
@@ -2950,13 +4076,14 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_SET_TERRAIN_GRASS,
                 .chance       = 35,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now uses the highest attacking stat to\n"
-            "calculate it's damage and has a 35% chance to set\n"
-            "up grassy terrain."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now uses the highest attacking stat to calculate it's damage and has a 35% chance to set up grassy terrain, ignores the target defense stat changes."),
     },
 
     [SPECIES_BLAZIKEN] =
@@ -2969,18 +4096,20 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_POWER,
                 .variable     = 95,
             },
-            [SIGNATURE_MOVE_EFFECT_3] = 
+            [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_WEATHER_SUN,
                 .chance       = 25,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Its becomes a move with a power of 95 that\n"
-            "has a 25% chance of setting up Sunny Day."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Its becomes a  Fire and Fighting move with a power of 95 that has a 25% chance of setting up Sunny Day."),
     },
 
     [SPECIES_BLAZIKEN_MEGA] =
@@ -2993,18 +4122,21 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_POWER,
                 .variable     = 95,
             },
-            [SIGNATURE_MOVE_EFFECT_3] = 
+            [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_WEATHER_SUN,
                 .chance       = 35,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GROUND,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Its becomes a move with a power of 95 that\n"
-            "has a 35% chance of setting up Sunny Day."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Its becomes a Fire and Fighting move with a power of 95 that has a 35% chance of setting up Sunny Day."),
     },
 
     [SPECIES_SWAMPERT] =
@@ -3029,11 +4161,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_GROUND,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Physical Water and Ground move that\n"
-            "has a 25% chance of setting up Rain."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Physical Water and Ground move that has a 25% chance of setting up Rain."),
     },
 
     [SPECIES_SWAMPERT_MEGA] =
@@ -3058,11 +4188,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_GROUND,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Physical Water and Ground move that\n"
-            "can set up Rain."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Physical Water and Ground move that can set up Rain."),
     },
 
     [SPECIES_MIGHTYENA] =
@@ -3082,11 +4210,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It Becomes a move with a power of 80 that has a\n"
-            "30% chance of lowering the target's speed."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It Becomes a move with a power of 80 that has a 30% chance of lowering the target's speed."),
     },
 
     [SPECIES_LINOONE] =
@@ -3099,12 +4225,16 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
                 .variable     = STAT_SPEED,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURE,
+                .argument     = 20, //25% of its max HP
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now raises the Speed stat of the user after\n"
-            "using it."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now raises the Speed stat of the user after using it and cures some of its HP."),
     },
 
     [SPECIES_BEAUTIFLY] =
@@ -3124,10 +4254,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that has a 20% chance of raising\n"
-            "all of the user stats."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move that has a 20% chance of raising all of the user stats."),
     },
 
     [SPECIES_DUSTOX] =
@@ -3152,10 +4280,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 80BP Poison-type move that has a 20%\n"
-            "chance of raising all of the user stats."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP Poison-type move that has a 20% chance of raising all of the user stats."),
     },
 
     [SPECIES_SWELLOW] =
@@ -3174,12 +4300,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 70,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70 BP move that doubles\n"
-            "its power if the user is poisoned,\n"
-            "burned, or paralyzed."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP move that doubles its power if the user is poisoned, burned, or paralyzed."),
     },
 
     [SPECIES_EXPLOUD] =
@@ -3209,11 +4332,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 60 BP move that knocks away\n"
-            "the target and drags out another Pokémon\n"
-            "in its party, also boosts SP.Atk."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60 BP move that knocks away the target and drags out another Pokémon in its party, also boosts SP.Atk."),
     },
 
     [SPECIES_LUDICOLO] =
@@ -3247,11 +4367,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = MOVE_TARGET_BOTH,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes a 75BP special move that always sets\n"
-            "up rain and hits both targets."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes a 75BP special move that always sets up rain and hits both targets."),
     },
 
     [SPECIES_SHIFTRY] =
@@ -3286,12 +4404,104 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It Becomes a Grass and Flying type Physical move\n"
-            "with a power of 80 with a 20% chance of setting\n"
-            "up Tailwind."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It Becomes a Grass and Flying type Physical move with a power of 80 with a 20% chance of setting up Tailwind."),
+    },
+
+    [SPECIES_TRAPINCH] =
+    {
+        .move = MOVE_BITE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 30,
+            },
+        },
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ground-type move that ignores target stat changes, has a higher flinch chance."),
+    },
+
+    [SPECIES_FLYGON] =
+    {
+        .move = MOVE_DUAL_WINGBEAT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 45,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_WEATHER_SANDSTORM,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45BP Ground and Flying move that can set up a Sandstorm."),
+    },
+
+    [SPECIES_FLYGON_MEGA] =
+    {
+        .move = MOVE_DUAL_WINGBEAT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SET_WEATHER_SANDSTORM,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_SELF_SET_TAILWIND,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50BP Ground and Flying move that can set up a Sandstorm or Tailwind."),
     },
 
     [SPECIES_SLAKOTH] =
@@ -3309,11 +4519,37 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_PRIORITY_ALWAYS,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "It lets you use another move after using it and\n"
-            "now has a higher priority."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It lets you use another move after using it and now has a higher priority."),
+    },
+
+    [SPECIES_VIGOROTH] =
+    {
+        .move = MOVE_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURE,
+                .argument     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 20, //Effect per hit
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Can hit Ghost-types, has a chance of boosting the user attack and cures some of the user hp upon use."),
     },
 
     [SPECIES_SLAKING] =
@@ -3331,11 +4567,160 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_PRIORITY_ALWAYS,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It lets you use another move after using it and\n"
-            "now has a higher priority."
-        ),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It lets you use another move after using it and now has a higher priority."),
+    },
+
+    [SPECIES_CHIMECHO] =
+    {
+        .move = MOVE_HYPER_VOICE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_PSYCHIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_HEAL_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Psychic-type move that heals the user status and can flinch the target."),
+    },
+
+    [SPECIES_CHIMECHO_MEGA] =
+    {
+        .move = MOVE_HYPER_VOICE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_STEEL,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_HEAL_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURE,
+                .argument     = 25, //10% of its max HP
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Steel-type move that heals the user status and can flinch the target, restores 25% of its max HP upon use."),
+    },
+
+    [SPECIES_ABSOL] =
+    {
+        .move = MOVE_NIGHT_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 85,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 50, //10% of its max HP
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that heals some of the damage done as HP."),
+    },
+
+    [SPECIES_ABSOL_MEGA] =
+    {
+        .move = MOVE_NIGHT_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 50, //10% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that heals some of the damage done as HP, can now flinch the target and ignores its defense stat changes."),
+    },
+
+    [SPECIES_ABSOL_MEGA_Z] =
+    {
+        .move = MOVE_NIGHT_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 50, //10% of its max HP
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP Ghost-type move that heals some of the damage done as HP, can now flinch the target and ignores its defense stat changes."),
     },
 
     [SPECIES_MAWILE] =
@@ -3351,7 +4736,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable = EFFECT_JAW_LOCK,
+                .variable = EFFECT_HIT_PREVENT_ESCAPE,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
@@ -3360,15 +4745,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_4] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_STAT_STAGES_IGNORED,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80 BP Fairy-type move that prevents the\n"
-            "user and the target from switching out until\n"
-            "either of them faints, ignores defense."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Fairy-type move that prevents the target from switching and ignores the target stat changes."),
     },
 
     [SPECIES_MAWILE_MEGA] =
@@ -3393,7 +4775,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_4] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_STAT_STAGES_IGNORED,
             },
             [SIGNATURE_MOVE_EFFECT_5] = 
             {
@@ -3402,11 +4784,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 15, //Effect per hit
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 50 BP Fairy-type move hits twice"
-            "and ignores defense, may boost attack."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50 BP Fairy-type move hits twice and ignores the target stat changes, may boost attack."),
     },
 
     [SPECIES_NINJASK] =
@@ -3419,16 +4799,48 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_POWER,
                 .variable     = 80,
             },
-            [SIGNATURE_MOVE_EFFECT_2] = 
+            [SIGNATURE_MOVE_EFFECT_2] =
             {
                 .modification = SIGNATURE_MOD_DAMAGE_STAT,
                 .variable     = STAT_SPEED,
             },
+            [SIGNATURE_MOVE_EFFECT_3] =
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_HIT,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes an Speed version of Body Press."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes an Speed version of Body Press."),
+    },
+
+    [SPECIES_SHEDINJA] =
+    {
+        .move = MOVE_LEECH_LIFE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURSE,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 25,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that may curse the target or boost the user Attack stat."),
     },
 
     [SPECIES_HARIYAMA] =
@@ -3447,12 +4859,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
                 .variable     = TYPE_GHOST,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MIN_TIMES,
+                .variable     = 4,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It gets a 10% Paralysis chance for each hit and\n"
-            "hits Ghost-types for x2 damage."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It gets a 10% Paralysis chance for each hit and hits Ghost-types for x2 damage, hits a minimum 4 times."),
     },
 
     [SPECIES_ZANGOOSE] =
@@ -3475,10 +4890,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes Super-Effective against Poison-types\n"
-            "and ignores the target's defense stat changes."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes Super-Effective against Poison-types and ignores the target's defense stat changes."),
     },
 
     [SPECIES_SEVIPER] =
@@ -3497,8 +4911,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_NORMAL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
             "It becomes Super-Effective against Normal-types"),
     },
 
@@ -3512,10 +4926,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PRIORITY,
                 .variable     = SIGNATURE_PRIORITY_ALWAYS,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes a Priority move when used by Spinda"),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes a 80 BP Priority move when used by Spinda"),
     },
 
     [SPECIES_LUVDISC] =
@@ -3525,18 +4944,24 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+                .modification = SIGNATURE_MOD_SPEED,
+                .variable     = 200,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 75,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
+                .chance       = 30,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "It becomes a Priority move when used by Luvdisc"),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It becomes a 90 bp move and doubles your speed while using it, has a chance of infatuating the target."),
     },
 
     [SPECIES_KECLEON] =
@@ -3546,35 +4971,60 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 75,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_OTHER,
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SPEED,
+                .variable     = 200,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It becomes a Priority move when used by Kecleon"),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP Normal-type move that is twice as fast and can flinch the target."),
     },
 
     [SPECIES_RELICANTH] =
     {
-        .move = MOVE_HEAD_SMASH,
+        .move = MOVE_HEADBUTT,
         .moveEffect =
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 60,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ROCK,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
                 .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_PRIORITY_IN_CONDITIONS,
-                .chance       = SIGNATURE_CONDITION_WEATHER_RAIN,
+                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 20,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a Priority move when used"
-            "in the rain."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Rock-type move with a power of 60 and a priority of +1, now it has a 20% flinch chance"),
     },
 
     [SPECIES_GLALIE] =
@@ -3593,10 +5043,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that has a 30%\n"
-            "chance of freezing the target."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move that has a 30% chance of freezing the target."),
     },
 
     [SPECIES_GLALIE_MEGA] =
@@ -3615,10 +5064,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 40,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 75BP move that has a 40%\n"
-            "chance of freezing the target."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP move that has a 40% chance of freezing the target."),
     },
 
     [SPECIES_ANORITH] =
@@ -3629,7 +5077,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 70,
+                .variable     = 75,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
@@ -3637,17 +5085,21 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_PRIORITY_IN_CONDITIONS,
                 .chance       = SIGNATURE_CONDITION_WEATHER_RAIN,
             },
-            [SIGNATURE_MOVE_EFFECT_3] = 
+            [SIGNATURE_MOVE_EFFECT_3] =
             {
                 .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
                 .variable     = STAT_SPEED,
                 .chance       = 15,
             },
+            [SIGNATURE_MOVE_EFFECT_4] =
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_HIT,
+            },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 70 BP move that has priority in\n"
-            "the rain and can raise the user speed."),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75 BP move that has priority in the rain and can raise the user speed."),
     },
 
     [SPECIES_ARMALDO] =
@@ -3658,24 +5110,28 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 80,
+                .variable     = 90,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_ROCK,
             },
-            [SIGNATURE_MOVE_EFFECT_3] = 
+            [SIGNATURE_MOVE_EFFECT_3] =
             {
                 .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
                 .variable     = STAT_SPEED,
                 .chance       = 30,
             },
+            [SIGNATURE_MOVE_EFFECT_4] =
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_HIT,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80 BP Rock-type move that has\n"
-            "a 30% chance of raising the user's Speed."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Rock-type move that has a 30% chance of raising the user's Speed."),
     },
 
     [SPECIES_LILEEP] =
@@ -3699,10 +5155,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a 80BP Rock-type move that always\n"
-            "inflicts Leech Seed."),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP Rock-type move that always inflicts Leech Seed."),
     },
 
     [SPECIES_CRADILY] =
@@ -3726,10 +5181,53 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP Rock-type move that always\n"
-            "inflicts Leech Seed."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP Rock-type move that always inflicts Leech Seed."),
+    },
+
+    [SPECIES_DUSCLOPS] =
+    {
+        .move = MOVE_SHADOW_PUNCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURSE,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Deals neutral damage to Normal-types and may curse the target."),
+    },
+
+    [SPECIES_DUSKNOIR] =
+    {
+        .move = MOVE_SHADOW_PUNCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURSE,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Deals Super Effective damage to Normal-types and may curse the target."),
     },
 
     [SPECIES_CASTFORM] =
@@ -3740,12 +5238,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 80,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 25,
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes an 80BP move when used by Castform"),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an 100BP move that can boost the user special attack."),
     },
 
     [SPECIES_CASTFORM_SUNNY] =
@@ -3766,9 +5270,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a Fire-type move that has a 25%\n"
-            "chance of Burning its target."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fire-type move that has a 25% chance of Burning its target."),
     },
 
     [SPECIES_CASTFORM_SNOWY] =
@@ -3784,14 +5287,13 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_FREEZE,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FROSTBITE,
                 .chance       = 25,
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes an Ice-type move that has a 25%\n"
-            "chance of Freezing its target."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Ice-type move that has a 25% chance of Frostbiting its target."),
     },
 
     [SPECIES_CASTFORM_RAINY] =
@@ -3811,9 +5313,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a Water-type move that\n"
-            "slows down its target."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Water-type move that slows down its target."),
     },
 
     [SPECIES_REGICE] =
@@ -3837,10 +5338,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_ICE,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Ice-type move that has a 30%\n"
-            "chance of raising all of the user stats."),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an Ice-type move that has a 30% chance of raising all of the user stats."),
     },
 
     [SPECIES_REGIROCK] =
@@ -3864,10 +5364,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_PHYSICAL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Rock-type move that has a 30%\n"
-            "chance of raising all of the user stats."),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Rock-type move that has a 30% chance of raising all of the user stats."),
     },
 
     [SPECIES_REGISTEEL] =
@@ -3896,10 +5395,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_STEEL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Steel-type move that has a 30%\n"
-            "chance of raising all of the user stats."),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Steel-type move that has a 30% chance of raising all of the user stats."),
     },
 
     // Sinnoh ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -3910,25 +5408,23 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_SECOND_TYPE,
-                .variable     = TYPE_GRASS,
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 50, //10% of its max HP
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_MODIFY_FIELD,
-                .variable     = FIELD_SET_TERRAIN_GRASS,
-                .chance       = 25,
+                .modification = SIGNATURE_MOD_HIT_AIRBONE_TARGETS,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_PSS_CHANGE,
-                .variable     = SPLIT_HIGHEST,
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_FLYING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a part Grass-type move that can\n"
-            "set up Grassy Terrain with a 25% chance"),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Absorbs some of the damage done as HP, can now hit flying-types and airbone targets."),
     },
 
     [SPECIES_INFERNAPE] =
@@ -3938,20 +5434,29 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_FIRE,
             },
-            [SIGNATURE_MOVE_EFFECT_2] = 
+            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
                 .chance       = 25,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Fire-type move that has a 25%\n"
-            "chance of burning the target"),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 50BP Fire-type move that has a 25% chance of burning the target, uses the highest attacking stat."),
     },
 
     [SPECIES_EMPOLEON] =
@@ -3986,13 +5491,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Steel and Water-type move\n"
-            "uses the user highest attacking stat\n"
-            "and raises the special attack rather than\n"
-            "attack."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Steel and Water-type move that uses the user's highest attacking stat and raises Sp.Atk rather than Attack."),
     },
 
     [SPECIES_BIDOOF] =
@@ -4010,10 +5511,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes Super Effective against Grass-types\n"
-            "and ignores the target defense changes."),
+        .unlockedLevel = 15,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes Super Effective against Grass-types and ignores the target defense changes."),
     },
 
     [SPECIES_BIBAREL] =
@@ -4031,10 +5531,81 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes Super Effective against Grass-types\n"
-            "and ignores the target defense changes."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes Super Effective against Grass-types and ignores the target defense changes."),
+    },
+
+    [SPECIES_STARAPTOR] =
+    {
+        .move = MOVE_DOUBLE_EDGE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Does less damage to itself, can now flinch the target and can hit Ghost-types."),
+    },
+
+    [SPECIES_STARAPTOR_MEGA] =
+    {
+        .move = MOVE_DOUBLE_EDGE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_RECKOIL,
+                .argument     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_NEUTRAL_AGAINST_TYPE,
+                .variable     = TYPE_NORMAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ROCK,
+            },
+            
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Fighting-type move that does less damage to itself, can now flinch the target and can hit Ghost-types."),
     },
 
     [SPECIES_CHATOT] =
@@ -4054,10 +5625,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 80BP move that has a 20% chance\n"
-            "of setting up Tailwind."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move that has a 20% chance of setting up Tailwind."),
     },
 
     [SPECIES_CRANIDOS] =
@@ -4086,12 +5656,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 20,
             },
         },
-        .unlockedLevel = 30,
-        .summaryScreen_description = _(
-            "Becomes a Rock-type move with a power of 50\n"
-            "and a priority of +1, now it has a 20% flinch\n"
-            "chance"
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Rock-type move with a power of 50 and a priority of +1, now it has a 20% flinch chance"),
     },
 
     [SPECIES_RAMPARDOS] =
@@ -4120,12 +5687,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Rock-type move with a power of 60\n"
-            "and a priority of +1, now it has a 10% flinch\n"
-            "chance"
-        ),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Rock-type move with a power of 60 and a priority of +1, now it has a 10% flinch chance"),
+    },
+
+    [SPECIES_BASTIODON] =
+    {
+        .move = MOVE_IRON_HEAD,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_DAMAGE_STAT,
+                .variable     = STAT_DEF,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that uses the Defense Stat to calculate the damage and can flinch."),
     },
 
     [SPECIES_CARNIVINE] =
@@ -4149,11 +5740,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_FLYING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Grass-type move that is Super-\n"
-            "Effective against Bug and Flying types."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Grass-type move that is Super- Effective against Bug and Flying types."),
     },
 
     [SPECIES_STUNKY] =
@@ -4177,12 +5766,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95 accuracy move that hits\n"
-            "Steel-types Super-Effectively using\n"
-            "the user's highest attack stat."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 accuracy move that hits Steel-types Super-Effectively using the user's highest attack stat."),
     },
 
     [SPECIES_SKUNTANK] =
@@ -4206,12 +5792,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100 accuracy move that hits\n"
-            "Steel-types Super-Effectively using\n"
-            "the user's highest attack stat,"
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100 accuracy move that hits Steel-types Super-Effectively using the user's highest attack stat,"),
+    },
+
+    [SPECIES_PACHIRISU] =
+    {
+        .move = MOVE_HYPER_FANG,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SPEED,
+                .variable     = 150,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an 80 BP Electric-type move that can paralyze the target and is 50% faster than other moves."),
     },
 
     [SPECIES_CROAGUNK] =
@@ -4231,11 +5841,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_POISON,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Poison-type move with a 30% chance\n"
-            "of poisoning the target."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move with a 30% chance of poisoning the target."),
     },
 
     [SPECIES_TOXICROAK] =
@@ -4255,11 +5863,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_POISON,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Poison-type move with a 30% chance\n"
-            "of taunting the target."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move with a 30% chance of taunting the target."),
     },
 
     [SPECIES_HONCHKROW] =
@@ -4284,11 +5890,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 5,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 25 BP move that can lower the\n"
-            "target's defense stat."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 25 BP move that can lower the target's defense stat."),
     },
 
     [SPECIES_PROBOPASS] =
@@ -4318,12 +5922,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP Steel-type move that can\n"
-            "paralyze the target and is super effective\n"
-            "against Steel-types."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Steel-type move that can paralyze the target and is super effective against Steel-types."),
     },
 
     [SPECIES_ABOMASNOW] =
@@ -4348,12 +5949,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now uses the highest attacking stat to\n"
-            "calculate it's damage always has a 90% accuracy and\n"
-            "can raise the user defense."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now uses the highest attacking stat to calculate it's damage always has a 90% accuracy and can raise the user defense."),
     },
 
     [SPECIES_ABOMASNOW_MEGA] =
@@ -4378,12 +5976,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "It now uses the highest attacking stat to\n"
-            "calculate it's damage always has a 95% accuracy and\n"
-            "can raise the user defense."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "It now uses the highest attacking stat to calculate it's damage always has a 95% accuracy and can raise the user defense."),
+    },
+
+    [SPECIES_RIOLU] =
+    {
+        .move = MOVE_VACUUM_WAVE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 60,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+        },
+        .unlockedLevel = 15,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60BP move that can raise the user's Special Attack by 1 stage with a 10% chance, uses the highest attack stat."),
     },
 
     [SPECIES_LUCARIO] =
@@ -4408,11 +6030,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SPLIT_HIGHEST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95BP move that raises the user's\n"
-            "Special Attack by 1 stage with a 10% chance."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that can raise the user's Special Attack by 1 stage with a 10% chance, uses the highest attack."),
     },
 
     [SPECIES_LUCARIO_MEGA] =
@@ -4423,25 +6043,45 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 100,
+                .variable     = 105,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_PHYSICAL,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a physical 105BP move that can raise the user's Attack by 1 stage with a 10% chance."),
+    },
+
+    [SPECIES_LUCARIO_MEGA_Z] =
+    {
+        .move = MOVE_AURA_SPHERE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 105,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
                 .variable     = STAT_SPATK,
-                .chance       = 10,
-            },
-            [SIGNATURE_MOVE_EFFECT_3] = 
-            {
-                .modification = SIGNATURE_MOD_PSS_CHANGE,
-                .variable     = SPLIT_HIGHEST,
+                .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that raises the user's\n"
-            "Special Attack by 1 stage with a 10% chance."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 105BP move that raises the user's Special Attack by 1 stage with a 10% chance."),
     },
 
     [SPECIES_LOPUNNY] =
@@ -4451,15 +6091,19 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
                 .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of infatuating\n"
-            "the target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 110BP move with a 30% chance of infatuating the target."),
     },
 
     [SPECIES_LOPUNNY_MEGA] =
@@ -4469,19 +6113,24 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
-                .chance       = 30,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_INFATUATION,
+                .chance       = 35,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_TYPE,
                 .variable     = TYPE_FIGHTING,
             },
         },
-        .summaryScreen_description = _(
-            "Becomes a Fighting-type move with a 30%\n"
-            "chance of infatuating the target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 110BP Fighting-type move with a 35% chance of infatuating the target."),
     },
 
     [SPECIES_FROSLASS] =
@@ -4491,21 +6140,65 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_FREEZE,
-                .chance     = 20,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_MODIFY_FIELD,
-                .variable     = FIELD_SET_WEATHER_HAIL,
-                .chance       = 20,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FROSTBITE,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 65BP move with a 20% chance of\n"
-            "freezing the target and can set up hail."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move with a 30% chance of frostbiting the target, does extra damage to targets with an status problems."),
+    },
+
+    [SPECIES_FROSLASS_MEGA] =
+    {
+        .move = MOVE_HEX,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 115,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FROSTBITE,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move with a 30% chance of frostbiting the target, does extra damage to targets with an status problems."),
     },
 
     [SPECIES_SPIRITOMB] =
@@ -4515,20 +6208,31 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
-                .chance     = 30,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_PSS_CHANGE,
-                .variable     = SPLIT_HIGHEST,
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 65BP move with a 30% chance of\n"
-            "burning the target."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80BP move with a 20% chance of burning the target, does extra damage to targets with an status problems."),
     },
 
     [SPECIES_GIBLE] =
@@ -4546,11 +6250,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Ground-type move that\n"
-            "ignores target stat changes."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ground-type move that ignores target stat changes."),
     },
 
     [SPECIES_GABITE] =
@@ -4568,11 +6270,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Ground-type move that\n"
-            "ignores target stat changes."
-        ),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ground-type move that ignores target stat changes."),
     },
 
     [SPECIES_GARCHOMP] =
@@ -4592,19 +6292,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
-                .modification = SIGNATURE_MOD_PRIORITY,
-                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+                .modification = SIGNATURE_MOD_SPEED,
+                .variable     = 200,
             },
             [SIGNATURE_MOVE_EFFECT_4] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_DMG_UNDERGROUND,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 55BP priority move that charges\n"
-            "in one turn and ignores defense changes."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 55BP faster move that charges in one turn and hits underground targets."),
     },
 
     [SPECIES_GARCHOMP_MEGA] =
@@ -4629,14 +6328,99 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_4] = 
             {
-                .modification = SIGNATURE_MOD_PENETRATING,
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_DMG_UNDERGROUND,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 60BP priority move that charges"
-            "in one turn and ignores defense changes.\n"
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60BP priority move that charges in one turn and hits underground targets."),
+    },
+
+    [SPECIES_DARKRAI] =
+    {
+        
+        .move = MOVE_DARK_VOID,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 75,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SLEEP,
+                .chance       = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_SELECTED,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75 BP move that has an small chance of sleeping the target and heals the user for half the damage dealt."),
+    },
+
+    [SPECIES_DARKRAI_MEGA] =
+    {
+        
+        .move = MOVE_DARK_VOID,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SLEEP,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_SELECTED,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP move that has an small chance of sleeping the target and heals the user for half the damage dealt."),
     },
 
     // Unova ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -4653,7 +6437,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable     = EFFECT_JAW_LOCK,
+                .variable     = EFFECT_HIT_PREVENT_ESCAPE,
             },
             [SIGNATURE_MOVE_EFFECT_3] = 
             {
@@ -4668,15 +6452,48 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_5] = 
             {
                 .modification = SIGNATURE_MOD_PSS_CHANGE,
-                .variable     = SPLIT_HIGHEST,
+                .variable     = SPLIT_SPECIAL,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70 BP Grass-type move that prevents the\n"
-            "user and the target from switching out until\n"
-            "either of them faints and leeches the target."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP Grass-type move that prevents the target from switching out and leeches the target uses the special attack to calculate damage."),
+    },
+
+    [SPECIES_SERPERIOR_MEGA] =
+    {
+        .move = MOVE_WRAP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable     = EFFECT_HIT_PREVENT_ESCAPE,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GRASS,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_STEAL_POSITIVE_STAT_CHANGES,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Grass-type move that prevents the target from switching out, steals its positive stat changes and becomes special."),
     },
 
     [SPECIES_EMBOAR] =
@@ -4703,15 +6520,54 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_5] = 
             {
                 .modification = SIGNATURE_MOD_ACCURACY,
-                .variable     = 95,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_RECKLESS_BOOST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 130 BP move with 90% accuracy, If\n"
-            "this move misses the user takes damage instead,\n"
-            "has a 20% chance of burning the target."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 130 BP move with 90% accuracy, If this move misses the user takes damage instead, has a 20% chance of burning the target."),
+    },
+
+    [SPECIES_EMBOAR_MEGA] =
+    {
+        .move = MOVE_HEAT_CRASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 130,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_RECOIL_IF_MISS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_RECKLESS_BOOST,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 130 BP move with 95% accuracy, If this move misses the user takes damage instead, has a 20% chance of burning the target."),
     },
 
     [SPECIES_SAMUROTT] =
@@ -4734,14 +6590,38 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP move sets up Spikes when used,\n"
-            "ignores the target defense changes."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that sets up Spikes when used, ignores the target defense changes."),
     },
 
-    [SPECIES_SAMUROTT_HISUIAN] =
+    [SPECIES_SAMUROTT_MEGA] =
+    {
+        .move = MOVE_RAZOR_SHELL,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_SPIKES,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that restores the user's HP by half of the damage dealt and sets up spikes."),
+    },
+
+    [SPECIES_SAMUROTT_HISUI] =
     {
         .move = MOVE_NIGHT_SLASH,
         .moveEffect =
@@ -4761,11 +6641,119 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP move sets up Spikes when used,\n"
-            "ignores the target defense changes."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that sets up Spikes when used, ignores the target defense changes."),
+    },
+
+    [SPECIES_SAMUROTT_HISUI_MEGA] =
+    {
+        .move = MOVE_NIGHT_SLASH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MODIFY_FIELD,
+                .variable     = FIELD_OPPONET_SET_SPIKES,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that restores the user's HP by half of the damage dealt and sets up spikes."),
+    },
+
+    [SPECIES_EXCADRILL] =
+    {
+        .move = MOVE_CRUSH_CLAW,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_PENETRATING,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIGH_CRIT,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ground-type move that has a higher chance of critical hits and ignores the target Defense stat changes."),
+    },
+
+    [SPECIES_EXCADRILL_MEGA] =
+    {
+        .move = MOVE_CRUSH_CLAW,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GROUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 100,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIGH_CRIT,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ground-type move that has a higher chance of critical hits and always lower the target defense."),
+    },
+
+    [SPECIES_TOUCANNON] =
+    {
+        .move = MOVE_FURY_ATTACK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20 BP Flying-type move that can burn the target or boost the user attack stat."),
     },
 
     [SPECIES_SCRAFTY] =
@@ -4784,10 +6772,181 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_DARK,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Dark-type move that taunts\n"
-            "the target."),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Dark-type move that taunts the target."),
+    },
+
+    [SPECIES_SCRAFTY_MEGA] =
+    {
+        .move = MOVE_LOW_KICK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_TAUNT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_DARK,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 20, //10% of its max HP
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Dark-type move that taunts the target, cures some of the target hp upon use."),
+    },
+
+    [SPECIES_EELEKTROSS] =
+    {
+        .move = MOVE_CRUNCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP Electric-type move that can paralyze the target."),
+    },
+
+    [SPECIES_EELEKTROSS_MEGA] =
+    {
+        .move = MOVE_CRUNCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_ELECTRIC,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 120,
+                .argument     = SIGNATURE_MOVE_POWER_IN_CONDITIONS,
+                .chance       = SIGNATURE_CONDITION_TARGET_HAS_STATUS,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP Electric-type move that can paralyze the target, does extra damage to targets with an status condition."),
+    },
+
+    [SPECIES_CHANDELURE] =
+    {
+        .move = MOVE_WILL_O_WISP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 25,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SET_HEAL_BLOCK,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an special 80 BP Ghost-type move that can burn the target, blocks the target from curing itself."),
+    },
+
+    [SPECIES_CHANDELURE_MEGA] =
+    {
+        .move = MOVE_WILL_O_WISP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ABSORB,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 35,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_SET_HEAL_BLOCK,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes an special 90 BP Ghost-type move that can burn the target, blocks the target from curing itself and cures some of its own hp upon use."),
     },
 
     [SPECIES_SAWK] =
@@ -4808,11 +6967,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 50,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 50% chance of setting\n"
-            "up Stealth Rock and raises the user's Attack\n"
-            "by 1 stage with a 50% chance."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move with a 50% chance of setting up Stealth Rock and raises the user's Attack by 1 stage with a 50% chance."),
     },
 
     [SPECIES_VENIPEDE] =
@@ -4837,10 +6994,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Bug-type move that raises the\n"
-            "user defense and may flinch the target"),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Bug-type move that raises the user defense and may flinch the target"),
     },
 
     [SPECIES_WHIRLIPEDE] =
@@ -4865,10 +7021,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Poison-type move that raises the\n"
-            "user speed and may poison the target"),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move that raises the user speed and may poison the target"),
     },
 
     [SPECIES_SCOLIPEDE] =
@@ -4893,10 +7048,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Bug-type move that raises the\n"
-            "user attack and may flinch the target"),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Bug-type move that raises the user attack and may flinch the target"),
+    },
+
+    [SPECIES_SCOLIPEDE_MEGA] =
+    {
+        .move = MOVE_ROLLOUT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_POISON,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_DEF,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Poison-type move that raises the user defense and may paralyze the target"),
     },
 
     [SPECIES_JOLTIK] =
@@ -4915,11 +7096,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_OPPONET_SET_STICKY_WEB,
             },
         },
-        .unlockedLevel = 36,
-        .summaryScreen_description = _(
-            "Becomes a 70BP move that sets up\n"
-            "Sticky Web."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70BP move that sets up Sticky Web."),
     },
 
     [SPECIES_GALVANTULA] =
@@ -4938,11 +7117,25 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = FIELD_OPPONET_SET_STICKY_WEB,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 75BP move that sets up\n"
-            "Sticky Web."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75BP move that sets up Sticky Web."),
+    },
+
+    [SPECIES_BOUFFALANT] =
+    {
+        .move = MOVE_HEAD_CHARGE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 140,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 140 BP move."),
     },
 
     [SPECIES_GOLURK] =
@@ -4952,21 +7145,116 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
                 .modification = SIGNATURE_PRIORITY_IN_CONDITIONS,
                 .variable     = SIGNATURE_CONDITION_TRICK_ROOM,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_DEF,
+                .chance       = 25,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move 90BP with a 25% chance of lowering the target's defense, becomes a priority move in Trick Room."),
+    },
+
+    [SPECIES_GOLURK_MEGA] =
+    {
+        .move = MOVE_SHADOW_PUNCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
             [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_PRIORITY_IN_CONDITIONS,
+                .variable     = SIGNATURE_CONDITION_TRICK_ROOM,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
                 .variable     = STAT_DEF,
                 .chance       = 30,
             },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_DRAIN,
+                .argument     = 50, //10% of its max HP
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of lowering\n"
-            "the target's defense, becomes a priority move\n"
-            "in Trick Room."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move 95BP with a 30% chance of lowering the target's defense, becomes a priority move in Trick Room and drains some of the damage done."),
+    },
+
+    [SPECIES_VOLCARONA] =
+    {
+        .move = MOVE_FIERY_DANCE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 75,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that has a higher chance to boost the user Sp.Atk and can burn the target."),
+    },
+
+    [SPECIES_SLITHER_WING] =
+    {
+        .move = MOVE_SUPERPOWER,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_ATTACK_UP_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 75,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = FIELD_SET_WEATHER_SUN,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that has a high chance to boost the user Atk and can set up the sun, no longer lowers stats."),
     },
 
     [SPECIES_ZWEILOUS] =
@@ -4985,10 +7273,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_DOUBLE_HIT,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 45 BP move that hits the target 2 times."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 45 BP move that hits the target 2 times."),
     },
 
     [SPECIES_HYDREIGON] =
@@ -5013,11 +7300,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 30 BP move that hits the target 3 times,\n"
-            "can paralyze the target."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 30 BP move that hits the target 3 times, can paralyze the target."),
     },
 
     // Kalos ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -5043,10 +7328,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 30,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Power becomes 110 and becomes a Fighting and Grass-type\n"
-            "move with a 30% chance of leeching the target."),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Power becomes 110 and becomes a Fighting and Grass-type move with a 30% chance of leeching the target."),
+    },
+
+    [SPECIES_CHESNAUGHT_MEGA] =
+    {
+        .move = MOVE_HAMMER_ARM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GRASS,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Power becomes 110 and becomes a Fighting and Grass-type move with a 30% chance of leeching the target."),
     },
 
     [SPECIES_DELPHOX] =
@@ -5071,10 +7382,36 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_PSYCHIC,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Power becomes 85 and becomes a Fire and Psychic-type\n"
-            "move with a 30% chance of confusing the target."),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Power becomes 85 and becomes a Fire and Psychic-type move with a 30% chance of confusing the target."),
+    },
+
+    [SPECIES_DELPHOX_MEGA] =
+    {
+        .move = MOVE_MYSTICAL_FIRE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 85,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CONFUSION,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_PSYCHIC,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Power becomes 85 and becomes a Fire and Psychic-type move with a 30% chance of confusing the target."),
     },
 
     [SPECIES_GRENINJA] =
@@ -5092,11 +7429,41 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_SECOND_TYPE,
                 .variable     = TYPE_DARK,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_ALWAYS,
+                .variable     = 3,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 20BP Water and Dark type move."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20BP Water and Dark type move that always hits 3 times."),
+    },
+
+    [SPECIES_GRENINJA_MEGA] =
+    {
+        .move = MOVE_WATER_SHURIKEN,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 22,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_DARK,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_ALWAYS,
+                .variable     = 4,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 25BP Water and Dark type move that always hits 4 times."),
     },
 
     [SPECIES_GRENINJA_ASH] =
@@ -5107,18 +7474,53 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 25,
+                .variable     = 22,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_SECOND_TYPE,
                 .variable     = TYPE_DARK,
             },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_ALWAYS,
+                .variable     = 3,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 25BP Water and Dark type move."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 22BP Water and Dark type move that always hits 3 times."),
+    },
+
+    [SPECIES_DIGGERSBY] =
+    {
+        .move = MOVE_BODY_SLAM,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 65,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_GHOST,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PRIORITY,
+                .variable     = SIGNATURE_PRIORITY_ALWAYS,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 65 BP priority move that hits SE against Ghost-types, it has a lower chance of paralyzing the target."),
     },
 
     [SPECIES_TYRUNT] =
@@ -5136,11 +7538,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Dragon-type move that ignores the\n"
-            "target's defense stat changes."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Dragon-type move that ignores the target's defense stat changes."),
     },
 
     [SPECIES_TYRANTRUM] =
@@ -5158,11 +7558,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Dragon-type move that ignores the\n"
-            "target's defense stat changes."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Dragon-type move that ignores the target's defense stat changes."),
     },
 
     [SPECIES_TREVENANT] =
@@ -5183,10 +7581,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_GHOST,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Grass/Ghost-type move with a 30%\n"
-            "chance of giving the target the Ghost-type."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Grass/Ghost-type move with a 30% chance of giving the target the Ghost-type."),
     },
 
     [SPECIES_GOURGEIST] =
@@ -5196,16 +7593,40 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
-                .chance       = 30,
                 .argument     = TYPE_GHOST,
             },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GHOST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of\n"
-            "giving the target the Ghost-type."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Fire/Ghost move that can burn the target and gives it the Ghost-type."),
     },
 
     [SPECIES_GOURGEIST_LARGE] =
@@ -5215,15 +7636,40 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
                 .argument     = TYPE_GHOST,
             },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GHOST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of\n"
-            "giving the target the Ghost-type."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Fire/Ghost move that can burn the target and gives it the Ghost-type."),
     },
 
     [SPECIES_GOURGEIST_SMALL] =
@@ -5233,15 +7679,40 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
                 .argument     = TYPE_GHOST,
             },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GHOST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of\n"
-            "giving the target the Ghost-type."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Fire/Ghost move that can burn the target and gives it the Ghost-type."),
     },
 
     [SPECIES_GOURGEIST_SUPER] =
@@ -5251,15 +7722,40 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_GIVE_THIRD_TYPE,
                 .argument     = TYPE_GHOST,
             },
+            [SIGNATURE_MOVE_EFFECT_6] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_GHOST,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 30% chance of\n"
-            "giving the target the Ghost-type."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Fire/Ghost move that can burn the target and gives it the Ghost-type."),
     },
 
     [SPECIES_MALAMAR] =
@@ -5284,12 +7780,81 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP move that uses\n"
-            "the user's highest attack stat\n"
-            "and can put the target to sleep."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that uses the user's highest attack stat and can put the target to sleep."),
+    },
+
+    [SPECIES_NOIBAT] =
+    {
+        .move = MOVE_SUPERSONIC,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 60,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_CONFUSE_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 60 BP Flying-type move that can confuse the target."),
+    },
+
+    [SPECIES_NOIVERN] =
+    {
+        .move = MOVE_SUPERSONIC,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_CONFUSE_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_5] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_SPECIAL,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP Flying-type move that can confuse the target."),
     },
 
     [SPECIES_HONEDGE] =
@@ -5312,12 +7877,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_ABSORB,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 85BP Ghost-type move that\n"
-            "ignores the target's defense and\n"
-            "steals half the damage inflicted."
-        ),
+        .unlockedLevel = 20,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 85BP Ghost-type move that ignores the target's defense and steals half the damage inflicted."),
     },
 
     [SPECIES_DOUBLADE] =
@@ -5345,12 +7907,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable = EFFECT_DOUBLE_HIT,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a Ghost-type 45 BP move \n"
-            "that ignores the target's defense\n"
-            "and hits twice."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a Ghost-type 45 BP move that ignores the target's defense and hits twice."),
     },
 
     [SPECIES_AEGISLASH] =
@@ -5373,11 +7932,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP Ghost-type move that\n"
-            "ignores the target's defense."
-        ),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP Ghost-type move that ignores the target's defense."),
     },
 
     [SPECIES_AEGISLASH_BLADE] =
@@ -5400,11 +7957,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 90,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP Ghost-type move that\n"
-            "ignores the target's defense."
-        ),
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP Ghost-type move that ignores the target's defense."),
     },
 
     [SPECIES_FLORGES] =
@@ -5424,15 +7979,125 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 35,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 100BP move that can set up Misty\n"
-            "Terrain and has a 35% chance of lowering the\n"
-            "target's Special Attack by 1 stage."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 100BP move that can set up Misty Terrain and has a 35% chance of lowering the target's Special Attack by 1 stage."),
     },
     
     // Alola ---------------------------------------------------------------------------------------------------------------------------------------------
+    [SPECIES_DECIDUEYE] =
+    {
+        .move = MOVE_SPIRIT_SHACKLE,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_CURSE,
+                .chance       = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIGH_CRIT,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90BP move that can curse the target and has a high crit ratio."),
+    },
+
+    [SPECIES_DECIDUEYE_HISUI] =
+    {
+        .move = MOVE_LOW_SWEEP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 90,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
+                .variable     = STAT_DEF,
+                .chance       = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 30,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_HIGH_CRIT,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP move that can flinch the target and lower its defense stat also becomes high-crit."),
+    },
+
+    [SPECIES_INCINEROAR] =
+    {
+        .move = MOVE_DARKEST_LARIAT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_FIGHTING,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that can burn the target and its super-effective against Fighting-Types."),
+    },
+
+    [SPECIES_PRIMARINA] =
+    {
+        .move = MOVE_SPARKLING_ARIA,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 110,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_CHANGE_TARGET,
+                .variable     = MOVE_TARGET_BOTH,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 110BP move that no longer heals burn from the target and does not hit allies."),
+    },
+    
     [SPECIES_PALOSSAND] =
     {
         .move = MOVE_SHORE_UP,
@@ -5442,13 +8107,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_MODIFY_FIELD,
                 .variable     = FIELD_SET_WEATHER_SANDSTORM,
-                .chance       = 20,
+                .chance       = 30,
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move that sets up Sandstorm with a\n"
-            "20% chance."),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move that sets up Sandstorm with a 30% chance."),
     },
 
     [SPECIES_WIMPOD] =
@@ -5464,13 +8128,12 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
                 .variable     = STAT_DEF,
-                .chance       = 15,
+                .chance       = 25,
             },
         },
         .unlockedLevel = 20,
-        .summaryScreen_description = _(
-            "May lower the target Defense\n"
-            "and ignores it if higher"),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "May lower the target Defense and ignores it if higher."),
     },
 
     [SPECIES_GOLISOPOD] =
@@ -5482,17 +8145,16 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_TARGET_STAT_DOWN,
                 .variable     = STAT_DEF,
-                .chance       = 30,
+                .chance       = 50,
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "May lower the target Defense\n"
-            "and ignores it if higher"),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "May lower the target Defense and ignores it if higher."),
     },
 
     [SPECIES_ORICORIO] =
@@ -5506,11 +8168,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
                 .chance       = 20,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 20% chance of\n"
-            "burning the target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move Fire/Flying move with a 20% chance of burning the target."),
     },
 
     [SPECIES_ORICORIO_POM_POM] =
@@ -5524,14 +8190,18 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_PARALYSIS,
                 .chance       = 20,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 20% chance of\n"
-            "paralyzing the target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move Electric/Flying move 20% chance of paralyzing the target."),
     },
 
-    [SPECIES_ORICORIO_PA_U] =
+    [SPECIES_ORICORIO_PAU] =
     {
         .move = MOVE_REVELATION_DANCE,
         .moveEffect =
@@ -5542,11 +8212,15 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = SIGNATURE_SECONDARY_EFFECT_CONFUSION,
                 .chance       = 20,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 20% chance of\n"
-            "confusing the target."),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move Psychic/Flying move 20% chance of confusing the target."),
     },
 
     [SPECIES_ORICORIO_SENSU] =
@@ -5558,13 +8232,45 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_CURSE,
+                .chance       = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECOND_TYPE,
+                .variable     = TYPE_FLYING,
+            },
+        },
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move Ghost/Flying move 20% chance of cursing the target."),
+    },
+
+    [SPECIES_COMFEY] =
+    {
+        .move = MOVE_DRAINING_KISS,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 70,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 50,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPATK,
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move with a 10% chance of\n"
-            "cursing the target."),
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 70 BP that leeches the target and may boost the user Special Attack."),
     },
 
     [SPECIES_TOGEDEMARU] =
@@ -5588,30 +8294,70 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = 25,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes an Steel-Type move that boosts\n"
-            "the user's Speed stat but lowers its\n"
-            "Defense stat."
-        ),
+        .unlockedLevel = 25,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 25BP Steel-type move that boosts the user's Speed but lowers its Defense."),
     },
 
     // Galar ---------------------------------------------------------------------------------------------------------------------------------------------
     [SPECIES_RILLABOOM] =
     {
-        .move = MOVE_GRASSY_GLIDE,
+        .move = MOVE_DRUM_BEATING,
         .moveEffect =
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
                 .modification = SIGNATURE_MOD_POWER,
-                .variable     = 70,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_SOUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_STAT_STAGES_IGNORED,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 70BP move."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP sound move that ignores the target stat changes and can seed the target."),
+    },
+
+    [SPECIES_RILLABOOM_MEGA] =
+    {
+        .move = MOVE_DRUM_BEATING,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = {
+                .modification = SIGNATURE_MOD_ADD_FLAG,
+                .variable     = FLAG_SOUND,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_STAT_STAGES_IGNORED,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP sound move that ignores the target stat changes and can seed the target."),
     },
 
     [SPECIES_INTELEON] =
@@ -5635,12 +8381,35 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 95BP move that ignores\n"
-            "the target defense and can"
-            "flinch the target."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that ignores the target defense and can flinch the target."),
+    },
+
+    [SPECIES_INTELEON_MEGA] =
+    {
+        .move = MOVE_SNIPE_SHOT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_STAT_STAGES_IGNORED,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 10,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that ignores the target defense and can flinch the target."),
     },
 
     [SPECIES_CINDERACE] =
@@ -5660,12 +8429,75 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a move that can hit a target\n"
-            "using a move such as Protect or Detect\n"
-            "this also lifts the effects of the move."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move that bypasses Protect with a 20% chance of burning the target."),
+    },
+
+    [SPECIES_CINDERACE_MEGA] =
+    {
+        .move = MOVE_PYRO_BALL,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_FEINT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a move that bypasses Protect with a 20% chance of burning the target."),
+    },
+
+    [SPECIES_CORVIKNIGHT] =
+    {
+        .move = MOVE_BRAVE_BIRD,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 10,
+            },
+        },
+        .unlockedLevel = 30,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Doesn't take damage from recoil and may flinch the target."),
+    },
+
+    [SPECIES_CORVIKNIGHT_MEGA] =
+    {
+        .move = MOVE_BRAVE_BIRD,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_HIT,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_SPEED,
+                .chance       = 15,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Doesn't take damage from recoil and may boost the user speed."),
     },
 
     [SPECIES_CHEWTLE] =
@@ -5685,9 +8517,8 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP Water-type move."
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Water-type move."),
     },
 
     [SPECIES_DREDNAW] =
@@ -5706,10 +8537,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .variable     = TYPE_ROCK,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP Rock-type move."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 90 BP Rock-type move."),
     },
 
     [SPECIES_DREDNAW_MEGA] =
@@ -5732,11 +8562,73 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP Rock-type move that\n"
-            "ignores the target defense."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP Rock-type move that ignores the target defense."),
+    },
+
+    [SPECIES_HATTERENE] =
+    {
+        .move = MOVE_PSYCHO_CUT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_STEEL,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+        },
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP move that uses the highest attacking stat for damage calculation, it can also flinch and becomes SE against Steel-types."),
+    },
+
+    [SPECIES_HATTERENE_MEGA] =
+    {
+        .move = MOVE_PSYCHO_CUT,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_PSS_CHANGE,
+                .variable     = SPLIT_HIGHEST,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_STEEL,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 85,
+            },
+        },
+        .unlockedLevel = 45,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 85 BP move that uses the highest attacking stat for damage calculation, it can also flinch the target and becomes SE against Steel-types."),
     },
 
     [SPECIES_DRACOVISH] =
@@ -5754,11 +8646,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .modification = SIGNATURE_MOD_PENETRATING,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 90 BP move that\n"
-            "ignores the target defense."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95BP move that ignores the target defense."),
     },
 
     [SPECIES_ARCTOVISH] =
@@ -5778,11 +8668,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that\n"
-            "may boost the user speed."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that may boost the user speed."),
     },
 
     [SPECIES_DRACOZOLT] =
@@ -5802,11 +8690,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that\n"
-            "may boost the user speed."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that may boost the user speed."),
     },
 
     [SPECIES_ARCTOZOLT] =
@@ -5826,11 +8712,9 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 20,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 95 BP move that\n"
-            "may boost the user speed."
-        ),
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 95 BP move that may boost the user speed."),
     },
 
     [SPECIES_KLEAVOR] =
@@ -5865,15 +8749,78 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
                 .chance       = 10,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 75 BP Rock-type move sets up Stealth\n"
-            "Rock when used and no longer lowers the user\n"
-            "speed, can flinch the target."
-        ),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75 BP Rock-type move sets up Stealth Rock when used and no longer lowers the user speed, can flinch the target."),
     },
 
     //Paldea
+    [SPECIES_MEOWSCARADA] =
+    {
+        .move = MOVE_FLOWER_TRICK,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 75,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_LEECH_SEED,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 75 BP move that may seed the target."),
+    },
+
+    [SPECIES_QUAQUAVAL] =
+    {
+        .move = MOVE_AQUA_STEP,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 15,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP move that may flinch the target."),
+    },
+
+    [SPECIES_SKELEDIRGE] =
+    {
+        .move = MOVE_TORCH_SONG,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
+            },
+        },
+        .unlockedLevel = 50,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP move that may burn the target."),
+    },
+
     [SPECIES_TINKATON] =
     {
         .move = MOVE_GIGATON_HAMMER,
@@ -5881,90 +8828,72 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
             {
-                .modification = SIGNATURE_MOD_POWER,
-                .variable     = 130,
-            },
-            [SIGNATURE_MOVE_EFFECT_2] = 
-            {
                 .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
                 .variable     = TYPE_STEEL,
             },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
+                .chance       = 15,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = {
+                .modification = SIGNATURE_MOD_REMOVE_FLAG,
+                .variable     = FLAG_MAKES_CONTACT,
+            }
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 130 BP move\nand is super effective against Steel-types."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes super effective against Steel-types and can flinch the target, no longer makes contact."),
     },
 
     [SPECIES_CERULEDGE] =
     {
-        .move = MOVE_SLASH,
+        .move = MOVE_BITTER_BLADE,
         .moveEffect =
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
-            {
-                .modification = SIGNATURE_MOD_POWER,
-                .variable     = 95,
-            },
-            [SIGNATURE_MOVE_EFFECT_2] = 
-            {
-                .modification = SIGNATURE_MOD_TYPE,
-                .variable     = TYPE_FIRE,
-            },
-            [SIGNATURE_MOVE_EFFECT_3] = 
-            {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable = EFFECT_ABSORB,
-            },
-            [SIGNATURE_MOVE_EFFECT_4] = 
-            {
-                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
-                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
-                .chance       = 10,
-            },
-        },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 90BP Fire-type move that\n"
-            "restores the user's HP by half of the\n"
-            "damage dealt and can burn the target."),
-    },
-
-    [SPECIES_ARMAROUGE] =
-    {
-        .move = MOVE_FIRE_BLAST,
-        .moveEffect =
-        {
-            [SIGNATURE_MOVE_EFFECT_1] = 
-            {
-                .modification = SIGNATURE_MOD_POWER,
-                .variable     = 120,
-            },
-            [SIGNATURE_MOVE_EFFECT_2] = 
-            {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable = EFFECT_CLOSE_COMBAT,
-            },
-            [SIGNATURE_MOVE_EFFECT_3] = 
             {
                 .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
                 .variable     = TYPE_WATER,
             },
-            [SIGNATURE_MOVE_EFFECT_4] = 
+            [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_ACCURACY,
-                .variable     = 100,
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 20,
             },
         },
-        .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            "Becomes a 120BP move with 100% Accuracy \n"
-            "that lowers the user Defense stats and\n"
-            "its super effective against Water types."),
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes super effective against Water types and can burn the target."),
+    },
+
+    [SPECIES_ARMAROUGE] =
+    {
+        .move = MOVE_ARMOR_CANNON,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_SE_AGAINST_TYPE,
+                .variable     = TYPE_WATER,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
+                .variable     = SIGNATURE_SECONDARY_EFFECT_BURN,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 40,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes super effective against Water types and can burn the target."),
     },
 
     [SPECIES_WUGTRIO] =
     {
-        .move = MOVE_DIVE,
+        .move = MOVE_TRIPLE_DIVE,
         .moveEffect =
         {
             [SIGNATURE_MOVE_EFFECT_1] = 
@@ -5974,21 +8903,124 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
             [SIGNATURE_MOVE_EFFECT_2] = 
             {
-                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
-                .variable = EFFECT_TRIPLE_KICK,
-            },
-            [SIGNATURE_MOVE_EFFECT_3] = 
-            {
                 .modification = SIGNATURE_MOD_SECONDARY_EFFECT,
                 .variable     = SIGNATURE_SECONDARY_EFFECT_FLINCH,
                 .chance       = 10,
             },
         },
-        .unlockedLevel = 25,
-        .summaryScreen_description = _(
-            "Becomes a 35 BP move that hits the target 3 times,\n"
-            "can flinch the target."
-        ),
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 35 BP move that hits the target 3 times, can flinch the target."),
+    },
+
+    [SPECIES_TANDEMAUS] =
+    {
+        .move = MOVE_SCRATCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MAX_TIMES,
+                .variable     = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_MULTI_HIT,
+            },
+        },
+        .unlockedLevel = FALSE,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20BP move that can hit up to 10 times."),
+    },
+
+    [SPECIES_MAUSHOLD] =
+    {
+        .move = MOVE_SCRATCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MAX_TIMES,
+                .variable     = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_MULTI_HIT,
+            },
+        },
+        .unlockedLevel = FALSE,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20BP move that can hit up to 10 times."),
+    },
+
+    [SPECIES_MAUSHOLD_FOUR] =
+    {
+        .move = MOVE_SCRATCH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 20,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_MULTI_HIT_MAX_TIMES,
+                .variable     = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANGE,
+                .variable = EFFECT_MULTI_HIT,
+            },
+        },
+        .unlockedLevel = FALSE,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 20BP move that can hit up to 10 times."),
+    },
+
+    [SPECIES_CYCLIZAR] =
+    {
+        .move = MOVE_DRAGON_RUSH,
+        .moveEffect =
+        {
+            [SIGNATURE_MOVE_EFFECT_1] = 
+            {
+                .modification = SIGNATURE_MOD_POWER,
+                .variable     = 80,
+            },
+            [SIGNATURE_MOVE_EFFECT_2] = 
+            {
+                .modification = SIGNATURE_MOD_ACCURACY,
+                .variable     = 95,
+            },
+            [SIGNATURE_MOVE_EFFECT_3] = 
+            {
+                .modification = SIGNATURE_MOD_EFFECT_CHANCE,
+                .variable     = 10,
+            },
+            [SIGNATURE_MOVE_EFFECT_4] = 
+            {
+                .modification = SIGNATURE_MOD_ATTACKER_STAT_UP,
+                .variable     = STAT_ATK,
+                .chance       = 30,
+            },
+        },
+        .unlockedLevel = 35,
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            "Becomes a 80 BP move with 95% accuracy, can flinch the target or raise the user attack."),
     },
 
     // Other
@@ -6003,8 +9035,7 @@ const struct SignatureMove  gSignatureMoveList[NUM_SPECIES] = {
             },
         },
         .unlockedLevel = FALSE,
-        .summaryScreen_description = _(
-            ""
-        ),
+        DEFINE_SIGNATURE_MOVE_DESCRIPTION(
+            ""),
     },
 };

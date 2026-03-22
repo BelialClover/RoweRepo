@@ -1,0 +1,460 @@
+{
+  "heal_locations": [
+    {
+      "id": "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+      "map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "id": "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "id": "HEAL_LOCATION_PETALBURG_CITY",
+      "map": "MAP_PETALBURG_CITY",
+      "x": 21,
+      "y": 27
+    },
+    {
+      "id": "HEAL_LOCATION_SLATEPORT_CITY",
+      "map": "MAP_SLATEPORT_CITY",
+      "x": 19,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_MAUVILLE_CITY",
+      "map": "MAP_MAUVILLE_CITY",
+      "x": 34,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_RUSTBORO_CITY",
+      "map": "MAP_RUSTBORO_CITY",
+      "x": 16,
+      "y": 39
+    },
+    {
+      "id": "HEAL_LOCATION_FORTREE_CITY",
+      "map": "MAP_FORTREE_CITY",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_LILYCOVE_CITY",
+      "map": "MAP_LILYCOVE_CITY",
+      "x": 24,
+      "y": 15
+    },
+    {
+      "id": "HEAL_LOCATION_MOSSDEEP_CITY",
+      "map": "MAP_MOSSDEEP_CITY",
+      "x": 28,
+      "y": 17
+    },
+    {
+      "id": "HEAL_LOCATION_SOOTOPOLIS_CITY",
+      "map": "MAP_SOOTOPOLIS_CITY",
+      "x": 43,
+      "y": 32
+    },
+    {
+      "id": "HEAL_LOCATION_EVER_GRANDE_CITY",
+      "map": "MAP_EVER_GRANDE_CITY",
+      "x": 27,
+      "y": 49
+    },
+    {
+      "id": "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE",
+      "map": "MAP_LITTLEROOT_TOWN",
+      "x": 15,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE",
+      "map": "MAP_LITTLEROOT_TOWN",
+      "x": 24,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_OLDALE_TOWN",
+      "map": "MAP_OLDALE_TOWN",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_DEWFORD_TOWN",
+      "map": "MAP_DEWFORD_TOWN",
+      "x": 2,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_LAVARIDGE_TOWN",
+      "map": "MAP_LAVARIDGE_TOWN",
+      "x": 9,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_FALLARBOR_TOWN",
+      "map": "MAP_FALLARBOR_TOWN",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_VERDANTURF_TOWN",
+      "map": "MAP_VERDANTURF_TOWN",
+      "x": 22,
+      "y": 4
+    },
+    {
+      "id": "HEAL_LOCATION_PACIFIDLOG_TOWN",
+      "map": "MAP_PACIFIDLOG_TOWN",
+      "x": 8,
+      "y": 16
+    },
+    {
+      "id": "HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE",
+      "map": "MAP_EVER_GRANDE_CITY",
+      "x": 18,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR",
+      "map": "MAP_SOUTHERN_ISLAND_EXTERIOR",
+      "x": 15,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST",
+      "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
+      "x": 3,
+      "y": 52
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE101",
+      "map": "MAP_ROUTE101",
+      "x": 6,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE102",
+      "map": "MAP_ROUTE102",
+      "x": 18,
+      "y": 2
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE103",
+      "map": "MAP_ROUTE103",
+      "x": 75,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE104",
+      "map": "MAP_ROUTE104",
+      "x": 6,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE105",
+      "map": "MAP_ROUTE105",
+      "x": 15,
+      "y": 57
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE106",
+      "map": "MAP_ROUTE106",
+      "x": 48,
+      "y": 17
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE107",
+      "map": "MAP_ROUTE107",
+      "x": 3,
+      "y": 11
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE108",
+      "map": "MAP_ROUTE108",
+      "x": 30,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE109",
+      "map": "MAP_ROUTE109",
+      "x": 19,
+      "y": 22
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE110",
+      "map": "MAP_ROUTE110",
+      "x": 4,
+      "y": 17
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE111",
+      "map": "MAP_ROUTE111",
+      "x": 6,
+      "y": 66
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE112",
+      "map": "MAP_ROUTE112",
+      "x": 27,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE113",
+      "map": "MAP_ROUTE113",
+      "x": 85,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE114",
+      "map": "MAP_ROUTE114",
+      "x": 28,
+      "y": 37
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE115",
+      "map": "MAP_ROUTE115",
+      "x": 27,
+      "y": 38
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE116",
+      "map": "MAP_ROUTE116",
+      "x": 47,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE117",
+      "map": "MAP_ROUTE117",
+      "x": 51,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE118",
+      "map": "MAP_ROUTE118",
+      "x": 21,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE119",
+      "map": "MAP_ROUTE119",
+      "x": 6,
+      "y": 33
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE120",
+      "map": "MAP_ROUTE120",
+      "x": 20,
+      "y": 13
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE121",
+      "map": "MAP_ROUTE121",
+      "x": 37,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE122",
+      "map": "MAP_ROUTE122",
+      "x": 22,
+      "y": 30
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE123",
+      "map": "MAP_ROUTE123",
+      "x": 11,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE124",
+      "map": "MAP_ROUTE124",
+      "x": 70,
+      "y": 49
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE125",
+      "map": "MAP_ROUTE125",
+      "x": 22,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE126",
+      "map": "MAP_ROUTE126",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE127",
+      "map": "MAP_ROUTE127",
+      "x": 19,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE128",
+      "map": "MAP_ROUTE128",
+      "x": 50,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE129",
+      "map": "MAP_ROUTE129",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE130",
+      "map": "MAP_ROUTE130",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE131",
+      "map": "MAP_ROUTE131",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE132",
+      "map": "MAP_ROUTE132",
+      "x": 31,
+      "y": 33
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE133",
+      "map": "MAP_ROUTE133",
+      "x": 62,
+      "y": 14
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE134",
+      "map": "MAP_ROUTE134",
+      "x": 76,
+      "y": 31
+    },
+    {
+      "id": "HEAL_LOCATION_MT_CHIMNEY",
+      "map": "MAP_MT_CHIMNEY",
+      "x": 20,
+      "y": 36
+    },
+    {
+      "id": "HEAL_LOCATION_PALLET_TOWN",
+      "map": "MAP_PALLET_TOWN",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_CITY",
+      "map": "MAP_VIRIDIAN_CITY",
+      "x": 26,
+      "y": 27
+    },
+    {
+      "id": "HEAL_LOCATION_PEWTER_CITY",
+      "map": "MAP_PEWTER_CITY",
+      "x": 17,
+      "y": 26
+    },
+    {
+      "id": "HEAL_LOCATION_CERULEAN_CITY",
+      "map": "MAP_CERULEAN_CITY",
+      "x": 22,
+      "y": 20
+    },
+    {
+      "id": "HEAL_LOCATION_SAFFRON_CITY",
+      "map": "MAP_SAFFRON_CITY",
+      "x": 24,
+      "y": 39
+    },
+    {
+      "id": "HEAL_LOCATION_VERMILION_CITY",
+      "map": "MAP_VERMILLION_CITY",
+      "x": 15,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_LAVENDER_TOWN",
+      "map": "MAP_LAVANDER_TOWN",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_CELADON_CITY",
+      "map": "MAP_CELADON_CITY",
+      "x": 48,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_FUCHSIA_CITY",
+      "map": "MAP_FUCHSIA_CITY",
+      "x": 9,
+      "y": 33
+    },
+    {
+      "id": "HEAL_LOCATION_CINNABAR_ISLAND",
+      "map": "MAP_CINNABAR_ISLAND",
+      "x": 14,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_LEAGUE",
+      "map": "MAP_KANTO_VICTORY_ROAD_1F",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_ONE_ISLAND",
+      "map": "MAP_ONE_ISLAND",
+      "x": 30,
+      "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_TWO_ISLAND",
+      "map": "MAP_TWO_ISLAND",
+      "x": 21,
+      "y": 8
+    },
+    {
+      "id": "HEAL_LOCATION_THREE_ISLAND",
+      "map": "MAP_THREE_ISLAND",
+      "x": 14,
+      "y": 28
+    },
+    {
+      "id": "HEAL_LOCATION_FOUR_ISLAND",
+      "map": "MAP_FOUR_ISLAND",
+      "x": 18,
+      "y": 21
+    },
+    {
+      "id": "HEAL_LOCATION_FIVE_ISLAND",
+      "map": "MAP_FIVE_ISLAND",
+      "x": 29,
+      "y": 16
+    },
+    {
+      "id": "HEAL_LOCATION_SIX_ISLAND",
+      "map": "MAP_SIX_ISLAND",
+      "x": 27,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_SEVEN_ISLAND",
+      "map": "MAP_SEVEN_ISLAND",
+      "x": 15,
+      "y": 4
+    },
+    {
+      "id": "HEAL_LOCATION_EIGHT_ISLAND",
+      "map": "MAP_EIGHT_ISLAND",
+      "x": 24,
+      "y": 25
+    }
+  ]
+}

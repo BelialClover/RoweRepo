@@ -46,7 +46,7 @@
 // Battle Type Flags
 #define BATTLE_TYPE_DOUBLE          (1 << 0)
 #define BATTLE_TYPE_LINK            (1 << 1)
-#define BATTLE_TYPE_IS_MASTER       (1 << 2) // In not-link battles, it's always set.
+#define BATTLE_TYPE_IS_MASTER       (1 << 2) // In not-link battles, it's always set. //BATTLE_TYPE_LINK_IN_BATTLE
 #define BATTLE_TYPE_TRAINER         (1 << 3)
 #define BATTLE_TYPE_FIRST_BATTLE    (1 << 4)
 #define BATTLE_TYPE_20              (1 << 5)
@@ -102,13 +102,14 @@
 #define STATUS1_SLEEP_TURN(num)  ((num) << 0) // Just for readability (or if rearranging statuses)
 #define STATUS1_POISON           (1 << 3)
 #define STATUS1_BURN             (1 << 4)
-#define STATUS1_FREEZE           (1 << 5)
+#define STATUS1_FROSTBITE        (1 << 5)
 #define STATUS1_PARALYSIS        (1 << 6)
 #define STATUS1_TOXIC_POISON     (1 << 7)
 #define STATUS1_TOXIC_COUNTER    (1 << 8 | 1 << 9 | 1 << 10 | 1 << 11)
 #define STATUS1_TOXIC_TURN(num)  ((num) << 8)
+#define STATUS1_FREEZE           (1 << 12)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
-#define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON)
+#define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE)
 
 // Volatile status ailments
 // These are removed after exiting the battle or switching out
@@ -359,27 +360,28 @@
 #define MOVE_EFFECT_SPD_PLUS_1_DEF_MINUS_1 0x46
 #define MOVE_EFFECT_RECOIL            	0x47
 #define MOVE_EFFECT_TRAP_BOTH           0x48
-#define NUM_MOVE_EFFECTS                0x49
+#define MOVE_EFFECT_FROSTBITE           0x49
+#define NUM_MOVE_EFFECTS                0x4A
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
 
 // Battle terrain defines for gBattleTerrain.
-#define BATTLE_TERRAIN_GRASS        0
-#define BATTLE_TERRAIN_LONG_GRASS   1
-#define BATTLE_TERRAIN_SAND         2
-#define BATTLE_TERRAIN_UNDERWATER   3
-#define BATTLE_TERRAIN_WATER        4
-#define BATTLE_TERRAIN_POND         5
-#define BATTLE_TERRAIN_MOUNTAIN     6
-#define BATTLE_TERRAIN_CAVE         7
-#define BATTLE_TERRAIN_BUILDING     8
-#define BATTLE_TERRAIN_PLAIN        9
-#define BATTLE_TERRAIN_GRASS_DUSK   10
-#define BATTLE_TERRAIN_GRASS_NIGHT  11
-#define BATTLE_TERRAIN_ICE  		12
-#define BATTLE_TERRAIN_FOREST  		13
-#define BATTLE_TERRAIN_ICE_GRASS    14
+#define BATTLE_TERRAIN_GRASS          0
+#define BATTLE_TERRAIN_LONG_GRASS     1
+#define BATTLE_TERRAIN_SAND           2
+#define BATTLE_TERRAIN_UNDERWATER     3
+#define BATTLE_TERRAIN_WATER          4
+#define BATTLE_TERRAIN_POND           5
+#define BATTLE_TERRAIN_MOUNTAIN       6
+#define BATTLE_TERRAIN_CAVE           7
+#define BATTLE_TERRAIN_BUILDING       8
+#define BATTLE_TERRAIN_PLAIN          9
+#define BATTLE_TERRAIN_GRASS_DUSK     10
+#define BATTLE_TERRAIN_GRASS_NIGHT    11
+#define BATTLE_TERRAIN_ICE  		  12
+#define BATTLE_TERRAIN_FOREST  		  13
+#define BATTLE_TERRAIN_ICE_GRASS      14
 
 #define BATTLE_TERRAIN_GRASS_SUMMER       15
 #define BATTLE_TERRAIN_GRASS_SUMMER_DUSK  16
@@ -393,6 +395,7 @@
 
 #define BATTLE_TERRAIN_PLAIN_AUTUMN    24
 #define BATTLE_TERRAIN_PLAIN_WINTER    25
+#define BATTLE_TERRAIN_NEWMOON_ISLAND  26
 
 // Move targets
 #define MOVE_TARGET_SELECTED            0x0

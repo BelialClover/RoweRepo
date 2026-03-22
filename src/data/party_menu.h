@@ -632,6 +632,17 @@ static const struct WindowTemplate sAlreadyHoldingOneMsgWindowTemplate =
     .baseBlock = 0x299,
 };
 
+static const struct WindowTemplate sWhatFromMsgWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 1,
+    .tilemapTop = 15,
+    .width = 20,
+    .height = 4,
+    .paletteNum = 15,
+    .baseBlock = 0x299,
+};
+
 static const struct WindowTemplate sItemGiveTakeWindowTemplate =
 {
     .bg = 2,
@@ -824,6 +835,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_DO_WHAT_WITH_MAIL]      = gText_DoWhatWithMail,
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_MOVE_ITEM_WHERE]        = gText_MoveItemWhere,
+    [PARTY_MSG_WHAT_FORM]              = COMPOUND_STRING("Change to what form?"),
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -1392,7 +1404,7 @@ const u16 sTMHMMoves[TMHM_COUNT] =
     MOVE_CALM_MIND,
     MOVE_ROAR,
     MOVE_TOXIC,
-    MOVE_HAIL,
+    MOVE_SNOWSCAPE,
     MOVE_BULK_UP,
     MOVE_BULLET_SEED,
     MOVE_HIDDEN_POWER,

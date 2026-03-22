@@ -1,0 +1,12 @@
+#ifndef GUARD_CONSTANTS_HEAL_LOCATIONS_H
+#define GUARD_CONSTANTS_HEAL_LOCATIONS_H
+
+{{ doNotModifyHeader }}
+
+#define HEAL_LOCATION_NONE 0
+## for heal_location in heal_locations
+#define {{ heal_location.id }} {{ loop.index1 }}
+## endfor
+#define NUM_HEAL_LOCATIONS ({{ length(heal_locations) }} + 1)
+
+#endif // GUARD_CONSTANTS_HEAL_LOCATIONS_H

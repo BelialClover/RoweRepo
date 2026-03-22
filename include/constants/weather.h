@@ -16,7 +16,8 @@
 #define WEATHER_DROUGHT                 12
 #define WEATHER_DOWNPOUR                13
 #define WEATHER_UNDERWATER_BUBBLES      14
-#define WEATHER_ABNORMAL                15  // The alternating weather during Groudon/Kyogre conflict 
+#define WEATHER_ABNORMAL                15  // The alternating weather during Groudon/Kyogre conflict
+#define WEATHER_FALL_LEAVES             16
 #define WEATHER_ROUTE119_CYCLE          20
 #define WEATHER_ROUTE123_CYCLE          21
 

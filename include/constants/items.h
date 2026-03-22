@@ -1016,9 +1016,9 @@
 #define ITEM_HEADBUTT_TOOL        836 //Let's you use Headbutt outside of battle
 #define ITEM_FLY_CHARM            837 //Let's you use the Flying taxis for free
 #define ITEM_WONDER_CHARM         838 //Let's you wonder trade for free
-#define ITEM_CASINO_CHARM         839 //Let's you Play on the casino for free
+#define ITEM_ALPHA_CHARM          839 //Let's you encounter Alpha Pokémon in the wild
 
-#define ITEM_ROCK_CLIMB_TOOL      840 //Let's you use Rock Slide outside of battle
+#define ITEM_EFFORT_TOOL          840 //Let's you use Rock Slide outside of battle
 #define ITEM_SEVII_TICKET_8       841 //Gives you access to Sevii 7
 
 #define ITEM_ALCREMITE            842
@@ -1037,6 +1037,103 @@
 #define ITEM_ORBEETLITE           855
 #define ITEM_SANDACONDITE         856
 #define ITEM_SNORLAXITE           857
+
+#define ITEM_INVERSE_GEM          858
+
+//ZA Megas
+#define ITEM_CLEFABLITE           859
+#define ITEM_VICTRIBELITE         860
+#define ITEM_STARMINITE           861
+#define ITEM_FLOETTITE            862
+#define ITEM_DRAGONINITE          863
+#define ITEM_MEGANIUMITE          864
+#define ITEM_FERALIGITE           865
+#define ITEM_SKARMORITE           866
+#define ITEM_FROSLASSITE          867
+#define ITEM_EMBOARITE            868
+#define ITEM_EXCADRITE            869
+#define ITEM_SCOLIPITE            870
+#define ITEM_SCRAFTINITE          871
+#define ITEM_EELEKTROSSITE        872
+#define ITEM_CHANDELURITE         873
+#define ITEM_DELPHOXITE           874
+#define ITEM_CHESNAUGHTITE        875
+#define ITEM_GRENINJITE           876
+#define ITEM_PYROARITE            877
+#define ITEM_MALAMARITE           878
+#define ITEM_BARBARACITE          879
+#define ITEM_DRAGALGITE           880
+#define ITEM_HAWLUCHANITE         881
+#define ITEM_ZYGARDITE            882
+#define ITEM_DRAMPANITE           883
+#define ITEM_FALINKSITE           884
+#define ITEM_RAICHUNITE_X         885
+#define ITEM_RAICHUNITE_Y         886
+
+//Giantmax
+#define ITEM_VENAUSURITE_G        887
+#define ITEM_BLASTOISTE_G         888
+#define ITEM_GRIMMSNARLITE        889
+#define ITEM_MELMETALITE          890
+#define ITEM_RILABOOMITE          891
+#define ITEM_CINDERACITE          892
+#define ITEM_INTELEONITE          893
+#define ITEM_TOXTRICITITE         894
+#define ITEM_URISHIFUNITE         895
+
+//Elite Redux Mega Evolutions
+#define ITEM_SLOWKINGITE          896
+#define ITEM_CROBATITE            897
+#define ITEM_DEWGONGITE           898
+#define ITEM_TYPHLOSIONITE        899
+#define ITEM_LANTURNITE           900
+#define ITEM_QUAGSIRITE           901
+#define ITEM_BRELOOMITE           902
+#define ITEM_SHEDINJITE           903
+#define ITEM_FLYGONITE            904
+#define ITEM_MILOTICITE           905
+#define ITEM_SERPERIORITE         906
+#define ITEM_SAMUROTTITE          907
+#define ITEM_RIBOMBITE            908
+
+//Leaked ZA DLC Mega Stones
+#define ITEM_CHIMECHITE           909
+#define ITEM_ABSOLITE_Z           910
+#define ITEM_STARAPTORITE         911
+#define ITEM_GARCHOMPITE_Z        912
+#define ITEM_LUCARIONITE_Z        913
+#define ITEM_MEOWSTITE            914
+#define ITEM_GOLURKITE            915
+#define ITEM_CRABOMINABLITE       916
+#define ITEM_GOLISPODITE          917
+#define ITEM_MAGEARNITE           918
+#define ITEM_SCOVILLAINITE        919
+#define ITEM_GLIMMORITE           920
+#define ITEM_TATSIGIRITE          921
+#define ITEM_BAXCALIBURITE        922
+#define ITEM_DARKRAITE            923
+#define ITEM_HEATRANITE           924
+#define ITEM_ZERAORANITE          925
+
+//Elite Redux Megas
+#define ITEM_CLODSIRITE           926
+#define ITEM_SANDSLASHITE         927
+#define ITEM_TOUCANNONITE         928
+#define ITEM_VANILLUXITE          929
+#define ITEM_TINKATITE            930
+#define ITEM_SHUCKLENITE          931
+#define ITEM_KROOKODILENITE       932
+#define ITEM_TSEERENITE           933
+#define ITEM_LUXRAYNITE           934
+#define ITEM_CLEFABLITE_R         935
+#define ITEM_STARMINITE_R         936
+#define ITEM_NECROZMANITE         937
+
+#define ITEM_INVERSE_SHIELD       938
+#define ITEM_EJECT_PACK           939
+#define ITEM_BLUNDER_POLICY       940
+
+#define ITEM_ARBOKITE             941
 
 #define ITEMS_COUNT               1000 //To have space for extra items
 #define ITEM_FIELD_ARROW          ITEMS_COUNT

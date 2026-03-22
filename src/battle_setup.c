@@ -81,6 +81,7 @@ static void TryUpdateGymLeaderRematchFromTrainer(void);
 static void CB2_GiveStarter(void);
 static void CB2_StartFirstBattle(void);
 static void CB2_EndFirstBattle(void);
+static bool8 BattleHasNoWhiteout(void);
 static void CB2_EndTrainerBattle(void);
 static bool32 IsPlayerDefeated(u32 battleOutcome);
 static u16 GetRematchTrainerId(u16 trainerId);
@@ -90,7 +91,7 @@ static const u8 *GetIntroSpeechOfApproachingTrainer(void);
 static const u8 *GetTrainerCantBattleSpeech(void);
 
 // ewram vars
-EWRAM_DATA static u16 sTrainerBattleMode = 0;
+EWRAM_DATA u16 gTrainerBattleMode = 0;
 EWRAM_DATA u16 gTrainerBattleOpponent_A = 0;
 EWRAM_DATA u16 gTrainerBattleOpponent_B = 0;
 EWRAM_DATA u16 gPartnerTrainerId = 0;
@@ -161,7 +162,7 @@ static const u8 sBattleTransitionTable_BattleDome[] =
 
 static const struct TrainerBattleParameter sOrdinaryBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -174,7 +175,7 @@ static const struct TrainerBattleParameter sOrdinaryBattleParams[] =
 
 static const struct TrainerBattleParameter sContinueScriptBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -187,7 +188,7 @@ static const struct TrainerBattleParameter sContinueScriptBattleParams[] =
 
 static const struct TrainerBattleParameter sDoubleBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -200,7 +201,7 @@ static const struct TrainerBattleParameter sDoubleBattleParams[] =
 
 static const struct TrainerBattleParameter sOrdinaryNoIntroBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_CLEAR_VAL_32BIT},
@@ -213,7 +214,7 @@ static const struct TrainerBattleParameter sOrdinaryNoIntroBattleParams[] =
 
 static const struct TrainerBattleParameter sContinueScriptDoubleBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -226,7 +227,7 @@ static const struct TrainerBattleParameter sContinueScriptDoubleBattleParams[] =
 
 static const struct TrainerBattleParameter sTrainerBOrdinaryBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_B,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerBIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -239,7 +240,7 @@ static const struct TrainerBattleParameter sTrainerBOrdinaryBattleParams[] =
 
 static const struct TrainerBattleParameter sTrainerBContinueScriptBattleParams[] =
 {
-    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
     {&gTrainerBattleOpponent_B,     TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerObjectEventLocalId,   TRAINER_PARAM_LOAD_VAL_16BIT},
     {&sTrainerBIntroSpeech,         TRAINER_PARAM_LOAD_VAL_32BIT},
@@ -253,8 +254,8 @@ static const struct TrainerBattleParameter sTrainerBContinueScriptBattleParams[]
 #define REMATCH(trainer1, trainer2, trainer3, trainer4, trainer5, map)  \
 {                                                                       \
     .trainerIds = {trainer1, trainer2, trainer3, trainer4, trainer5},   \
-    .mapGroup = MAP_GROUP(map),                                         \
-    .mapNum = MAP_NUM(map),                                             \
+    .mapGroup = MAP_GROUP(MAP_##map),                                       \
+    .mapNum = MAP_NUM(MAP_##map),                                           \
 }
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
@@ -553,6 +554,11 @@ void BattleSetup_StartScriptedWildBattle(void)
         gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
         CreateBattleStartTask(GetWildBattleTransition(), 0);
         break;
+    case SPECIES_DARKRAI:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+        //CreateBattleStartTask(GetWildBattleTransition(), 0);
+        break;
     default:
         CreateBattleStartTask(GetWildBattleTransition(), 0);
         break;
@@ -590,13 +596,13 @@ void BattleSetup_StartLatiBattle(void)
 
 void BattleSetup_StartLegendaryBattle(void)
 {
+    u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
     ScriptContext2_Enable();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
 
-    switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+    switch (species)
     {
-    default:
     case SPECIES_GROUDON:
         gBattleTypeFlags |= BATTLE_TYPE_GROUDON;
         CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
@@ -619,6 +625,13 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_MEW:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
+    default:
+    {
+        u8 category = getSpeciesCategory(species);
+        if(category == TRAINER_EXP_LEGENDARY)
+            CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+    }
+    break;
     }
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
@@ -711,33 +724,33 @@ static void CB2_EndScriptedWildBattle(void)
     }
 }
 
-#define MAP_GROUP_ROUTES_AND_TOWNS MAP_GROUP(PETALBURG_CITY)
-#define MAP_GROUP_DUNGEONS         MAP_GROUP(METEOR_FALLS_1F_1R)
-#define MAP_GROUP_EVENT            MAP_GROUP(SOUTHERN_ISLAND_INTERIOR)
+#define MAP_GROUP_ROUTES_AND_TOWNS MAP_GROUP(MAP_PETALBURG_CITY)
+#define MAP_GROUP_DUNGEONS         MAP_GROUP(MAP_METEOR_FALLS_1F_1R)
+#define MAP_GROUP_EVENT            MAP_GROUP(MAP_SOUTHERN_ISLAND_INTERIOR)
 
 static bool8 ShouldUseIceTerrain(void){
-    if ((gSaveBlock1Ptr->location.mapGroup  == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_INNER_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_LOW_TIDE_INNER_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_LOWER_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_LOW_TIDE_LOWER_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_HIGH_TIDE_INNER_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_HIGH_TIDE_INNER_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_ICE_ROOM) && 
-          gSaveBlock1Ptr->location.mapNum   == MAP_NUM(SHOAL_CAVE_LOW_TIDE_ICE_ROOM)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_1F) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_1F)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_B1F) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_B1F)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE)) ||
-         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_BACK) && 
-         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_BACK)))
+    if ((gSaveBlock1Ptr->location.mapGroup  == MAP_GROUP(MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_LOW_TIDE_INNER_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_LOW_TIDE_INNER_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM) && 
+          gSaveBlock1Ptr->location.mapNum   == MAP_NUM(MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_1F) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_1F)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_B1F) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_B1F)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE)) ||
+         (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_BACK) && 
+         gSaveBlock1Ptr->location.mapNum    == MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_BACK)))
         return TRUE;
     
     return FALSE;
@@ -765,6 +778,16 @@ u8 BattleSetup_GetTerrainId(void)
 
     PlayerGetDestCoords(&x, &y);
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    {
+        switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+        {
+        case SPECIES_DARKRAI:
+            return BATTLE_TERRAIN_NEWMOON_ISLAND;
+        break;
+        }
+    }
 
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_TERRAIN_LONG_GRASS;
@@ -846,7 +869,7 @@ u8 BattleSetup_GetTerrainId(void)
             return BATTLE_TERRAIN_WATER;
     }
 
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE113))
         return BATTLE_TERRAIN_SAND;
     if (GetSav1Weather() == 8)
         return BATTLE_TERRAIN_SAND;	
@@ -892,24 +915,24 @@ u8 BattleSetup_GetTerrainId(void)
 
     switch(gSaveBlock1Ptr->location.mapGroup){
 		case MAP_GROUP_ROUTES_AND_TOWNS:
-            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(PRIMEVAL_FOREST) ||
-               gSaveBlock1Ptr->location.mapNum == MAP_NUM(VIRIDIAN_FOREST)){
+            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PRIMEVAL_FOREST) ||
+               gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_VIRIDIAN_FOREST)){
                 return BATTLE_TERRAIN_FOREST;
             }
         break;
         case 1:
-            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(THREE_ISLAND_BERRY_FOREST)){
+            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_THREE_ISLAND_BERRY_FOREST)){
                 return BATTLE_TERRAIN_GRASS_DUSK;
             }
         break;
 		case MAP_GROUP_DUNGEONS:
-            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_WOODS)){
+            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PETALBURG_WOODS)){
                 return BATTLE_TERRAIN_FOREST;
             }
         break;
 		case MAP_GROUP_EVENT:
-            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(SOUTHERN_ISLAND_INTERIOR) ||
-               gSaveBlock1Ptr->location.mapNum == MAP_NUM(FARAWAY_ISLAND_INTERIOR)){
+            if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SOUTHERN_ISLAND_INTERIOR) ||
+               gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FARAWAY_ISLAND_INTERIOR)){
                 return BATTLE_TERRAIN_FOREST;
             }
         break;
@@ -1228,7 +1251,7 @@ void ResetTrainerOpponentIds(void)
 
 static void InitTrainerBattleVariables(void)
 {
-    sTrainerBattleMode = 0;
+    gTrainerBattleMode = 0;
     if (gApproachingTrainerId == 0)
     {
         sTrainerAIntroSpeech = NULL;
@@ -1315,11 +1338,12 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
     if (TrainerBattleLoadArg8(data) != TRAINER_BATTLE_SET_TRAINER_B)
         InitTrainerBattleVariables();
-    sTrainerBattleMode = TrainerBattleLoadArg8(data);
+    gTrainerBattleMode = TrainerBattleLoadArg8(data);
 
-    switch (sTrainerBattleMode)
+    switch (gTrainerBattleMode)
     {
     case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
+    case TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT:
         TrainerBattleLoadArgs(sOrdinaryNoIntroBattleParams, data);
         return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_DOUBLE:
@@ -1441,7 +1465,7 @@ void SetUpTrainerMovement(void)
 
 u8 GetTrainerBattleMode(void)
 {
-    return sTrainerBattleMode;
+    return gTrainerBattleMode;
 }
 
 bool8 GetTrainerFlag(void)
@@ -1536,6 +1560,14 @@ void BattleSetup_StartTrainerBattle(void)
     ScriptContext1_Stop();
 }
 
+static bool8 BattleHasNoWhiteout(void)
+{
+    if (gTrainerBattleMode == TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT || gTrainerBattleMode == TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static void CB2_EndTrainerBattle(void)
 {
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
@@ -1544,7 +1576,7 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (InBattlePyramid() || InTrainerHillChallenge())
+        if (InBattlePyramid() || InTrainerHillChallenge()|| BattleHasNoWhiteout())
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
             SetMainCallback2(CB2_WhiteOut);
@@ -1659,8 +1691,8 @@ void SetUpTrainerEncounterMusic(void)
     else
         trainerId = gTrainerBattleOpponent_B;
 
-    if (sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
-        && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
+    if (gTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
+        && gTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
         switch (GetTrainerEncounterMusicId(trainerId))
         {

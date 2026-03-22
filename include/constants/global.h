@@ -128,6 +128,12 @@
 #define OPTIONS_MUSIC_JOTHO  1
 #define OPTIONS_MUSIC_HOENN  2
 #define OPTIONS_MUSIC_SINNOH 3
+#define NUM_MUSIC_OPTIONS    4
+
+#define OPTIONS_OPPONENT_HP_NONE        0
+#define OPTIONS_OPPONENT_HP_NUMBER      1
+#define OPTIONS_OPPONENT_HP_PERCENTAGE  2
+#define OPTIONS_OPPONENT_HP_COUNT       3
 
 #define DIR_NONE        0
 #define DIR_SOUTH       1
@@ -213,32 +219,31 @@
 #define NUM_DIFFICULTIES   3
 
 //Trainer Skills
-#define TRAINER_SKILL_TRAINER_EXP                 0  //Working
-#define TRAINER_SKILL_EXPERIENCE                  1  //Working
-#define TRAINER_SKILL_MONEY                       2  //Working
-#define TRAINER_SKILL_DISCOUNT                    3  //Working
-#define TRAINER_SKILL_CRITICAL_CAPTURE            4  //Working
-#define TRAINER_SKILL_HP_GAIN                     5  //Working
-#define TRAINER_SKILL_REVIVE                      6  //Working
-#define TRAINER_SKILL_REPEL_STEPS                 7  //Working
-#define TRAINER_SKILL_PP_RESTORE                  8  //Working
-#define TRAINER_SKILL_HAPPINESS                   9  //Working
-#define TRAINER_SKILL_HP_RESTORE                  10 //Working
-#define TRAINER_SKILL_DEXNAV_CHAIN_STARTING_LEVEL 11 //Working
-#define TRAINER_SKILL_EGG_CHANCES                 12 //Working
-#define TRAINER_SKILL_HIDDEN_MON_CHANCES          13 //Working
-#define TRAINER_SKILL_ESCAPE_CHANCES              14 //Working
-#define TRAINER_SKILL_DOUBLE_BP_CHANCES           15 //Working
-#define TRAINER_SKILL_WILD_MON_DROP_ITEM          16 //Working
-#define TRAINER_SKILL_IVS_HP                      17
-#define TRAINER_SKILL_IVS_ATK                     18
-#define TRAINER_SKILL_IVS_DEF                     19
-#define TRAINER_SKILL_IVS_SPATK                   20
-#define TRAINER_SKILL_IVS_SPDEF                   21
-#define TRAINER_SKILL_IVS_SPEED                   22
-#define TRAINER_SKILL_PP                          23
-#define TRAINER_SKILL_ROCK_SMASH                  24
-#define TRAINER_SKILL_EVS_CHANGES                 25
+#define TRAINER_SKILL_EXPERIENCE                  0  //Working
+#define TRAINER_SKILL_MONEY                       1  //Working
+#define TRAINER_SKILL_DISCOUNT                    2  //Working
+#define TRAINER_SKILL_CRITICAL_CAPTURE            3  //Working
+#define TRAINER_SKILL_HP_GAIN                     4  //Working
+#define TRAINER_SKILL_REVIVE                      5  //Working
+#define TRAINER_SKILL_REPEL_STEPS                 6  //Working
+#define TRAINER_SKILL_PP_RESTORE                  7  //Working
+#define TRAINER_SKILL_HAPPINESS                   8  //Working
+#define TRAINER_SKILL_HP_RESTORE                  9 //Working
+#define TRAINER_SKILL_DEXNAV_CHAIN_STARTING_LEVEL 10 //Working
+#define TRAINER_SKILL_EGG_CHANCES                 11 //Working
+#define TRAINER_SKILL_HIDDEN_MON_CHANCES          12 //Working
+#define TRAINER_SKILL_ESCAPE_CHANCES              13 //Working
+#define TRAINER_SKILL_DOUBLE_BP_CHANCES           14 //Working
+#define TRAINER_SKILL_WILD_MON_DROP_ITEM          15 //Working
+#define TRAINER_SKILL_IVS_HP                      16
+#define TRAINER_SKILL_IVS_ATK                     17
+#define TRAINER_SKILL_IVS_DEF                     18
+#define TRAINER_SKILL_IVS_SPATK                   19
+#define TRAINER_SKILL_IVS_SPDEF                   20
+#define TRAINER_SKILL_IVS_SPEED                   21
+#define TRAINER_SKILL_PP                          22
+#define TRAINER_SKILL_ROCK_SMASH                  23
+#define TRAINER_SKILL_EVS_CHANGES                 24
 #define TRAINER_SKILL_COUNT                       TRAINER_SKILL_EVS_CHANGES + 1
 
 //Wild Pokemon Enounter Constants
@@ -257,8 +262,11 @@
 #define BW_COSTUME	      3
 #define DP_COSTUME	      4
 #define RBY_COSTUME	      5
+#define ORAS_COSTUME      6
+#define EXTRA_COSTUME     7
+#define GSC_COSTUME       8
 
-#define NUM_COSTUMES 	  6
+#define NUM_COSTUMES 	  9
 
 #define SEASON_SPRING   0
 #define SEASON_SUMMER   1
@@ -266,8 +274,9 @@
 #define SEASON_WINTER   3
 #define NUM_SEASONS     4
 
-#define SAVEBLOCK_SEASONS    0
-#define SAVEBLOCK_DIFFICULTY 1
+#define SAVEBLOCK_SEASONS     0
+#define SAVEBLOCK_DIFFICULTY  1
+#define SAVEBLOCK_CHECK_PARTY 2
 
 //Shop Stuff
 #define WONDER_TRADE_PRICE 5 //Price to Wonder Trade
@@ -308,5 +317,50 @@
 #define DAYS_OF_THE_WEEK_FRIDAY    5
 #define DAYS_OF_THE_WEEK_SATURDAY  6
 #define NUM_DAYS_OF_THE_WEEK       7
+
+//Title Screen
+#define TITLE_SCREEN_EMERALD  0
+#define TITLE_SCREEN_RUBY     1
+#define TITLE_SCREEN_SAPPHIRE 2
+#define NUM_TITLE_SCREENS     3
+
+//Overworld Speedup
+#define OPTIONS_OVERWORLD_SPEED_1X                          0
+#define OPTIONS_OVERWORLD_SPEED_2X                          1
+#define OPTIONS_OVERWORLD_SPEED_4X                          2
+#define OPTIONS_OVERWORLD_SPEED_8X                          3
+#define OPTIONS_OVERWORLD_SPEED_1X_EXTRA_ITERATIONS         0
+#define OPTIONS_OVERWORLD_SPEED_2X_EXTRA_ITERATIONS         1
+#define OPTIONS_OVERWORLD_SPEED_4X_EXTRA_ITERATIONS         3
+#define OPTIONS_OVERWORLD_SPEED_8X_EXTRA_ITERATIONS         7
+
+//Specials using drawbox
+#define SPECIAL_NONE     0
+#define SPECIAL_SET_DATE 1
+
+#define DAY_EVENT_NONE                0
+#define DAY_EVENT_FULL_MOON           1
+#define DAY_EVENT_HALLOWEEN           2
+#define DAY_EVENT_CHRISTMAS           3
+#define DAY_EVENT_BEES_BIRTHDAY       4 //February 17
+#define DAY_EVENT_JAS_BIRTHDAY        5 //August 4
+#define DAY_EVENT_LEIGH_BIRTHDAY      6 //August 7
+#define DAY_EVENT_PHROG_BIRTHDAY      7 //August 1
+#define DAY_EVENT_PCG_BIRTHDAY        8 //August 20
+#define DAY_EVENT_DES_BIRTHDAY        9 //
+#define DAY_EVENT_AGERGO_BIRTHDAY    10 //April 11
+#define DAY_EVENT_NEW_YEAR           11 //January 1
+
+//RGB
+#define POKEMON_HUE_STRENGHT   10
+#define POKEMON_HUE_STRENGHT_2 10
+
+#define RGB_ALPHA       RGB(31,  0,  0)
+#define RGB_DELTA       RGB( 0, 31,  0)
+#define RGB_TRANSFORMED RGB(31,  0, 31)
+#define RGB_DELTA_ALPHA RGB(31, 31, 31)
+
+#define LEGENDARY_HP_MULTIPLIER 200
+#define ALPHA_HP_MULTIPLIER 150
 
 #endif // GUARD_CONSTANTS_GLOBAL_H

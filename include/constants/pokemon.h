@@ -97,8 +97,8 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS                  16 // Actual probability is SHINY_ODDS/65536
-#define SHINY_ODDS_WITH_SHINY_CHARM 32 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 16 // Actual probability is SHINY_ODDS/65536
+#define ALPHA_ODDS 10 // Actual probability is ALPHA_ODDS/1000
 
 // Flags for Get(Box)MonData / Set(Box)MonData
 #define MON_DATA_PERSONALITY        0
@@ -289,6 +289,7 @@
 #define FLAG_STRIKER_BOOST          (1 << 24)
 #define FLAG_BLADEMASTER_BOOST      (1 << 25)
 #define FLAG_WIND_BASED             (1 << 26)
+#define FLAG_HAMMER_BASED           (1 << 27)
 
 // Split defines.
 #define SPLIT_PHYSICAL  0
@@ -368,8 +369,7 @@
 
 #define EVOS_PER_MON 10
 
-//#define POKEMON_FAMILIES 465
-#define POKEMON_FAMILIES 469
+#define POKEMON_FAMILIES 447
 
 #define NUM_MALE_LINK_FACILITY_CLASSES   8
 #define NUM_FEMALE_LINK_FACILITY_CLASSES 8
@@ -537,5 +537,24 @@
 #define MOVE_TUTOR_TM_MOVES       3
 
 #define EDIT_EVS_LEVEL         90
+
+#define GEN_1 0
+#define GEN_2 1
+#define GEN_3 2
+#define GEN_4 3
+#define GEN_5 4
+#define GEN_6 5
+#define GEN_7 6
+#define GEN_8 7
+#define GEN_9 8
+
+//Wild Level Scale
+#define LEVEL_SCALE_WILD_NORMAL                1 //No level scaling or evolution
+#define LEVEL_SCALE_WILD_SCALED                2 //Normal Scaled Mon
+#define LEVEL_SCALE_WILD_NORMAL_HIDDEN_ABILITY 3 //No level scaling or evolution + Hidden Ability
+#define LEVEL_SCALE_WILD_SCALED_HIDDEN_ABILITY 4 //Normal Scaled Mon + Hidden Ability
+#define LEVEL_SCALE_WILD_BOSS                  5 //Uses Level Cap as Level level
+
+#define MAX_WILD_MON_LEVEL                    70 //For LEVEL_SCALE_WILD_BOSS
 
 #endif // GUARD_CONSTANTS_POKEMON_H

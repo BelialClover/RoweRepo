@@ -245,7 +245,7 @@
 #define VAR_NEVER_READ_0x40E2                0x40E2 // Var is written to, but never read
 #define VAR_NEVER_READ_0x40E3                0x40E3 // Var is written to, but never read
 #define VAR_NEVER_READ_0x40E4                0x40E4 // var is written to, but never read
-#define VAR_UNUSED_0x40E5                    0x40E5 // Unused Var
+#define VAR_AUTOSAVE_STEP_COUNTER            0x40E5
 #define VAR_DAILY_SLOTS                      0x40E6
 #define VAR_DAILY_WILDS                      0x40E7
 #define VAR_DAILY_BLENDER                    0x40E8
@@ -267,7 +267,7 @@
 #define VAR_DEXNAV_STEP_COUNTER              0x40F8 // steps for finding hidden pokemon
 
 #define VAR_WILD_MON_STEP_COUNTER            0x40F9
-#define VAR_UNUSED_0x40FA                    0x40FA
+#define VAR_AUTOSAVE_SETTING                 0x40FA
 #define VAR_UNUSED_0x40FB                    0x40FB 
 #define VAR_LAST_WILD_MON_TILE_USED          0x40FC
 #define VAR_UNUSED_0x40FD                    0x40FD // Unused Var
@@ -293,6 +293,28 @@
 #define VAR_CURRENT_SEVII                         NEW_VARS_START + 15
 #define VAR_PARTY_MENU_TUTOR_STATE                NEW_VARS_START + 16
 #define VAR_LEVEL_CAP_LEVEL                       NEW_VARS_START + 17
+#define VAR_MONOTYPE_MODE_TYPE                    NEW_VARS_START + 18
+#define VAR_LAST_AVAILABLE_GEN                    NEW_VARS_START + 19
+#define VAR_TEMP_TITLE_SCREEN                     NEW_VARS_START + 20
+#define VAR_MUSIC_GENERATION                      NEW_VARS_START + 21
+#define VAR_OVERWORLD_SPEEDUP                     NEW_VARS_START + 22
+#define VAR_OVERWORLD_SPECIALS                    NEW_VARS_START + 23
+#define VAR_RTC_FAKE_DAYS                         NEW_VARS_START + 24
+#define VAR_DELTA_BOOST_PID                       NEW_VARS_START + 25
+#define VAR_DELTA_BOOST_TYPE1                     NEW_VARS_START + 26
+#define VAR_DELTA_BOOST_TYPE2                     NEW_VARS_START + 27
+#define VAR_ENDLESS_BATTLE_NUM                    NEW_VARS_START + 28
+#define VAR_ENDLESS_BATTLE_ID                     NEW_VARS_START + 29
+#define VAR_ENDLESS_BATTLE_DIFFICULTY             NEW_VARS_START + 30
+#define VAR_ENDLESS_BATTLE_RECORD_EASY            NEW_VARS_START + 31
+#define VAR_ENDLESS_BATTLE_RECORD_NORMAL          NEW_VARS_START + 32
+#define VAR_ENDLESS_BATTLE_RECORD_HARD            NEW_VARS_START + 33
+#define VAR_ENDLESS_BATTLE_STRING_TYPE            NEW_VARS_START + 34
+#define VAR_ENDLESS_BATTLE_CURE_TYPE              NEW_VARS_START + 35
+#define VAR_BOSS_BATTLE_HP_MULTIPIER              NEW_VARS_START + 36
+#define VAR_BATTLE_MENU_MON_ID_X                  NEW_VARS_START + 37
+#define VAR_BATTLE_MENU_MON_ID_Y                  NEW_VARS_START + 38
+#define VAR_BATTLE_CONTROLLER_PLAYER_F            NEW_VARS_START + 39
 
 #define VARS_END                             17000
 #define VARS_COUNT                           (VARS_END - VARS_START + 1)

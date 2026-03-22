@@ -48,7 +48,7 @@
 #define FLAG_SYS_NO_BAG_USE              0x23 // DEBUG
 #define FLAG_SYS_NO_CATCHING             0x24 // DEBUG
 #define FLAG_DIFFICULTY_SET    			 0x25 // Difficulty Level
-#define FLAG_UNUSED_0x26    		     0x26 // Difficulty Level
+#define FLAG_SETTING_MODES_FROM_DEBUG    0x26 // Difficulty Level
 #define FLAG_UNUSED_0x27    			 0x27 // Difficulty Level
 #define FLAG_RANDOMIZED_MODE    	     0x28 // Game Mode
 #define FLAG_UPDATED_SAVE    	         0x29 // System Flag
@@ -349,7 +349,7 @@
 #define FLAG_MYSTERY_GIFT_VIVILLON_FANCY        0x140
 #define FLAG_MYSTERY_GIFT_COSPLAY_PIKACHU       0x141
 #define FLAG_MYSTERY_GIFT_PIKACHU_POP_STAR      0x142
-#define FLAG_MYSTERY_GIFT_ETERNAL_FLOETTE       0x143
+#define FLAG_MYSTERY_GIFT_ETERNAL_FLOETTE_OLD   0x143
 #define FLAG_MYSTERY_GIFT_SHINY_BELDUM          0x144
 #define FLAG_MYSTERY_GIFT_DIANCIE       	    0x145
 #define FLAG_MYSTERY_GIFT_SHINY_EEVEE           0x146
@@ -459,7 +459,7 @@
 #define FLAG_REMATCH_DRAKE                   0x1A8
 #define FLAG_REMATCH_WALLACE                 0x1A9
 
-#define FLAG_MOVE_RELEARN_FROM_PARTY_SCREEN  0x1AA
+#define FLAG_MOVE_RELEARN_FROM_PARTY_SCREEN  0x1AA //Unused
 #define FLAG_SYS_GOD_MODE    				 0x1AB
 #define FLAG_DEFEATED_DEOXYS                 0x1AC
 #define FLAG_BATTLED_DEOXYS                  0x1AD
@@ -704,7 +704,7 @@
 #define FLAG_GOT_SLOWBRO_MEGA_STONE     0x294
 #define FLAG_GOT_BOOSTER_STONE          0x295 // Unused Flag
 
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
+#define FLAG_RECEIVED_ROTOM_CATALOG  0x296
 #define FLAG_UNUSED_0x297  0x297 // Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
@@ -1293,9 +1293,9 @@
 #define FLAG_DEFEATED_KUBFU_2                                       0x4DB // Kubfu 2
 #define FLAG_DEFEATED_REGIELEKI                                     0x4DC // Regieleki
 #define FLAG_DEFEATED_REGIDRAGO                                     0x4DD // Regidrago
-#define FLAG_DEFEATED_ARTICUNO_GALARIAN                             0x4DE // Galarian Articuno
-#define FLAG_DEFEATED_ZAPDOS_GALARIAN                               0x4DF // Galarian Zapdos
-#define FLAG_DEFEATED_MOLTRES_GALARIAN                              0x4E0 // Galarian Moltres
+#define FLAG_DEFEATED_ARTICUNO_GALAR                             0x4DE // Galarian Articuno
+#define FLAG_DEFEATED_ZAPDOS_GALAR                               0x4DF // Galarian Zapdos
+#define FLAG_DEFEATED_MOLTRES_GALAR                              0x4E0 // Galarian Moltres
 #define FLAG_DEFEATED_GLASTRIER                                     0x4E1 // Glastrier
 #define FLAG_DEFEATED_SPECTRIER                                     0x4E2 // Spectrier
 #define FLAG_DEFEATED_CALYREX                                       0x4E3 // Calyrex
@@ -1615,7 +1615,7 @@
 #define FLAG_JASMINE_REMATCH                        (DAILY_FLAGS_START + 0x26) // Rematch Flag
 #define FLAG_PRYCE_REMATCH                          (DAILY_FLAGS_START + 0x27) // Rematch Flag
 #define FLAG_CLAIR_REMATCH                          (DAILY_FLAGS_START + 0x28) // Rematch Flag
-#define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
+#define FLAG_DAILY_WILD_LARVESTA                    (DAILY_FLAGS_START + 0x29) // Wild Larvesta
 #define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
 #define FLAG_UNUSED_0x94B                           (DAILY_FLAGS_START + 0x2B) // Unused Flag
 #define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
@@ -1751,8 +1751,117 @@
 #define FLAG_MYSTERY_GIFT_GALARIAN_ARTICUNO                     NEW_FLAGS_START + 104
 #define FLAG_MYSTERY_GIFT_GALARIAN_ZAPDOS                       NEW_FLAGS_START + 105
 #define FLAG_MYSTERY_GIFT_GALARIAN_MOLTRES                      NEW_FLAGS_START + 106
+#define FLAG_LITTLE_CUP_MODE                                    NEW_FLAGS_START + 107
+#define FLAG_MONOTYPE_MODE                                      NEW_FLAGS_START + 108
+#define FLAG_GEN_3_ONLY_MODE                                    NEW_FLAGS_START + 109
+#define FLAG_PREVENT_OVERWORLD_SPEEDUP                          NEW_FLAGS_START + 110
+#define FLAG_METRONOME_ONLY_MODE                                NEW_FLAGS_START + 111
+#define FLAG_SYS_RESET_DATE                                     NEW_FLAGS_START + 112
+#define FLAG_MYSTERY_GIFT_JAS_UMBREON                           NEW_FLAGS_START + 113
+#define FLAG_MYSTERY_GIFT_LEIGH_GIRATINA                        NEW_FLAGS_START + 114
+#define FLAG_MYSTERY_GIFT_PHROG_BISHARP                         NEW_FLAGS_START + 115
+#define FLAG_MYSTERY_GIFT_DES_MAWILE                            NEW_FLAGS_START + 116
+#define FLAG_MYSTERY_GIFT_DARKRAI                               NEW_FLAGS_START + 117
+#define FLAG_MYSTERY_GIFT_CHRISTMAS_IRON_BUNDLE                 NEW_FLAGS_START + 118
+#define FLAG_MYSTERY_GIFT_SLITHER_WING                          NEW_FLAGS_START + 119
+#define FLAG_CLEANED_ALPHAS                                     NEW_FLAGS_START + 120
 
-#define FLAGS_COUNT                                         9135 //Added 3000 new flags
+#define FLAG_GOT_CLEFABLE_MEGA_STONE                            (NEW_FLAGS_START + 121)
+#define FLAG_GOT_CLEFABLE_R_MEGA_STONE                          (NEW_FLAGS_START + 122)
+#define FLAG_GOT_VICTREEBEL_MEGA_STONE                          (NEW_FLAGS_START + 123)
+#define FLAG_GOT_DRAGONITE_MEGA_STONE                           (NEW_FLAGS_START + 124)
+#define FLAG_GOT_STARMIE_MEGA_STONE                             (NEW_FLAGS_START + 125)
+#define FLAG_GOT_STARMIE_R_MEGA_STONE                           (NEW_FLAGS_START + 126)
+#define FLAG_GOT_MEGANIUM_MEGA_STONE                            (NEW_FLAGS_START + 127)
+#define FLAG_GOT_FERALIGATR_MEGA_STONE                          (NEW_FLAGS_START + 128)
+#define FLAG_GOT_SKARMORY_MEGA_STONE                            (NEW_FLAGS_START + 129)
+#define FLAG_GOT_FROSLASS_MEGA_STONE                            (NEW_FLAGS_START + 130)
+#define FLAG_GOT_EMBOAR_MEGA_STONE                              (NEW_FLAGS_START + 131)
+#define FLAG_GOT_EXCADRILL_MEGA_STONE                           (NEW_FLAGS_START + 132)
+#define FLAG_GOT_SCOLIPEDE_MEGA_STONE                           (NEW_FLAGS_START + 133)
+#define FLAG_GOT_SCRAFTY_MEGA_STONE                             (NEW_FLAGS_START + 134)
+#define FLAG_GOT_EELEKTROSS_MEGA_STONE                          (NEW_FLAGS_START + 135)
+#define FLAG_GOT_CHANDELURE_MEGA_STONE                          (NEW_FLAGS_START + 136)
+#define FLAG_GOT_DELPHOX_MEGA_STONE                             (NEW_FLAGS_START + 137)
+#define FLAG_GOT_CHESNAUGHT_MEGA_STONE                          (NEW_FLAGS_START + 138)
+#define FLAG_GOT_GRENINJA_MEGA_STONE                            (NEW_FLAGS_START + 139)
+#define FLAG_GOT_PYROAR_MEGA_STONE                              (NEW_FLAGS_START + 140)
+#define FLAG_GOT_MALAMAR_MEGA_STONE                             (NEW_FLAGS_START + 141)
+#define FLAG_GOT_BARBARACLE_MEGA_STONE                          (NEW_FLAGS_START + 142)
+#define FLAG_GOT_DRAGALGE_MEGA_STONE                            (NEW_FLAGS_START + 143)
+#define FLAG_GOT_HAWLUCHA_MEGA_STONE                            (NEW_FLAGS_START + 144)
+#define FLAG_GOT_ZYGARDE_MEGA_STONE                             (NEW_FLAGS_START + 145)
+#define FLAG_GOT_DRAMPA_MEGA_STONE                              (NEW_FLAGS_START + 146)
+#define FLAG_GOT_FALINKS_MEGA_STONE                             (NEW_FLAGS_START + 147)
+
+#define FLAG_GOT_RAICHU_X_MEGA_STONE                            (NEW_FLAGS_START + 148)
+#define FLAG_GOT_RAICHU_Y_MEGA_STONE                            (NEW_FLAGS_START + 149)
+
+#define FLAG_GOT_DEWGONG_MEGA_STONE                             (NEW_FLAGS_START + 150)
+#define FLAG_GOT_TYPHLOSION_MEGA_STONE                          (NEW_FLAGS_START + 151)
+#define FLAG_GOT_LANTURN_MEGA_STONE                             (NEW_FLAGS_START + 152)
+#define FLAG_GOT_QUAGSIRE_MEGA_STONE                            (NEW_FLAGS_START + 153)
+#define FLAG_GOT_BRELOOM_MEGA_STONE                             (NEW_FLAGS_START + 154)
+#define FLAG_GOT_SHEDINJA_MEGA_STONE                            (NEW_FLAGS_START + 155)
+#define FLAG_GOT_FLYGON_MEGA_STONE                              (NEW_FLAGS_START + 156)
+#define FLAG_GOT_SERPERIOR_MEGA_STONE                           (NEW_FLAGS_START + 157)
+#define FLAG_GOT_SAMUROTT_MEGA_STONE                            (NEW_FLAGS_START + 158)
+#define FLAG_GOT_RIBOMBEE_MEGA_STONE                            (NEW_FLAGS_START + 159)
+#define FLAG_GOT_CLODSIRE_MEGA_STONE                            (NEW_FLAGS_START + 160)
+#define FLAG_GOT_SANDSLASH_MEGA_STONE                           (NEW_FLAGS_START + 161)
+#define FLAG_GOT_TOUCANNON_MEGA_STONE                           (NEW_FLAGS_START + 162)
+#define FLAG_GOT_VANILLUXE_MEGA_STONE                           (NEW_FLAGS_START + 163)
+#define FLAG_GOT_TINKATON_MEGA_STONE                            (NEW_FLAGS_START + 164)
+#define FLAG_GOT_SHUCKLE_MEGA_STONE                             (NEW_FLAGS_START + 165)
+#define FLAG_GOT_KROOKODILE_MEGA_STONE                          (NEW_FLAGS_START + 166)
+#define FLAG_GOT_LUXRAY_MEGA_STONE                              (NEW_FLAGS_START + 167)
+#define FLAG_GOT_MILOTIC_MEGA_STONE                             (NEW_FLAGS_START + 168)
+#define FLAG_GOT_TSAREENA_MEGA_STONE                            (NEW_FLAGS_START + 169)
+#define FLAG_GOT_CROBAT_MEGA_STONE                              (NEW_FLAGS_START + 170)
+#define FLAG_GOT_SLOWKING_MEGA_STONE                            (NEW_FLAGS_START + 171)
+#define FLAG_GOT_GRIMMSNARL_MEGA_STONE                          (NEW_FLAGS_START + 172)
+#define FLAG_GOT_MELMETAL_MEGA_STONE                            (NEW_FLAGS_START + 173)
+#define FLAG_GOT_RILLABOOM_MEGA_STONE                           (NEW_FLAGS_START + 174)
+#define FLAG_GOT_CINDERACE_MEGA_STONE                           (NEW_FLAGS_START + 175)
+#define FLAG_GOT_INTELEON_MEGA_STONE                            (NEW_FLAGS_START + 176)
+#define FLAG_GOT_CHIMECHO_MEGA_STONE                            (NEW_FLAGS_START + 177)
+#define FLAG_GOT_STARAPTOR_MEGA_STONE                           (NEW_FLAGS_START + 178)
+#define FLAG_GOT_GOLURK_MEGA_STONE                              (NEW_FLAGS_START + 179)
+#define FLAG_GOT_CRABOMINABLE_MEGA_STONE                        (NEW_FLAGS_START + 180)
+#define FLAG_GOT_GOLISOPOD_MEGA_STONE                           (NEW_FLAGS_START + 181)
+#define FLAG_GOT_MAGEARNA_MEGA_STONE                            (NEW_FLAGS_START + 182)
+#define FLAG_GOT_SCOVILLAIN_MEGA_STONE                          (NEW_FLAGS_START + 183)
+#define FLAG_GOT_GLIMMORA_MEGA_STONE                            (NEW_FLAGS_START + 184)
+#define FLAG_GOT_BAXCALIBUR_MEGA_STONE                          (NEW_FLAGS_START + 185)
+#define FLAG_GOT_HEATRAN_MEGA_STONE                             (NEW_FLAGS_START + 186)
+#define FLAG_GOT_ZERAORA_MEGA_STONE                             (NEW_FLAGS_START + 187)
+#define FLAG_GOT_ARBOK_MEGA_STONE                               (NEW_FLAGS_START + 188)
+#define FLAG_GOT_TOXTRICITY_MEGA_STONE                          (NEW_FLAGS_START + 189)
+#define FLAG_GOT_URSHIFU_MEGA_STONE                             (NEW_FLAGS_START + 190)
+#define FLAG_GOT_MEOWSTIC_MEGA_STONE                            (NEW_FLAGS_START + 191)
+#define FLAG_GOT_TATSUGIRI_MEGA_STONE                           (NEW_FLAGS_START + 192)
+#define FLAG_GOT_DARKRAI_MEGA_STONE                             (NEW_FLAGS_START + 194)
+#define FLAG_GOT_GROUDON_PRIMAL_ORB                             (NEW_FLAGS_START + 195)
+#define FLAG_GOT_KYOGRE_PRIMAL_ORB                              (NEW_FLAGS_START + 196)
+#define FLAG_GOT_FLOETTE_ETERNAL_MEGA_STONE                     (NEW_FLAGS_START + 197)
+#define FLAG_GOT_GRASS_STARTER_DELTA_ORB                        (NEW_FLAGS_START + 198)
+#define FLAG_GOT_FIRE_STARTER_DELTA_ORB                         (NEW_FLAGS_START + 199)
+#define FLAG_GOT_WATER_STARTER_DELTA_ORB                        (NEW_FLAGS_START + 200)
+#define FLAG_ENDLESS_BATTLES_EXPLAINED                          (NEW_FLAGS_START + 201)
+#define FLAG_GOT_ABSOL_MEGA_STONE_Z                             (NEW_FLAGS_START + 202)
+#define FLAG_GOT_LUCARIO_MEGA_STONE_Z                           (NEW_FLAGS_START + 203)
+#define FLAG_GOT_GARCHOMP_MEGA_STONE_Z                          (NEW_FLAGS_START + 204)
+#define FLAG_ENABLE_ALPHA_WILD_BATTLE_BOOST                     (NEW_FLAGS_START + 205)
+#define FLAG_GOOD_MOVESET_CREATION                              (NEW_FLAGS_START + 206)
+#define FLAG_GIVE_TOTEM_BOOST                                   (NEW_FLAGS_START + 207)
+#define FLAG_OPEN_PC_BOX_FROM_MENU                              (NEW_FLAGS_START + 208)
+#define FLAG_NO_CUSTOM_FORMS_MODE                               (NEW_FLAGS_START + 209)
+#define FLAG_MYSTERY_GIFT_SHINY_RIOLU                           (NEW_FLAGS_START + 210)
+#define FLAG_NO_SIGNATURE_MODE                                  (NEW_FLAGS_START + 211)
+#define FLAG_ASKED_NO_CUSTOM_FORMS                              (NEW_FLAGS_START + 212)
+#define FLAG_MYSTERY_GIFT_ETERNAL_FLOETTE                       (NEW_FLAGS_START + 213)
+
+#define FLAGS_COUNT                                             9135 //Added 3000 new flags
 
 // Special Flags (Stored in EWRAM (gSpecialFlags), not in the SaveBlock)
 #define SPECIAL_FLAGS_START                     16384

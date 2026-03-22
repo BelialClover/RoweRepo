@@ -1,0 +1,73 @@
+script EventScript_PictureBookShelf {
+	msgbox(Text_PictureBookShelf, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_BookShelf {
+	msgbox(Text_BookShelf, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_PokemonCenterBookShelf {
+	msgbox(Text_PokemonCenterBookShelf, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_Vase {
+	msgbox(Text_Vase, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_EmptyTrashCan {
+	msgbox(Text_EmptyTrashCan, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_ShopShelf {
+	msgbox(Text_ShopShelf, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_Blueprint {
+	msgbox(Text_Blueprint, MSGBOX_SIGN)
+	end
+}
+
+script EventScript_Common_Invert_Time_Bed_Player_House {
+	lockall
+	if(!flag(FLAG_DEFEATED_DARKRAI) && flag(FLAG_SYS_GAME_CLEAR)){
+		msgbox(format("There's a bed…\nLet's take a rest..."), MSGBOX_DEFAULT)
+		fadescreen(FADE_TO_BLACK)
+		special(HealPlayerParty)
+		msgbox(format("{PLAYER} seems to be having a bad dream!"), MSGBOX_DEFAULT)
+		call(Common_EventScript_Darkrai_Encounter)
+	}
+	else{
+		msgbox(format("There's a bed…\nLet's take a rest."), MSGBOX_DEFAULT)
+		closemessage
+		if(flag(FLAG_IS_DAYNIGHT_INVERTED)){
+			clearflag(FLAG_IS_DAYNIGHT_INVERTED)
+		}
+		else{
+			setflag(FLAG_IS_DAYNIGHT_INVERTED)
+		}
+		call(Common_EventScript_OutOfCenterPartyHeal)
+	}
+	releaseall
+	end
+}
+
+script EventScript_Common_Invert_Time_Bed_Weather_Institute {
+	lockall
+	msgbox(format("There's a bed…\nLet's take a rest."), MSGBOX_DEFAULT)
+	closemessage
+	if(flag(FLAG_IS_DAYNIGHT_INVERTED)){
+		clearflag(FLAG_IS_DAYNIGHT_INVERTED)
+	}
+	else{
+		setflag(FLAG_IS_DAYNIGHT_INVERTED)
+	}
+	call(Common_EventScript_OutOfCenterPartyHeal)
+	releaseall
+	end
+}
