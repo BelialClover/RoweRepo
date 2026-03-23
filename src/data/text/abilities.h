@@ -1075,6 +1075,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN8] =
     [ABILITY_DRY_SKIN] = FORMAT_ABILITY_DESCRIPTION("Restores HP in rain or when hit by Water-type moves, but takes more damage in harsh sunlight and from Fire-type moves."),
     [ABILITY_DOWNLOAD] = FORMAT_ABILITY_DESCRIPTION("The Pokémon compares an opposing Pokémon's Defense and Sp. Def stats and raises its own Attack or Sp. Atk stat."),
     [ABILITY_IRON_FIST] = FORMAT_ABILITY_DESCRIPTION("Powers up punching moves."),
+    [ABILITY_SHINING_FIST] = FORMAT_ABILITY_DESCRIPTION("Punching moves use Special Defense for damage calculation."),
     [ABILITY_JUSTICE_FISTS] = FORMAT_ABILITY_DESCRIPTION("Boosts the power of punching and Fighting-type moves."),
     [ABILITY_STRIKER] = FORMAT_ABILITY_DESCRIPTION("Boosts the power of kicking moves."),
     [ABILITY_SHARPNESS] = FORMAT_ABILITY_DESCRIPTION("Boosts the power of slicing moves and they no longer make contact."),
